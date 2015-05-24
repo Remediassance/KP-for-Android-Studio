@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@color/lightBlue">
+        
+    <EditText
+        android:id="@+id/guestName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/userName"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/regLabel"
+        android:layout_alignStart="@+id/guestPhone" 
+        android:layout_alignLeft="@+id/guestPhone"/>
+    
+    <EditText
+        android:id="@+id/guestPhone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/userPhone"
+        android:inputType="phone"
+        android:layout_below="@+id/guestName"
+        android:layout_alignStart="@+id/guestEmail" 
+        android:layout_alignLeft="@+id/guestEmail"/>
+    
+    <EditText
+        android:id="@+id/guestEmail"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/userEmail"
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/guestPhone"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="55sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Registration"
+        android:id="@+id/regLabel"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/white"
+        android:background="@color/darkBlue"
+        android:textSize="22sp"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView6"
+        android:layout_alignEnd="@+id/textView6"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView6"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView5"
+        android:gravity="center_vertical"
+        android:text="Phone*"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/guestPhone"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/guestName"
+        android:layout_toStartOf="@+id/guestName"
+        android:layout_toLeftOf="@+id/guestName"
+        android:gravity="center_vertical"
+        android:text="Name*"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/guestEmail"
+        android:layout_alignEnd="@+id/regLabel"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/regLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/guestEmail"
+        android:gravity="center_vertical"
+        android:text="E-mail*"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fields marked with * are mandatory "
+        android:id="@+id/textView7"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="material_drawer_accent">#FF4081</color>
+    <color name="material_drawer_background">#F9F9F9</color>
+    <color name="material_drawer_divider">#B6B6B6</color>
+    <color name="material_drawer_hint_text">#B8B8B8</color>
+    <color name="material_drawer_icons">#FFF</color>
+    <color name="material_drawer_primary">#2196F3</color>
+    <color name="material_drawer_primary_dark">#1976D2</color>
+    <color name="material_drawer_primary_light">#BBDEFB</color>
+    <color name="material_drawer_primary_text">#212121</color>
+    <color name="material_drawer_secondary_text">#727272</color>
+    <color name="material_drawer_selected">#E8E8E8</color>
+    <color name="material_drawer_selected_text">#2196F3</color>
+    <!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="material_drawer_icon_margin">12dp</dimen>
+    <dimen name="material_drawer_margin">0dp</dimen>
+    <dimen name="material_drawer_padding">8dp</dimen>
+    <dimen name="material_drawer_primary">48dp</dimen>
+    <dimen name="material_drawer_primary_icon">22dp</dimen>
+    <dimen name="material_drawer_primary_text">14sp</dimen>
+    <dimen name="material_drawer_secondary">44dp</dimen>
+    <dimen name="material_drawer_secondary_icon">22dp</dimen>
+    <dimen name="material_drawer_secondary_text">14sp</dimen>
+    <dimen name="material_drawer_section_text">14sp</dimen>
+    <dimen name="material_drawer_vertical_padding">16dp</dimen>
+    <dimen name="tool_bar_top_padding">0dp</dimen>
+    <!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/values/library_materialdrawer_strings.xml -->
+    <eat-comment/>
+    <string name="define_materialdrawer">year;owner</string>
+    <!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="drawer_close">Close</string>
+    <string name="drawer_open">Open</string>
+    <!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/values/library_materialdrawer_strings.xml -->
+    <eat-comment/>
+    <string name="library_materialdrawer_author">Mike Penz</string>
+    <string name="library_materialdrawer_authorWebsite">http://mikepenz.com/</string>
+    <string name="library_materialdrawer_isOpenSource">true</string>
+    <string name="library_materialdrawer_libraryDescription">
+        <![CDATA[
+        <b>MaterialDrawer</b> library aims to provide a quick and easy Activity to create and implement a drawer layout in your application.
+        ]]>
+    </string>
+    <string name="library_materialdrawer_libraryName">materialdrawer</string>
+    <string name="library_materialdrawer_libraryVersion">0.9.5</string>
+    <string name="library_materialdrawer_libraryWebsite">https://github.com/mikepenz/MaterialDrawer</string>
+    <string name="library_materialdrawer_licenseId">apache_2_0</string>
+    <string name="library_materialdrawer_owner">Mike Penz</string>
+    <string name="library_materialdrawer_repositoryLink">https://github.com/mikepenz/MaterialDrawer</string>
+    <string name="library_materialdrawer_year">2014</string>
+    <!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppTheme" parent="BaseTheme">
+    </style>
+    <style name="AppTheme.ActionBar" parent="AppTheme">
+        <item name="windowActionBar">true</item>
+        <item name="android:windowActionBar">true</item>
+    </style>
+    <style name="AppTheme.Light" parent="BaseTheme.Light">
+    </style>
+    <style name="AppTheme.Light.ActionBar" parent="AppTheme.Light">
+        <item name="windowActionBar">true</item>
+        <item name="android:windowActionBar">true</item>
+    </style>
+    <style name="BaseTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Here we setting appcompat’s actionBarStyle -->
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+
+        <!-- ...and here we setting appcompat’s color theming attrs -->
+        <item name="colorPrimary">@color/material_drawer_primary</item>
+        <item name="colorPrimaryDark">@color/material_drawer_primary_dark</item>
+        <item name="colorAccent">@color/material_drawer_accent</item>
+
+        <item name="android:windowBackground">@color/material_drawer_background</item>
+
+        <item name="android:alertDialogTheme">@style/BaseTheme.Dialog</item>
+    </style>
+    <style name="BaseTheme.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorPrimary">@color/material_drawer_primary</item>
+        <item name="colorPrimaryDark">@color/material_drawer_primary_dark</item>
+        <item name="colorAccent">@color/material_drawer_accent</item>
+    </style>
+    <style name="BaseTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Here we setting appcompat’s actionBarStyle -->
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+
+        <!-- ...and here we setting appcompat’s color theming attrs -->
+        <item name="colorPrimary">@color/material_drawer_primary</item>
+        <item name="colorPrimaryDark">@color/material_drawer_primary_dark</item>
+        <item name="colorAccent">@color/material_drawer_accent</item>
+
+        <item name="android:windowBackground">@color/material_drawer_background</item>
+
+        <item name="android:alertDialogTheme">@style/BaseTheme.Dialog</item>
+    </style>
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">false</item>
+        <item name="color">@android:color/white</item>
+    </style>
+</resources>

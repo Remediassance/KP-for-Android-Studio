@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+    	<TextView
+    	    android:id="@+id/service_name"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:textSize="23sp"
+    	    android:layout_alignParentLeft="true"
+    	    android:paddingLeft="20sp"
+    	    android:paddingTop="10sp"/>
+    	
+    	<TextView
+    	    android:id="@+id/service_descr"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:textSize="18sp"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_below="@id/service_name"
+    	    android:paddingLeft="20sp"/>
+    
+</RelativeLayout>

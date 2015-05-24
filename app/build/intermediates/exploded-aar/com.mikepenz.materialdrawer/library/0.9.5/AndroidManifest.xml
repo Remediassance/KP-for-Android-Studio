@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.mikepenz.materialdrawer"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="95"
+    android:versionName="0.9.5" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+
+</manifest>

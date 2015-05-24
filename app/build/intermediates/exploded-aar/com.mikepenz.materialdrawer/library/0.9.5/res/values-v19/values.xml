@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/values-v19/dimens.xml -->
+    <eat-comment/>
+    <dimen name="tool_bar_top_padding">25dp</dimen>
+    <!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/values-v19/styles.xml -->
+    <eat-comment/>
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="AppTheme.Light" parent="BaseTheme.Light">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+</resources>

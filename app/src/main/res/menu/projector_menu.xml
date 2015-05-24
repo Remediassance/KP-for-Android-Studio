@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/projector_help"
+        android:title="@string/help"
+        android:icon="@drawable/ic_about"
+        android:showAsAction="always"/>
+    
+    <item android:id="@+id/settings"
+        android:title="@string/menu_settings"
+        android:icon="@drawable/ic_settings"
+        android:showAsAction="always"/>
+    
+    <item android:id="@+id/services"
+        android:title="@string/menu_services"
+        android:icon="@drawable/ic_list"
+        android:showAsAction="always"/>
+    
+    <item android:id="@+id/showVideo"
+        android:title="@string/showVideo"
+        android:visible="false"/>
+    
+    <item android:id="@+id/stopVideo"
+        android:title="@string/stopVideo"
+        android:visible="false"/>
+    
+    <item android:id="@+id/endPresentation"
+        android:title="@string/menu_endPresentation"
+        android:visible="false"/>
+    
+    <item android:id="@+id/reconnect"
+        android:title="@string/reconnectText"/>
+    
+</menu>

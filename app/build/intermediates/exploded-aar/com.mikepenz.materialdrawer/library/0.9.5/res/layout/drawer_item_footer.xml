@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+    <View android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="@color/material_drawer_divider"
+          android:layout_marginTop="@dimen/material_drawer_padding"/>
+</LinearLayout>
+<!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/layout/drawer_item_footer.xml -->

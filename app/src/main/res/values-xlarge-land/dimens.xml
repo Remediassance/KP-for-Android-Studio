@@ -1,0 +1,25 @@
+<resources>
+
+    <!--
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
+    -->
+    <dimen name="activity_horizontal_margin">128dp</dimen>
+    
+    <dimen name="agenda_padding_top">15sp</dimen>
+    
+    <dimen name="agenda_avatar_width">145dp</dimen>
+    <dimen name="agenda_avatar_height">155dp</dimen>
+    <dimen name="agenda_avatar_margin_left">15dp</dimen>
+    <dimen name="agenda_avatar_margin_right">17dp</dimen>
+    
+    <dimen name="agenda_status_text_size">25sp</dimen>
+    <dimen name="agenda_status_margin_top">3dp</dimen>
+    
+    <dimen name="agenda_name_margin_right">25dp</dimen>
+    <dimen name="agenda_name_text_size">45sp</dimen>
+    
+    <dimen name="agenda_title_margin_right">15dp</dimen>
+    <dimen name="agenda_title_text_size">35sp</dimen>
+
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Material DEFAULT colors -->
+    <color name="material_drawer_primary">#2196F3</color>
+    <color name="material_drawer_primary_dark">#1976D2</color>
+    <color name="material_drawer_primary_light">#BBDEFB</color>
+    <color name="material_drawer_accent">#FF4081</color>
+
+    <!-- OVERWRITE THESE COLORS FOR A LIGHT THEME -->
+    <!-- MaterialDrawer DEFAULT colors -->
+    <color name="material_drawer_background">#F9F9F9</color>
+    <!-- Material DEFAULT text / items colors -->
+    <color name="material_drawer_icons">#FFF</color>
+    <color name="material_drawer_primary_text">#DE000000</color>
+    <color name="material_drawer_primary_icon">#8A000000</color>
+    <color name="material_drawer_secondary_text">#8A000000</color>
+    <color name="material_drawer_hint_text">#42000000</color>
+    <color name="material_drawer_divider">#1F000000</color>
+    <!-- Material DEFAULT drawer colors -->
+    <color name="material_drawer_selected">#E8E8E8</color>
+    <color name="material_drawer_selected_text">#2196F3</color>
+    <color name="material_drawer_header_selection_text">#FFF</color>
+
+
+    <color name="lightblack">#3D393A</color>
+	<color name="gray">#65656570</color>
+	<color name="lightblue">#0093E1</color>
+	<color name="staticTitleBtn">#0093E1</color>
+	<color name="staticTitleSecBtn">#90CDEC</color>
+	<color name="staticBtn">#9C9CAA</color>
+	<color name="staticSecBtn">#CFD4DE</color>
+	<color name="clickedBtn">#907B8B</color>
+	<color name="clickedSecBtn">#B2B0C5</color>
+	<color name="clickedTitleBtn">#90CDEC</color>
+	<color name="clickedTitleSecBtn">#BFD4E9</color>
+	
+	<color name="lightBlue" type="color">#DFE3EE</color>
+    <color name="blue" type="color">#8B9DC3</color>
+    <color name="darkBlue" type="color">#ff2363a7</color>
+    <color name="white" type="color">#F7F7F7</color>
+    <color name="black" type="color">#000000</color>
+    <color name="indigo500" type="color">#3F51B5</color>
+    <color name="indigo700" type="color">#303F9F</color>
+    <color name="indigo100" type="color">#C5CAE9</color>
+    <color name="prplA700" type="color">#6200EA</color>
+</resources>

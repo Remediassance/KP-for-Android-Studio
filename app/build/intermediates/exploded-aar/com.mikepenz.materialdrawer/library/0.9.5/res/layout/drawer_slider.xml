@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slider_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="@color/material_drawer_background"
+    android:elevation="10dp"
+    android:orientation="vertical"
+    android:layout_marginRight="@dimen/material_drawer_margin"
+    android:layout_marginEnd="@dimen/material_drawer_margin">
+</LinearLayout><!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/layout/drawer_slider.xml -->
