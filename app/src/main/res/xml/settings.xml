@@ -3,6 +3,7 @@
 
     <ListPreference
         	android:key="screen_timeout"
+            android:textColor="@color/primary_text_default_material_light"
         	android:title="@string/screenTimeoutTitle"
         	android:dialogTitle="@string/screenTimeoutDialog"
         	android:entries="@array/timeoutEntries"

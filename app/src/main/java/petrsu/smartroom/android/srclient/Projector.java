@@ -9,13 +9,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import android.text.Html;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -24,7 +22,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -38,6 +35,7 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SectionDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -171,7 +169,25 @@ public class Projector extends ActionBarActivity
 
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
-                ).build();
+                ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                Toast.makeText(Projector.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                switch ((int) id) {
+                    case 1:     gotoAgenda();       break;
+                    case 2:     break;
+                    case 4:     gotoCurDisq();      break;
+                    case 5:     gotoDisqList();     break;
+                    case 7:     gotoSettings();     break;
+                    case 8:     updateProjector();  break;
+                    case 10:    gotoManual();       break;
+                    case 11:    openHelp();         break;
+                    case 13:    exitApp();          break;
+                    default:    break;
+
+                }
+            }
+        }).build();
 		
 		/* If connection established */
 		if(checkConnection()) {
@@ -193,6 +209,100 @@ public class Projector extends ActionBarActivity
 		controlPanelIsActive = false;
 		presentationCreated = 1;
 	}
+
+
+    /**========================================================================
+     * GO TO PRESENTATION SERVICE
+     *=========================================================================
+     */
+    private void gotoAgenda(){
+        Intent intent = new Intent();
+        intent.setClass(this, Agenda.class);
+        startActivity(intent);
+    }
+
+    /**=========================================================================
+     * QITS TO THE DESKTOP
+     *==========================================================================
+     */
+    private void exitApp() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+
+    /**=========================================================================
+     * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
+     * =========================================================================
+     */
+    private void gotoManual() {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://sourceforge.net/projects/smartroom/files/clients/android/manual.pdf/download"));
+        startActivity(browserIntent);
+    }
+
+    /**=========================================================================
+     * SHOWS HELP WINDOW
+     *==========================================================================
+     */
+    private void openHelp() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.joiningSR);
+        builder.setMessage(Html.fromHtml(getResources().getString(R.string.agenda_help_content)));
+        builder.create();
+        builder.show();
+    }
+
+
+    /**========================================================================
+     * REFRESH AGENDA PAGE
+     *=========================================================================
+     */
+    private void updateProjector() {
+        speakerName = KP.getSpeakerName();
+        isSpeaker = KP.checkSpeakerState();
+
+        if(!isSpeaker && !KP.isChairman && micIsActive) {
+            micIsActive = false;
+            stopService(new Intent(this, MicService.class));
+        }
+        new updatePresentationAsync().execute();
+    }
+
+
+    /**=========================================================================
+     * GO TO CURRENT DISCUSSION
+     *==========================================================================
+     */
+    private void gotoCurDisq(){
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://194.85.173.9:8080/listCategories"));
+        startActivity(browserIntent);
+    }
+
+
+    /**=========================================================================
+     * GO TO  DISCUSSION LIST
+     *==========================================================================
+     */
+    private void gotoDisqList(){
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://194.85.173.9:8080/listCategories"));
+        startActivity(browserIntent);
+    }
+
+
+    /**========================================================================
+     * GO TO SETTINGS ACTIVITY
+     *=========================================================================
+     */
+    private void gotoSettings() {
+        Intent intentSettings = new Intent();
+        intentSettings.setClass(this, SettingsMenu.class);
+        startActivity(intentSettings);
+    }
 	
 	
 	public void onClick(View v) {
@@ -466,20 +576,7 @@ public class Projector extends ActionBarActivity
 				link = contentUrl + link;
 		return link;
 	}
-	
-	/**
-	 * Updates projector view
-	 */
-	public void updateProjector() {
-		speakerName = KP.getSpeakerName();
-		isSpeaker = KP.checkSpeakerState();
-		
-		if(!isSpeaker && !KP.isChairman && micIsActive) {
-			micIsActive = false;
-			stopService(new Intent(this, MicService.class));
-		}
-		new updatePresentationAsync().execute();
-	}
+
 	
 	/**
 	 * Switches to the next slide

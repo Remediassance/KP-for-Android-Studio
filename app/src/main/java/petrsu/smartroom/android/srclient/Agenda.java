@@ -51,6 +51,7 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SectionDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.lang.Thread;
 
@@ -156,25 +157,43 @@ public class Agenda extends ActionBarActivity {
                 .withActionBarDrawerToggle(true)
                 .withHeader(R.layout.drawer_header)
                 .addDrawerItems(
-                        new SectionDrawerItem().withName(R.string.services),
-                        new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
-                        new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
+                    new SectionDrawerItem().withName(R.string.services),
+                    new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
+                    new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
 
-                        new SectionDrawerItem().withName(R.string.discussion),
-                        new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
-                        new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
+                    new SectionDrawerItem().withName(R.string.discussion),
+                    new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
+                    new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
 
-                        new SectionDrawerItem().withName(R.string.action_settings),
-                        new SecondaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
-                        new SecondaryDrawerItem().withName(R.string.reconnectText).withIcon(FontAwesome.Icon.faw_refresh),
+                    new SectionDrawerItem().withName(R.string.action_settings),
+                    new SecondaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
+                    new SecondaryDrawerItem().withName(R.string.reconnectText).withIcon(FontAwesome.Icon.faw_refresh),
 
-                        new SectionDrawerItem().withName(R.string.help),
-                        new SecondaryDrawerItem().withName(R.string.help_agenda).withIcon(FontAwesome.Icon.faw_info),
-                        new SecondaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
+                    new SectionDrawerItem().withName(R.string.help),
+                    new SecondaryDrawerItem().withName(R.string.help_agenda).withIcon(FontAwesome.Icon.faw_info),
+                    new SecondaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
 
-                        new DividerDrawerItem(),
-                        new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
-                ).build();
+                    new DividerDrawerItem(),
+                    new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
+                ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                        Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                        switch ((int) id) {
+                            case 1: break;
+                            case 2:     gotoPresentation(); break;
+                            case 4:     gotoCurDisq();      break;
+                            case 5:     gotoDisqList();     break;
+                            case 7:     gotoSettings();     break;
+                            case 8:     updateAgenda();     break;
+                            case 10:    gotoManual();       break;
+                            case 11:    openHelp();         break;
+                            case 13:    exitApp();          break;
+                            default:  break;
+
+                        }
+                    }
+                }).build();
 		
 		/* Initialize context menu */
 		initListView();
@@ -251,7 +270,100 @@ public class Agenda extends ActionBarActivity {
 		((SimpleAdapter) adapter).setViewBinder(new AgendaViewBinder());
 		listView.setAdapter(adapter);
 	}
-	
+
+
+    /**========================================================================
+    * GO TO PRESENTATION SERVICE
+    *=========================================================================
+     */
+    private void gotoPresentation(){
+        Intent intent = new Intent();
+        intent.setClass(this, Projector.class);
+        startActivity(intent);
+    }
+
+    /**=========================================================================
+    * QITS TO THE DESKTOP
+    *==========================================================================
+    */
+    private void exitApp() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+
+    /**=========================================================================
+    * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
+    * =========================================================================
+     */
+    private void gotoManual() {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://sourceforge.net/projects/smartroom/files/clients/android/manual.pdf/download"));
+        startActivity(browserIntent);
+    }
+
+    /**=========================================================================
+    * SHOWS HELP WINDOW
+    *==========================================================================
+     */
+    private void openHelp() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.joiningSR);
+        builder.setMessage(Html.fromHtml(getResources().getString(R.string.agenda_help_content)));
+        builder.create();
+        builder.show();
+    }
+
+
+    /**========================================================================
+     * REFRESH AGENDA PAGE
+     *=========================================================================
+     */
+    public void updateAgenda() {
+        agendaCreated = 0;
+        list = null;
+        KP.personIndex = KP.personTimeslotIndex();
+        finish();
+        Intent restartIntent = new Intent(this, Agenda.class);
+        startActivity(restartIntent);
+    }
+
+
+    /**=========================================================================
+    * GO TO CURRENT DISCUSSION
+    *==========================================================================
+     */
+    private void gotoCurDisq(){
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://194.85.173.9:8080/listCategories"));
+        startActivity(browserIntent);
+    }
+
+
+    /**=========================================================================
+    * GO TO  DISCUSSION LIST
+    *==========================================================================
+     */
+    private void gotoDisqList(){
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://194.85.173.9:8080/listCategories"));
+        startActivity(browserIntent);
+    }
+
+
+    /**========================================================================
+     * GO TO SETTINGS ACTIVITY
+     *=========================================================================
+     */
+    private void gotoSettings() {
+        Intent intentSettings = new Intent();
+        intentSettings.setClass(this, SettingsMenu.class);
+        startActivity(intentSettings);
+    }
+
+
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -409,17 +521,7 @@ public class Agenda extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	/**
-	 * Updates agenda program.
-	 */
-	public void updateAgenda() {
-		agendaCreated = 0;
-		list = null;
-		KP.personIndex = KP.personTimeslotIndex();
-		finish();
-		Intent restartIntent = new Intent(this, Agenda.class);
-		startActivity(restartIntent);
-	}
+
 	
 	/**
 	 * Tells content service to start conference

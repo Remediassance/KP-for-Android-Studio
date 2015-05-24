@@ -163,7 +163,6 @@ public class KP extends ActionBarActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                 Toast.makeText(KP.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
-                int sw = (int)id;
                 switch((int)id) {
                     case 0 : scanQrCode();  break;
                     case 1 : gotoManual();  break;
