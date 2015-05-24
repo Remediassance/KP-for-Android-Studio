@@ -132,8 +132,8 @@ public class Projector extends ActionBarActivity
 		rightArrowBtn.setOnTouchListener(this);
 		microphoneBtn = (ImageView) findViewById (R.id.mic);
 		microphoneBtn.setOnClickListener(this);
-		refreshBtn = (ImageView) findViewById (R.id.refresh);
-		refreshBtn.setOnTouchListener(this);
+		/*refreshBtn = (ImageView) findViewById (R.id.refresh);
+		refreshBtn.setOnTouchListener(this);*/
 		presentationImage = (ImageView) findViewById (R.id.presImage);
 		Bitmap image = bitmapImageFromRes(R.drawable.title);
 		presentationImage.setImageBitmap(image);
@@ -278,7 +278,7 @@ public class Projector extends ActionBarActivity
      */
     private void gotoCurDisq(){
         Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://194.85.173.9:8080/listCategories"));
+                Uri.parse("http://194.85.173.9:10011/listCategories"));
         startActivity(browserIntent);
     }
 
@@ -347,13 +347,14 @@ public class Projector extends ActionBarActivity
 			/* Next button */
 			case R.id.btnForward:
 				
-				if(event.getAction() == MotionEvent.ACTION_DOWN) {
+				/*if(event.getAction() == MotionEvent.ACTION_DOWN) {
 					Bitmap image = bitmapImageFromRes(
 							R.drawable.right_arrow_pressed);
 					rightArrowBtn.setImageBitmap(image);
-				} else if(event.getAction() == MotionEvent.ACTION_UP) {
-					Bitmap image = bitmapImageFromRes(R.drawable.right_arrow);
-					rightArrowBtn.setImageBitmap(image);
+				} else */
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+					/*Bitmap image = bitmapImageFromRes(R.drawable.right_arrow);
+					rightArrowBtn.setImageBitmap(image);*/
 					
 					if(!checkConnection()) 
 						return false;
@@ -367,13 +368,14 @@ public class Projector extends ActionBarActivity
 			/* Previous button */
 			case R.id.btnBack:
 				
-				if(event.getAction() == MotionEvent.ACTION_DOWN) {
+				/*if(event.getAction() == MotionEvent.ACTION_DOWN) {
 					Bitmap image = bitmapImageFromRes(
 							R.drawable.left_arrow_pressed);
 					leftArrowBtn.setImageBitmap(image);
-				} else if(event.getAction() == MotionEvent.ACTION_UP) {
-					Bitmap image = bitmapImageFromRes(R.drawable.left_arrow);
-					leftArrowBtn.setImageBitmap(image);
+				} else */
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+					/*Bitmap image = bitmapImageFromRes(R.drawable.left_arrow);
+					leftArrowBtn.setImageBitmap(image);*/
 					
 					if(!checkConnection()) 
 						return false;
@@ -385,7 +387,7 @@ public class Projector extends ActionBarActivity
 				break;
 				
 			/* Refresh button */
-			case R.id.refresh:
+			/*case R.id.refresh:
 				
 				if(event.getAction() == MotionEvent.ACTION_DOWN) {
 					Bitmap image = bitmapImageFromRes(R.drawable.refresh_pressed);
@@ -402,7 +404,8 @@ public class Projector extends ActionBarActivity
 					updateProjector();
 					refreshBtn.setOnTouchListener(this);
 				}
-				break;	
+				break;	*/
+
 		}
 		
 		return true;

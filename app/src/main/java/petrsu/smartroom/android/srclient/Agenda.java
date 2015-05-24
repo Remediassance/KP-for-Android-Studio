@@ -9,11 +9,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
+import android.widget.*;
+
 import java.util.ArrayList;
 
 import android.text.Html;
@@ -64,7 +61,7 @@ import java.lang.Thread;
  * presentation, etc.
  *
  */
-public class Agenda extends ActionBarActivity {
+public class Agenda extends ActionBarActivity {//implements  View.OnClickListener{
 	
 	private final int LOOK_PRESENTATION = 0;	
 	private final int PERSON_PROFILE = 1;
@@ -87,6 +84,10 @@ public class Agenda extends ActionBarActivity {
 	protected ProgressDialog progressDialog;
 	public boolean conferenceStarted;
 	public boolean conferenceEnded;
+
+    private Button downloadSlides;
+    private Button seeProfile;
+
 	
 	public Agenda() {
 		contentUrl = KP.getContentUrl();
@@ -146,6 +147,12 @@ public class Agenda extends ActionBarActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.agenda_interface);
+
+        /*downloadSlides = (Button) findViewById (R.id.downloadSlidesBtn);
+        seeProfile = (Button) findViewById(R.id.seeProfileBtn);
+
+        downloadSlides.setOnClickListener(this);
+        seeProfile.setOnClickListener(this);*/
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -337,7 +344,7 @@ public class Agenda extends ActionBarActivity {
      */
     private void gotoCurDisq(){
         Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://194.85.173.9:8080/listCategories"));
+                Uri.parse("http://194.85.173.9:10011/listCategories"));
         startActivity(browserIntent);
     }
 
@@ -908,8 +915,34 @@ public class Agenda extends ActionBarActivity {
 		
 		return 0;
 	}
-	
-	/**
+
+    /*@Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.downloadSlidesBtn: {
+                String link = KP.getPresentationLink(pos);
+
+                if(link != null) {
+                    Uri uri = Uri.parse(prepareLink(link));
+
+                    if(openRemotePresentation(uri) != 0) {
+                        showDownloadDialog(uri);
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(),
+                            R.string.presUnreach,
+                            Toast.LENGTH_SHORT).show();
+                }
+                break;
+            } break;
+            case R.id.seeProfileBtn: break;
+
+        }
+
+
+    }*/
+
+    /**
 	 * 
 	 * @author pavlin
 	 *

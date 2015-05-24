@@ -1436,9 +1436,9 @@ containing a value of this type.
         public static final int avatar_status=0x7f0a0046;
         public static final int badge=0x7f0a004f;
         public static final int beginning=0x7f0a0013;
-        public static final int btnBack=0x7f0a0078;
-        public static final int btnForward=0x7f0a0079;
-        public static final int button1=0x7f0a004b;
+        public static final int btnBack=0x7f0a0077;
+        public static final int btnForward=0x7f0a0078;
+        public static final int seeProfileBtn =0x7f0a004b;
         public static final int button2=0x7f0a004c;
         public static final int center=0x7f0a0042;
         public static final int checkbox=0x7f0a0029;
@@ -1491,7 +1491,7 @@ containing a value of this type.
         public static final int phoneLabel=0x7f0a0070;
         public static final int phoneValue=0x7f0a0071;
         public static final int presImage=0x7f0a0072;
-        public static final int presMenu=0x7f0a0077;
+        public static final int presMenu=0x7f0a0076;
         public static final int presNumbers=0x7f0a0073;
         public static final int presentationTitle=0x7f0a004a;
         public static final int profileAvatar=0x7f0a006c;
@@ -1500,7 +1500,7 @@ containing a value of this type.
         public static final int projector_help=0x7f0a0087;
         public static final int radio=0x7f0a002b;
         public static final int reconnect=0x7f0a0082;
-        public static final int refresh=0x7f0a0076;
+        public static final int refresh=0x7f0a0079;
         public static final int regLabel=0x7f0a0054;
         public static final int regServiceBtn=0x7f0a006a;
         public static final int search_badge=0x7f0a0035;

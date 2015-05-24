@@ -466,8 +466,8 @@ int id avatar 0x7f0a0047
 int id avatar_status 0x7f0a0046
 int id badge 0x7f0a004f
 int id beginning 0x7f0a0013
-int id btnBack 0x7f0a0078
-int id btnForward 0x7f0a0079
+int id btnBack 0x7f0a0077
+int id btnForward 0x7f0a0078
 int id button1 0x7f0a004b
 int id button2 0x7f0a004c
 int id center 0x7f0a0042
@@ -521,7 +521,7 @@ int id personInfoLayout 0x7f0a006d
 int id phoneLabel 0x7f0a0070
 int id phoneValue 0x7f0a0071
 int id presImage 0x7f0a0072
-int id presMenu 0x7f0a0077
+int id presMenu 0x7f0a0076
 int id presNumbers 0x7f0a0073
 int id presentationTitle 0x7f0a004a
 int id profileAvatar 0x7f0a006c
@@ -530,7 +530,7 @@ int id progress_horizontal 0x7f0a0006
 int id projector_help 0x7f0a0087
 int id radio 0x7f0a002b
 int id reconnect 0x7f0a0082
-int id refresh 0x7f0a0076
+int id refresh 0x7f0a0079
 int id regLabel 0x7f0a0054
 int id regServiceBtn 0x7f0a006a
 int id search_badge 0x7f0a0035

@@ -48,13 +48,12 @@
         android:id="@+id/mic"
         android:layout_width="80dp"
 	 android:layout_height="80dp"
-	 android:layout_below="@+id/refresh"
-	 android:layout_alignParentRight="true"
-	 android:padding="10dp"
+     android:padding="10dp"
      	 android:src="@drawable/inactive_mic"
-     	 android:contentDescription="@string/descrMike"/>
+     	 android:contentDescription="@string/descrMike" android:layout_below="@+id/toolbar"
+         android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
     
-    <ImageView 
+    <!--<ImageView
         android:id="@+id/refresh"
         android:layout_width="80dp"
 	 android:layout_height="80dp"
@@ -62,7 +61,7 @@
 	 android:layout_alignParentTop="true"
 	 android:padding="10dp"
      	 android:src="@drawable/refresh"
-     	 android:contentDescription="@string/descrRefreshBtn"/>
+     	 android:contentDescription="@string/descrRefreshBtn"/>-->
            
     <RelativeLayout
         android:id="@+id/presMenu"

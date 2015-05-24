@@ -56,28 +56,28 @@
 			android:layout_marginEnd="@dimen/agenda_title_margin_right" 
 			android:textSize="@dimen/agenda_title_text_size"/>
 
-		<Button
-		    android:id="@+id/button1"
+		<!--<Button
+		    android:id="@+id/seeProfileBtn"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:layout_alignBottom="@+id/avatar_status"
 		    android:layout_alignRight="@+id/presentationTitle"
-		    android:background="@color/indigo500"
+            android:background="?attr/colorPrimary"
 		    android:text="Profile"
 		    android:textColor="@color/white"
 		    android:textColorHint="@color/prplA700" />
 
 		<Button
-		    android:id="@+id/button2"
+		    android:id="@+id/downloadSlidesBtn"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
-		    android:layout_alignBaseline="@+id/button1"
-		    android:layout_alignBottom="@+id/button1"
+		    android:layout_alignBaseline="@+id/seeProfileBtn"
+		    android:layout_alignBottom="@+id/seeProfileBtn"
 		    android:layout_marginRight="2dp"
-		    android:layout_toLeftOf="@+id/button1"
-		    android:background="@color/indigo500"
+		    android:layout_toLeftOf="@+id/seeProfileBtn"
+            android:background="?attr/colorPrimary"
 		    android:text="Slides"
 		    android:textColor="@color/white"
-		    android:textColorHint="@color/prplA700" />
+		    android:textColorHint="@color/prplA700" /> -->
 
 </RelativeLayout>   
