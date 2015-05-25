@@ -156,13 +156,13 @@ public class KP extends ActionBarActivity
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName(R.string.signup).withIcon(FontAwesome.Icon.faw_barcode),
                         new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_info),
+                        new PrimaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_info),
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                Toast.makeText(KP.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(KP.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                 switch((int)id) {
                     case 0 : scanQrCode();  break;
                     case 1 : gotoManual();  break;
@@ -220,11 +220,7 @@ public class KP extends ActionBarActivity
 		switch(view.getId()) {
 		
 			case R.id.connectBtn:
-				if(event.getAction() == MotionEvent.ACTION_DOWN) {
-					connectBtn.setBackgroundResource(R.drawable.button_pressed);
-				} else if(event.getAction() == MotionEvent.ACTION_UP) {
-					connectBtn.setBackgroundResource(R.drawable.button);
-					
+				 if(event.getAction() == MotionEvent.ACTION_UP) {
 					try {
 						port = Integer.parseInt(editPort.getText().toString());
 						joinSmartSpace(name, password);
@@ -237,10 +233,7 @@ public class KP extends ActionBarActivity
 				break;
 				
 			case R.id.guestBtn:
-				if(event.getAction() == MotionEvent.ACTION_DOWN) {
-					guestBtn.setBackgroundResource(R.drawable.button_pressed);
-				} else if(event.getAction() == MotionEvent.ACTION_UP) {
-					guestBtn.setBackgroundResource(R.drawable.button);
+				if(event.getAction() == MotionEvent.ACTION_UP) {
 					editName.setText("");
 					editPassword.setText("");
 					
@@ -255,7 +248,7 @@ public class KP extends ActionBarActivity
 				}
 				break;
 				
-			case R.id.regServiceBtn:
+			/*case R.id.regServiceBtn:
 				if(event.getAction() == MotionEvent.ACTION_DOWN) {
 					regServiceBtn.setBackgroundResource(
 							R.drawable.title_button_pressed);
@@ -264,7 +257,7 @@ public class KP extends ActionBarActivity
 							R.drawable.title_button);
 					scanQrCode();
 				}
-				break;
+				break;*/
 		}
 		return true;
 	}

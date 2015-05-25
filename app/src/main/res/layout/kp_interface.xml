@@ -168,42 +168,4 @@
         android:layout_alignStart="@+id/editPort"
         android:layout_marginTop="10dp" />
 
-     <TextView
-        android:id="@+id/manualTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-         android:text="@string/manual"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/prplA700"
-         android:layout_alignParentBottom="true"
-         android:layout_centerHorizontal="true"
-         android:layout_marginBottom="45dp" />
-
-      <TextView
-        android:id="@+id/signupTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-          android:clickable="true"
-        android:linksClickable="true"
-        android:text="@string/signup"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/prplA700"
-          android:layout_above="@+id/manualTxt"
-          android:layout_toRightOf="@+id/textView3"
-          android:layout_toEndOf="@+id/textView3"
-          android:layout_marginLeft="3dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Don&apos;t have an account?"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/black"
-        android:layout_above="@+id/manualTxt"
-        android:layout_alignLeft="@+id/connectBtn"
-        android:layout_alignStart="@+id/connectBtn"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp" />
-
 </RelativeLayout>

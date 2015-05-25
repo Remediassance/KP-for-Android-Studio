@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="petrsu.smartroom.android.srclient"
     android:versionCode="14090"
-    android:versionName="0.7.0" >
+    android:versionName="0.8.0" >
 
     <uses-sdk
         android:minSdkVersion="15"

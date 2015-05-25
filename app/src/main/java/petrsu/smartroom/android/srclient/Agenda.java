@@ -173,19 +173,19 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
                     new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
 
                     new SectionDrawerItem().withName(R.string.action_settings),
-                    new SecondaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
-                    new SecondaryDrawerItem().withName(R.string.reconnectText).withIcon(FontAwesome.Icon.faw_refresh),
+                    new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
+                    new PrimaryDrawerItem().withName(R.string.reconnectText).withIcon(FontAwesome.Icon.faw_refresh),
 
                     new SectionDrawerItem().withName(R.string.help),
-                    new SecondaryDrawerItem().withName(R.string.help_agenda).withIcon(FontAwesome.Icon.faw_info),
-                    new SecondaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
+                    new PrimaryDrawerItem().withName(R.string.help_agenda).withIcon(FontAwesome.Icon.faw_info),
+                    new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
 
                     new DividerDrawerItem(),
                     new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                        Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                         switch ((int) id) {
                             case 1: break;
                             case 2:     gotoPresentation(); break;
@@ -193,8 +193,8 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
                             case 5:     gotoDisqList();     break;
                             case 7:     gotoSettings();     break;
                             case 8:     updateAgenda();     break;
-                            case 10:    gotoManual();       break;
-                            case 11:    openHelp();         break;
+                            case 10:    openHelp();         break;
+                            case 11:    gotoManual();       break;
                             case 13:    exitApp();          break;
                             default:  break;
 

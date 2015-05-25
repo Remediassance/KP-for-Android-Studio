@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <ListPreference
         	android:key="screen_timeout"
             android:textColor="@color/primary_text_default_material_light"
@@ -8,6 +9,8 @@
         	android:dialogTitle="@string/screenTimeoutDialog"
         	android:entries="@array/timeoutEntries"
         	android:entryValues="@array/timeoutValues"
-        	android:defaultValue="300000"/>
+            android:layout_marginTop="15dp"
+        	android:defaultValue="300000"
+            android:textColorHint="@color/material_drawer_hint_text"/>
 
 </PreferenceScreen><!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/src/main/res/xml/settings.xml -->

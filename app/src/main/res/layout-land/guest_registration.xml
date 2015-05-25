@@ -41,7 +41,7 @@
         android:ems="10"
         android:hint="@string/userEmailEx" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/TextView03"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,6 +85,6 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/guestEmail"
         android:layout_marginTop="55dp"
-        android:text="Fields Marked with * are mandatory." />
+        android:text="Fields Marked with * are mandatory." /> -->
 
 </RelativeLayout>

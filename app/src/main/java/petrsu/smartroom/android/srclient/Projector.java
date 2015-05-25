@@ -160,19 +160,19 @@ public class Projector extends ActionBarActivity
                         new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
 
                         new SectionDrawerItem().withName(R.string.action_settings),
-                        new SecondaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
-                        new SecondaryDrawerItem().withName(R.string.reconnectText).withIcon(FontAwesome.Icon.faw_refresh),
+                        new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
+                        new PrimaryDrawerItem().withName(R.string.reconnectText).withIcon(FontAwesome.Icon.faw_refresh),
 
                         new SectionDrawerItem().withName(R.string.help),
-                        new SecondaryDrawerItem().withName(R.string.help_presentation).withIcon(FontAwesome.Icon.faw_info),
-                        new SecondaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
+                        new PrimaryDrawerItem().withName(R.string.help_presentation).withIcon(FontAwesome.Icon.faw_info),
+                        new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
 
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                Toast.makeText(Projector.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Projector.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                 switch ((int) id) {
                     case 1:     gotoAgenda();       break;
                     case 2:     break;
@@ -212,7 +212,7 @@ public class Projector extends ActionBarActivity
 
 
     /**========================================================================
-     * GO TO PRESENTATION SERVICE
+     * GO TO AGENDA SERVICE
      *=========================================================================
      */
     private void gotoAgenda(){
