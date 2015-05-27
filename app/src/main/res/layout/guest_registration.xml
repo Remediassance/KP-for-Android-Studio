@@ -12,7 +12,7 @@
         android:textColor="@color/primary_text_default_material_light"
         android:textColorHint="@color/material_drawer_hint_text"
         android:layout_marginTop="42dp"
-        android:layout_below="@+id/regLabel"
+
         android:layout_alignStart="@+id/guestPhone" 
         android:layout_alignLeft="@+id/guestPhone"/>
     

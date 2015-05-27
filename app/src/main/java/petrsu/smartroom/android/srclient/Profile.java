@@ -6,16 +6,30 @@ import java.net.URLConnection;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import com.mikepenz.iconics.typeface.FontAwesome;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SectionDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 /**
  * 
@@ -23,7 +37,7 @@ import android.widget.Toast;
  *
  *	Class holds participant's information
  */
-public class Profile extends Activity {
+public class Profile extends ActionBarActivity {
 	
 	private ActionBar actionBar;
 	private ImageView imageView;
@@ -92,15 +106,148 @@ public class Profile extends Activity {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        new Drawer()
+                .withActivity(this)
+                .withToolbar(toolbar)
+                .withActionBarDrawerToggle(true)
+                .withHeader(R.layout.drawer_header)
+                .addDrawerItems(
+                        new SectionDrawerItem().withName(R.string.services),
+                        new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
+                        new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
+
+                        new SectionDrawerItem().withName(R.string.discussion),
+                        new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
+                        new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
+
+                        new SectionDrawerItem().withName(R.string.action_settings),
+                        new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
+
+                        new SectionDrawerItem().withName(R.string.help),
+                        new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
+
+                        new DividerDrawerItem(),
+                        new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
+                ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                switch ((int) id) {
+                    case 1:     gotoAgenda(); break;
+                    case 2:     gotoPresentation(); break;
+                    case 4:     gotoCurDisq();      break;
+                    case 5:     gotoDisqList();     break;
+                    case 7:     gotoSettings();     break;
+                    case 9:     gotoManual();       break;
+                    case 11:    exitApp();          break;
+                    default:  break;
+
+                }
+            }
+        }).build();
 		
-		actionBar = getActionBar();
+		//actionBar = getActionBar();
 		
-		/* Show action bar if user is profile owner */
+		/* Show action bar if user is profile owner
 		if(personUuid.equals(KP.getPersonUuid()))
 			actionBar.show();
 		else
-			actionBar.hide();
+			actionBar.hide();*/
 	}
+
+
+    /**========================================================================
+     * GO TO AGENDA SERVICE
+     *=========================================================================
+     */
+    private void gotoAgenda(){
+        Intent intent = new Intent();
+        intent.setClass(this, Agenda.class);
+        startActivity(intent);
+    }
+
+
+    /**========================================================================
+     * GO TO PRESENTATION SERVICE
+     *=========================================================================
+     */
+    private void gotoPresentation(){
+        Intent intent = new Intent();
+        intent.setClass(this, Projector.class);
+        startActivity(intent);
+    }
+
+    /**=========================================================================
+     * QITS TO THE DESKTOP
+     *==========================================================================
+     */
+    private void exitApp() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+
+    /**=========================================================================
+     * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
+     * =========================================================================
+     */
+    private void gotoManual() {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://sourceforge.net/projects/smartroom/files/clients/android/manual.pdf/download"));
+        startActivity(browserIntent);
+    }
+
+    /**=========================================================================
+     * SHOWS HELP WINDOW
+     *==========================================================================
+     */
+    private void openHelp() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.joiningSR);
+        builder.setMessage(Html.fromHtml(getResources().getString(R.string.agenda_help_content)));
+        builder.create();
+        builder.show();
+    }
+
+
+    /**=========================================================================
+     * GO TO CURRENT DISCUSSION
+     *==========================================================================
+     */
+    private void gotoCurDisq(){
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://"+KP.ip+":10011/listCategories"));
+        startActivity(browserIntent);
+    }
+
+
+    /**=========================================================================
+     * GO TO  DISCUSSION LIST
+     *==========================================================================
+     */
+    private void gotoDisqList(){
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://"+KP.ip+":8080/listCategories"));
+        startActivity(browserIntent);
+    }
+
+
+    /**========================================================================
+     * GO TO SETTINGS ACTIVITY
+     *=========================================================================
+     */
+    private void gotoSettings() {
+        Intent intentSettings = new Intent();
+        intentSettings.setClass(this, SettingsMenu.class);
+        startActivity(intentSettings);
+    }
 
 	public void setName(String name) {
 		this.name = name;

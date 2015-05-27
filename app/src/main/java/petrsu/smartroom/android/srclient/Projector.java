@@ -278,7 +278,7 @@ public class Projector extends ActionBarActivity
      */
     private void gotoCurDisq(){
         Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://194.85.173.9:10011/listCategories"));
+                Uri.parse("http://"+KP.ip+":10011/listCategories"));
         startActivity(browserIntent);
     }
 
@@ -289,7 +289,7 @@ public class Projector extends ActionBarActivity
      */
     private void gotoDisqList(){
         Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://194.85.173.9:8080/listCategories"));
+                Uri.parse("http://"+KP.ip+":8080/listCategories"));
         startActivity(browserIntent);
     }
 

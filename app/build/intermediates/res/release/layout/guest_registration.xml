@@ -12,7 +12,7 @@
         android:textColor="@color/primary_text_default_material_light"
         android:textColorHint="@color/material_drawer_hint_text"
         android:layout_marginTop="42dp"
-        android:layout_below="@+id/regLabel"
+
         android:layout_alignStart="@+id/guestPhone" 
         android:layout_alignLeft="@+id/guestPhone"/>
     
@@ -40,7 +40,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true" />
 
-    <TextView
+    <!--<TextView
         android:layout_width="fill_parent"
         android:layout_height="55sp"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -107,6 +107,6 @@
         android:id="@+id/textView7"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true" /> -->
 
 </RelativeLayout><!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/src/main/res/layout/guest_registration.xml -->
