@@ -20,9 +20,10 @@
         android:id="@+id/presImage"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_centerInParent="true"
         android:src="@drawable/title"
-        android:contentDescription="@string/descrSlideImg"/>
+        android:contentDescription="@string/descrSlideImg"
+        android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/mic"/>
     
     <RelativeLayout
         android:id="@+id/presNumbers"
@@ -32,16 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="25sp"
         android:background="@color/gray">
-        
-        <TextView
-            android:id="@+id/slideNumber"
-            android:layout_width="wrap_content"
-	     android:layout_height="wrap_content"
-	     android:paddingLeft="5sp"
-	     android:paddingRight="5sp"
-	     android:layout_centerInParent="true"
-            android:textSize="16sp"/>        
-        
+
     </RelativeLayout>
     
     <ImageView 
@@ -89,6 +81,14 @@
         	android:contentDescription="@string/descrRightArr"/>
         
     </RelativeLayout>
-    
+    <TextView
+        android:id="@+id/slideNumber"
+        android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:paddingLeft="5sp"
+     android:paddingRight="5sp"
+        android:textSize="16sp" android:layout_alignTop="@+id/presImage" android:layout_toRightOf="@+id/presNumbers"
+        android:layout_toEndOf="@+id/presNumbers"/>
+
 
 </RelativeLayout>
