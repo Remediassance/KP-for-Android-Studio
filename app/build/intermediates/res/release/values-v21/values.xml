@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/src/main/res/values-v21/styles.xml -->
+    <!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/src/main/res/values-v21/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- API 14 theme customizations can go here. -->
@@ -13,7 +13,7 @@
         <item name="android:textColorHint">@color/material_drawer_hint_text</item>
         <item name="android:navigationBarColor">@color/indigo700</item>
     </style>
-    <!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/build/intermediates/exploded-aar/com.mikepenz.materialdrawer/library/0.9.5/res/values-v21/values.xml -->
+    <!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/exploded-aar/com.mikepenz.materialdrawer/library/0.9.5/res/values-v21/values.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="BaseTheme">
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
@@ -25,7 +25,7 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowTranslucentStatus">true</item>
     </style>
-    <!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v21/values.xml -->
+    <!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-v21/values.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material"/>
     <style name="Base.TextAppearance.AppCompat.Body1" parent="android:TextAppearance.Material.Body1"/>

@@ -14,4 +14,4 @@
     	android:textSize="@dimen/services_ext_text_size"
     	android:clickable="false"/>
 
-</RelativeLayout><!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/src/main/res/layout-xlarge-land/services_interface_ext.xml -->
+</RelativeLayout><!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/src/main/res/layout-xlarge-land/services_interface_ext.xml -->

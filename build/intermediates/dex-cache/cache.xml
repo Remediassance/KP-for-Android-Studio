@@ -2,53 +2,53 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Андрей\AndroidstudioProjects\KP\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\Андрей\AndroidstudioProjects\KP\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-d7f9ecd48e9622dd039c4311e2e1900019c97bd4.jar" />
-    </item>
-    <item
-        jar="C:\Users\Андрей\AndroidstudioProjects\KP\app\libs\jspeex.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="5fd8184cfea4c5aa4e3c14bb3d21fd83539d6f47">
-        <dex dex="C:\Users\Андрей\AndroidstudioProjects\KP\app\build\intermediates\pre-dexed\debug\jspeex-37c94d06a37b1a2f75a9a0b1b40f42331e8b2593.jar" />
-    </item>
-    <item
-        jar="C:\Users\Андрей\AndroidstudioProjects\KP\app\build\intermediates\exploded-aar\com.mikepenz.iconics\library\0.7.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6d88ec155032460a5f4efa723a04c460d3391193">
-        <dex dex="C:\Users\Андрей\AndroidstudioProjects\KP\app\build\intermediates\pre-dexed\debug\classes-bb6014caadba564794b3d021af52866b7e5bb706.jar" />
-    </item>
-    <item
-        jar="C:\Users\Андрей\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jar="/home/remediassance/ADT/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\Андрей\AndroidstudioProjects\KP\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-0c2c38cf060dc168b0371d5f50ac321605649a3a.jar" />
+        <dex dex="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-e6410909f95837c41c3201e7b8e1270cddeb7e56.jar" />
     </item>
     <item
-        jar="C:\Users\Андрей\AndroidstudioProjects\KP\app\build\intermediates\exploded-aar\com.mikepenz.materialdrawer\library\0.9.5\classes.jar"
+        jar="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/exploded-aar/com.mikepenz.iconics/library/0.7.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="196889103665d7eae17105a5a78f141086044301">
-        <dex dex="C:\Users\Андрей\AndroidstudioProjects\KP\app\build\intermediates\pre-dexed\debug\classes-b50cba1aaf202a22d0b2328b653b750a36455bcc.jar" />
+        sha1="6d88ec155032460a5f4efa723a04c460d3391193">
+        <dex dex="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/pre-dexed/debug/classes-3864d299bec643b84d2c53d15d0a82bef4b088ec.jar" />
     </item>
     <item
-        jar="C:\Users\Андрей\AndroidstudioProjects\KP\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\Андрей\AndroidstudioProjects\KP\app\build\intermediates\pre-dexed\debug\classes-5709026c7e5d424db8863b3212f488998f4fc931.jar" />
+        <dex dex="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/pre-dexed/debug/classes-59d54c0a27a6a68351c0d3e46c575408bb4d347c.jar" />
     </item>
     <item
-        jar="C:\Users\Андрей\AndroidstudioProjects\KP\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jar="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/libs/jspeex.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5fd8184cfea4c5aa4e3c14bb3d21fd83539d6f47">
+        <dex dex="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/pre-dexed/debug/jspeex-285df3fbe4c19c3ec8ddc34f43a5adc02040fd58.jar" />
+    </item>
+    <item
+        jar="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-1a500564944423214a7603ecfd255589fac1e3da.jar" />
+    </item>
+    <item
+        jar="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\Андрей\AndroidstudioProjects\KP\app\build\intermediates\pre-dexed\debug\classes-fe2d84d88aafe4d9cc450d9e2b63cb36f08429f8.jar" />
+        <dex dex="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/pre-dexed/debug/classes-552d0bfc831cac1cf5cd5df3aef6da6a723929bb.jar" />
+    </item>
+    <item
+        jar="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/exploded-aar/com.mikepenz.materialdrawer/library/0.9.5/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="196889103665d7eae17105a5a78f141086044301">
+        <dex dex="/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/pre-dexed/debug/classes-00ac03774e9870c68469d93f06cb6e0289a89dbf.jar" />
     </item>
 
 </items>

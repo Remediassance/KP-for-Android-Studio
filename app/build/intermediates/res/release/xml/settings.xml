@@ -13,4 +13,4 @@
         	android:defaultValue="300000"
             android:textColorHint="@color/material_drawer_hint_text"/>
 
-</PreferenceScreen><!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/src/main/res/xml/settings.xml -->
+</PreferenceScreen><!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/src/main/res/xml/settings.xml -->

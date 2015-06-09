@@ -168,4 +168,4 @@
         android:layout_alignStart="@+id/editPort"
         android:layout_marginTop="10dp" />
 
-</RelativeLayout><!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/src/main/res/layout/kp_interface.xml -->
+</RelativeLayout><!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/src/main/res/layout/kp_interface.xml -->

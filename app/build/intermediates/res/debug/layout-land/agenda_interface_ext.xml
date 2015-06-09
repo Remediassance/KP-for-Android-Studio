@@ -43,4 +43,4 @@
         android:text="@string/agendaNotAvailable"
         android:textSize="@dimen/agenda_ext_text_size" />
 
-</RelativeLayout><!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/src/main/res/layout-land/agenda_interface_ext.xml -->
+</RelativeLayout><!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/src/main/res/layout-land/agenda_interface_ext.xml -->

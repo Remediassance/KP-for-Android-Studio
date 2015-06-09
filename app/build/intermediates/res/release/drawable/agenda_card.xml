@@ -4,4 +4,4 @@
     android:shape="rectangle">
     <solid android:color="#42000000" />
     <corners android:radius="5dp" />
-</shape><!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/src/main/res/drawable/agenda_card.xml -->
+</shape><!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/src/main/res/drawable/agenda_card.xml -->

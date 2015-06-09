@@ -188,14 +188,14 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
                         //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                         switch ((int) id) {
                             case 1: break;
-                            case 2:     gotoPresentation(); break;
+                            case 2:    gotoPresentation(); break;
                             //case 4:     gotoCurDisq();      break;
                             //case 5:     gotoDisqList();     break;
-                            case 4:     gotoSettings();     break;
-                            case 5:     updateAgenda();     break;
+                            case 4:    gotoSettings();     break;
+                            case 5:    updateAgenda();     break;
                             case 7:    openHelp();         break;
                             case 8:    gotoManual();       break;
-                            case 10:    exitApp();          break;
+                            case 10:   exitApp();          break;
                             default:  break;
 
                         }

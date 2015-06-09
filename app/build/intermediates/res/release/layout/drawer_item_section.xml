@@ -19,4 +19,4 @@
         android:textSize="@dimen/material_drawer_section_text"
         android:textColor="@color/material_drawer_hint_text"
         android:paddingRight="@dimen/material_drawer_vertical_padding"/>
-</LinearLayout><!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/layout/drawer_item_section.xml --><!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/build/intermediates/exploded-aar/com.mikepenz.materialdrawer/library/0.9.5/res/layout/drawer_item_section.xml -->
+</LinearLayout><!-- From: file:/Users/mikepenz/GoogleDrive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/layout/drawer_item_section.xml --><!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/exploded-aar/com.mikepenz.materialdrawer/library/0.9.5/res/layout/drawer_item_section.xml -->
