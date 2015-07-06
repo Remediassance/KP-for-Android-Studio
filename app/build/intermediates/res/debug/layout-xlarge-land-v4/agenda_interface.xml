@@ -4,13 +4,27 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
-	
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        android:transitionName="actionBar"
+        android:paddingTop="@dimen/tool_bar_top_padding"
+        />
+
     <ListView
         android:id="@+id/agendaListView"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
-    	
-</RelativeLayout>    
-		
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/toolbar" />
+
+</RelativeLayout>
+
+
+
 
     <!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/src/main/res/layout-xlarge-land/agenda_interface.xml -->
