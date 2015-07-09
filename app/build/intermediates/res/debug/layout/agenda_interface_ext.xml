@@ -21,7 +21,8 @@
     	android:clickable="false"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="85dp" />
+        android:layout_marginTop="85dp"
+        android:textColor="@android:color/black" />
         
     <ImageView
         android:id="@+id/agendaRefresh"
@@ -41,6 +42,6 @@
         android:id="@+id/textView8"
         android:layout_below="@+id/agendaRefresh"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/darkBlue"/>
+        android:textColor="@color/black"/>
 
-</RelativeLayout><!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/src/main/res/layout/agenda_interface_ext.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/layout/agenda_interface_ext.xml -->

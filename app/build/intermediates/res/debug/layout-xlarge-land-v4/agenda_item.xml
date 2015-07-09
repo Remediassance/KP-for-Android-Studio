@@ -1,57 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    	android:id="@+id/agenda_layout"
-        android:layout_width="fill_parent"
+	android:id="@+id/agenda_layout"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal"
+	android:paddingTop="@dimen/agenda_padding_top">
+
+	<LinearLayout
+		android:id="@+id/avatar_status"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="vertical" >
+
+		<ImageView
+			android:id="@+id/avatar"
+			android:layout_width="@dimen/agenda_avatar_width"
+			android:layout_height="@dimen/agenda_avatar_height"
+			android:layout_marginEnd="@dimen/agenda_avatar_margin_right"
+			android:layout_marginLeft="@dimen/agenda_avatar_margin_left"
+			android:layout_marginRight="@dimen/agenda_avatar_margin_right"
+			android:layout_marginStart="@dimen/agenda_avatar_margin_left"
+			android:layout_weight="2"
+			android:contentDescription="@string/userAvatar"
+			android:src="@drawable/crop" />
+
+		<TextView
+			android:id="@+id/speakerStatus"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:layout_marginTop="@dimen/agenda_status_margin_top"
+			android:text="(online)"
+			android:textSize="@dimen/agenda_status_text_size" />
+	</LinearLayout>
+
+	<TextView
+		android:id="@+id/speakerName"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/avatar_status"
+		android:layout_toEndOf="@id/avatar_status"
+		android:layout_marginRight="@dimen/agenda_name_margin_right"
+		android:layout_marginEnd="@dimen/agenda_name_margin_right"
+		android:textSize="@dimen/agenda_name_text_size"
+		android:text="Name"/>
+
+	<TextView
+		android:id="@+id/presentationTitle"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/speakerName"
+		android:layout_toRightOf="@id/avatar_status"
+		android:layout_toEndOf="@id/avatar_status"
+		android:textColor="@color/black"
+		android:layout_marginRight="@dimen/agenda_title_margin_right"
+		android:layout_marginEnd="@dimen/agenda_title_margin_right"
+		android:textSize="@dimen/agenda_title_text_size"
+		android:textColorHint="@color/material_drawer_hint_text" />
+
+	<!--<Button
+        android:id="@+id/seeProfileBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="@dimen/agenda_padding_top">
-        
-    	<LinearLayout
-    	    android:id="@+id/avatar_status"
-    	    android:layout_width="wrap_content"
-    	    android:layout_height="wrap_content"
-    	    android:orientation="vertical">
-    	    
-    	    <ImageView
-    	    	android:id="@+id/avatar"
-    	    	android:layout_width="@dimen/agenda_avatar_width"
-    	    	android:layout_height="@dimen/agenda_avatar_height"
-    	    	android:layout_marginLeft="@dimen/agenda_avatar_margin_left"
-    	    	android:layout_marginRight="@dimen/agenda_avatar_margin_right"
-    	    	android:src="@drawable/user"
-    	    	android:contentDescription="@string/userAvatar"/>
-		
-    	
-			<TextView
-				android:id="@+id/speakerStatus"
-				android:layout_width="wrap_content" 
-				android:layout_height="wrap_content"
-				android:textSize="@dimen/agenda_status_text_size"
-				android:layout_gravity="center"
-				android:layout_marginTop="@dimen/agenda_status_margin_top"
-				android:text="(online)"/>
-			
-		</LinearLayout>
-		
-		<TextView
-			android:id="@+id/speakerName"
-			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content"
-			android:layout_toRightOf="@id/avatar_status"
-			android:layout_marginRight="@dimen/agenda_name_margin_right"
-			android:textSize="@dimen/agenda_name_text_size"
-			android:text="Name"/>
-    	    
-		<TextView
-			android:id="@+id/presentationTitle"
-			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content"
-			android:layout_below="@id/speakerName"
-			android:layout_toRightOf="@id/avatar_status"
-			android:layout_marginRight="@dimen/agenda_title_margin_right" 
-			android:textSize="@dimen/agenda_title_text_size"/>
+        android:layout_alignBottom="@+id/avatar_status"
+        android:layout_alignRight="@+id/presentationTitle"
+        android:background="?attr/colorPrimary"
+        android:text="Profile"
+        android:textColor="@color/white"
+        android:textColorHint="@color/prplA700" />
 
-</RelativeLayout>    
+    <Button
+        android:id="@+id/downloadSlidesBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/seeProfileBtn"
+        android:layout_alignBottom="@+id/seeProfileBtn"
+        android:layout_marginRight="2dp"
+        android:layout_toLeftOf="@+id/seeProfileBtn"
+        android:background="?attr/colorPrimary"
+        android:text="Slides"
+        android:textColor="@color/white"
+        android:textColorHint="@color/prplA700" /> -->
+
+</RelativeLayout>
 		
 
-    <!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/src/main/res/layout-xlarge-land/agenda_item.xml -->
+    <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/layout-xlarge-land/agenda_item.xml -->

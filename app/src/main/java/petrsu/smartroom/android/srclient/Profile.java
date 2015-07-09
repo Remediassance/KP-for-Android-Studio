@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -34,6 +35,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 /**
  * 
  * @author pavlin
+ * @author remediassance
  *
  *	Class holds participant's information
  */
@@ -111,11 +113,12 @@ public class Profile extends ActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        new Drawer()
+		Drawer result = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
                 .withActionBarDrawerToggle(true)
                 .withHeader(R.layout.drawer_header)
+                .withDrawerWidthDp(320)
                 .addDrawerItems(
                         new SectionDrawerItem().withName(R.string.services),
                         new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
@@ -123,7 +126,7 @@ public class Profile extends ActionBarActivity {
 
                         //new SectionDrawerItem().withName(R.string.discussion),
                         //new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
-                       // new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
+                        // new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
 
                         new SectionDrawerItem().withName(R.string.action_settings),
                         new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
@@ -135,7 +138,7 @@ public class Profile extends ActionBarActivity {
                         new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+            public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                 //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                 switch ((int) id) {
                     case 1:     gotoAgenda(); break;
@@ -146,8 +149,8 @@ public class Profile extends ActionBarActivity {
                     case 6:     gotoManual();       break;
                     case 8:    exitApp();          break;
                     default:  break;
-
                 }
+				return true;
             }
         }).build();
 		
@@ -248,6 +251,8 @@ public class Profile extends ActionBarActivity {
         intentSettings.setClass(this, SettingsMenu.class);
         startActivity(intentSettings);
     }
+
+
 
 	public void setName(String name) {
 		this.name = name;

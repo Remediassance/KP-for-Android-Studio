@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-ru/values.xml -->
+    <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values-ru/values-ru.xml -->
     <eat-comment/>
     <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Перейти на главный экран"</string>
-    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
-    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
     <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Перейти вверх"</string>
     <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Другие параметры"</string>
     <string msgid="4076576682505996667" name="abc_action_mode_done">"Готово"</string>
@@ -17,4 +15,101 @@
     <string msgid="893419373245838918" name="abc_searchview_description_voice">"Голосовой поиск"</string>
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Открыть доступ"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Открыть доступ пользователю %s"</string>
+    <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/values-ru/strings.xml -->
+    <eat-comment/>
+    <string name="action_edit">Редактировать</string>
+    <string name="action_save">Сохранить</string>
+    <string name="action_settings">Настройки</string>
+    <string name="advancedMode">Расширенный режим</string>
+    <string name="advancedModeOff">Скрыть дополнительные настройки</string>
+    <string name="advancedModeOn">Показать дополнительные настройки</string>
+    <string name="agenda">Программа мероприятия</string>
+    <string name="agendaNotAvailable">Сервис программы мероприятия недоступен. \nПовторите попытку позднее</string>
+    <string name="agendaRefresh">Обновить программу мероприятия</string>
+    <string name="agenda_descr">Программа мероприятия</string>
+    <string name="agenda_help_content"><![CDATA[ 	    <html>         <body>         	<p>В данном окне отображается программа мероприятия и список участников</p>         	         	<b>--</b>&#32;Если вы являетесь участником, ваше имя будет выделено<br><br>         	<b>--</b>&#32;Нажатие на профиль участника вызовет контекстное меню<br>         </body>         </html> 	    ]]></string>
+    <string name="anonim">Войти как наблюдатель</string>
+    <string name="anonimJoinMsg">Вы хотите совершить анонимный вход?</string>
+    <string name="avail_services">Сервисы</string>
+    <string name="chooseAction">Выберите действие</string>
+    <string name="confNotStarted">Конференция еще не началась</string>
+    <string name="connectBtn">Войти</string>
+    <string name="connectionFail">Не удалось подключиться. \nПроверьте соединение.</string>
+    <string name="connectionLost">Соединение потеряно</string>
+    <string name="connectionRecoverFail">Не удалось подключиться</string>
+    <string name="connectionRecoverMsg">Подключение...</string>
+    <string name="connectionRecoverOk">Подключение установлено</string>
+    <string name="connectionRecoverTitle">Подключение...</string>
+    <string name="connectionTester">Тест подключения</string>
+    <string name="descrLeftArr">Налево</string>
+    <string name="descrMike">Микрофон</string>
+    <string name="descrRefreshBtn">Обновить</string>
+    <string name="descrRightArr">Направо</string>
+    <string name="descrSlideImg">Следующее изображение</string>
+    <string name="discussion">Обсуждения</string>
+    <string name="discussionCur">Текущее обсуждение</string>
+    <string name="discussionList">Список обсуждений</string>
+    <string name="drawer_item_contact">Контакт</string>
+    <string name="drawer_item_help">Справка</string>
+    <string name="drawer_item_settings">Настройки</string>
+    <string name="emptyFields">Поля имени и пароля должны быть запонлены</string>
+    <string name="endConference">Завершить конференцию</string>
+    <string name="exitClientQuestion">Вы действительно хотите выйти?</string>
+    <string name="exitClientTitle">Выход</string>
+    <string name="guestBtn">Войти как гость</string>
+    <string name="guestNameEmpty">Поле имени должно быть заполнено</string>
+    <string name="help">Справка</string>
+    <string name="help_agenda">Справка</string>
+    <string name="help_presentation">Справка</string>
+    <string name="installAdobe">Установить PDF Viewer</string>
+    <string name="joiningSR">Подключение...</string>
+    <string name="kp_help_content"><![CDATA[ 	    <html>         <body>         	<h3>Добро пожаловать в SmartRoom</h3>         	Выберите пункт  <b>Регистрация пользователя</b> из меню для регистрации.<br><br>         	<b>Войти как гость</b>: требуется лишь имя.<br><br>         	<b>Анонимный вход</b>: оставьте поля логина и пароля пустыми<br><br>         	         	<div>Описание полей:<br>         		<b>IP</b> - IP адрес<br>         		<b>Порт</b> - номер порта<br>         		<b>Логин</b> - логин при регистрации<br>         		<b>Пароль</b> - ваш пароль         	</div>         </body>         </html> 	    ]]></string>
+    <string name="manual">Руководство пользователя</string>
+    <string name="menu_endPresentation">Завершить презентацию</string>
+    <string name="menu_refresh">Обновить</string>
+    <string name="menu_services">Сервисы</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="mic_service">Микрофон</string>
+    <string name="mic_service_not_avail">Микрофон недоступен</string>
+    <string name="nameIsUsed">Введенное имя уже используется</string>
+    <string name="netService">Сервис Network</string>
+    <string name="noServicesAvailable">Не обнаружено доступных сервисов. \nПовторите попытку позднее</string>
+    <string name="participantEmail">Эл. почта</string>
+    <string name="participantLogin">Логин</string>
+    <string name="participantPassword">Пароль</string>
+    <string name="participantPhone">Телефон</string>
+    <string name="personIsOffline">Действие невозможно. Пользователь не в сети</string>
+    <string name="portFormatErr">Неверный порт</string>
+    <string name="presDownload">Вы хотите скачать презентацию?</string>
+    <string name="presDownloadTitle">Загрузка...</string>
+    <string name="presRewriteDownload">Презентация уже загружена. Переписать?</string>
+    <string name="presUnreach">Пользователь не в сети или не имеет презентации.</string>
+    <string name="presentation">Презентация</string>
+    <string name="presentation_descr">Показ и управление презентацией</string>
+    <string name="presentation_help_content"><![CDATA[ 	    <html>         <body>         	<p>В данном окне вы можете просматривать презентации и управлять своей.</p>         	         	<b>--</b>&#32;Используйте пункт "Обновить" меню, чтобы заново подключиться.<br><br>         	<b>--</b>&#32;Значок микрофона позволяет использовать ваше устройство как микрофон.<br>         	<b>--</b>&#32;переключайте слайды вашего доклада, используя стрелки "влево" и "вправо".<br>         </body>         </html> 	    ]]></string>
+    <string name="press2reconnect">Нажмите кнопку для подключения</string>
+    <string name="profileLabel">Профиль</string>
+    <string name="reconnectText">Подключиться</string>
+    <string name="registrationFail">Регистрация не удалась</string>
+    <string name="registrationService">Регистрация пользователя</string>
+    <string name="registrationTitle">Регистрация</string>
+    <string name="screenTimeoutDialog">Выключает экран пустя заданное время простоя</string>
+    <string name="screenTimeoutTitle">Выключение экрана</string>
+    <string name="services">Сервисы</string>
+    <string name="showLackOfMemory">Ошибка отображения данных. Недостаточно памяти.</string>
+    <string name="showSpeakerSummary">Отображаемое имя</string>
+    <string name="showSpeakerTitle">Показать имя выступающего</string>
+    <string name="showVideo">Показ видео</string>
+    <string name="showVideoTitle">Выбор видео</string>
+    <string name="signup">Регистрация пользователя</string>
+    <string name="ssIP">IP адрес</string>
+    <string name="ssPort">Порт</string>
+    <string name="startConference">Начать конференцию</string>
+    <string name="stopVideo">Остановить виео</string>
+    <string name="userAvatar">Аватар</string>
+    <string name="userEmail">Эл. почта</string>
+    <string name="userName">Имя</string>
+    <string name="userNameEx">Иванов Иван</string>
+    <string name="userPhone">Телефон</string>
+    <string name="wifiConnLost">Потеряно соедиенеие</string>
 </resources>

@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-sw600dp/values.xml -->
+    <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values-sw600dp/values-sw600dp.xml -->
     <eat-comment/>
+    <dimen name="abc_action_bar_content_inset_material">24dp</dimen>
     <dimen name="abc_action_bar_default_height_material">64dp</dimen>
     <dimen name="abc_action_bar_default_padding_material">4dp</dimen>
+    <dimen name="abc_action_bar_navigation_padding_start_material">8dp</dimen>
+    <dimen name="abc_action_bar_overflow_padding_end_material">18dp</dimen>
     <dimen name="abc_config_prefDialogWidth">580dp</dimen>
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/build/intermediates/exploded-aar/com.mikepenz.materialdrawer/library/0.9.5/res/values-sw600dp-v13/values.xml -->
+    <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/build/intermediates/exploded-aar/com.mikepenz/materialdrawer/3.1.0/res/values-sw600dp/values-sw600dp.xml -->
     <eat-comment/>
     <dimen name="material_drawer_vertical_padding">24dp</dimen>
-    <!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-sw600dp/values.xml -->
+    <dimen name="material_drawer_width">400dp</dimen>
+    <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values-sw600dp/values-sw600dp.xml -->
     <eat-comment/>
     <integer name="abc_max_action_buttons">5</integer>
 </resources>

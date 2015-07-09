@@ -31,7 +31,8 @@
     	        android:layout_gravity="center"
     	        android:layout_marginTop="@dimen/agenda_status_margin_top"
     	        android:text="(online)"
-    	        android:textSize="@dimen/agenda_status_text_size" />
+    	        android:textSize="@dimen/agenda_status_text_size"
+                android:textColor="@color/secondary_text_default_material_light" />
     	</LinearLayout>
 		
 		<TextView
@@ -43,7 +44,8 @@
 			android:layout_marginRight="@dimen/agenda_name_margin_right"
 			android:layout_marginEnd="@dimen/agenda_name_margin_right"
 			android:textSize="@dimen/agenda_name_text_size"
-			android:text="Name"/>
+			android:text="Name"
+            android:textColor="@color/primary_text_default_material_light" />
     	    
 		<TextView
 			android:id="@+id/presentationTitle"
@@ -52,9 +54,11 @@
 			android:layout_below="@id/speakerName"
 			android:layout_toRightOf="@id/avatar_status"
 			android:layout_toEndOf="@id/avatar_status"
+			android:textColor="@color/secondary_text_default_material_light"
 			android:layout_marginRight="@dimen/agenda_title_margin_right" 
 			android:layout_marginEnd="@dimen/agenda_title_margin_right" 
-			android:textSize="@dimen/agenda_title_text_size"/>
+			android:textSize="@dimen/agenda_title_text_size"
+			android:textColorHint="@color/material_drawer_hint_text" />
 
 		<!--<Button
 		    android:id="@+id/seeProfileBtn"

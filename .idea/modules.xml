@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KP.iml" filepath="$PROJECT_DIR$/KP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KP-for-Android-Studio.iml" filepath="$PROJECT_DIR$/KP-for-Android-Studio.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
-

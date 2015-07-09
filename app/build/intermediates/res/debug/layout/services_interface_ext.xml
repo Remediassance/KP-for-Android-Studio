@@ -13,6 +13,7 @@
 	    android:layout_centerHorizontal="true"
 	    android:layout_centerVertical="true"
     	android:textSize="@dimen/services_ext_text_size"
-    	android:clickable="false"/>
+    	android:clickable="false"
+		android:textColor="@android:color/black" />
 
-</RelativeLayout><!-- From: file:/C:/Users/Андрей/AndroidstudioProjects/KP/app/src/main/res/layout/services_interface_ext.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/layout/services_interface_ext.xml -->

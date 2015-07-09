@@ -5,6 +5,6 @@
     android:adjustViewBounds="true"
     android:orientation="vertical"
     android:scaleType="fitCenter"
-    android:src="@drawable/header">
-    
+    android:src="@drawable/menulogo1000">
+
 </ImageView>
