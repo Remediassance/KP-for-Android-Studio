@@ -2,12 +2,12 @@
 <resources>
     
     
-    <string name="drawer_item_home">Home</string>
-    <string name="drawer_item_free_play">Free Play</string>
-    <string name="drawer_item_custom">Custom</string>
+    <string name="drawer_item_home" translatable="false">Home</string>
+    <string name="drawer_item_free_play" translatable="false">Free Play</string>
+    <string name="drawer_item_custom" translatable="false">Custom</string>
     <string name="drawer_item_settings">Settings</string>
     <string name="drawer_item_help">Help</string>
-    <string name="drawer_item_open_source">Open Source</string>
+    <string name="drawer_item_open_source" translatable="false">Open Source</string>
     <string name="drawer_item_contact">Contact</string>
 
     <string name="services">Services</string>
@@ -16,12 +16,12 @@
     <string name="discussionList">List of discussions</string>
     
 	<string name="userNameEx">Ivanov Ivan</string>
-    <string name="userPhoneEx">+71234567890</string>
-    <string name="userEmailEx">example@mymail.com</string>
+    <string name="userPhoneEx" translatable="false">+71234567890</string>
+    <string name="userEmailEx" translatable="false">example@mymail.com</string>
     <string name="press2reconnect">Press this button to reconnect</string>
-    <string name="app_name">SRClient</string>
+    <string name="app_name" translatable="false">SRClient</string>
     <string name="action_settings">Settings</string>
-    <string name="sr_client">SR-client</string>
+    <string name="sr_client" translatable="false">SR-client</string>
     <string name="ssIP">IP address</string>
     <string name="ssPort">Port</string>
     <string name="participantLogin">Login</string>
@@ -35,7 +35,7 @@
     <string name="menu_refresh">Refresh</string>
     <string name="menu_endPresentation">End presentation</string>
     <string name="agenda">Activity program</string>
-    <string name="agenda_descr">A program of an activity</string>
+    <string name="agenda_descr">A program of the activity</string>
     <string name="presentation">Presentation</string>
     <string name="mic_service">Microphone</string>
     <string name="presentation_descr">Show and control presentations</string>
@@ -44,20 +44,20 @@
     <string name="startConference">Start conference</string>
     <string name="endConference">End conference</string>
     <string name="exitClientTitle">Exit client</string>
-    <string name="exitClientQuestion">Do you really want to logout from client?</string>
+    <string name="exitClientQuestion">Do you really want to logout?</string>
     <string name="screenTimeoutTitle">Screen timeout</string>
-    <string name="screenTimeoutDialog">Locks the screen after certain time</string>
+    <string name="screenTimeoutDialog">Locks the screen after certain amount of idle time</string>
     <string name="showSpeakerTitle">Show speaker name</string>
     <string name="showSpeakerSummary">Display name in Presentation service</string>
     <string name="mic_service_not_avail">Microphone service is not available</string>
-    <string name="showLackOfMemory">Display data error. Lack of memory.</string>
+    <string name="showLackOfMemory">Display data error: insufficiet memory.</string>
     <string name="reconnectText">Reconnect</string>
     <string name="connectionLost">Smart Space connection lost</string>
-    <string name="connectionFail">Failed to connect Smart Space.\nCheck WiFi connection.</string>
+    <string name="connectionFail">Failed to connect to the Smart Space.\nCheck WiFi connection.</string>
     <string name="noServicesAvailable">No services available now.\nTry again later.</string>
     <string name="agendaNotAvailable">Agenda is not available now. \nTry again later.</string>
     <string name="netService">Network service</string>
-    <string name="wifiConnLost">Wifi connection lost</string>
+    <string name="wifiConnLost">WiFi connection lost</string>
     <string name="portFormatErr">Incorrect port</string>
     <string name="userName">Name:</string>
     <string name="userPhone">Phone:</string>
@@ -73,19 +73,19 @@
 	<string name="action_edit">Edit</string>
 	<string name="action_save">Save</string>
 	<string name="personIsOffline">Unable to open profile. Person is offline.</string>
-	<string name="presUnreach">Person is offline or don\'t have presentation.</string>
+	<string name="presUnreach">Person is offline or doesn\'t have presentation.</string>
 	<string name="help">Help</string>
 	<string name="joiningSR">Joining SmartRoom</string>
 	<string name="help_agenda">Agenda help</string>
 	<string name="help_presentation">Presentation help</string>
-	<string name="installAdobe">Install Pdf Viewer</string>
-	<string name="pdfViewerUrl">https://play.google.com/store/apps/details?id=the.pdfviewer3</string>
+	<string name="installAdobe">Install PDF Viewer</string>
+	<string name="pdfViewerUrl" translatable="false">https://play.google.com/store/apps/details?id=the.pdfviewer3</string>
 	<string name="descrSlideImg">slide image</string>
 	<string name="descrRightArr">right arrow</string>
 	<string name="descrLeftArr">left arrow</string>
 	<string name="descrRefreshBtn">refresh btn</string>
 	<string name="descrMike">mike</string>
-	<string name="connectionRecoverFail">Recovering connection failed</string>
+	<string name="connectionRecoverFail">Failed to reconnect</string>
 	<string name="connectionRecoverOk">Connection established</string>
 	<string name="connectionTester">ConnectionTester</string>
 	<string name="connectionRecoverTitle">Connection recover</string>
@@ -97,7 +97,7 @@
 	<string name="showVideo">Show video</string>
 	<string name="showVideoTitle">Choose video</string>
 	<string name="stopVideo">Stop video</string>
-	<string name="confNotStarted">Conference is not started yet</string>
+	<string name="confNotStarted">Conference has not started yet</string>
 	<string name="presDownload">Would you like to download presentation?</string>
 	<string name="presDownloadTitle">Downloading presentation</string>
 	<string name="presRewriteDownload">Presentation is already downloaded. 

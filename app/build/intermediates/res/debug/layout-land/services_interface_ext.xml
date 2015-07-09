@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/lightBlue" >
-        
-    <TextView
-    	android:id="@+id/noServicesView"
-    	android:layout_width="fill_parent"
-    	android:layout_height="fill_parent"
-    	android:text="@string/noServicesAvailable"
-    	android:gravity="center"
-	    android:layout_centerHorizontal="true"
-	    android:layout_centerVertical="true"
-    	android:textSize="@dimen/services_ext_text_size"
-    	android:clickable="false"/>
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@color/lightBlue" >
 
-</RelativeLayout><!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/src/main/res/layout-land/services_interface_ext.xml -->
+	<TextView
+		android:id="@+id/noServicesView"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:text="@string/noServicesAvailable"
+		android:gravity="center"
+		android:layout_centerHorizontal="true"
+		android:layout_centerVertical="true"
+		android:textSize="@dimen/services_ext_text_size"
+		android:clickable="false"
+		android:textColor="@android:color/black" />
+
+</RelativeLayout><!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/layout-land/services_interface_ext.xml -->

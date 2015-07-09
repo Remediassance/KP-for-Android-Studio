@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values-xlarge-land/values.xml -->
+    <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values-xlarge-land/values-xlarge-land.xml -->
     <eat-comment/>
     <dimen name="abc_search_view_text_min_width">256dip</dimen>
-    <!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/src/main/res/values-xlarge-land/dimens.xml -->
+    <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/values-xlarge-land/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">128dp</dimen>
     <dimen name="agenda_avatar_height">155dp</dimen>

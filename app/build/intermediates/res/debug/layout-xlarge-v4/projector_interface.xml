@@ -5,6 +5,17 @@
     android:orientation="vertical"
     tools:context=".Agenda" >
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        android:transitionName="actionBar"
+        android:paddingTop="@dimen/tool_bar_top_padding"
+        />
+
     <ImageView
         android:id="@+id/presImage"
         android:layout_width="fill_parent"
@@ -12,72 +23,78 @@
         android:layout_centerInParent="true"
         android:src="@drawable/title"
         android:contentDescription="@string/descrSlideImg"/>
-    
+
     <RelativeLayout
         android:id="@+id/presNumbers"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="4sp"
         android:layout_width="wrap_content"
-        android:layout_height="55dp"
+        android:layout_height="25sp"
         android:background="@color/gray">
-        
+
         <TextView
             android:id="@+id/slideNumber"
             android:layout_width="wrap_content"
-	     android:layout_height="wrap_content"
-	     android:layout_centerInParent="true"
-	     android:paddingLeft="10sp"
-	     android:paddingRight="10sp"
-            android:textSize="25sp"/>        
-        
+            android:layout_height="wrap_content"
+            android:paddingLeft="5sp"
+            android:paddingRight="5sp"
+            android:layout_centerInParent="true"
+            android:textSize="16sp"/>
+
     </RelativeLayout>
-    
-    <ImageView 
+
+    <ImageView
         android:id="@+id/mic"
         android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:padding="10dp"
+        android:src="@drawable/inactive_mic"
+        android:contentDescription="@string/descrMike" android:layout_below="@+id/toolbar"
+        android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
+
+    <!--<ImageView
+     android:id="@+id/refresh"
+     android:layout_width="80dp"
 	 android:layout_height="80dp"
-	 android:layout_below="@+id/refresh"
 	 android:layout_alignParentRight="true"
-	 android:padding="10dp"
-     	 android:src="@drawable/inactive_mic"
-     	 android:contentDescription="@string/descrMike"/>
-    
-    <ImageView 
-        android:id="@+id/refresh"
-        android:layout_width="80dp"
-	 android:layout_height="80dp"
-	 android:layout_alignParentRight="true"
+	 android:layout_alignParentEnd="true"
 	 android:layout_alignParentTop="true"
 	 android:padding="10dp"
-     	 android:src="@drawable/refresh"
-     	 android:contentDescription="@string/descrRefreshBtn"/>
-           
+     android:src="@drawable/refresh"
+     android:contentDescription="@string/descrRefreshBtn"/>-->
+
     <RelativeLayout
         android:id="@+id/presMenu"
         android:layout_alignParentBottom="true"
         android:layout_width="fill_parent"
         android:layout_height="65sp"
         android:background="@color/gray">
-    
-        <ImageView
-        	android:id="@+id/btnBack"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginLeft="30dp"
-        	android:layout_alignParentLeft="true"
-        	android:src="@drawable/left_arrow"
-        	android:contentDescription="@string/descrLeftArr"/>
-        
-        <ImageView
-        	android:id="@+id/btnForward"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginRight="30dp"
-        	android:layout_alignParentRight="true"
-        	android:src="@drawable/right_arrow"
-        	android:contentDescription="@string/descrRightArr"/>
-        
-    </RelativeLayout>
-    
 
-</RelativeLayout><!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/src/main/res/layout-xlarge/projector_interface.xml -->
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="30dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/left_arrow"
+            android:contentDescription="@string/descrLeftArr"/>
+
+        <ImageView
+            android:id="@+id/btnForward"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="30dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/right_arrow"
+            android:contentDescription="@string/descrRightArr"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout><!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/layout-xlarge/projector_interface.xml -->

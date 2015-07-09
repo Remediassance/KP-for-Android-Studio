@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/remediassance/AndroidStudioProjects/Android-Studio-KP/app/build/intermediates/exploded-aar/com.mikepenz.materialdrawer/library/0.9.5/res/values-v19/values.xml -->
+    <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/build/intermediates/exploded-aar/com.mikepenz/materialdrawer/3.1.0/res/values-v19/values-v19.xml -->
     <eat-comment/>
     <dimen name="tool_bar_top_padding">25dp</dimen>
-    <style name="AppTheme" parent="BaseTheme">
+    <style name="MaterialDrawerTheme.ActionBar.TranslucentStatus" parent="MaterialDrawerTheme.ActionBar">
         <item name="android:windowTranslucentStatus">true</item>
     </style>
-    <style name="AppTheme.Light" parent="BaseTheme.Light">
+    <style name="MaterialDrawerTheme.Light.ActionBar.TranslucentStatus" parent="MaterialDrawerTheme.Light.ActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="MaterialDrawerTheme.Light.DarkToolbar.ActionBar.TranslucentStatus" parent="MaterialDrawerTheme.Light.DarkToolbar.ActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="MaterialDrawerTheme.Light.DarkToolbar.TranslucentStatus" parent="MaterialDrawerTheme.Light.DarkToolbar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="MaterialDrawerTheme.Light.TranslucentStatus" parent="MaterialDrawerTheme.Light">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="MaterialDrawerTheme.TranslucentStatus" parent="MaterialDrawerTheme">
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 </resources>

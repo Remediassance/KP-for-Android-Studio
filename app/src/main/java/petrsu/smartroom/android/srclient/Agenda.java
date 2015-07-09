@@ -44,6 +44,7 @@ import android.graphics.BitmapFactory;
 
 import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -55,7 +56,8 @@ import java.lang.Thread;
 /**
  * 
  * @author pavlin
- * 
+ * @author remediassance
+ *
  * Agenda class shows activity program and
  * handles events like start conference, end
  * presentation, etc.
@@ -158,33 +160,34 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        new Drawer()
+        Drawer result = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
                 .withActionBarDrawerToggle(true)
                 .withHeader(R.layout.drawer_header)
+                .withDrawerWidthDp(320)
                 .addDrawerItems(
-                    new SectionDrawerItem().withName(R.string.services),
-                    new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
-                    new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
+                        new SectionDrawerItem().withName(R.string.services),
+                        new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
+                        new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
 
-                    //new SectionDrawerItem().withName(R.string.discussion),
-                    //new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
-                    //new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
+                        //new SectionDrawerItem().withName(R.string.discussion),
+                        //new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
+                        //new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
 
-                    new SectionDrawerItem().withName(R.string.action_settings),
-                    new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
-                    new PrimaryDrawerItem().withName(R.string.reconnectText).withIcon(FontAwesome.Icon.faw_refresh),
+                        new SectionDrawerItem().withName(R.string.action_settings),
+                        new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
+                        new PrimaryDrawerItem().withName(R.string.reconnectText).withIcon(FontAwesome.Icon.faw_refresh),
 
-                    new SectionDrawerItem().withName(R.string.help),
-                    new PrimaryDrawerItem().withName(R.string.help_agenda).withIcon(FontAwesome.Icon.faw_info),
-                    new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
+                        new SectionDrawerItem().withName(R.string.help),
+                        new PrimaryDrawerItem().withName(R.string.help_agenda).withIcon(FontAwesome.Icon.faw_info),
+                        new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
 
-                    new DividerDrawerItem(),
-                    new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
+                        new DividerDrawerItem(),
+                        new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                    public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                         //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                         switch ((int) id) {
                             case 1: break;
@@ -197,8 +200,8 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
                             case 8:    gotoManual();       break;
                             case 10:   exitApp();          break;
                             default:  break;
-
                         }
+						return true;
                     }
                 }).build();
 		
