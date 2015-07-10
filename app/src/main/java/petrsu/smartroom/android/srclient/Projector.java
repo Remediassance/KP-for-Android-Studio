@@ -350,14 +350,14 @@ public class Projector extends ActionBarActivity
 			/* Next button */
 			case R.id.btnForward:
 				
-				/*if(event.getAction() == MotionEvent.ACTION_DOWN) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN) {
 					Bitmap image = bitmapImageFromRes(
 							R.drawable.right_arrow_pressed);
 					rightArrowBtn.setImageBitmap(image);
-				} else */
+				} else
                 if(event.getAction() == MotionEvent.ACTION_UP) {
-					/*Bitmap image = bitmapImageFromRes(R.drawable.right_arrow);
-					rightArrowBtn.setImageBitmap(image);*/
+					Bitmap image = bitmapImageFromRes(R.drawable.right_arrow);
+					rightArrowBtn.setImageBitmap(image);
 					
 					if(!checkConnection()) 
 						return false;
@@ -660,7 +660,7 @@ public class Projector extends ActionBarActivity
 	public Bitmap bitmapImageFromRes(int resId) {
 		Bitmap image = null;
 		BitmapFactory.Options options = new BitmapFactory.Options();
-		options.inSampleSize = 2;
+		options.inSampleSize = 1;
 		image = BitmapFactory.decodeResource(getResources(), resId, options);
 		
 		return image;

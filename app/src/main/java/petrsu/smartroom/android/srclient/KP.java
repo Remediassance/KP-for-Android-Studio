@@ -226,7 +226,10 @@ public class KP extends ActionBarActivity
 		switch(view.getId()) {
 		
 			case R.id.connectBtn:
-				 if(event.getAction() == MotionEvent.ACTION_UP) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    connectBtn.setBackgroundResource(R.drawable.button_pressed);
+                } else if(event.getAction() == MotionEvent.ACTION_UP) {
+                    connectBtn.setBackgroundResource(R.drawable.button);
 					try {
 						port = Integer.parseInt(editPort.getText().toString());
 						joinSmartSpace(name, password);
@@ -239,10 +242,12 @@ public class KP extends ActionBarActivity
 				break;
 				
 			case R.id.guestBtn:
-				if(event.getAction() == MotionEvent.ACTION_UP) {
-					editName.setText("");
-					editPassword.setText("");
-					
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    guestBtn.setBackgroundResource(R.drawable.button_pressed);
+                } else if(event.getAction() == MotionEvent.ACTION_UP) {
+                    guestBtn.setBackgroundResource(R.drawable.button);
+                    editName.setText("");
+                    editPassword.setText("");
 					try {
 						port = Integer.parseInt(editPort.getText().toString());
 						joinAsGuest(port);

@@ -1,9 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    tools:context=".Agenda" >
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                tools:context=".Agenda" >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -23,7 +23,7 @@
         android:src="@drawable/title"
         android:contentDescription="@string/descrSlideImg"
         android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
-        android:layout_alignTop="@+id/mic"/>
+        android:layout_below="@+id/toolbar"/>
 
     <RelativeLayout
         android:id="@+id/presNumbers"
@@ -43,7 +43,8 @@
         android:padding="10dp"
         android:src="@drawable/inactive_mic"
         android:contentDescription="@string/descrMike" android:layout_below="@+id/toolbar"
-        android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
+        android:layout_alignParentRight="true" android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"/>
 
     <!--<ImageView
         android:id="@+id/refresh"
@@ -55,32 +56,16 @@
      	 android:src="@drawable/refresh"
      	 android:contentDescription="@string/descrRefreshBtn"/>-->
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:id="@+id/presMenu"
         android:layout_alignParentBottom="true"
         android:layout_width="fill_parent"
         android:layout_height="65sp"
-        android:background="@color/gray">
+        android:background="@color/material_drawer_primary_100"
+        android:elevation="2dp"
+        android:alpha="0.9">
 
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginLeft="30dp"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/left_arrow"
-            android:contentDescription="@string/descrLeftArr"/>
-
-        <ImageView
-            android:id="@+id/btnForward"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginRight="30dp"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/right_arrow"
-            android:contentDescription="@string/descrRightArr"/>
-
-    </RelativeLayout>
+    </RelativeLayout> -->
     <TextView
         android:id="@+id/slideNumber"
         android:layout_width="wrap_content"
@@ -89,6 +74,30 @@
         android:paddingRight="5sp"
         android:textSize="16sp" android:layout_alignTop="@+id/presImage" android:layout_toRightOf="@+id/presNumbers"
         android:layout_toEndOf="@+id/presNumbers"/>
+
+    <ImageView
+        android:id="@+id/btnForward"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/right_arrow"
+        android:contentDescription="@string/descrRightArr"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="20dp"/>
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/left_arrow"
+        android:contentDescription="@string/descrLeftArr"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/slideNumber"
+        android:layout_toEndOf="@+id/slideNumber"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp"/>
 
 
 </RelativeLayout>

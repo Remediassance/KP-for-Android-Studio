@@ -28,8 +28,8 @@
     <string name="participantEmail">Email: </string>
     <string name="participantPhone">Phone: </string>
     <string name="participantPassword">Password</string>
-    <string name="connectBtn">Join SmartRoom</string>
-    <string name="guestBtn">Join as a guest</string>
+    <string name="connectBtn">Log in</string>
+    <string name="guestBtn">As guest</string>
     <string name="menu_services">Services</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_refresh">Refresh</string>
