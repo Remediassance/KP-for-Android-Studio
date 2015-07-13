@@ -4,17 +4,13 @@
     android:shape="rectangle">
 
    <solid 
-       android:color="@color/clickedBtn"/>
+       android:color="@color/material_drawer_accent_700"/>
 
    <corners
        android:topLeftRadius="0sp"/>
    
    <size
        android:width="155sp"/>
-   
-   <gradient
-       android:startColor="@color/clickedSecBtn"
-       android:endColor="@color/clickedBtn"
-       android:angle="-90.0"/>
+
    
 </shape><!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/drawable-mdpi/button_pressed.xml -->

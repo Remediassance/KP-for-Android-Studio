@@ -4,17 +4,12 @@
     android:shape="rectangle">
 
    <solid 
-       android:color="@color/staticBtn"/>
+       android:color="@color/material_drawer_accent"/>
 
    <corners
        android:topLeftRadius="0sp"/>
    
    <size
        android:width="155sp"/>
-   
-   <gradient
-       android:startColor="@color/staticSecBtn"
-       android:endColor="@color/staticBtn"
-       android:angle="-90.0"/>
    
 </shape><!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/drawable-mdpi/button.xml -->

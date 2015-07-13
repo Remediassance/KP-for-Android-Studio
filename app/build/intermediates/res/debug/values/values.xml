@@ -131,6 +131,8 @@
     <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="material_drawer_accent">#00E676</color>
+    <color name="material_drawer_accent_100">#B9F6CA</color>
+    <color name="material_drawer_accent_700">#00C853</color>
     <color name="material_drawer_background">#F9F9F9</color>
     <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/build/intermediates/exploded-aar/com.mikepenz/materialdrawer/3.1.0/res/values/values.xml -->
     <eat-comment/>
@@ -718,7 +720,7 @@
     <string name="avail_services">Services</string>
     <string name="chooseAction">Choose action</string>
     <string name="confNotStarted">Conference has not started yet</string>
-    <string name="connectBtn">Join SmartRoom</string>
+    <string name="connectBtn">Log in</string>
     <string name="connectionFail">Failed to connect to the Smart Space.\nCheck WiFi connection.</string>
     <string name="connectionLost">Smart Space connection lost</string>
     <string name="connectionRecoverFail">Failed to reconnect</string>
@@ -763,7 +765,7 @@
     <string name="endConference">End conference</string>
     <string name="exitClientQuestion">Do you really want to logout?</string>
     <string name="exitClientTitle">Exit client</string>
-    <string name="guestBtn">Join as a guest</string>
+    <string name="guestBtn">As guest</string>
     <string name="guestNameEmpty">Name has to be filled</string>
     <string name="help">Help</string>
     <string name="help_agenda">Agenda help</string>

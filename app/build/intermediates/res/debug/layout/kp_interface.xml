@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white"
+    android:background="@color/material_drawer_background"
     android:orientation="vertical"
     tools:context=".KP"
     tools:ignore="HardcodedText,RtlHardcoded" >
@@ -142,30 +142,31 @@
 
 	<Button
 	    android:id="@+id/guestBtn"
-	    android:layout_width="100dp"
-	    android:layout_height="wrap_content"
+	    android:layout_width="88dp"
+	    android:layout_height="48dp"
 	    android:layout_alignWithParentIfMissing="false"
-        android:background="?attr/colorPrimary"
+        android:background="@drawable/ripple_effect"
 	    android:text="@string/guestBtn"
 	    android:textColor="@color/white"
 	    android:textSize="13sp"
 	    android:textStyle="bold"
         android:layout_alignTop="@+id/connectBtn"
-        android:layout_alignRight="@+id/editPort"
-        android:layout_alignEnd="@+id/editPort" />
+        android:layout_alignRight="@+id/advModeParent"
+        android:layout_alignEnd="@+id/advModeParent"/>
 
     <Button
         android:id="@+id/connectBtn"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:background="@drawable/ripple_effect"
         android:text="@string/connectBtn"
         android:textColor="@color/white"
         android:textSize="13sp"
         android:textStyle="bold"
+        android:layout_marginTop="32dp"
         android:layout_below="@+id/editPort"
-        android:layout_alignLeft="@+id/editPort"
-        android:layout_alignStart="@+id/editPort"
-        android:layout_marginTop="10dp" />
+        android:layout_toLeftOf="@+id/guestBtn"
+        android:layout_toStartOf="@+id/guestBtn"
+        android:layout_marginRight="8dp"/>
 
 </RelativeLayout><!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/layout/kp_interface.xml -->

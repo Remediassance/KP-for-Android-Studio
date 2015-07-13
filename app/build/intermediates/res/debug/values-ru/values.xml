@@ -56,7 +56,7 @@
     <string name="endConference">Завершить конференцию</string>
     <string name="exitClientQuestion">Вы действительно хотите выйти?</string>
     <string name="exitClientTitle">Выход</string>
-    <string name="guestBtn">Войти как гость</string>
+    <string name="guestBtn">Как гость</string>
     <string name="guestNameEmpty">Поле имени должно быть заполнено</string>
     <string name="help">Справка</string>
     <string name="help_agenda">Справка</string>

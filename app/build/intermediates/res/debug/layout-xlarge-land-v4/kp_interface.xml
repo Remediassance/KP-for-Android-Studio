@@ -142,29 +142,31 @@
 
     <Button
         android:id="@+id/guestBtn"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
         android:layout_alignWithParentIfMissing="false"
-        android:background="?attr/colorPrimary"
+        android:background="@drawable/ripple_effect"
         android:text="@string/guestBtn"
         android:textColor="@color/white"
         android:textSize="13sp"
         android:textStyle="bold"
-        android:layout_below="@+id/connectBtn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
+        android:layout_alignTop="@+id/connectBtn"
+        android:layout_alignRight="@+id/editPort"
+        android:layout_alignEnd="@+id/editPort"/>
 
     <Button
         android:id="@+id/connectBtn"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:background="@drawable/ripple_effect"
         android:text="@string/connectBtn"
         android:textColor="@color/white"
         android:textSize="13sp"
         android:textStyle="bold"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="32dp"
         android:layout_below="@+id/editPort"
-        android:layout_centerHorizontal="true" />
+        android:layout_toLeftOf="@+id/guestBtn"
+        android:layout_toStartOf="@+id/guestBtn"
+        android:layout_marginRight="8dp"/>
 
 </RelativeLayout><!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/layout-xlarge-land/kp_interface.xml -->
