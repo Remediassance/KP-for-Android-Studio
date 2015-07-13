@@ -6,6 +6,8 @@
     <color name="material_drawer_primary_dark">#1976D2</color>
     <color name="material_drawer_primary_light">#BBDEFB</color>
     <color name="material_drawer_accent">#00E676</color>
+    <color name="material_drawer_accent_700">#00C853</color>
+    <color name="material_drawer_accent_100">#B9F6CA</color>
 
     <!-- OVERWRITE THESE COLORS FOR A LIGHT THEME -->
     <!-- MaterialDrawer DEFAULT colors -->

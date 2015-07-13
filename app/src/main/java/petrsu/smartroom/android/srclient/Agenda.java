@@ -195,7 +195,7 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
                             //case 4:     gotoCurDisq();      break;
                             //case 5:     gotoDisqList();     break;
                             case 4:    gotoSettings();     break;
-                            case 5:    updateAgenda();     break;
+                            case 5:    updateCurTimeslot();break;
                             case 7:    openHelp();         break;
                             case 8:    gotoManual();       break;
                             case 10:   exitApp();          break;
@@ -340,6 +340,29 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
         startActivity(restartIntent);
     }
 
+    /**
+     * Updates agenda time slot
+     */
+    public void updateCurTimeslot() {
+        int index = KP.getCurrentTimeslotIndex() - 1;
+        setCurrentTimeslot(index);
+
+		/* Update agenda view */
+        try {
+            new updateAgendaAsync(index).execute();
+        } catch(ExceptionInInitializerError e) {
+            e.printStackTrace();
+            updateAgenda();
+        }
+
+		/* Triggers to Projector if user is speaker */
+        if(KP.checkSpeakerState()) {
+            Intent intent = new Intent();
+            intent.setClass(this, Projector.class);
+            startActivity(intent);
+        }
+    }
+
 
     /**=========================================================================
     * GO TO CURRENT DISCUSSION
@@ -436,7 +459,7 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 	 */
 	synchronized public Bitmap loadImage(String link) {
 		BitmapFactory.Options options = new BitmapFactory.Options();
-		options.inSampleSize = 2;
+		options.inSampleSize = 1;
 		Bitmap image = null;
 
 		try {
@@ -648,58 +671,58 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 	public void initListView() {
 		listView = (ListView) findViewById (R.id.agendaListView);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view, 
-					int position, long id) {
-				final int pos = position;
-				int agendaContextMenu = R.array.agenda_action_user;
-				
-				if(KP.isChairman)
-					agendaContextMenu = R.array.agenda_action_chairman;
-				
-				AlertDialog.Builder builder = new AlertDialog.Builder(
-						Agenda.this);
-				builder.setTitle(R.string.chooseAction);
-				builder.setItems(agendaContextMenu, 
-						new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						switch(which) {
-							case LOOK_PRESENTATION:
-								String link = KP.getPresentationLink(pos);
-								
-								if(link != null) {
-									Uri uri = Uri.parse(prepareLink(link));
-									
-									if(openRemotePresentation(uri) != 0) {
-										showDownloadDialog(uri);
-									}
-								} else {
-									Toast.makeText(getApplicationContext(), 
-											R.string.presUnreach, 
-											Toast.LENGTH_SHORT).show();
-								}
-								break;
-								
-							case PERSON_PROFILE:
-								Intent intent = new Intent(
-										getApplicationContext(), 
-										Profile.class);
-								intent.putExtra("index", pos);
-								startActivity(intent);
-								break;
-						
-							case START_CONFERENCE_FROM:
-								KP.startConferenceFrom(pos);
-								break;
-						}
-					}
-				});
-				
-				AlertDialog dialog = builder.create();
-				dialog.show();
-			}
-		});
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                final int pos = position;
+                int agendaContextMenu = R.array.agenda_action_user;
+
+                if (KP.isChairman)
+                    agendaContextMenu = R.array.agenda_action_chairman;
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(
+                        Agenda.this);
+                builder.setTitle(R.string.chooseAction);
+                builder.setItems(agendaContextMenu,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                switch (which) {
+                                    case LOOK_PRESENTATION:
+                                        String link = KP.getPresentationLink(pos);
+
+                                        if (link != null) {
+                                            Uri uri = Uri.parse(prepareLink(link));
+
+                                            if (openRemotePresentation(uri) != 0) {
+                                                showDownloadDialog(uri);
+                                            }
+                                        } else {
+                                            Toast.makeText(getApplicationContext(),
+                                                    R.string.presUnreach,
+                                                    Toast.LENGTH_SHORT).show();
+                                        }
+                                        break;
+
+                                    case PERSON_PROFILE:
+                                        Intent intent = new Intent(
+                                                getApplicationContext(),
+                                                Profile.class);
+                                        intent.putExtra("index", pos);
+                                        startActivity(intent);
+                                        break;
+
+                                    case START_CONFERENCE_FROM:
+                                        KP.startConferenceFrom(pos);
+                                        break;
+                                }
+                            }
+                        });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
 	}
 	
 	/**
@@ -750,28 +773,7 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 		this.registerReceiver(bc, filter);
 	}
 	
-	/**
-	 * Updates agenda time slot
-	 */
-	public void updateCurTimeslot() {
-		int index = KP.getCurrentTimeslotIndex() - 1;
-		setCurrentTimeslot(index);
-		
-		/* Update agenda view */
-		try {
-			new updateAgendaAsync(index).execute();
-		} catch(ExceptionInInitializerError e) {
-			e.printStackTrace();
-			updateAgenda();
-		}
-		
-		/* Triggers to Projector if user is speaker */
-		if(KP.checkSpeakerState()) {
-			Intent intent = new Intent();
-			intent.setClass(this, Projector.class);
-			startActivity(intent);
-		}
-	}
+
 	
 	/**
 	 * Formatting URL as an absolute link

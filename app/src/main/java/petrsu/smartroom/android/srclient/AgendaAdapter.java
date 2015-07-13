@@ -31,14 +31,14 @@ public class AgendaAdapter extends SimpleAdapter {
 
 		/* Highlight of current speaker */
 		if(position == Agenda.currentTimeslotIndex)
-			rowView.setBackgroundColor(Color.parseColor("#add8e6"));
+			rowView.setBackgroundColor(Color.parseColor("#B9F6CA"));
 		else
 			rowView.setBackgroundColor(Color.WHITE);
 		
 		/* Highlight user profile */
 		if(name != null)
 			if(position == KP.personIndex) {
-				name.setTextColor(Color.RED);
+				name.setTextColor(Color.parseColor("#00C853"));
 			} else {
 				name.setTextColor(Color.BLACK);
 			}
