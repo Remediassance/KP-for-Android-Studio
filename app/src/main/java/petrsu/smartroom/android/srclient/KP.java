@@ -45,8 +45,7 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
  *
  * @author remediassance
  */
-public class KP extends ActionBarActivity
-	implements View.OnTouchListener, View.OnClickListener {
+public class KP extends ActionBarActivity implements View.OnClickListener {
 	
 	public static boolean isChairman;		// Chairman indicator
 	public static int connectionState;		// Connection indicator
@@ -136,9 +135,9 @@ public class KP extends ActionBarActivity
         setScreenTimeoutSpec();
         
         connectBtn = (Button) findViewById (R.id.connectBtn);
-        connectBtn.setOnTouchListener(this);
+        connectBtn.setOnClickListener(this);
         guestBtn = (Button) findViewById (R.id.guestBtn);
-        guestBtn.setOnTouchListener(this);
+        guestBtn.setOnClickListener(this);
         
         editName = (EditText) findViewById (R.id.editName);
         editPassword = (EditText) findViewById (R.id.editPassword);
@@ -217,7 +216,7 @@ public class KP extends ActionBarActivity
         startActivity(intent);
     }
 
-    @Override
+   /* @Override
 	public boolean onTouch(View view, MotionEvent event) {
 		final String name = editName.getText().toString();
 		final String password = editPassword.getText().toString();
@@ -231,13 +230,13 @@ public class KP extends ActionBarActivity
                 } else if(event.getAction() == MotionEvent.ACTION_UP) {
                     connectBtn.setBackgroundResource(R.drawable.button);
 					try {
-						port = Integer.parseInt(editPort.getText().toString());
-						joinSmartSpace(name, password);
-					} catch(NumberFormatException e) {
-						Toast.makeText(this, R.string.portFormatErr, 
-								Toast.LENGTH_SHORT).show();
-						return false;
-					}
+                        port = Integer.parseInt(editPort.getText().toString());
+                        joinSmartSpace(name, password);
+                    } catch(NumberFormatException e) {
+                        Toast.makeText(this, R.string.portFormatErr,
+                                Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
 				}
 				break;
 				
@@ -257,7 +256,7 @@ public class KP extends ActionBarActivity
 						return false;
 					}
 				}
-				break;
+				break;*/
 				
 			/*case R.id.regServiceBtn:
 				if(event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -269,12 +268,16 @@ public class KP extends ActionBarActivity
 					scanQrCode();
 				}
 				break;*/
-		}
+		/*}
 		return true;
-	}
+	}*/
 	
 	@Override
 	public void onClick(View view) {
+		final String name = editName.getText().toString();
+		final String password = editPassword.getText().toString();
+		ip = editIP.getText().toString();
+
 		switch(view.getId()) {
 			case R.id.advModeImg:
 			case R.id.advModeText:
@@ -290,6 +293,24 @@ public class KP extends ActionBarActivity
 					editPort.setVisibility(EditText.VISIBLE);
 				}
 				break;
+			case R.id.connectBtn:
+                try {
+                    port = Integer.parseInt(editPort.getText().toString());
+                    joinSmartSpace(name, password);
+                } catch(NumberFormatException e) {
+                    Toast.makeText(this, R.string.portFormatErr,
+                            Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.guestBtn:
+                try {
+                    port = Integer.parseInt(editPort.getText().toString());
+                    joinAsGuest(port);
+                } catch(NumberFormatException e) {
+                    Toast.makeText(this, R.string.portFormatErr,
+                            Toast.LENGTH_SHORT).show();
+                }
+                break;
 		}
 	}
 
