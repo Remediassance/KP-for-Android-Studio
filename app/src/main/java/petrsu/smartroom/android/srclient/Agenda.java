@@ -209,11 +209,11 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 		initListView();
 		
 		BitmapFactory.Options options = new BitmapFactory.Options();
-		options.inSampleSize = 6;
+		options.inSampleSize = 1;
 		imgDefault = BitmapFactory.decodeResource(getResources(),
-				R.drawable.user, options);
+				R.drawable.crop, options);
 		imgNoImage = BitmapFactory.decodeResource(getResources(), 
-				R.drawable.no_image, options);
+				R.drawable.crop, options);
 		
 		/* Initialize progress dialog for showing download 
 		 * process */

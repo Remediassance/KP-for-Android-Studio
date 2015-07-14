@@ -48,8 +48,7 @@ import java.util.List;
  * @author remediassance
  *	Controls presentation demonstration process
  */
-public class Projector extends ActionBarActivity
-	implements View.OnClickListener, View.OnTouchListener {
+public class Projector extends ActionBarActivity implements View.OnClickListener {
 	
 	public static final String BROADCAST_STATUS_SERVICE = 
 			"com.example.srclient.stopMicService";
@@ -348,14 +347,17 @@ public class Projector extends ActionBarActivity
 					micIsActive = false;
 				}
 				break;
+            case R.id.btnForward: nextSlide(); break;
+            case R.id.btnBack: previousSlide(); break;
+
 		}
 	}
 	
-	@Override
+	/*@Override
 	public boolean onTouch(View view, MotionEvent event) {
 		
 		switch(view.getId()) {
-			/* Next button */
+
 			case R.id.btnForward:
 				
 				if(event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -376,17 +378,17 @@ public class Projector extends ActionBarActivity
 				}
 				break;
 			
-			/* Previous button */
+
 			case R.id.btnBack:
 				
-				/*if(event.getAction() == MotionEvent.ACTION_DOWN) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN) {
 					Bitmap image = bitmapImageFromRes(
 							R.drawable.left_arrow_pressed);
 					leftArrowBtn.setImageBitmap(image);
-				} else */
+				} else
                 if(event.getAction() == MotionEvent.ACTION_UP) {
-					/*Bitmap image = bitmapImageFromRes(R.drawable.left_arrow);
-					leftArrowBtn.setImageBitmap(image);*/
+					Bitmap image = bitmapImageFromRes(R.drawable.left_arrow);
+					leftArrowBtn.setImageBitmap(image);
 					
 					if(!checkConnection()) 
 						return false;
@@ -396,32 +398,10 @@ public class Projector extends ActionBarActivity
 					leftArrowBtn.setOnTouchListener(this);
 				}
 				break;
-				
-			/* Refresh button */
-			/*case R.id.refresh:
-				
-				if(event.getAction() == MotionEvent.ACTION_DOWN) {
-					Bitmap image = bitmapImageFromRes(R.drawable.refresh_pressed);
-					refreshBtn.setImageBitmap(image);
-				} else if(event.getAction() == MotionEvent.ACTION_UP) {
-					Bitmap image = bitmapImageFromRes(R.drawable.refresh);
-					refreshBtn.setImageBitmap(image);
-					refreshBtn.setOnTouchListener(null);
-					
-					if(!checkConnection()) 
-						return false;
-
-					KP.loadPresentation(this);
-					updateProjector();
-					refreshBtn.setOnTouchListener(this);
-				}
-				break;	*/
-
-		}
-		
 		return true;
 	}
-	
+	*/
+
 	/**
 	 * Loads presentation slide image
 	 *
