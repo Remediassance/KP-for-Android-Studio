@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
-    <string-array name="videoList">
+    <string-array translatable="false" name="videoList">
     	<item>Video 1</item>
     	<item>Video 2</item>
     </string-array>
 
-    <string-array name="timeoutEntries">
+    <string-array translatable="false" name="timeoutEntries">
     	<item>15 sec</item>
     	<item>30 sec</item>
     	<item>1 min</item>
@@ -14,8 +14,8 @@
     	<item>5 min</item>
     	<item>10 min</item>
     </string-array>
-    
-    <string-array name="timeoutValues">
+
+    <string-array translatable="false" name="timeoutValues">
     	<item>15000</item>
     	<item>30000</item>
     	<item>60000</item>
@@ -23,16 +23,16 @@
     	<item>300000</item>
     	<item>600000</item>
     </string-array>
-    
-    <string-array name="agenda_action_chairman">
+
+    <string-array  name="agenda_action_chairman">
         <item>Look presentation</item>
         <item>Person profile</item>
-        <item>Start conference from participant</item>        
+        <item>Start conference from participant</item>
     </string-array>
-    
-    <string-array name="agenda_action_user">
+
+    <string-array  name="agenda_action_user">
         <item>Look presentation</item>
-        <item>Person profile</item>     
+        <item>Person profile</item>
     </string-array>
     
 </resources>
