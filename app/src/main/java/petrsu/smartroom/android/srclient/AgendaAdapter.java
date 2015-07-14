@@ -38,7 +38,7 @@ public class AgendaAdapter extends SimpleAdapter {
 		/* Highlight user profile */
 		if(name != null)
 			if(position == KP.personIndex) {
-				name.setTextColor(Color.parseColor("#00C853"));
+				name.setTextColor(Color.parseColor("#64DD17"));
 			} else {
 				name.setTextColor(Color.BLACK);
 			}

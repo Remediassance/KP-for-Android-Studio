@@ -61,10 +61,10 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	private String contentUrl;							// Content service URL
 	private BroadcastReceiver bcReceiver;
 	private RelativeLayout linearLayout;				// Control panel layout
-	private ImageView leftArrowBtn;	
-	private ImageView rightArrowBtn;	
+	private Button leftArrowBtn;
+	private Button rightArrowBtn;
 	private ImageView presentationImage;	
-	private ImageView microphoneBtn;	
+	private ImageButton microphoneBtn;
 	private ImageView refreshBtn;
 	private TextView textNumAndCount;	
 	private boolean controlPanelIsActive;	
@@ -125,12 +125,12 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.projector_interface);
 		
-		//linearLayout = (RelativeLayout) findViewById (R.id.presMenu);
-		leftArrowBtn = (ImageView) findViewById (R.id.btnBack);
+		linearLayout = (RelativeLayout) findViewById (R.id.presMenu);
+		leftArrowBtn = (Button) findViewById (R.id.btnBack);
 		leftArrowBtn.setOnClickListener(this);
-		rightArrowBtn = (ImageView) findViewById (R.id.btnForward);
+		rightArrowBtn = (Button) findViewById (R.id.btnForward);
 		rightArrowBtn.setOnClickListener(this);
-		microphoneBtn = (ImageView) findViewById (R.id.mic);
+		microphoneBtn = (ImageButton) findViewById (R.id.mic);
 		microphoneBtn.setOnClickListener(this);
 		/*refreshBtn = (ImageView) findViewById (R.id.refresh);
 		refreshBtn.setOnTouchListener(this);*/

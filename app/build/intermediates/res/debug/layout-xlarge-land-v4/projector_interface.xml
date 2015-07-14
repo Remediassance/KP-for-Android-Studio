@@ -6,45 +6,52 @@
                 tools:context=".Agenda" >
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:minHeight="?attr/actionBarSize"
-        android:transitionName="actionBar"
-        android:paddingTop="@dimen/tool_bar_top_padding"
-        />
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:minHeight="?attr/actionBarSize"
+            android:transitionName="actionBar"
+            android:paddingTop="@dimen/tool_bar_top_padding"
+            />
 
     <ImageView
-        android:id="@+id/presImage"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:src="@drawable/title"
-        android:contentDescription="@string/descrSlideImg"
-        android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
-        android:layout_below="@+id/toolbar"/>
+            android:id="@+id/presImage"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/title"
+            android:contentDescription="@string/descrSlideImg"
+            android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
+            android:layout_below="@+id/toolbar"
+            android:background="@color/material_drawer_background"/>
 
     <RelativeLayout
-        android:id="@+id/presNumbers"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="4sp"
-        android:layout_width="wrap_content"
-        android:layout_height="25sp"
-        android:background="@color/gray">
+            android:id="@+id/presNumbers"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="4sp"
+            android:layout_width="wrap_content"
+            android:layout_height="25sp"
+            android:background="@color/gray">
 
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/mic"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:padding="10dp"
-        android:src="@drawable/inactive_mic"
-        android:contentDescription="@string/descrMike" android:layout_below="@+id/toolbar"
-        android:layout_alignParentRight="true" android:layout_alignParentEnd="true"
-        android:layout_marginTop="50dp"/>
+    <ImageButton
+            android:id="@+id/mic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/inactive_mic"
+            android:contentDescription="@string/descrMike"
+            android:background="@drawable/circle_btn_selector"
+            android:layout_marginRight="82dp"
+            android:layout_marginEnd="82dp"
+            android:layout_marginTop="75dp"
+            android:layout_below="@+id/toolbar"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:translationZ="2dp"
+            android:elevation="2dp"/>
 
     <!--<ImageView
         android:id="@+id/refresh"
@@ -56,48 +63,53 @@
      	 android:src="@drawable/refresh"
      	 android:contentDescription="@string/descrRefreshBtn"/>-->
 
-    <!--<RelativeLayout
-        android:id="@+id/presMenu"
-        android:layout_alignParentBottom="true"
-        android:layout_width="fill_parent"
-        android:layout_height="65sp"
-        android:background="@color/material_drawer_primary_100"
-        android:elevation="2dp"
-        android:alpha="0.9">
+    <RelativeLayout
+            android:id="@+id/presMenu"
+            android:layout_alignParentBottom="true"
+            android:layout_width="fill_parent"
+            android:layout_height="65sp"
+            android:background="@color/material_drawer_primary"
+            android:elevation="2dp"
+            android:alpha="0.9"
+            android:translationZ="2dp">
 
-    </RelativeLayout> -->
-    <TextView
-        android:id="@+id/slideNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="5sp"
-        android:paddingRight="5sp"
-        android:textSize="16sp" android:layout_alignTop="@+id/presImage" android:layout_toRightOf="@+id/presNumbers"
-        android:layout_toEndOf="@+id/presNumbers"/>
+        <TextView
+                android:id="@+id/slideNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5sp"
+                android:paddingRight="5sp"
+                android:textSize="16sp" />
 
-    <ImageView
-        android:id="@+id/btnForward"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:src="@drawable/right_arrow"
-        android:contentDescription="@string/descrRightArr"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="30dp"
-        android:layout_marginRight="20dp"/>
+        <Button
+                android:id="@+id/btnForward"
+                android:layout_width="wrap_content"
+                android:layout_height="65dp"
+                android:drawableRight="@drawable/right_arrow"
+                android:contentDescription="@string/descrRightArr"
+                android:text="Next"
+                android:elevation="2dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                style="?android:attr/borderlessButtonStyle"/>
 
-    <ImageView
-        android:id="@+id/btnBack"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:src="@drawable/left_arrow"
-        android:contentDescription="@string/descrLeftArr"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/slideNumber"
-        android:layout_toEndOf="@+id/slideNumber"
-        android:layout_marginBottom="30dp"
-        android:layout_marginLeft="20dp"/>
+        <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="65dp"
+                android:drawableLeft="@drawable/left_arrow"
+                android:contentDescription="@string/descrLeftArr"
+                android:elevation="2dp"
+                android:text="Prev."
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/slideNumber"
+                android:layout_toEndOf="@+id/slideNumber"
+                android:layout_marginRight="10dp"
+                style="?android:attr/borderlessButtonStyle"/>
+
+    </RelativeLayout>
 
 
 </RelativeLayout><!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/layout-xlarge-land/projector_interface.xml -->

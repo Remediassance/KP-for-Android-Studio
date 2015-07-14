@@ -5,13 +5,13 @@
     <string-array name="agenda_action_chairman">
         <item>Look presentation</item>
         <item>Person profile</item>
-        <item>Start conference from participant</item>        
+        <item>Start conference from participant</item>
     </string-array>
     <string-array name="agenda_action_user">
         <item>Look presentation</item>
-        <item>Person profile</item>     
+        <item>Person profile</item>
     </string-array>
-    <string-array name="timeoutEntries">
+    <string-array name="timeoutEntries" translatable="false">
     	<item>15 sec</item>
     	<item>30 sec</item>
     	<item>1 min</item>
@@ -19,7 +19,7 @@
     	<item>5 min</item>
     	<item>10 min</item>
     </string-array>
-    <string-array name="timeoutValues">
+    <string-array name="timeoutValues" translatable="false">
     	<item>15000</item>
     	<item>30000</item>
     	<item>60000</item>
@@ -27,7 +27,7 @@
     	<item>300000</item>
     	<item>600000</item>
     </string-array>
-    <string-array name="videoList">
+    <string-array name="videoList" translatable="false">
     	<item>Video 1</item>
     	<item>Video 2</item>
     </string-array>
