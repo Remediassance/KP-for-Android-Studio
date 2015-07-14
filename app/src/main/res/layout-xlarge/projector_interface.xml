@@ -23,7 +23,8 @@
             android:src="@drawable/title"
             android:contentDescription="@string/descrSlideImg"
             android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
-            android:layout_below="@+id/toolbar"/>
+            android:layout_below="@+id/toolbar"
+            android:background="@color/material_drawer_background"/>
 
     <RelativeLayout
             android:id="@+id/presNumbers"
@@ -46,7 +47,9 @@
             android:layout_below="@+id/toolbar"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="237dp"/>
+            android:layout_marginTop="237dp"
+            android:translationZ="2dp"
+            android:elevation="2dp"/>
 
     <!--<ImageView
         android:id="@+id/refresh"
@@ -65,7 +68,8 @@
             android:layout_height="65sp"
             android:background="@color/material_drawer_primary"
             android:elevation="2dp"
-            android:alpha="0.9">
+            android:alpha="0.9"
+            android:translationZ="2dp">
 
         <TextView
                 android:id="@+id/slideNumber"
