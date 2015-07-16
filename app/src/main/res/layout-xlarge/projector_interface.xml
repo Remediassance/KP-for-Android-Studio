@@ -61,6 +61,18 @@
      	 android:src="@drawable/refresh"
      	 android:contentDescription="@string/descrRefreshBtn"/>-->
 
+    <TextView
+            android:id="@+id/slideNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5sp"
+            android:paddingRight="5sp"
+            android:textSize="16sp"
+        android:layout_below="@+id/toolbar"
+        android:layout_toRightOf="@+id/presNumbers"
+        android:layout_toEndOf="@+id/presNumbers"
+        android:layout_marginTop="39dp" />
+
     <RelativeLayout
             android:id="@+id/presMenu"
             android:layout_alignParentBottom="true"
@@ -70,14 +82,6 @@
             android:elevation="2dp"
             android:alpha="0.9"
             android:translationZ="2dp">
-
-        <TextView
-                android:id="@+id/slideNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5sp"
-                android:paddingRight="5sp"
-                android:textSize="16sp" />
 
         <Button
                 android:id="@+id/btnForward"
@@ -102,7 +106,7 @@
                 android:elevation="2dp"
                 android:text="Prev."
                 android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@+id/slideNumber"
+                android:layout_marginLeft="10dp"
                 style="?android:attr/borderlessButtonStyle"/>
 
     </RelativeLayout>

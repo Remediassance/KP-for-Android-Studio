@@ -293,6 +293,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 					editPort.setVisibility(EditText.VISIBLE);
 				}
 				break;
+
 			case R.id.connectBtn:
                 try {
                     port = Integer.parseInt(editPort.getText().toString());
@@ -302,6 +303,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
                             Toast.LENGTH_SHORT).show();
                 }
                 break;
+
             case R.id.guestBtn:
                 try {
                     port = Integer.parseInt(editPort.getText().toString());
@@ -582,8 +584,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setView(dialogView);
 		builder.setTitle(R.string.registrationTitle);
-		builder.setPositiveButton(android.R.string.ok, 
-				new DialogInterface.OnClickListener() {
+		builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {

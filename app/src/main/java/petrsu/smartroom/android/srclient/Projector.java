@@ -198,14 +198,14 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 		} 
 		
 		if(isSpeaker || KP.isChairman) {
-
+			linearLayout.setVisibility(RelativeLayout.VISIBLE);
 			leftArrowBtn.setVisibility(RelativeLayout.VISIBLE);
 			rightArrowBtn.setVisibility(RelativeLayout.VISIBLE);
 			microphoneBtn.setVisibility(RelativeLayout.VISIBLE);
 			presentationImage.setClickable(true);
 			
 		} else {
-
+			linearLayout.setVisibility(RelativeLayout.INVISIBLE);
 			leftArrowBtn.setVisibility(RelativeLayout.INVISIBLE);
 			rightArrowBtn.setVisibility(RelativeLayout.INVISIBLE);
 			microphoneBtn.setVisibility(RelativeLayout.INVISIBLE);
@@ -318,12 +318,12 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 			/* Presentation image */
 			case R.id.presImage:
 				if(controlPanelIsActive) {
-
+					linearLayout.setVisibility(RelativeLayout.INVISIBLE);
 					leftArrowBtn.setVisibility(RelativeLayout.INVISIBLE);
 					rightArrowBtn.setVisibility(RelativeLayout.INVISIBLE);
 					controlPanelIsActive = false;
 				} else {
-
+					linearLayout.setVisibility(RelativeLayout.VISIBLE);
 					leftArrowBtn.setVisibility(RelativeLayout.VISIBLE);
 					rightArrowBtn.setVisibility(RelativeLayout.VISIBLE);
 					controlPanelIsActive = true;
@@ -494,7 +494,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 					return false;
 				
 				if(isSpeaker) {
-
+                    linearLayout.setVisibility(RelativeLayout.INVISIBLE);
 					leftArrowBtn.setVisibility(RelativeLayout.INVISIBLE);
 					rightArrowBtn.setVisibility(RelativeLayout.INVISIBLE);
 					presentationImage.setClickable(false);
@@ -816,8 +816,8 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 				presentationImage.setImageBitmap(slideImage);
 
 			presentationImage.invalidate();
-			
-			leftArrowBtn.setVisibility(visibility);
+            linearLayout.setVisibility(visibility);
+            leftArrowBtn.setVisibility(visibility);
 			rightArrowBtn.setVisibility(visibility);
 			microphoneBtn.setVisibility(visibility);
 			presentationImage.setClickable(clickable);

@@ -5,10 +5,13 @@ import java.util.Map;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * 
@@ -28,6 +31,13 @@ public class AgendaAdapter extends SimpleAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View rowView = super.getView(position, convertView, parent);
 		TextView name = (TextView) rowView.findViewById(R.id.speakerName);
+
+		/*Button downloadSlides = (Button) rowView.findViewById(R.id.downloadSlidesBtn);
+		Button seeProfile = (Button) rowView.findViewById(R.id.seeProfileBtn);
+
+        downloadSlides.setFocusable(false);
+        seeProfile.setFocusable(false);*/
+
 
 		/* Highlight of current speaker */
 		if(position == Agenda.currentTimeslotIndex)

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
-    
     <string name="drawer_item_home" translatable="false">Home</string>
     <string name="drawer_item_free_play" translatable="false">Free Play</string>
     <string name="drawer_item_custom" translatable="false">Custom</string>
@@ -20,7 +17,8 @@
     <string name="userPhoneEx" translatable="false">+71234567890</string>
     <string name="userEmailEx" translatable="false">example@mymail.com</string>
     <string name="press2reconnect">Press this button to reconnect</string>
-    <string name="app_name" translatable="false">SRClient</string>
+    <string name="app_name" translatable="false">Smart Room</string>
+	<string name="login_header" translatable="false">SmartRoom</string>
     <string name="action_settings">Settings</string>
     <string name="sr_client" translatable="false">SR-client</string>
     <string name="ssIP">IP address</string>

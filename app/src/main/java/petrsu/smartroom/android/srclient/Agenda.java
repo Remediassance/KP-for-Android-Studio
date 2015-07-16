@@ -63,7 +63,7 @@ import java.lang.Thread;
  * presentation, etc.
  *
  */
-public class Agenda extends ActionBarActivity {//implements  View.OnClickListener{
+public class Agenda extends ActionBarActivity {// implements  View.OnClickListener{
 	
 	private final int LOOK_PRESENTATION = 0;	
 	private final int PERSON_PROFILE = 1;
@@ -87,8 +87,6 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 	public boolean conferenceStarted;
 	public boolean conferenceEnded;
 
-    private Button downloadSlides;
-    private Button seeProfile;
 
 	
 	public Agenda() {
@@ -148,12 +146,6 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.agenda_interface);
-
-        /*downloadSlides = (Button) findViewById (R.id.downloadSlidesBtn);
-        seeProfile = (Button) findViewById(R.id.seeProfileBtn);
-
-        downloadSlides.setOnClickListener(this);
-        seeProfile.setOnClickListener(this);*/
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -260,6 +252,8 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 		((SimpleAdapter) adapter).setViewBinder(new AgendaViewBinder());
 		listView.setAdapter(adapter);
 	}
+
+
 
 
     /**========================================================================
@@ -699,6 +693,39 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 				return true;
 			}
 		});
+
+       /* listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final int pos = position;
+
+                switch(view.getId()){
+                    case R.id.downloadSlidesBtn:
+                        String link = KP.getPresentationLink(pos);
+
+                        if (link != null) {
+                            Uri uri = Uri.parse(prepareLink(link));
+
+                            if (openRemotePresentation(uri) != 0) {
+                                showDownloadDialog(uri);
+                            }
+                        } else {
+                            Toast.makeText(getApplicationContext(),
+                                    R.string.presUnreach,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+
+                    case R.id.seeProfileBtn:
+                        Intent intent = new Intent(
+                                getApplicationContext(),
+                                Profile.class);
+                        intent.putExtra("index", pos);
+                        startActivity(intent);
+                        break;
+                }
+            }
+        });*/
 	}
 	
 	/**

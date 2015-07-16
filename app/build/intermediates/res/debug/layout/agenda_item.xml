@@ -22,6 +22,8 @@
     	        android:layout_marginStart="@dimen/agenda_avatar_margin_left"
     	        android:layout_weight="2"
     	        android:contentDescription="@string/userAvatar"
+                android:alpha="0.54
+                "
     	        android:src="@drawable/crop" />
 
     	    <TextView
@@ -63,25 +65,27 @@
 		<!--<Button
 		    android:id="@+id/seeProfileBtn"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignBottom="@+id/avatar_status"
-		    android:layout_alignRight="@+id/presentationTitle"
-            android:background="?attr/colorPrimary"
-		    android:text="Profile"
-		    android:textColor="@color/white"
-		    android:textColorHint="@color/prplA700" />
+		    android:layout_height="36dp"
+			android:text="Profile"
+		    android:textColor="@color/material_drawer_accent"
+			style="?android:attr/borderlessButtonStyle"
+			android:layout_alignBottom="@+id/avatar_status"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentEnd="true"
+			android:layout_marginRight="8dp"
+			android:layout_marginLeft="2dp"
+			android:layout_marginBottom="4dp" />
 
 		<Button
 		    android:id="@+id/downloadSlidesBtn"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignBaseline="@+id/seeProfileBtn"
-		    android:layout_alignBottom="@+id/seeProfileBtn"
-		    android:layout_marginRight="2dp"
-		    android:layout_toLeftOf="@+id/seeProfileBtn"
-            android:background="?attr/colorPrimary"
-		    android:text="Slides"
-		    android:textColor="@color/white"
-		    android:textColorHint="@color/prplA700" /> -->
+		    android:layout_height="36dp"
+			android:text="Slides"
+		    android:textColor="@color/material_drawer_accent"
+			style="?android:attr/borderlessButtonStyle"
+			android:layout_alignTop="@+id/seeProfileBtn"
+			android:layout_toLeftOf="@+id/seeProfileBtn"
+			android:layout_toStartOf="@+id/seeProfileBtn"
+			android:layout_marginRight="2dp" /> -->
 
 </RelativeLayout>   <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/layout/agenda_item.xml -->

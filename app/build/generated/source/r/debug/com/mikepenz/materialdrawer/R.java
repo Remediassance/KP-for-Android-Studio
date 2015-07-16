@@ -1004,7 +1004,7 @@ public final class R {
 		public static final int library_materialdrawer_owner = 0x7f0c005c;
 		public static final int library_materialdrawer_repositoryLink = 0x7f0c005d;
 		public static final int library_materialdrawer_year = 0x7f0c005e;
-		public static final int status_bar_notification_info_overflow = 0x7f0c008a;
+		public static final int status_bar_notification_info_overflow = 0x7f0c008b;
 	}
 	public static final class style {
 		public static final int AlertDialog_AppCompat = 0x7f0d0000;
