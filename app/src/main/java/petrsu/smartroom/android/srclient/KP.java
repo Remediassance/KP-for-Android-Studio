@@ -580,7 +580,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		builder.setView(dialogView);
 		builder.setTitle(R.string.registrationTitle);
 		builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				EditText editName = (EditText) dialogView
