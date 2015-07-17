@@ -1082,10 +1082,10 @@ public final class R {
 		public static final int Base_V11_Theme_AppCompat_Light_Dialog = 0x7f0d012f;
 		public static final int Base_V12_Widget_AppCompat_AutoCompleteTextView = 0x7f0d0136;
 		public static final int Base_V12_Widget_AppCompat_EditText = 0x7f0d0137;
-		public static final int Base_V21_Theme_AppCompat = 0x7f0d013a;
-		public static final int Base_V21_Theme_AppCompat_Dialog = 0x7f0d013b;
-		public static final int Base_V21_Theme_AppCompat_Light = 0x7f0d013c;
-		public static final int Base_V21_Theme_AppCompat_Light_Dialog = 0x7f0d013d;
+		public static final int Base_V21_Theme_AppCompat = 0x7f0d013b;
+		public static final int Base_V21_Theme_AppCompat_Dialog = 0x7f0d013c;
+		public static final int Base_V21_Theme_AppCompat_Light = 0x7f0d013d;
+		public static final int Base_V21_Theme_AppCompat_Light_Dialog = 0x7f0d013e;
 		public static final int Base_V7_Theme_AppCompat = 0x7f0d0049;
 		public static final int Base_V7_Theme_AppCompat_Dialog = 0x7f0d004a;
 		public static final int Base_V7_Theme_AppCompat_Light = 0x7f0d004b;
@@ -1158,7 +1158,7 @@ public final class R {
 		public static final int MaterialDrawerTheme_ActionBar_TranslucentStatus = 0x7f0d008c;
 		public static final int MaterialDrawerTheme_Light = 0x7f0d008d;
 		public static final int MaterialDrawerTheme_Light_ActionBar = 0x7f0d008e;
-		public static final int MaterialDrawerTheme_Light_ActionBar_DarkToolbar_TranslucentStatus = 0x7f0d013e;
+		public static final int MaterialDrawerTheme_Light_ActionBar_DarkToolbar_TranslucentStatus = 0x7f0d013f;
 		public static final int MaterialDrawerTheme_Light_ActionBar_TranslucentStatus = 0x7f0d008f;
 		public static final int MaterialDrawerTheme_Light_DarkToolbar = 0x7f0d0090;
 		public static final int MaterialDrawerTheme_Light_DarkToolbar_ActionBar = 0x7f0d0091;

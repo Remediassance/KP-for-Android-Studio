@@ -47,7 +47,9 @@
        android:ems="10"
        android:inputType="textPersonName"
        android:textColor="@color/primary_text_default_material_light"
-       android:textColorHint="@color/material_drawer_hint_text"/>
+       android:textColorHint="@color/material_drawer_hint_text"
+       android:typeface="normal"
+       android:textSize="20sp" />
    <!-- Name field -->
 
 
@@ -65,7 +67,8 @@
        android:ems="10"
        android:inputType="textPassword"
        android:textColor="@color/primary_text_default_material_light"
-       android:textColorHint="@color/material_drawer_hint_text"/>
+       android:textColorHint="@color/material_drawer_hint_text"
+       android:textSize="20sp" />
    <!-- Password field -->
    
    <!-- Advanced mode field -->
@@ -97,7 +100,8 @@
         android:layout_toRightOf="@+id/advModeImg"
         android:text="@string/advancedModeOn"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:typeface="normal" />
 
    </RelativeLayout>
    <!-- Advanced mode field --> 
@@ -117,7 +121,8 @@
        android:inputType="textPersonName"
        android:visibility="invisible"
        android:textColor="@color/primary_text_default_material_light"
-       android:textColorHint="@color/material_drawer_hint_text"/>
+       android:textColorHint="@color/material_drawer_hint_text"
+       android:textSize="20sp" />
    <!-- IP field -->
    
    <!-- Port field -->
@@ -137,7 +142,8 @@
        android:inputType="textPersonName"
        android:visibility="invisible"
        android:textColor="@color/primary_text_default_material_light"
-       android:textColorHint="@color/material_drawer_hint_text"/>
+       android:textColorHint="@color/material_drawer_hint_text"
+       android:textSize="20sp" />
    <!-- Port field -->
 
 	<Button
@@ -148,7 +154,7 @@
         android:background="@drawable/btn_selector"
 	    android:text="@string/guestBtn"
 	    android:textColor="@color/white"
-	    android:textSize="13sp"
+	    android:textSize="14sp"
 	    android:textStyle="bold"
         android:layout_alignTop="@+id/connectBtn"
         android:layout_alignRight="@+id/advModeParent"
@@ -161,12 +167,13 @@
         android:background="@drawable/btn_selector"
         android:text="@string/connectBtn"
         android:textColor="@color/white"
-        android:textSize="13sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         android:layout_marginTop="32dp"
         android:layout_below="@+id/editPort"
         android:layout_toLeftOf="@+id/guestBtn"
         android:layout_toStartOf="@+id/guestBtn"
-        android:layout_marginRight="8dp"/>
+        android:layout_marginRight="8dp"
+        android:elegantTextHeight="false" />
 
 </RelativeLayout>

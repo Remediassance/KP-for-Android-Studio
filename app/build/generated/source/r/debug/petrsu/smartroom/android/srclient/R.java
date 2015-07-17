@@ -2469,17 +2469,9 @@ containing a value of this type.
  API 11 theme customizations can go here. 
  <item name="textColorPrimary">@color/black</item>
         <item name="navigationBarColor">@color/indigo700</item>
- API 14 theme customizations can go here.
-        <item name="android:colorPrimary">@color/indigo500</item>
-
-        <item name="android:colorPrimaryDark">@color/indigo700</item>
-
-        <item name="android:colorAccent">@color/prplA700</item>
-        <item name="android:textColorPrimary">@color/material_drawer_primary_text</item>
-        <item name="android:textColorHint">@color/material_drawer_hint_text</item>
-        <item name="android:navigationBarColor">@color/indigo700</item>
          */
         public static final int AppBaseTheme=0x7f0d0004;
+        public static final int AppCompatAlertDialogStyle=0x7f0d013a;
         /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0d0005;
@@ -2554,10 +2546,10 @@ containing a value of this type.
         public static final int Base_V11_Theme_AppCompat_Light_Dialog=0x7f0d012f;
         public static final int Base_V12_Widget_AppCompat_AutoCompleteTextView=0x7f0d0136;
         public static final int Base_V12_Widget_AppCompat_EditText=0x7f0d0137;
-        public static final int Base_V21_Theme_AppCompat=0x7f0d013a;
-        public static final int Base_V21_Theme_AppCompat_Dialog=0x7f0d013b;
-        public static final int Base_V21_Theme_AppCompat_Light=0x7f0d013c;
-        public static final int Base_V21_Theme_AppCompat_Light_Dialog=0x7f0d013d;
+        public static final int Base_V21_Theme_AppCompat=0x7f0d013b;
+        public static final int Base_V21_Theme_AppCompat_Dialog=0x7f0d013c;
+        public static final int Base_V21_Theme_AppCompat_Light=0x7f0d013d;
+        public static final int Base_V21_Theme_AppCompat_Light_Dialog=0x7f0d013e;
         public static final int Base_V7_Theme_AppCompat=0x7f0d0049;
         public static final int Base_V7_Theme_AppCompat_Dialog=0x7f0d004a;
         public static final int Base_V7_Theme_AppCompat_Light=0x7f0d004b;
@@ -2647,7 +2639,7 @@ containing a value of this type.
         public static final int MaterialDrawerTheme_ActionBar_TranslucentStatus=0x7f0d008c;
         public static final int MaterialDrawerTheme_Light=0x7f0d008d;
         public static final int MaterialDrawerTheme_Light_ActionBar=0x7f0d008e;
-        public static final int MaterialDrawerTheme_Light_ActionBar_DarkToolbar_TranslucentStatus=0x7f0d013e;
+        public static final int MaterialDrawerTheme_Light_ActionBar_DarkToolbar_TranslucentStatus=0x7f0d013f;
         public static final int MaterialDrawerTheme_Light_ActionBar_TranslucentStatus=0x7f0d008f;
         public static final int MaterialDrawerTheme_Light_DarkToolbar=0x7f0d0090;
         public static final int MaterialDrawerTheme_Light_DarkToolbar_ActionBar=0x7f0d0091;
