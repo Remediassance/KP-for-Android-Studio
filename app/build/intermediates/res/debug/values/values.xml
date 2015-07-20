@@ -5,13 +5,13 @@
     <string-array name="agenda_action_chairman">
         <item>Look presentation</item>
         <item>Person profile</item>
-        <item>Start conference from participant</item>        
+        <item>Start conference from participant</item>
     </string-array>
     <string-array name="agenda_action_user">
         <item>Look presentation</item>
-        <item>Person profile</item>     
+        <item>Person profile</item>
     </string-array>
-    <string-array name="timeoutEntries">
+    <string-array name="timeoutEntries" translatable="false">
     	<item>15 sec</item>
     	<item>30 sec</item>
     	<item>1 min</item>
@@ -19,7 +19,7 @@
     	<item>5 min</item>
     	<item>10 min</item>
     </string-array>
-    <string-array name="timeoutValues">
+    <string-array name="timeoutValues" translatable="false">
     	<item>15000</item>
     	<item>30000</item>
     	<item>60000</item>
@@ -27,7 +27,7 @@
     	<item>300000</item>
     	<item>600000</item>
     </string-array>
-    <string-array name="videoList">
+    <string-array name="videoList" translatable="false">
     	<item>Video 1</item>
     	<item>Video 2</item>
     </string-array>
@@ -131,6 +131,8 @@
     <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="material_drawer_accent">#00E676</color>
+    <color name="material_drawer_accent_100">#B9F6CA</color>
+    <color name="material_drawer_accent_700">#00C853</color>
     <color name="material_drawer_background">#F9F9F9</color>
     <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/build/intermediates/exploded-aar/com.mikepenz/materialdrawer/3.1.0/res/values/values.xml -->
     <eat-comment/>
@@ -714,11 +716,11 @@
 	</string>
     <string name="anonim">Sign as a spectator</string>
     <string name="anonimJoinMsg">Would you like to join as anonimous?</string>
-    <string name="app_name" translatable="false">SRClient</string>
+    <string name="app_name" translatable="false">Smart Room</string>
     <string name="avail_services">Services</string>
     <string name="chooseAction">Choose action</string>
     <string name="confNotStarted">Conference has not started yet</string>
-    <string name="connectBtn">Join SmartRoom</string>
+    <string name="connectBtn">Log in</string>
     <string name="connectionFail">Failed to connect to the Smart Space.\nCheck WiFi connection.</string>
     <string name="connectionLost">Smart Space connection lost</string>
     <string name="connectionRecoverFail">Failed to reconnect</string>
@@ -763,7 +765,7 @@
     <string name="endConference">End conference</string>
     <string name="exitClientQuestion">Do you really want to logout?</string>
     <string name="exitClientTitle">Exit client</string>
-    <string name="guestBtn">Join as a guest</string>
+    <string name="guestBtn">As guest</string>
     <string name="guestNameEmpty">Name has to be filled</string>
     <string name="help">Help</string>
     <string name="help_agenda">Agenda help</string>
@@ -826,6 +828,7 @@
     <string name="library_materialdrawer_year">2015</string>
     <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="login_header" translatable="false">SmartRoom</string>
     <string name="manual">Download a manual</string>
     <string name="menu_endPresentation">End presentation</string>
     <string name="menu_refresh">Refresh</string>

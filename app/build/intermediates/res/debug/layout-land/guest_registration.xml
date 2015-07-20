@@ -2,7 +2,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@color/lightBlue">
+    android:background="@color/material_drawer_background">
 
     <EditText
         android:id="@+id/guestName"
@@ -11,10 +11,11 @@
         android:hint="@string/userName"
         android:textColor="@color/primary_text_default_material_light"
         android:textColorHint="@color/material_drawer_hint_text"
-        android:layout_marginTop="42dp"
 
-        android:layout_alignStart="@+id/guestPhone"
-        android:layout_alignLeft="@+id/guestPhone"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/guestPhone"
@@ -25,8 +26,8 @@
         android:hint="@string/userPhone"
         android:inputType="phone"
         android:layout_below="@+id/guestName"
-        android:layout_alignStart="@+id/guestEmail"
-        android:layout_alignLeft="@+id/guestEmail"/>
+        android:layout_alignParentLeft="true"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/guestEmail"
@@ -36,11 +37,11 @@
         android:textColorHint="@color/material_drawer_hint_text"
         android:hint="@string/userEmail"
         android:inputType="textEmailAddress"
-        android:layout_below="@+id/guestPhone"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/guestPhone"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textSize="14sp" />
 
     <!--<TextView
         android:layout_width="fill_parent"

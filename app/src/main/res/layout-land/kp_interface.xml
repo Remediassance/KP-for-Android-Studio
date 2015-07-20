@@ -45,7 +45,8 @@
        android:layout_alignStart="@+id/editPassword"
        android:layout_marginTop="27dp"
        android:textColor="@color/primary_text_default_material_light"
-       android:textColorHint="@color/material_drawer_hint_text"/>
+       android:textColorHint="@color/material_drawer_hint_text"
+       android:textSize="20sp" />
    <!-- Name field -->
 
 
@@ -63,7 +64,8 @@
        android:ems="10"
        android:inputType="textPassword"
        android:textColor="@color/primary_text_default_material_light"
-       android:textColorHint="@color/material_drawer_hint_text"/>
+       android:textColorHint="@color/material_drawer_hint_text"
+       android:textSize="20sp" />
    <!-- Password field -->
    
    <!-- Advanced mode field -->
@@ -114,7 +116,8 @@
        android:inputType="textPersonName"
        android:visibility="invisible"
        android:textColor="@color/primary_text_default_material_light"
-       android:textColorHint="@color/material_drawer_hint_text"/>
+       android:textColorHint="@color/material_drawer_hint_text"
+       android:textSize="20sp" />
    <!-- IP field -->
    
    <!-- Port field -->
@@ -134,36 +137,37 @@
        android:inputType="textPersonName"
        android:visibility="invisible"
        android:textColor="@color/primary_text_default_material_light"
-       android:textColorHint="@color/material_drawer_hint_text"/>
+       android:textColorHint="@color/material_drawer_hint_text"
+       android:textSize="20sp" />
    <!-- Port field -->
 
-	<Button
-	    android:id="@+id/guestBtn"
-	    android:layout_width="100dp"
-	    android:layout_height="wrap_content"
-	    android:layout_alignWithParentIfMissing="false"
-	    android:layout_below="@+id/connectBtn"
-	    android:layout_centerHorizontal="true"
-	    android:layout_marginTop="12dp"
-	    android:background="?attr/colorPrimary"
-	    android:text="@string/guestBtn"
-	    android:textColor="@color/white"
-	    android:textSize="15sp"
-	    android:textStyle="bold" />
+    <Button
+        android:id="@+id/guestBtn"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:layout_alignWithParentIfMissing="false"
+        android:background="@drawable/btn_selector"
+        android:text="@string/guestBtn"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/connectBtn"
+        android:layout_alignRight="@+id/advModeParent"
+        android:layout_alignEnd="@+id/advModeParent"/>
 
     <Button
         android:id="@+id/connectBtn"
-        android:layout_width="32dp"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/guestBtn"
-        android:layout_alignLeft="@+id/guestBtn"
-        android:layout_alignRight="@+id/guestBtn"
-        android:layout_alignStart="@+id/guestBtn"
-        android:layout_below="@+id/editPort"
-        android:background="?attr/colorPrimary"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:background="@drawable/btn_selector"
         android:text="@string/connectBtn"
         android:textColor="@color/white"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/editPort"
+        android:layout_toLeftOf="@+id/guestBtn"
+        android:layout_toStartOf="@+id/guestBtn"
+        android:layout_marginRight="8dp"/>
 
 </RelativeLayout>

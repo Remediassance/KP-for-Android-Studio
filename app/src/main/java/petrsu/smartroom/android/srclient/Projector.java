@@ -48,8 +48,7 @@ import java.util.List;
  * @author remediassance
  *	Controls presentation demonstration process
  */
-public class Projector extends ActionBarActivity
-	implements View.OnClickListener, View.OnTouchListener {
+public class Projector extends ActionBarActivity implements View.OnClickListener {
 	
 	public static final String BROADCAST_STATUS_SERVICE = 
 			"com.example.srclient.stopMicService";
@@ -62,10 +61,10 @@ public class Projector extends ActionBarActivity
 	private String contentUrl;							// Content service URL
 	private BroadcastReceiver bcReceiver;
 	private RelativeLayout linearLayout;				// Control panel layout
-	private ImageView leftArrowBtn;	
-	private ImageView rightArrowBtn;	
+	private Button leftArrowBtn;
+	private Button rightArrowBtn;
 	private ImageView presentationImage;	
-	private ImageView microphoneBtn;	
+	private ImageButton microphoneBtn;
 	private ImageView refreshBtn;
 	private TextView textNumAndCount;	
 	private boolean controlPanelIsActive;	
@@ -127,11 +126,11 @@ public class Projector extends ActionBarActivity
 		setContentView(R.layout.projector_interface);
 		
 		linearLayout = (RelativeLayout) findViewById (R.id.presMenu);
-		leftArrowBtn = (ImageView) findViewById (R.id.btnBack);
-		leftArrowBtn.setOnTouchListener(this);
-		rightArrowBtn = (ImageView) findViewById (R.id.btnForward);
-		rightArrowBtn.setOnTouchListener(this);
-		microphoneBtn = (ImageView) findViewById (R.id.mic);
+		leftArrowBtn = (Button) findViewById (R.id.btnBack);
+		leftArrowBtn.setOnClickListener(this);
+		rightArrowBtn = (Button) findViewById (R.id.btnForward);
+		rightArrowBtn.setOnClickListener(this);
+		microphoneBtn = (ImageButton) findViewById (R.id.mic);
 		microphoneBtn.setOnClickListener(this);
 		/*refreshBtn = (ImageView) findViewById (R.id.refresh);
 		refreshBtn.setOnTouchListener(this);*/
@@ -200,11 +199,15 @@ public class Projector extends ActionBarActivity
 		
 		if(isSpeaker || KP.isChairman) {
 			linearLayout.setVisibility(RelativeLayout.VISIBLE);
+			leftArrowBtn.setVisibility(RelativeLayout.VISIBLE);
+			rightArrowBtn.setVisibility(RelativeLayout.VISIBLE);
 			microphoneBtn.setVisibility(RelativeLayout.VISIBLE);
 			presentationImage.setClickable(true);
 			
 		} else {
 			linearLayout.setVisibility(RelativeLayout.INVISIBLE);
+			leftArrowBtn.setVisibility(RelativeLayout.INVISIBLE);
+			rightArrowBtn.setVisibility(RelativeLayout.INVISIBLE);
 			microphoneBtn.setVisibility(RelativeLayout.INVISIBLE);
 			presentationImage.setClickable(false);
 		}
@@ -316,9 +319,13 @@ public class Projector extends ActionBarActivity
 			case R.id.presImage:
 				if(controlPanelIsActive) {
 					linearLayout.setVisibility(RelativeLayout.INVISIBLE);
+					leftArrowBtn.setVisibility(RelativeLayout.INVISIBLE);
+					rightArrowBtn.setVisibility(RelativeLayout.INVISIBLE);
 					controlPanelIsActive = false;
 				} else {
 					linearLayout.setVisibility(RelativeLayout.VISIBLE);
+					leftArrowBtn.setVisibility(RelativeLayout.VISIBLE);
+					rightArrowBtn.setVisibility(RelativeLayout.VISIBLE);
 					controlPanelIsActive = true;
 				}
 				break;
@@ -340,14 +347,17 @@ public class Projector extends ActionBarActivity
 					micIsActive = false;
 				}
 				break;
+            case R.id.btnForward: nextSlide(); break;
+            case R.id.btnBack: previousSlide(); break;
+
 		}
 	}
 	
-	@Override
+	/*@Override
 	public boolean onTouch(View view, MotionEvent event) {
 		
 		switch(view.getId()) {
-			/* Next button */
+
 			case R.id.btnForward:
 				
 				if(event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -368,17 +378,17 @@ public class Projector extends ActionBarActivity
 				}
 				break;
 			
-			/* Previous button */
+
 			case R.id.btnBack:
 				
-				/*if(event.getAction() == MotionEvent.ACTION_DOWN) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN) {
 					Bitmap image = bitmapImageFromRes(
 							R.drawable.left_arrow_pressed);
 					leftArrowBtn.setImageBitmap(image);
-				} else */
+				} else
                 if(event.getAction() == MotionEvent.ACTION_UP) {
-					/*Bitmap image = bitmapImageFromRes(R.drawable.left_arrow);
-					leftArrowBtn.setImageBitmap(image);*/
+					Bitmap image = bitmapImageFromRes(R.drawable.left_arrow);
+					leftArrowBtn.setImageBitmap(image);
 					
 					if(!checkConnection()) 
 						return false;
@@ -388,32 +398,10 @@ public class Projector extends ActionBarActivity
 					leftArrowBtn.setOnTouchListener(this);
 				}
 				break;
-				
-			/* Refresh button */
-			/*case R.id.refresh:
-				
-				if(event.getAction() == MotionEvent.ACTION_DOWN) {
-					Bitmap image = bitmapImageFromRes(R.drawable.refresh_pressed);
-					refreshBtn.setImageBitmap(image);
-				} else if(event.getAction() == MotionEvent.ACTION_UP) {
-					Bitmap image = bitmapImageFromRes(R.drawable.refresh);
-					refreshBtn.setImageBitmap(image);
-					refreshBtn.setOnTouchListener(null);
-					
-					if(!checkConnection()) 
-						return false;
-
-					KP.loadPresentation(this);
-					updateProjector();
-					refreshBtn.setOnTouchListener(this);
-				}
-				break;	*/
-
-		}
-		
 		return true;
 	}
-	
+	*/
+
 	/**
 	 * Loads presentation slide image
 	 *
@@ -506,7 +494,9 @@ public class Projector extends ActionBarActivity
 					return false;
 				
 				if(isSpeaker) {
-					linearLayout.setVisibility(LinearLayout.INVISIBLE);
+                    linearLayout.setVisibility(RelativeLayout.INVISIBLE);
+					leftArrowBtn.setVisibility(RelativeLayout.INVISIBLE);
+					rightArrowBtn.setVisibility(RelativeLayout.INVISIBLE);
 					presentationImage.setClickable(false);
 				}
 				isSpeaker = false;
@@ -826,8 +816,9 @@ public class Projector extends ActionBarActivity
 				presentationImage.setImageBitmap(slideImage);
 
 			presentationImage.invalidate();
-			
-			linearLayout.setVisibility(visibility);
+            linearLayout.setVisibility(visibility);
+            leftArrowBtn.setVisibility(visibility);
+			rightArrowBtn.setVisibility(visibility);
 			microphoneBtn.setVisibility(visibility);
 			presentationImage.setClickable(clickable);
 			

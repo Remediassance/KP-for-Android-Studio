@@ -5,10 +5,13 @@ import java.util.Map;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * 
@@ -29,6 +32,13 @@ public class AgendaAdapter extends SimpleAdapter {
 		View rowView = super.getView(position, convertView, parent);
 		TextView name = (TextView) rowView.findViewById(R.id.speakerName);
 
+		/*Button downloadSlides = (Button) rowView.findViewById(R.id.downloadSlidesBtn);
+		Button seeProfile = (Button) rowView.findViewById(R.id.seeProfileBtn);
+
+        downloadSlides.setFocusable(false);
+        seeProfile.setFocusable(false);*/
+
+
 		/* Highlight of current speaker */
 		if(position == Agenda.currentTimeslotIndex)
 			rowView.setBackgroundColor(Color.parseColor("#B9F6CA"));
@@ -38,7 +48,7 @@ public class AgendaAdapter extends SimpleAdapter {
 		/* Highlight user profile */
 		if(name != null)
 			if(position == KP.personIndex) {
-				name.setTextColor(Color.parseColor("#00C853"));
+				name.setTextColor(Color.parseColor("#64DD17"));
 			} else {
 				name.setTextColor(Color.BLACK);
 			}

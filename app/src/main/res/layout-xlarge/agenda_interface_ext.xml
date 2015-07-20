@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/lightBlue">
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/center"
@@ -17,22 +17,23 @@
         android:layout_height="wrap_content"
         android:text="@string/agendaNotAvailable"
         android:gravity="center"
-        android:textSize="@dimen/agenda_ext_text_size"
+        android:textSize="20sp"
         android:clickable="false"
         android:textColor="@android:color/black"
         android:layout_above="@+id/agendaRefresh"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="82dp" />
+        android:alpha="0.54" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/agendaRefresh"
-        android:layout_width="@dimen/agenda_refresh_btn_width"
-        android:layout_height="@dimen/agenda_refresh_btn_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:src="@drawable/refresh"
         android:contentDescription="@string/agendaRefresh"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        style="?android:attr/borderlessButtonStyle"    />
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,6 +43,8 @@
         android:id="@+id/textView8"
         android:layout_below="@+id/agendaRefresh"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:alpha="0.87"
+        android:textSize="20sp" />
 
 </RelativeLayout>

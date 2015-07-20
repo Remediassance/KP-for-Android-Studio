@@ -63,7 +63,7 @@ import java.lang.Thread;
  * presentation, etc.
  *
  */
-public class Agenda extends ActionBarActivity {//implements  View.OnClickListener{
+public class Agenda extends ActionBarActivity {// implements  View.OnClickListener{
 	
 	private final int LOOK_PRESENTATION = 0;	
 	private final int PERSON_PROFILE = 1;
@@ -87,8 +87,6 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 	public boolean conferenceStarted;
 	public boolean conferenceEnded;
 
-    private Button downloadSlides;
-    private Button seeProfile;
 
 	
 	public Agenda() {
@@ -130,8 +128,7 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 	@Override
 	protected void onResume() {
 		super.onResume();
-		SharedPreferences prefs = getSharedPreferences("srclient_conf", 
-				Context.MODE_PRIVATE);
+		SharedPreferences prefs = getSharedPreferences("srclient_conf",Context.MODE_PRIVATE);
 		SharedPreferences.Editor editor = prefs.edit();
 		
 		/* Save the last application state */
@@ -149,12 +146,6 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.agenda_interface);
-
-        /*downloadSlides = (Button) findViewById (R.id.downloadSlidesBtn);
-        seeProfile = (Button) findViewById(R.id.seeProfileBtn);
-
-        downloadSlides.setOnClickListener(this);
-        seeProfile.setOnClickListener(this);*/
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -209,11 +200,9 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 		initListView();
 		
 		BitmapFactory.Options options = new BitmapFactory.Options();
-		options.inSampleSize = 6;
-		imgDefault = BitmapFactory.decodeResource(getResources(),
-				R.drawable.user, options);
-		imgNoImage = BitmapFactory.decodeResource(getResources(), 
-				R.drawable.no_image, options);
+		options.inSampleSize = 1;
+		imgDefault = BitmapFactory.decodeResource(getResources(),R.drawable.crop, options);
+		imgNoImage = BitmapFactory.decodeResource(getResources(),R.drawable.crop, options);
 		
 		/* Initialize progress dialog for showing download 
 		 * process */
@@ -224,34 +213,17 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 			if(prepareAgendaData() != 0) {
 				setContentView(R.layout.agenda_interface_ext);
 				
-				ImageView refreshBtn = (ImageView) findViewById (
-						R.id.agendaRefresh);
-				refreshBtn.setImageDrawable(getResources()
-						.getDrawable(R.drawable.refresh));
-				refreshBtn.setOnTouchListener(new View.OnTouchListener() {
-					
+				ImageView refreshBtn = (ImageView) findViewById (R.id.agendaRefresh);
+				refreshBtn.setImageDrawable(getResources().getDrawable(R.drawable.refresh));
+				refreshBtn.setOnClickListener(new View.OnClickListener() {
 					@Override
-					public boolean onTouch(View v, MotionEvent event) {
-						ImageView image = (ImageView) v.findViewById(
-								R.id.agendaRefresh);
-						
-						if(image == null)
-							return false;
-						
-						switch(event.getAction()) {
-							case MotionEvent.ACTION_DOWN:
-								image.setImageDrawable(getResources()
-										.getDrawable(R.drawable.refresh_pressed));
-								break;
-								
-							case MotionEvent.ACTION_UP:
-								image.setImageDrawable(getResources()
-										.getDrawable(R.drawable.refresh));
+					public void onClick(View v) {
+						ImageButton image = (ImageButton) v.findViewById(R.id.agendaRefresh);
+						switch(v.getId()) {
+							case R.id.agendaRefresh:
 								updateAgenda();
 								break;
 						}
-						
-						return false;
 					}
 				});
 				return;
@@ -280,6 +252,8 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 		((SimpleAdapter) adapter).setViewBinder(new AgendaViewBinder());
 		listView.setAdapter(adapter);
 	}
+
+
 
 
     /**========================================================================
@@ -607,9 +581,7 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 			AlertDialog.Builder dialog = new AlertDialog.Builder(this);
 			dialog.setTitle(R.string.exitClientTitle);
 			dialog.setMessage(R.string.exitClientQuestion);
-			dialog.setPositiveButton(android.R.string.ok, 
-					new DialogInterface.OnClickListener() {
-			
+			dialog.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					stopService(new Intent(getApplicationContext(), 
@@ -670,59 +642,90 @@ public class Agenda extends ActionBarActivity {//implements  View.OnClickListene
 	 */
 	public void initListView() {
 		listView = (ListView) findViewById (R.id.agendaListView);
-		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+		listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+				final int pos = position;
+				int agendaContextMenu = R.array.agenda_action_user;
+
+				if (KP.isChairman)
+					agendaContextMenu = R.array.agenda_action_chairman;
+
+				AlertDialog.Builder builder = new AlertDialog.Builder(Agenda.this);
+				builder.setTitle(R.string.chooseAction);
+				builder.setItems(agendaContextMenu, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						switch (which) {
+							case LOOK_PRESENTATION:
+								String link = KP.getPresentationLink(pos);
+
+								if (link != null) {
+									Uri uri = Uri.parse(prepareLink(link));
+
+									if (openRemotePresentation(uri) != 0) {
+										showDownloadDialog(uri);
+									}
+								} else {
+									Toast.makeText(getApplicationContext(),
+											R.string.presUnreach,
+											Toast.LENGTH_SHORT).show();
+								}
+								break;
+
+							case PERSON_PROFILE:
+								Intent intent = new Intent(
+										getApplicationContext(),
+										Profile.class);
+								intent.putExtra("index", pos);
+								startActivity(intent);
+								break;
+
+							case START_CONFERENCE_FROM:
+								KP.startConferenceFrom(pos);
+								break;
+						}
+					}
+				});
+
+				AlertDialog dialog = builder.create();
+				dialog.setCanceledOnTouchOutside(true);
+				dialog.show();
+				return true;
+			}
+		});
+
+       /* listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final int pos = position;
-                int agendaContextMenu = R.array.agenda_action_user;
 
-                if (KP.isChairman)
-                    agendaContextMenu = R.array.agenda_action_chairman;
+                switch(view.getId()){
+                    case R.id.downloadSlidesBtn:
+                        String link = KP.getPresentationLink(pos);
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(
-                        Agenda.this);
-                builder.setTitle(R.string.chooseAction);
-                builder.setItems(agendaContextMenu,
-                        new DialogInterface.OnClickListener() {
+                        if (link != null) {
+                            Uri uri = Uri.parse(prepareLink(link));
 
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                switch (which) {
-                                    case LOOK_PRESENTATION:
-                                        String link = KP.getPresentationLink(pos);
-
-                                        if (link != null) {
-                                            Uri uri = Uri.parse(prepareLink(link));
-
-                                            if (openRemotePresentation(uri) != 0) {
-                                                showDownloadDialog(uri);
-                                            }
-                                        } else {
-                                            Toast.makeText(getApplicationContext(),
-                                                    R.string.presUnreach,
-                                                    Toast.LENGTH_SHORT).show();
-                                        }
-                                        break;
-
-                                    case PERSON_PROFILE:
-                                        Intent intent = new Intent(
-                                                getApplicationContext(),
-                                                Profile.class);
-                                        intent.putExtra("index", pos);
-                                        startActivity(intent);
-                                        break;
-
-                                    case START_CONFERENCE_FROM:
-                                        KP.startConferenceFrom(pos);
-                                        break;
-                                }
+                            if (openRemotePresentation(uri) != 0) {
+                                showDownloadDialog(uri);
                             }
-                        });
+                        } else {
+                            Toast.makeText(getApplicationContext(),
+                                    R.string.presUnreach,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                        break;
 
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                    case R.id.seeProfileBtn:
+                        Intent intent = new Intent(
+                                getApplicationContext(),
+                                Profile.class);
+                        intent.putExtra("index", pos);
+                        startActivity(intent);
+                        break;
+                }
             }
-        });
+        });*/
 	}
 	
 	/**

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/noAgendaView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/agendaNotAvailable"
+        android:gravity="center"
+        android:textSize="@dimen/agenda_ext_text_size"
+        android:clickable="false"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/agendaRefresh"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="82dp" />
+
+    <ImageButton
+        android:id="@+id/agendaRefresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:src="@drawable/refresh"
+        android:contentDescription="@string/agendaRefresh"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        style="?android:attr/borderlessButtonStyle"    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/press2reconnect"
+        android:id="@+id/textView8"
+        android:layout_below="@+id/agendaRefresh"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:alpha="0.8"/>
+
+</RelativeLayout><!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/layout-xlarge/agenda_interface_ext.xml -->
