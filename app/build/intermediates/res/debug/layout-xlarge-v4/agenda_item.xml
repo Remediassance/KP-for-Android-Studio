@@ -33,7 +33,7 @@
 			android:layout_gravity="center"
 			android:layout_marginTop="@dimen/agenda_status_margin_top"
 			android:text="(online)"
-			android:textSize="@dimen/agenda_status_text_size"
+			android:textSize="24sp"
 			android:textColor="@color/secondary_text_default_material_light" />
 	</LinearLayout>
 
@@ -45,7 +45,7 @@
 		android:layout_toEndOf="@id/avatar_status"
 		android:layout_marginRight="@dimen/agenda_name_margin_right"
 		android:layout_marginEnd="@dimen/agenda_name_margin_right"
-		android:textSize="@dimen/agenda_name_text_size"
+		android:textSize="34dp"
 		android:text="Name"
 		android:textColor="@color/primary_text_default_material_light" />
 
@@ -59,7 +59,7 @@
 		android:textColor="@color/secondary_text_default_material_light"
 		android:layout_marginRight="@dimen/agenda_title_margin_right"
 		android:layout_marginEnd="@dimen/agenda_title_margin_right"
-		android:textSize="@dimen/agenda_title_text_size"
+		android:textSize="24sp"
 		android:textColorHint="@color/material_drawer_hint_text" />
 
 	<!--<Button

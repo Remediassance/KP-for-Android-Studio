@@ -14,7 +14,8 @@
 
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="14sp" />
     
     <EditText
         android:id="@+id/guestPhone"
@@ -26,7 +27,8 @@
         android:inputType="phone"
         android:layout_below="@+id/guestName"
         android:layout_alignStart="@+id/guestEmail"
-        android:layout_alignLeft="@+id/guestEmail"/>
+        android:layout_alignLeft="@+id/guestEmail"
+        android:textSize="14sp" />
     
     <EditText
         android:id="@+id/guestEmail"
@@ -40,7 +42,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="14sp" />
 
     <!--<TextView
         android:layout_width="fill_parent"

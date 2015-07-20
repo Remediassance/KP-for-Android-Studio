@@ -98,7 +98,7 @@
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/advModeImg"
         android:layout_toRightOf="@+id/advModeImg"
-        android:text="@string/advancedModeOn"
+        android:text="@string/advancedModeOff"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:typeface="normal" />

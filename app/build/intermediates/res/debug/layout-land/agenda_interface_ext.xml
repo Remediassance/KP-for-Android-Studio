@@ -17,11 +17,12 @@
             android:layout_height="wrap_content"
             android:text="@string/agendaNotAvailable"
             android:gravity="center"
-            android:textSize="@dimen/agenda_ext_text_size"
+            android:textSize="20sp"
             android:clickable="false"
             android:textColor="@android:color/black"
             android:layout_above="@+id/agendaRefresh"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+        android:alpha="0.54" />
 
     <ImageButton
             android:id="@+id/agendaRefresh"
@@ -43,6 +44,7 @@
             android:layout_below="@+id/agendaRefresh"
             android:layout_centerHorizontal="true"
             android:textColor="@color/black"
-            android:alpha="0.8"/>
+            android:alpha="0.87"
+        android:textSize="20sp" />
 
 </RelativeLayout><!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/layout-land/agenda_interface_ext.xml -->

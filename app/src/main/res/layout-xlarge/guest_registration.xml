@@ -3,7 +3,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="@color/background_material_light"
-    android:id="@+id/">
+    >
 
     <EditText
         android:id="@+id/guestName"
