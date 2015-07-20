@@ -29,7 +29,8 @@
 			android:layout_height="match_parent"
 			android:layout_alignParentTop="true"
 			android:contentDescription="@string/userAvatar"
-			android:src="@drawable/crop" />
+			android:src="@drawable/crop"
+			android:alpha="0.54" />
 
 	</RelativeLayout>
 
@@ -48,7 +49,8 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/userName"
-			android:textSize="15sp" android:textColor="@color/black" android:layout_marginLeft="7dp"/>
+			android:textSize="14sp" android:textColor="@color/black" android:layout_marginLeft="7dp"
+			android:textStyle="bold" />
 
 		<EditText
 			android:id="@+id/nameValue"
@@ -58,7 +60,7 @@
 			android:layout_marginLeft="10sp"
 			android:layout_toEndOf="@id/nameLabel"
 			android:layout_marginStart="10sp"
-			android:textSize="15sp"
+			android:textSize="14sp"
 			android:layout_alignBaseline="@+id/nameLabel"
 			android:inputType="textPersonName" android:textColor="@color/black"/>
 		<!-- Name area -->
@@ -69,9 +71,10 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/userPhone"
-			android:textSize="15sp"
+			android:textSize="14sp"
 			android:layout_marginTop="15sp"
-			android:layout_below="@id/nameLabel" android:textColor="@color/black" android:layout_marginLeft="7dp"/>
+			android:layout_below="@id/nameLabel" android:textColor="@color/black" android:layout_marginLeft="7dp"
+			android:textStyle="bold" />
 
 		<EditText
 			android:id="@+id/phoneValue"
@@ -82,7 +85,7 @@
 			android:layout_alignBaseline="@+id/phoneLabel"
 			android:layout_marginLeft="10dp"
 			android:layout_marginStart="10dp"
-			android:textSize="15sp"
+			android:textSize="14sp"
 			android:inputType="phone" android:textColor="@color/black"/>
 		<!-- Phone area -->
 

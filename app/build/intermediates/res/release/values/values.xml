@@ -716,7 +716,7 @@
 	</string>
     <string name="anonim">Sign as a spectator</string>
     <string name="anonimJoinMsg">Would you like to join as anonimous?</string>
-    <string name="app_name" translatable="false">SRClient</string>
+    <string name="app_name" translatable="false">Smart Room</string>
     <string name="avail_services">Services</string>
     <string name="chooseAction">Choose action</string>
     <string name="confNotStarted">Conference has not started yet</string>
@@ -828,6 +828,7 @@
     <string name="library_materialdrawer_year">2015</string>
     <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="login_header" translatable="false">SmartRoom</string>
     <string name="manual">Download a manual</string>
     <string name="menu_endPresentation">End presentation</string>
     <string name="menu_refresh">Refresh</string>

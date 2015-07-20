@@ -12,7 +12,6 @@
     	    android:layout_alignParentLeft="true"
     	    android:layout_alignParentStart="true"
     	    android:paddingLeft="20sp"
-    	    android:paddingStart="20sp"
     	    android:paddingTop="10sp"/>
     	
     	<TextView
