@@ -61,8 +61,8 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	private String contentUrl;							// Content service URL
 	private BroadcastReceiver bcReceiver;
 	private RelativeLayout linearLayout;				// Control panel layout
-	private Button leftArrowBtn;
-	private Button rightArrowBtn;
+	private ImageView leftArrowBtn;
+	private ImageView rightArrowBtn;
 	private ImageView presentationImage;	
 	private ImageButton microphoneBtn;
 	private ImageView refreshBtn;
@@ -126,9 +126,9 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 		setContentView(R.layout.projector_interface);
 		
 		linearLayout = (RelativeLayout) findViewById (R.id.presMenu);
-		leftArrowBtn = (Button) findViewById (R.id.btnBack);
+		leftArrowBtn = (ImageView) findViewById (R.id.btnBack);
 		leftArrowBtn.setOnClickListener(this);
-		rightArrowBtn = (Button) findViewById (R.id.btnForward);
+		rightArrowBtn = (ImageView) findViewById (R.id.btnForward);
 		rightArrowBtn.setOnClickListener(this);
 		microphoneBtn = (ImageButton) findViewById (R.id.mic);
 		microphoneBtn.setOnClickListener(this);
@@ -255,7 +255,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
      */
     private void openHelp() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.joiningSR);
+        builder.setTitle(R.string.presentation);
         builder.setMessage(Html.fromHtml(getResources().getString(R.string.presentation_help_content)));
         builder.create();
         builder.show();
@@ -458,7 +458,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		boolean visibility = false;
-		
+
 		if(isSpeaker || KP.isChairman) {
 			visibility = true;
 		} else {
@@ -519,37 +519,40 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 				break;
 				
 			case R.id.showVideo:
-				final CharSequence[] titlesArray = KP.getVideoTitleList();
-				final CharSequence[] urlsArray = KP.getVideoUuidList();
-				
-				if(titlesArray == null || urlsArray == null)
-					break;
+				try {
+					final CharSequence[] titlesArray = KP.getVideoTitleList();
+					final CharSequence[] urlsArray = KP.getVideoUuidList();
+
+					if (titlesArray == null || urlsArray == null)
+						break;
 				
 				/* Show dialog with video titles list */
-				AlertDialog.Builder video_builder = 
-						new AlertDialog.Builder(this);
-				video_builder.setTitle(R.string.showVideoTitle)
-			           .setItems(titlesArray, 
-			        		   new DialogInterface.OnClickListener() {
-			               public void onClick(
-			            		   DialogInterface dialog, int which) {
-			            	   
-			            	   if(which < urlsArray.length && which >= 0) {
-			            		   
-			            		   if(urlsArray[which] != null) {
-			            			   String videoLink = prepareLink(
-			            					   urlsArray[which].toString());
-			            			   
-			            			   if(KP.startVideo(videoLink) != 0)
-			            				   System.out.println(
-			            						   "start video failed");
-			            		   }
-			            		   
-			            	   }
-			           }
-			    });
-				video_builder.create();
-				video_builder.show();
+					AlertDialog.Builder video_builder =
+							new AlertDialog.Builder(this);
+					video_builder.setTitle(R.string.showVideoTitle)
+							.setItems(titlesArray, new DialogInterface.OnClickListener() {
+										public void onClick(
+												DialogInterface dialog, int which) {
+
+											if (which < urlsArray.length && which >= 0) {
+
+												if (urlsArray[which] != null) {
+													String videoLink = prepareLink(
+															urlsArray[which].toString());
+
+													if (KP.startVideo(videoLink) != 0)
+														Toast.makeText(getApplicationContext(),
+                                                                "No video was found!",
+                                                                Toast.LENGTH_SHORT).show();
+												}
+
+											}
+										}
+									});
+					video_builder.create();
+					video_builder.show();
+				}
+				catch(Exception e){e.printStackTrace();}
 				break;
 				
 			case R.id.stopVideo:
@@ -791,7 +794,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 			controlPanelIsActive = false;
 			
 			if(speakerName != null) {
-				setTitle(speakerName + " is speaking ...");
+				setTitle("Speaker: "+speakerName );
 				slideDigits = String.valueOf(slideNumber) + "/" + 
 						String.valueOf(slideCount);
 				

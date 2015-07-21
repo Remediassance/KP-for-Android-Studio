@@ -69,7 +69,7 @@
     <string name="presentation_descr">Показ и управление презентацией</string>
     <string name="press2reconnect">Нажмите кнопку для подключения</string>
     <string name="profileLabel">Профиль</string>
-    <string name="reconnectText">Подключиться</string>
+    <string name="reconnectText">Обновить</string>
     <string name="registrationFail">Регистрация не удалась</string>
     <string name="registrationService">Регистрация пользователя</string>
     <string name="registrationTitle">Регистрация</string>
@@ -85,7 +85,7 @@
     <string name="ssIP">IP адрес</string>
     <string name="ssPort">Порт</string>
     <string name="startConference">Начать конференцию</string>
-    <string name="stopVideo">Остановить виео</string>
+    <string name="stopVideo">Остановить видео</string>
     <string name="userAvatar">Аватар</string>
     <string name="userEmail">Эл. почта</string>
     <string name="userNameEx">Иванов Иван</string>

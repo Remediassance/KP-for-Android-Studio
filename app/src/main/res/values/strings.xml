@@ -103,6 +103,7 @@
 	    Would you like to rewrite it?</string>
 	<string name="anonimJoinMsg">Would you like to join as anonimous?</string>
 	<string name="agendaRefresh">Refresh agenda</string>
+	<string name="speakerIs" translatable="false">Speaker is</string>
 	
 	<string name="signup"> Sign up</string>
 	<string name="manual">Download a manual</string>
