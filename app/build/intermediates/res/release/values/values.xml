@@ -880,6 +880,7 @@
     <string name="showVideo">Show video</string>
     <string name="showVideoTitle">Choose video</string>
     <string name="signup"> Sign up</string>
+    <string name="speakerIs" translatable="false">Speaker is</string>
     <string name="sr_client" translatable="false">SR-client</string>
     <string name="ssIP">IP address</string>
     <string name="ssPort">Port</string>

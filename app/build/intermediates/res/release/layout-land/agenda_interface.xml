@@ -13,7 +13,7 @@
         android:elevation="4dp"
         android:minHeight="?attr/actionBarSize"
         android:transitionName="actionBar"
-        android:paddingTop="@dimen/tool_bar_top_padding"
+
         />
 	
     <ListView

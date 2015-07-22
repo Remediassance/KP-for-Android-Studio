@@ -116,7 +116,7 @@
     <string name="ssIP">IP адрес</string>
     <string name="ssPort">Порт</string>
     <string name="startConference">Начать конференцию</string>
-    <string name="stopVideo">Остановить виео</string>
+    <string name="stopVideo">Остановить видео</string>
     <string name="userAvatar">Аватар</string>
     <string name="userEmail">Эл. почта</string>
     <string name="userName">Имя</string>

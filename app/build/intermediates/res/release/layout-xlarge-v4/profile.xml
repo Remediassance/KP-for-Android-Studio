@@ -13,7 +13,6 @@
 		android:elevation="4dp"
 		android:minHeight="?attr/actionBarSize"
 		android:transitionName="actionBar"
-		android:paddingTop="@dimen/tool_bar_top_padding"
 		/>
 
 	<!-- Image area -->
@@ -30,7 +29,7 @@
 			android:layout_alignParentTop="true"
 			android:contentDescription="@string/userAvatar"
 			android:src="@drawable/crop"
-			android:alpha="0.54" />
+ />
 
 	</RelativeLayout>
 
