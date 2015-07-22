@@ -60,6 +60,7 @@
     <string name="discussion">Обсуждения</string>
     <string name="discussionCur">Текущее обсуждение</string>
     <string name="discussionList">Список обсуждений</string>
+    <string name="dqBrowser">Обсуждения</string>
     <string name="drawer_item_contact">Контакт</string>
     <string name="drawer_item_help">Справка</string>
     <string name="drawer_item_settings">Настройки</string>

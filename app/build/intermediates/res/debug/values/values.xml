@@ -744,6 +744,7 @@
     <string name="discussion">Discussion</string>
     <string name="discussionCur">Active discussion</string>
     <string name="discussionList">List of discussions</string>
+    <string name="dqBrowser">Discussion</string>
     <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/build/intermediates/exploded-aar/com.mikepenz/materialdrawer/3.1.0/res/values/values.xml -->
     <eat-comment/>
     <string name="drawer_close">Close</string>

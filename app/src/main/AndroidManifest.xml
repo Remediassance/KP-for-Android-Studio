@@ -84,6 +84,11 @@
             android:launchMode="singleTask"
             android:label="@string/profileLabel">
          </activity>
+
+        <activity android:name="petrsu.smartroom.android.srclient.WebViewer"
+            android:label="@string/dqBrowser">
+
+        </activity>
              
     </application>
 

@@ -175,3 +175,9 @@ ADDED from AndroidManifest.xml:82:10
 		ADDED from AndroidManifest.xml:84:13
 	android:name
 		ADDED from AndroidManifest.xml:83:13
+activity#petrsu.smartroom.android.srclient.WebViewer
+ADDED from AndroidManifest.xml:88:9
+	android:label
+		ADDED from AndroidManifest.xml:89:13
+	android:name
+		ADDED from AndroidManifest.xml:88:19

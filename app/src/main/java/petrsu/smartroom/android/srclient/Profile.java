@@ -225,9 +225,14 @@ public class Profile extends ActionBarActivity {
      *==========================================================================
      */
     private void gotoCurDisq(){
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://"+KP.ip+":10011/listCategories"));
-        startActivity(browserIntent);
+        String contentUrl = KP.getContentUrl();
+        String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+        //Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
+
+        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url", contentUrl+"chat");
+
+        startActivity(intent);
     }
 
 
@@ -236,9 +241,13 @@ public class Profile extends ActionBarActivity {
      *==========================================================================
      */
     private void gotoDisqList(){
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://"+KP.ip+":8080/listCategories"));
-        startActivity(browserIntent);
+        String contentUrl = KP.getContentUrl();
+        String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+
+        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url",contentUrl+"chat/listCurrentThreads");
+
+        startActivity(intent);
     }
 
 

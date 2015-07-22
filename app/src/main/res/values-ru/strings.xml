@@ -106,5 +106,6 @@
         <item>Просмотр слайдов</item>
         <item>Профиль пользователя</item>
     </string-array>
+    <string name="dqBrowser">Обсуждения</string>
 
 </resources>

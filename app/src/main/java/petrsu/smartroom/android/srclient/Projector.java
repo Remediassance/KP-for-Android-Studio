@@ -278,26 +278,35 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
     }
 
 
-    /**=========================================================================
-     * GO TO CURRENT DISCUSSION
-     *==========================================================================
-     */
-    private void gotoCurDisq(){
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://"+KP.ip+":10011/listCategories"));
-        startActivity(browserIntent);
-    }
+	/**=========================================================================
+	 * GO TO CURRENT DISCUSSION
+	 *==========================================================================
+	 */
+	private void gotoCurDisq(){
+		String contentUrl = KP.getContentUrl();
+		String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+		//Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
+
+		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url", contentUrl+"chat");
+
+		startActivity(intent);
+	}
 
 
-    /**=========================================================================
-     * GO TO  DISCUSSION LIST
-     *==========================================================================
-     */
-    private void gotoDisqList(){
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://"+KP.ip+":8080/listCategories"));
-        startActivity(browserIntent);
-    }
+	/**=========================================================================
+	 * GO TO  DISCUSSION LIST
+	 *==========================================================================
+	 */
+	private void gotoDisqList(){
+		String contentUrl = KP.getContentUrl();
+		String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+
+		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url",contentUrl+"chat/listCurrentThreads");
+
+		startActivity(intent);
+	}
 
 
     /**========================================================================

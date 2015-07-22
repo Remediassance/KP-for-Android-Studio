@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.*;
 
+import java.net.InetAddress;
 import java.util.ArrayList;
 
 import android.text.Html;
@@ -338,27 +339,35 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
     }
 
 
-    /**=========================================================================
-    * GO TO CURRENT DISCUSSION
-    *==========================================================================
-     */
-    private void gotoCurDisq(){
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://"+KP.ip+":10011/listCategories"));
-        startActivity(browserIntent);
-    }
+	/**=========================================================================
+	 * GO TO CURRENT DISCUSSION
+	 *==========================================================================
+	 */
+	private void gotoCurDisq(){
+		String contentUrl = KP.getContentUrl();
+		String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+		//Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
+
+		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+		intent.putExtra("url", contentUrl+"chat");
+
+		startActivity(intent);
+	}
 
 
-    /**=========================================================================
-    * GO TO  DISCUSSION LIST
-    *==========================================================================
-     */
-    private void gotoDisqList(){
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://"+KP.ip+":8080/listCategories"));
-        startActivity(browserIntent);
-    }
+	/**=========================================================================
+	 * GO TO  DISCUSSION LIST
+	 *==========================================================================
+	 */
+	private void gotoDisqList(){
+		String contentUrl = KP.getContentUrl();
+		String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
 
+		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+		intent.putExtra("url",contentUrl+"chat/listCurrentThreads");
+
+		startActivity(intent);
+	}
 
     /**========================================================================
      * GO TO SETTINGS ACTIVITY
@@ -658,7 +667,6 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 						switch (which) {
 							case LOOK_PRESENTATION:
 								String link = KP.getPresentationLink(pos);
-
 								if (link != null) {
 									Uri uri = Uri.parse(prepareLink(link));
 
