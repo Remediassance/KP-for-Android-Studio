@@ -68,44 +68,41 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/Projector.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="777" column="21" selection-start-line="777" selection-start-column="21" selection-end-line="777" selection-end-column="21" />
+              <caret line="183" column="32" selection-start-line="183" selection-start-column="32" selection-end-line="183" selection-end-column="32" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#19062#19063#0" expanded="false" />
-                <element signature="e#19096#19097#0" expanded="false" />
-                <element signature="e#23582#23583#0" expanded="false" />
-                <element signature="e#23603#23604#0" expanded="false" />
-                <element signature="e#23907#23908#0" expanded="false" />
-                <element signature="e#23948#23949#0" expanded="false" />
+                <element signature="e#5328#5347#0" expanded="true" />
+                <element signature="e#5389#5411#0" expanded="true" />
+                <element signature="e#5494#5517#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="105" column="60" selection-start-line="105" selection-start-column="60" selection-end-line="105" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Agenda.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Agenda.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/Agenda.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.704388">
-              <caret line="1043" column="45" selection-start-line="1043" selection-start-column="45" selection-end-line="1043" selection-end-column="45" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="191" column="35" selection-start-line="191" selection-start-column="35" selection-end-line="191" selection-end-column="35" />
+              <folding>
+                <element signature="e#4980#4999#0" expanded="true" />
+                <element signature="e#5059#5081#0" expanded="true" />
+                <element signature="e#5182#5205#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Translations Editor" pinned="false" current-in-tab="false">
-        <entry file="android-dummy://KP-for-Android-Studio/app/Translations Editor">
-          <provider selected="true" editor-type-id="string-resource-editor">
-            <state />
+      <file leaf-file-name="Profile.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/Profile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="4.73903">
+              <caret line="149" column="27" selection-start-line="149" selection-start-column="27" selection-end-line="149" selection-end-column="27" />
+              <folding>
+                <element signature="e#3917#3936#0" expanded="true" />
+                <element signature="e#3996#4018#0" expanded="true" />
+                <element signature="e#4101#4124#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -1346,7 +1343,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/Profile.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/guest_registration.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/button_pressed.xml" />
@@ -1364,7 +1360,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout-xlarge/agenda_interface_ext.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-land/agenda_interface_ext.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-xlarge-land/agenda_interface_ext.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/Agenda.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/agenda_interface_ext.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/agenda_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-land/agenda_item.xml" />
@@ -1392,6 +1387,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout-xlarge-land/profile.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/Projector.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/Agenda.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/Profile.java" />
       </list>
     </option>
   </component>
@@ -2244,22 +2241,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/KP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="406" column="39" selection-start-line="405" selection-start-column="29" selection-end-line="406" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/Profile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/profile.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.965517">
@@ -2331,24 +2312,44 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/Projector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="777" column="21" selection-start-line="777" selection-start-column="21" selection-end-line="777" selection-end-column="21" />
+          <caret line="183" column="32" selection-start-line="183" selection-start-column="32" selection-end-line="183" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#19062#19063#0" expanded="false" />
-            <element signature="e#19096#19097#0" expanded="false" />
-            <element signature="e#23582#23583#0" expanded="false" />
-            <element signature="e#23603#23604#0" expanded="false" />
-            <element signature="e#23907#23908#0" expanded="false" />
-            <element signature="e#23948#23949#0" expanded="false" />
+            <element signature="e#5328#5347#0" expanded="true" />
+            <element signature="e#5389#5411#0" expanded="true" />
+            <element signature="e#5494#5517#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/KP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="10.517321">
+          <caret line="406" column="39" selection-start-line="405" selection-start-column="29" selection-end-line="406" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/Agenda.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.704388">
-          <caret line="1043" column="45" selection-start-line="1043" selection-start-column="45" selection-end-line="1043" selection-end-column="45" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="191" column="35" selection-start-line="191" selection-start-column="35" selection-end-line="191" selection-end-column="35" />
+          <folding>
+            <element signature="e#4980#4999#0" expanded="true" />
+            <element signature="e#5059#5081#0" expanded="true" />
+            <element signature="e#5182#5205#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srclient/Profile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.73903">
+          <caret line="149" column="27" selection-start-line="149" selection-start-column="27" selection-end-line="149" selection-end-column="27" />
+          <folding>
+            <element signature="e#3917#3936#0" expanded="true" />
+            <element signature="e#3996#4018#0" expanded="true" />
+            <element signature="e#4101#4124#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
