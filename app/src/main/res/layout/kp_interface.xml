@@ -15,8 +15,7 @@
         android:elevation="4dp"
         android:minHeight="?attr/actionBarSize"
         android:transitionName="actionBar"
-
-        />
+         />
     
     <!--  <Button
         android:id="@+id/regServiceBtn"
