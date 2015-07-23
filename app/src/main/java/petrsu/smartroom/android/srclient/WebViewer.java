@@ -24,6 +24,12 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 /**
  * Created by Андрей on 22.07.2015.
+ *
+ * Creates browser activity inside application,
+ * so user doesn't need to launch browser to
+ * access discussions, thus, saving navigation
+ * options that are provided by SRClient side menu.
+ *
  */
 public class WebViewer extends ActionBarActivity {
 

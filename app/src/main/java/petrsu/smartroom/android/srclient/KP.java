@@ -53,8 +53,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	private Button connectBtn;	
 	private Button guestBtn;
 	private Button regServiceBtn;
-	private final String regServiceLink = 
-			"http://smartroom.cs.petrsu.ru/content/login";
+	private final String regServiceLink = "http://smartroom.cs.petrsu.ru/content/login";
 	private static EditText editName;
 	private static EditText editPassword;
 	private EditText editIP;
@@ -62,13 +61,11 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	private ArrayList<String> timeslotList;
 	private String lastState;
 	
-	public static native int connectSmartSpace(String hostname, 
-			String ip,  int port);
+	public static native int connectSmartSpace(String hostname, String ip,  int port);
 	public static native int loadTimeslotList(Agenda obj);
 	public static native void disconnectSmartSpace();
 	public static native int getServicesInfo(ServicesMenu menu);
-	public static native int  userRegistration(String userName, 
-			String password);
+	public static native int  userRegistration(String userName, String password);
 	public static native int loadPresentation(Projector projector);
 	public static native int initSubscription();
 	public static native int startConference();
@@ -84,8 +81,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	public static native int personTimeslotIndex();
 	public static native boolean checkConnection();
 	public static native String getPresentationLink(int index);
-	public static native int registerGuest(String name, String phone, 
-			String email);
+	public static native int registerGuest(String name, String phone, String email);
 	public static native int startConferenceFrom(int index);
 	public static native String loadProfile(Profile profile, int index);
 	public static native int saveProfileChanges(String name, String phone);
