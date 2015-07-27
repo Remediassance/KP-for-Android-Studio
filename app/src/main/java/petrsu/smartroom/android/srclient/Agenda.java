@@ -556,6 +556,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	public int endConference() {
 		return KP.endConference();
 	}
+
 	
 	/**
 	 * Opens presentation service activity
@@ -701,39 +702,6 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 				return true;
 			}
 		});
-
-       /* listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final int pos = position;
-
-                switch(view.getId()){
-                    case R.id.downloadSlidesBtn:
-                        String link = KP.getPresentationLink(pos);
-
-                        if (link != null) {
-                            Uri uri = Uri.parse(prepareLink(link));
-
-                            if (openRemotePresentation(uri) != 0) {
-                                showDownloadDialog(uri);
-                            }
-                        } else {
-                            Toast.makeText(getApplicationContext(),
-                                    R.string.presUnreach,
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                        break;
-
-                    case R.id.seeProfileBtn:
-                        Intent intent = new Intent(
-                                getApplicationContext(),
-                                Profile.class);
-                        intent.putExtra("index", pos);
-                        startActivity(intent);
-                        break;
-                }
-            }
-        });*/
 	}
 	
 	/**
@@ -932,31 +900,6 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		return 0;
 	}
 
-    /*@Override
-    public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.downloadSlidesBtn: {
-                String link = KP.getPresentationLink(pos);
-
-                if(link != null) {
-                    Uri uri = Uri.parse(prepareLink(link));
-
-                    if(openRemotePresentation(uri) != 0) {
-                        showDownloadDialog(uri);
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            R.string.presUnreach,
-                            Toast.LENGTH_SHORT).show();
-                }
-                break;
-            } break;
-            case R.id.seeProfileBtn: break;
-
-        }
-
-
-    }*/
 
     /**
 	 * 

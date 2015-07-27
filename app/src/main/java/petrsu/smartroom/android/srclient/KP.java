@@ -155,24 +155,55 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
                         new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
                         new PrimaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_info),
                         new DividerDrawerItem(),
-                        new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
+                        new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome
+								.Icon.faw_close),
+						new SecondaryDrawerItem().withName("About Developers").withIcon(FontAwesome
+								.Icon.faw_connectdevelop)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-            @Override
-            public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                switch((int)id) {
-                    case 0 : scanQrCode();  break;
-                    case 1 : gotoManual();  break;
-                    case 2 : openHelp();    break;
-                    case 4 : exitApp();     break;
-                    default: break;
+			@Override
+			public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+				switch ((int) id) {
+					case 0:
+						scanQrCode();
+						break;
+					case 1:
+						gotoManual();
+						break;
+					case 2:
+						openHelp();
+						break;
+					case 4:
+						exitApp();
+						break;
+					case 5:
+						gotoDisqList();
+					default:
+						break;
 				}
 				return true;
-            }
-             }).build();
+			}
+		}).build();
 
             isChairman=false;
             isRegistered=false;
         }
+
+
+	/**=========================================================================
+	 * GO TO  DISCUSSION LIST
+	 *==========================================================================
+	 */
+	private void gotoDisqList(){
+		String contentUrl = KP.getContentUrl();
+		//String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files"));
+
+		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+		//intent.putExtra("url",contentUrl+"chat/listCurrentThreads");
+        intent.putExtra("flag", true);
+
+		startActivity(intent);
+	}
+
 
     /*=========================================================================
     * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
@@ -207,63 +238,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
         startActivity(intent);
     }
 
-   /* @Override
-	public boolean onTouch(View view, MotionEvent event) {
-		final String name = editName.getText().toString();
-		final String password = editPassword.getText().toString();
-		ip = editIP.getText().toString();
-		
-		switch(view.getId()) {
-		
-			case R.id.connectBtn:
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    connectBtn.setBackgroundResource(R.drawable.button_pressed);
-                } else if(event.getAction() == MotionEvent.ACTION_UP) {
-                    connectBtn.setBackgroundResource(R.drawable.button);
-					try {
-                        port = Integer.parseInt(editPort.getText().toString());
-                        joinSmartSpace(name, password);
-                    } catch(NumberFormatException e) {
-                        Toast.makeText(this, R.string.portFormatErr,
-                                Toast.LENGTH_SHORT).show();
-                        return false;
-                    }
-				}
-				break;
-				
-			case R.id.guestBtn:
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    guestBtn.setBackgroundResource(R.drawable.button_pressed);
-                } else if(event.getAction() == MotionEvent.ACTION_UP) {
-                    guestBtn.setBackgroundResource(R.drawable.button);
-                    editName.setText("");
-                    editPassword.setText("");
-					try {
-						port = Integer.parseInt(editPort.getText().toString());
-						joinAsGuest(port);
-					} catch(NumberFormatException e) {
-						Toast.makeText(this, R.string.portFormatErr, 
-								Toast.LENGTH_SHORT).show();
-						return false;
-					}
-				}
-				break;*/
-				
-			/*case R.id.regServiceBtn:
-				if(event.getAction() == MotionEvent.ACTION_DOWN) {
-					regServiceBtn.setBackgroundResource(
-							R.drawable.title_button_pressed);
-				} else if(event.getAction() == MotionEvent.ACTION_UP) {
-					regServiceBtn.setBackgroundResource(
-							R.drawable.title_button);
-					scanQrCode();
-				}
-				break;*/
-		/*}
-		return true;
-	}*/
-	
-	@Override
+  	@Override
 	public void onClick(View view) {
 		final String name = editName.getText().toString();
 		final String password = editPassword.getText().toString();
