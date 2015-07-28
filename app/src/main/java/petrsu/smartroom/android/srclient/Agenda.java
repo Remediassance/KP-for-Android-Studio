@@ -349,7 +349,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		//Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-		intent.putExtra("url", contentUrl+"chat");
+		intent.putExtra("url", KP.dqAddr+"chat");
 
 		startActivity(intent);
 	}
@@ -364,7 +364,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-		intent.putExtra("url",contentUrl+"chat/listCurrentThreads");
+		intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
 
 		startActivity(intent);
 	}

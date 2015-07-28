@@ -37,7 +37,12 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 
 /**
+ * Main calss of the application. Not only it implements
+ * log-in activity, it also acts as a starting point of the
+ * app and holds declarations of all native methods and fields
+ * that are used in other classes.
  *
+ * @author pavlin
  * @author remediassance
  */
 public class KP extends ActionBarActivity implements View.OnClickListener {
@@ -48,6 +53,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	public static int port;					// SIB port
 	public static int personIndex = -1;		// Time slot index of a person
 	public static boolean isRegistered;		// User was registered in SS
+    public static String dqAddr = "http://192.168.43.33/";
 	private ImageView advancedModeImg;		// Advance mode trigger
 	private TextView advancedModeText;
 	private Button connectBtn;	
@@ -198,7 +204,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		//String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files"));
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-		//intent.putExtra("url",contentUrl+"chat/listCurrentThreads");
+		intent.putExtra("url","http://192.168.43.33/chat");
         intent.putExtra("flag", true);
 
 		startActivity(intent);

@@ -288,9 +288,9 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 		//Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", contentUrl+"chat");
+        intent.putExtra("url", KP.dqAddr+"chat");
 
-		startActivity(intent);
+        startActivity(intent);
 	}
 
 
@@ -303,7 +303,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 		String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",contentUrl+"chat/listCurrentThreads");
+        intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
 
 		startActivity(intent);
 	}

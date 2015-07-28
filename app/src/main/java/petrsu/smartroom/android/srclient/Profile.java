@@ -226,11 +226,12 @@ public class Profile extends ActionBarActivity {
      */
     private void gotoCurDisq(){
         String contentUrl = KP.getContentUrl();
-        String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+        String addr = contentUrl.substring(0, contentUrl.lastIndexOf("files")); //smartroom.cs
+
         //Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", contentUrl+"chat");
+        intent.putExtra("url",KP.dqAddr+"chat");
 
         startActivity(intent);
     }
@@ -245,7 +246,7 @@ public class Profile extends ActionBarActivity {
         String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",contentUrl+"chat/listCurrentThreads");
+        intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
 
         startActivity(intent);
     }

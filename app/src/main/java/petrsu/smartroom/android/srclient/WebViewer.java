@@ -40,20 +40,21 @@ public class WebViewer extends ActionBarActivity {
         setContentView(R.layout.web_view);
         Drawer drawer;
 
-        Intent intent = new Intent();
-        //String url = intent.getStringExtra("url");
+        Intent intent = getIntent();
+        String link = intent.getStringExtra("url");
         isFromLogin = intent.getBooleanExtra("flag", false);
 
         webview = (WebView) findViewById(R.id.webView);
+        webview.getSettings().setJavaScriptEnabled(true);
         webview.setWebViewClient(new Callback());
-        webview.loadUrl("http://9gag.com/");
+        webview.loadUrl(link);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Разные меню для входов с  разных активити
-        if(!isFromLogin) {
+        if(isFromLogin==false) {
             drawer = new DrawerBuilder()
                     .withActivity(this)
                     .withToolbar(toolbar)
