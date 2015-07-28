@@ -76,6 +76,7 @@
     <string name="installAdobe">Установить PDF Viewer</string>
     <string name="joiningSR">Подключение</string>
     <string name="kp_help_content"><![CDATA[ 	    <html>         <body>         	<h3>Добро пожаловать в SmartRoom</h3>         	Выберите пункт  <b>Регистрация пользователя</b> из меню для регистрации.<br><br>         	<b>Войти как гость</b>: требуется лишь имя.<br><br>         	<b>Анонимный вход</b>: оставьте поля логина и пароля пустыми<br><br>         	         	<div>Описание полей:<br>         		<b>IP</b> - IP адрес<br>         		<b>Порт</b> - номер порта<br>         		<b>Логин</b> - логин при регистрации<br>         		<b>Пароль</b> - ваш пароль         	</div>         </body>         </html> 	    ]]></string>
+    <string name="loginMenu">Войти</string>
     <string name="manual">Руководство пользователя</string>
     <string name="menu_endPresentation">Завершить презентацию</string>
     <string name="menu_refresh">Обновить</string>

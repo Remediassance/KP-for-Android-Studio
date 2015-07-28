@@ -107,5 +107,6 @@
         <item>Профиль пользователя</item>
     </string-array>
     <string name="dqBrowser">Обсуждения</string>
+    <string name="loginMenu">Войти</string>
 
 </resources>

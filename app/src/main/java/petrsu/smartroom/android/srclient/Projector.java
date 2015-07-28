@@ -1,6 +1,5 @@
 package petrsu.smartroom.android.srclient;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -20,7 +19,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -362,54 +360,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 		}
 	}
 	
-	/*@Override
-	public boolean onTouch(View view, MotionEvent event) {
-		
-		switch(view.getId()) {
 
-			case R.id.btnForward:
-				
-				if(event.getAction() == MotionEvent.ACTION_DOWN) {
-					Bitmap image = bitmapImageFromRes(
-							R.drawable.right_arrow_pressed);
-					rightArrowBtn.setImageBitmap(image);
-				} else
-                if(event.getAction() == MotionEvent.ACTION_UP) {
-					Bitmap image = bitmapImageFromRes(R.drawable.right_arrow);
-					rightArrowBtn.setImageBitmap(image);
-					
-					if(!checkConnection()) 
-						return false;
-					
-					rightArrowBtn.setOnTouchListener(null);
-					nextSlide();
-					rightArrowBtn.setOnTouchListener(this);
-				}
-				break;
-			
-
-			case R.id.btnBack:
-				
-				if(event.getAction() == MotionEvent.ACTION_DOWN) {
-					Bitmap image = bitmapImageFromRes(
-							R.drawable.left_arrow_pressed);
-					leftArrowBtn.setImageBitmap(image);
-				} else
-                if(event.getAction() == MotionEvent.ACTION_UP) {
-					Bitmap image = bitmapImageFromRes(R.drawable.left_arrow);
-					leftArrowBtn.setImageBitmap(image);
-					
-					if(!checkConnection()) 
-						return false;
-					
-					leftArrowBtn.setOnTouchListener(null);
-					previousSlide();
-					leftArrowBtn.setOnTouchListener(this);
-				}
-				break;
-		return true;
-	}
-	*/
 
 	/**
 	 * Loads presentation slide image
@@ -554,7 +505,6 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
                                                                 "No video was found!",
                                                                 Toast.LENGTH_SHORT).show();
 												}
-
 											}
 										}
 									});

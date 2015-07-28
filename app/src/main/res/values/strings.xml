@@ -12,6 +12,7 @@
     <string name="discussion">Discussion</string>
     <string name="discussionCur">Active discussion</string>
     <string name="discussionList">List of discussions</string>
+    <string name="loginMenu">Log in</string>
     
 	<string name="userNameEx">Ivanov Ivan</string>
     <string name="userPhoneEx" translatable="false">+71234567890</string>

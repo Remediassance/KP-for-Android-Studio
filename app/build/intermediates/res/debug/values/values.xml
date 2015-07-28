@@ -829,6 +829,7 @@
     <string name="library_materialdrawer_year">2015</string>
     <!-- From: file:/C:/Users/Андрей/Documents/GitHub/KP-for-Android-Studio/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="loginMenu">Log in</string>
     <string name="login_header" translatable="false">SmartRoom</string>
     <string name="manual">Download a manual</string>
     <string name="menu_endPresentation">End presentation</string>

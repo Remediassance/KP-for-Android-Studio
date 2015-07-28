@@ -81,7 +81,7 @@ public class WebViewer extends ActionBarActivity {
                     ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                         @Override
                         public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                            //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+
                             switch ((int) id) {
                                 case 1:
                                     gotoAgenda();
@@ -119,6 +119,8 @@ public class WebViewer extends ActionBarActivity {
                     .withHeader(R.layout.drawer_header)
                     .withDrawerWidthDp(320)
                     .addDrawerItems(
+                            new PrimaryDrawerItem().withName(R.string.loginMenu).withIcon(FontAwesome
+                                    .Icon.faw_desktop),
                             new PrimaryDrawerItem().withName(R.string.signup).withIcon(FontAwesome.Icon.faw_barcode),
                             new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
                             new PrimaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_info),
@@ -132,18 +134,21 @@ public class WebViewer extends ActionBarActivity {
                         public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                             switch ((int) id) {
                                 case 0:
-                                    scanQrCode();
+                                    gotoLogin();
                                     break;
                                 case 1:
-                                    gotoManual();
+                                    scanQrCode();
                                     break;
                                 case 2:
+                                    gotoManual();
+                                    break;
+                                case 3:
                                     openHelp();
                                     break;
-                                case 4:
+                                case 5:
                                     exitApp();
                                     break;
-                                case 5:
+                                case 6:
                                     gotoDisqList();
                                 default:
                                     break;
@@ -152,6 +157,12 @@ public class WebViewer extends ActionBarActivity {
                         }
                     }).build();
         }
+    }
+
+    private void gotoLogin() {
+        Intent intent = new Intent();
+        intent.setClass(this, KP.class);
+        startActivity(intent);
     }
 
     /**========================================================================
@@ -164,8 +175,7 @@ public class WebViewer extends ActionBarActivity {
             intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
             startActivityForResult(intent, 0);
         } catch (Exception e) {
-            Uri marketUri = Uri.parse(
-                    "market://details?id=com.google.zxing.client.android");
+            Uri marketUri = Uri.parse("market://details?id=com.google.zxing.client.android");
             Intent marketIntent = new Intent(Intent.ACTION_VIEW,marketUri);
             startActivity(marketIntent);
         }
@@ -269,7 +279,7 @@ public class WebViewer extends ActionBarActivity {
         //Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", contentUrl+"chat");
+        intent.putExtra("url", KP.dqAddr+"chat");
 
         startActivity(intent);
     }
@@ -281,10 +291,10 @@ public class WebViewer extends ActionBarActivity {
      */
     private void gotoDisqList(){
         String contentUrl = KP.getContentUrl();
-        String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+        String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files"));
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",contentUrl+"chat/listCurrentThreads");
+        intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
 
         startActivity(intent);
     }
