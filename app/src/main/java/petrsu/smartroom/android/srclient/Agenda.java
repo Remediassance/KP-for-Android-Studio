@@ -286,6 +286,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
     private void gotoManual() {
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
         intent.putExtra("url",KP.manLink);
+        intent.putExtra("reading", true);
+
         startActivity(intent);
     }
 

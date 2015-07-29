@@ -63,6 +63,7 @@ public class Profile extends ActionBarActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);		
 		setContentView(R.layout.profile);
+
 		
 		Intent intent = getIntent();
 		int index = intent.getIntExtra("index", -1);
@@ -203,6 +204,8 @@ public class Profile extends ActionBarActivity {
     private void gotoManual() {
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
         intent.putExtra("url",KP.manLink);
+        intent.putExtra("reading", true);
+
         startActivity(intent);
     }
 

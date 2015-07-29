@@ -12,6 +12,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
@@ -32,7 +33,8 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 public class WebViewer extends ActionBarActivity {
 
     WebView webview;
-    static Boolean  isFromLogin = false;
+    static Boolean isFromLogin = false;
+    static Boolean isReadingman = false;
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,12 @@ public class WebViewer extends ActionBarActivity {
         Intent intent = getIntent();
         String link = intent.getStringExtra("url");
         isFromLogin = intent.getBooleanExtra("flag", false);
+        isReadingman = intent.getBooleanExtra("reading",false);
+
+        if (isReadingman == true)
+            this.setTitle(R.string.readingMan);
+        else
+            this.setTitle(R.string.dqBrowser);
 
         webview = (WebView) findViewById(R.id.webView);
         webview.getSettings().setJavaScriptEnabled(true);
@@ -50,6 +58,7 @@ public class WebViewer extends ActionBarActivity {
         webview.getSettings().setBuiltInZoomControls(true);
         webview.setWebViewClient(new Callback());
         webview.loadUrl(link);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -123,7 +132,6 @@ public class WebViewer extends ActionBarActivity {
                     .addDrawerItems(
                             new PrimaryDrawerItem().withName(R.string.loginMenu).withIcon(FontAwesome.Icon.faw_desktop),
                             new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
-                            new PrimaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_info),
                             new DividerDrawerItem(),
                             new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment),
                             new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),
@@ -140,16 +148,13 @@ public class WebViewer extends ActionBarActivity {
                                 case 1:
                                     gotoManual();
                                     break;
-                                case 2:
-                                    openHelp();
-                                    break;
-                                case 4:
+                                case 3:
                                     gotoCurDisq();
                                     break;
-                                case 5:
+                                case 4:
                                     gotoDisqList();
                                     break;
-                                case 7:
+                                case 6:
                                     exitApp();
                                     break;
                                 default:
@@ -165,22 +170,6 @@ public class WebViewer extends ActionBarActivity {
         Intent intent = new Intent();
         intent.setClass(this, KP.class);
         startActivity(intent);
-    }
-
-    /**========================================================================
-     * STARTS QR CODE SCANNER APPLICATION OR OFFERS TO INSTALL ONE
-     *=========================================================================
-     */
-    public void scanQrCode() {
-        try {
-            Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-            intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
-            startActivityForResult(intent, 0);
-        } catch (Exception e) {
-            Uri marketUri = Uri.parse("market://details?id=com.google.zxing.client.android");
-            Intent marketIntent = new Intent(Intent.ACTION_VIEW,marketUri);
-            startActivity(marketIntent);
-        }
     }
 
 
@@ -254,8 +243,15 @@ public class WebViewer extends ActionBarActivity {
      */
     private void gotoManual() {
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.manLink);
+        intent.putExtra("url", KP.manLink);
+        intent.putExtra("reading", true);
+
+        if (KP.isRegistered == true)
+            intent.putExtra("flag", false);
+        else intent.putExtra("flag", true);
+
         startActivity(intent);
+
     }
 
     /**=========================================================================

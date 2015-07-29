@@ -108,6 +108,7 @@
 	
 	<string name="signup"> Sign up</string>
 	<string name="manual">Download a manual</string>
+    <string name="readingMan">Manual</string>
 	<string name="dqBrowser">Discussion</string>
 	
 	<string name="kp_help_content"><![CDATA[

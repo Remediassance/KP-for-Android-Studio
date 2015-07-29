@@ -61,7 +61,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	private Button regServiceBtn;
 	private final String regServiceLink = "http://smartroom.cs.petrsu.ru/content/login";
     public final static String manLink = "https://drive.google.com/file/d/0B1qQ0VknaJehaF94SmNxaTI4YlE/view?usp=sharing";
-    public final static String localMan = "file:///res/raw/manual";
 	private static EditText editName;
 	private static EditText editPassword;
 	private EditText editIP;
@@ -244,6 +243,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
         intent.putExtra("url",manLink);
         intent.putExtra("flag", true);
+        intent.putExtra("reading", true);
 
         startActivity(intent);
 

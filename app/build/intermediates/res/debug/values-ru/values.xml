@@ -102,6 +102,7 @@
     <string name="presentation_help_content"><![CDATA[ 	    <html>         <body>         	<p>В данном окне вы можете просматривать презентации и управлять своей.</p>         	         	<b>--</b>&#32;Используйте пункт "Обновить" меню, чтобы заново подключиться.<br><br>         	<b>--</b>&#32;Значок микрофона позволяет использовать ваше устройство как микрофон.<br>         	<b>--</b>&#32;переключайте слайды вашего доклада, используя стрелки "влево" и "вправо".<br>         </body>         </html> 	    ]]></string>
     <string name="press2reconnect">Нажмите кнопку для подключения</string>
     <string name="profileLabel">Профиль</string>
+    <string name="readingMan">Руководство SmartRoom</string>
     <string name="reconnectText">Обновить</string>
     <string name="registrationFail">Регистрация не удалась</string>
     <string name="registrationService">Регистрация пользователя</string>

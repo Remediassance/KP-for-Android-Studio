@@ -869,6 +869,7 @@
 	</string>
     <string name="press2reconnect">Press this button to reconnect</string>
     <string name="profileLabel">Profile</string>
+    <string name="readingMan">Manual</string>
     <string name="reconnectText">Reconnect</string>
     <string name="registrationFail">Registration failed</string>
     <string name="registrationService">Registration service</string>
