@@ -130,8 +130,6 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 		rightArrowBtn.setOnClickListener(this);
 		microphoneBtn = (ImageButton) findViewById (R.id.mic);
 		microphoneBtn.setOnClickListener(this);
-		/*refreshBtn = (ImageView) findViewById (R.id.refresh);
-		refreshBtn.setOnTouchListener(this);*/
 		presentationImage = (ImageView) findViewById (R.id.presImage);
 		Bitmap image = bitmapImageFromRes(R.drawable.title);
 		presentationImage.setImageBitmap(image);
@@ -237,14 +235,16 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
     }
 
 
-    /**=========================================================================
-     * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
-     * =========================================================================
+    /*=========================================================================
+    * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
+    * =========================================================================
      */
     private void gotoManual() {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://sourceforge.net/projects/smartroom/files/clients/android/manual.pdf/download"));
-        startActivity(browserIntent);
+        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url",KP.manLink);
+        intent.putExtra("reading", true);
+
+        startActivity(intent);
     }
 
     /**=========================================================================
