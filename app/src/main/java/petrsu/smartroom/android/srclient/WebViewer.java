@@ -32,7 +32,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 public class WebViewer extends ActionBarActivity {
 
     WebView webview;
-    Boolean isFromLogin = false;
+    static Boolean  isFromLogin = false;
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,8 @@ public class WebViewer extends ActionBarActivity {
 
         webview = (WebView) findViewById(R.id.webView);
         webview.getSettings().setJavaScriptEnabled(true);
+        webview.getSettings().setSupportZoom(true);
+        webview.getSettings().setBuiltInZoomControls(true);
         webview.setWebViewClient(new Callback());
         webview.loadUrl(link);
 
@@ -119,16 +121,15 @@ public class WebViewer extends ActionBarActivity {
                     .withHeader(R.layout.drawer_header)
                     .withDrawerWidthDp(320)
                     .addDrawerItems(
-                            new PrimaryDrawerItem().withName(R.string.loginMenu).withIcon(FontAwesome
-                                    .Icon.faw_desktop),
-                            new PrimaryDrawerItem().withName(R.string.signup).withIcon(FontAwesome.Icon.faw_barcode),
+                            new PrimaryDrawerItem().withName(R.string.loginMenu).withIcon(FontAwesome.Icon.faw_desktop),
                             new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
                             new PrimaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_info),
                             new DividerDrawerItem(),
+                            new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment),
+                            new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),
+                            new DividerDrawerItem(),
                             new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome
-                                    .Icon.faw_close),
-                            new SecondaryDrawerItem().withName("About Developers").withIcon(FontAwesome
-                                    .Icon.faw_connectdevelop)
+                                    .Icon.faw_close)
                     ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                         @Override
                         public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
@@ -137,19 +138,20 @@ public class WebViewer extends ActionBarActivity {
                                     gotoLogin();
                                     break;
                                 case 1:
-                                    scanQrCode();
-                                    break;
-                                case 2:
                                     gotoManual();
                                     break;
-                                case 3:
+                                case 2:
                                     openHelp();
                                     break;
+                                case 4:
+                                    gotoCurDisq();
+                                    break;
                                 case 5:
+                                    gotoDisqList();
+                                    break;
+                                case 7:
                                     exitApp();
                                     break;
-                                case 6:
-                                    gotoDisqList();
                                 default:
                                     break;
                             }
@@ -275,11 +277,15 @@ public class WebViewer extends ActionBarActivity {
      */
     private void gotoCurDisq(){
         String contentUrl = KP.getContentUrl();
-        String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+        //String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
         //Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
         intent.putExtra("url", KP.dqAddr+"chat");
+
+        if (KP.isRegistered == true)
+            intent.putExtra("flag", false);
+        else intent.putExtra("flag", true);
 
         startActivity(intent);
     }
@@ -291,10 +297,14 @@ public class WebViewer extends ActionBarActivity {
      */
     private void gotoDisqList(){
         String contentUrl = KP.getContentUrl();
-        String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files"));
+        //String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files"));
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
         intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
+
+        if (KP.isRegistered == true)
+            intent.putExtra("flag", false);
+        else intent.putExtra("flag", true);
 
         startActivity(intent);
     }

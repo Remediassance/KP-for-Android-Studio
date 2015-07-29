@@ -161,54 +161,77 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
                         new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
                         new PrimaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_info),
                         new DividerDrawerItem(),
+                        new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment),
+                        new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),
+                        new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome
-								.Icon.faw_close),
-						new SecondaryDrawerItem().withName("About Developers").withIcon(FontAwesome
-								.Icon.faw_connectdevelop)
+								.Icon.faw_close)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-			@Override
-			public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-				switch ((int) id) {
-					case 0:
-						scanQrCode();
-						break;
-					case 1:
-						gotoManual();
-						break;
-					case 2:
-						openHelp();
-						break;
-					case 4:
-						exitApp();
-						break;
-					case 5:
-						gotoDisqList();
-					default:
-						break;
-				}
-				return true;
-			}
-		}).build();
+            @Override
+            public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                switch ((int) id) {
+                    case 0:
+                        scanQrCode();
+                        break;
+                    case 1:
+                        gotoManual();
+                        break;
+                    case 2:
+                        openHelp();
+                        break;
+                    case 4:
+                        gotoCurDisq();
+                        break;
+                    case 5:
+                        gotoDisqList();
+                        break;
+                    case 7:
+                        exitApp();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        }).build();
 
             isChairman=false;
             isRegistered=false;
         }
 
 
-	/**=========================================================================
-	 * GO TO  DISCUSSION LIST
-	 *==========================================================================
-	 */
-	private void gotoDisqList(){
-		String contentUrl = KP.getContentUrl();
-		//String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files"));
 
-		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-		intent.putExtra("url","http://192.168.43.33/chat");
+    /**=========================================================================
+     * GO TO CURRENT DISCUSSION
+     *==========================================================================
+     */
+    private void gotoCurDisq(){
+        String contentUrl = KP.getContentUrl();
+        //String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+        //Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
+
+        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url", KP.dqAddr+"chat");
         intent.putExtra("flag", true);
 
-		startActivity(intent);
-	}
+        startActivity(intent);
+    }
+
+
+    /**=========================================================================
+     * GO TO  DISCUSSION LIST
+     *==========================================================================
+     */
+    private void gotoDisqList(){
+        String contentUrl = KP.getContentUrl();
+        //String addr = contentUrl.substring(0, contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+
+        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
+        intent.putExtra("flag", true);
+
+        startActivity(intent);
+    }
 
 
     /*=========================================================================
