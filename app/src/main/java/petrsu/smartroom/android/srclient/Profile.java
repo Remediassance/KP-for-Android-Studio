@@ -196,14 +196,14 @@ public class Profile extends ActionBarActivity {
     }
 
 
-    /**=========================================================================
-     * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
-     * =========================================================================
+    /*=========================================================================
+    * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
+    * =========================================================================
      */
     private void gotoManual() {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://sourceforge.net/projects/smartroom/files/clients/android/manual.pdf/download"));
-        startActivity(browserIntent);
+        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url",KP.manLink);
+        startActivity(intent);
     }
 
     /**=========================================================================

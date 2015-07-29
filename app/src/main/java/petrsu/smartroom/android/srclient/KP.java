@@ -60,6 +60,8 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	private Button guestBtn;
 	private Button regServiceBtn;
 	private final String regServiceLink = "http://smartroom.cs.petrsu.ru/content/login";
+    public final static String manLink = "https://drive.google.com/file/d/0B1qQ0VknaJehaF94SmNxaTI4YlE/view?usp=sharing";
+    public final static String localMan = "file:///res/raw/manual";
 	private static EditText editName;
 	private static EditText editPassword;
 	private EditText editIP;
@@ -239,9 +241,12 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
     * =========================================================================
      */
     private void gotoManual() {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://sourceforge.net/projects/smartroom/files/clients/android/manual.pdf/download"));
-        startActivity(browserIntent);
+        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url",manLink);
+        intent.putExtra("flag", true);
+
+        startActivity(intent);
+
     }
 
     /*=========================================================================
