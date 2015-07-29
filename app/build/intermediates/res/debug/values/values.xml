@@ -831,7 +831,7 @@
     <eat-comment/>
     <string name="loginMenu">Log in</string>
     <string name="login_header" translatable="false">SmartRoom</string>
-    <string name="manual">Download a manual</string>
+    <string name="manual">Manual</string>
     <string name="menu_endPresentation">End presentation</string>
     <string name="menu_refresh">Refresh</string>
     <string name="menu_services">Services</string>
@@ -869,7 +869,6 @@
 	</string>
     <string name="press2reconnect">Press this button to reconnect</string>
     <string name="profileLabel">Profile</string>
-    <string name="readingMan">Manual</string>
     <string name="reconnectText">Reconnect</string>
     <string name="registrationFail">Registration failed</string>
     <string name="registrationService">Registration service</string>

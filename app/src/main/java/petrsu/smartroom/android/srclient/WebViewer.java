@@ -48,7 +48,7 @@ public class WebViewer extends ActionBarActivity {
         isReadingman = intent.getBooleanExtra("reading",false);
 
         if (isReadingman == true)
-            this.setTitle(R.string.readingMan);
+            this.setTitle(R.string.manual);
         else
             this.setTitle(R.string.dqBrowser);
 
