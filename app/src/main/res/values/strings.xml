@@ -44,7 +44,7 @@
     <string name="startConference">Start conference</string>
     <string name="endConference">End conference</string>
     <string name="exitClientTitle">Exit client</string>
-    <string name="exitClientQuestion">Do you really want to logout?</string>
+    <string name="exitClientQuestion">Do you really want to log out?</string>
     <string name="screenTimeoutTitle">Screen timeout</string>
     <string name="screenTimeoutDialog">Locks the screen after certain amount of idle time</string>
     <string name="showSpeakerTitle">Show speaker name</string>

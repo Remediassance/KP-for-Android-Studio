@@ -764,7 +764,7 @@
     <eat-comment/>
     <string name="emptyFields">Name and password have to be filled</string>
     <string name="endConference">End conference</string>
-    <string name="exitClientQuestion">Do you really want to logout?</string>
+    <string name="exitClientQuestion">Do you really want to log out?</string>
     <string name="exitClientTitle">Exit client</string>
     <string name="guestBtn">As guest</string>
     <string name="guestNameEmpty">Name has to be filled</string>

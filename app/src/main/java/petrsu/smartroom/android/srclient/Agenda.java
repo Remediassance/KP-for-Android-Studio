@@ -267,6 +267,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
         startActivity(intent);
     }
 
+
+
     /**=========================================================================
     * QITS TO THE DESKTOP
     *==========================================================================
@@ -291,6 +293,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
         startActivity(intent);
     }
 
+
+
     /**=========================================================================
     * SHOWS HELP WINDOW
     *==========================================================================
@@ -302,6 +306,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
         builder.create();
         builder.show();
     }
+
 
 
     /**========================================================================
@@ -316,6 +321,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
         Intent restartIntent = new Intent(this, Agenda.class);
         startActivity(restartIntent);
     }
+
+
 
     /**
      * Updates agenda time slot
@@ -341,13 +348,14 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
     }
 
 
+
 	/**=========================================================================
 	 * GO TO CURRENT DISCUSSION
 	 *==========================================================================
 	 */
 	private void gotoCurDisq(){
 		String contentUrl = KP.getContentUrl();
-		String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+		//String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
 		//Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
@@ -357,19 +365,22 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	}
 
 
+
 	/**=========================================================================
 	 * GO TO  DISCUSSION LIST
 	 *==========================================================================
 	 */
 	private void gotoDisqList(){
 		String contentUrl = KP.getContentUrl();
-		String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+		//String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
 		intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
 
 		startActivity(intent);
 	}
+
+
 
     /**========================================================================
      * GO TO SETTINGS ACTIVITY
@@ -382,6 +393,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
     }
 
 
+
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -389,6 +401,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		/* Save current time slot index */
 		outState.putInt(CUR_TIMESLOT_KEY, currentTimeslotIndex);
 	}
+
 	
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -596,7 +609,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 			dialog.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-					stopService(new Intent(getApplicationContext(), 
+					stopService(new Intent(getApplicationContext(),
 							NetworkService.class));
 					KP.disconnectSmartSpace();
 					KP.connectionState = -1;
@@ -605,16 +618,16 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 					KP.personIndex = -1;
 					list = null;
 					currentTimeslotIndex = -1;
-					
+
 					if(list != null)
 						list.clear();
 					finish();
 				}
 			});
-			
-			dialog.setNegativeButton(android.R.string.cancel, 
+
+			dialog.setNegativeButton(android.R.string.cancel,
 					new DialogInterface.OnClickListener() {
-				
+
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					return;
