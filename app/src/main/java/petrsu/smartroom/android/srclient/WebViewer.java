@@ -242,15 +242,18 @@ public class WebViewer extends ActionBarActivity {
     * =========================================================================
      */
     private void gotoManual() {
-        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.manLink);
-        intent.putExtra("reading", true);
 
-        if (KP.isRegistered == true)
-            intent.putExtra("flag", false);
-        else intent.putExtra("flag", true);
+        if(this.getTitle().toString() != getString(R.string.manual)) {
+            Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+            intent.putExtra("url", KP.manLink);
+            intent.putExtra("reading", true);
 
-        startActivity(intent);
+            if (KP.isRegistered == true)
+                intent.putExtra("flag", false);
+            else intent.putExtra("flag", true);
+
+            startActivity(intent);
+        }
 
     }
 
