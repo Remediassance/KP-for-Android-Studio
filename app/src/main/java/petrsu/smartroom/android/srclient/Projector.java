@@ -175,7 +175,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
                     case 2:     break;
                     case 4:     gotoCurDisq();      break;
                     case 5:     gotoDisqList();     break;
-                    case 7:     gotoSettings();     break; //-3 на все кейсы
+                    case 7:     gotoSettings();     break;
                     case 8:     updateProjector();  break;
                     case 10:    openHelp();     	break;
                     case 11:	gotoManual();       break;

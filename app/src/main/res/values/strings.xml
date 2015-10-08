@@ -154,5 +154,6 @@
         </html>
 	    ]]>
 	</string>
-	
+    <string name="readingMan">Manual</string>
+
 </resources>
