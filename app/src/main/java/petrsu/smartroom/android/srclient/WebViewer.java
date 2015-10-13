@@ -24,7 +24,7 @@ import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 /**
- * Created by Андрей on 22.07.2015.
+ * Created by пїЅпїЅпїЅпїЅпїЅпїЅ on 22.07.2015.
  *
  * This class can be used to display any web related
  * information or act as a built-in web-browser.
@@ -64,7 +64,7 @@ public class WebViewer extends ActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // Разные меню для входов с  разных активити
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ  пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if(isFromLogin==false) {
             drawer = new DrawerBuilder()
                     .withActivity(this)
@@ -77,9 +77,9 @@ public class WebViewer extends ActionBarActivity {
                             new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
                             new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
 
-                            new SectionDrawerItem().withName(R.string.discussion),
+                            /*new SectionDrawerItem().withName(R.string.discussion),
                             new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
-                            new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
+                            new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),*/
 
                             new SectionDrawerItem().withName(R.string.action_settings),
                             new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
@@ -100,19 +100,19 @@ public class WebViewer extends ActionBarActivity {
                                 case 2:
                                     gotoPresentation();
                                     break;
-                                case 4:
+                                /*case 4:
                                     gotoCurDisq();
                                     break;
                                 case 5:
                                     gotoDisqList();
-                                    break;
-                                case 7:
+                                    break;*/
+                                case 4:
                                     gotoSettings();
                                     break;
-                                case 9:
+                                case 6:
                                     gotoManual();
                                     break;
-                                case 11:
+                                case 8:
                                     exitApp();
                                     break;
                                 default:
@@ -132,9 +132,9 @@ public class WebViewer extends ActionBarActivity {
                     .addDrawerItems(
                             new PrimaryDrawerItem().withName(R.string.loginMenu).withIcon(FontAwesome.Icon.faw_desktop),
                             new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
-                            new DividerDrawerItem(),
+                            /*new DividerDrawerItem(),
                             new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment),
-                            new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),
+                            new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),*/
                             new DividerDrawerItem(),
                             new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome
                                     .Icon.faw_close)
@@ -148,13 +148,13 @@ public class WebViewer extends ActionBarActivity {
                                 case 1:
                                     gotoManual();
                                     break;
-                                case 3:
+                                /*case 3:
                                     gotoCurDisq();
                                     break;
                                 case 4:
                                     gotoDisqList();
-                                    break;
-                                case 6:
+                                    break;*/
+                                case 3:
                                     exitApp();
                                     break;
                                 default:

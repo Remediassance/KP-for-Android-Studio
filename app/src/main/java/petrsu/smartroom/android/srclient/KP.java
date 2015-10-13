@@ -60,7 +60,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	private Button guestBtn;
 	private Button regServiceBtn;
 	private final String regServiceLink = "http://smartroom.cs.petrsu.ru/content/login";
-    public final static String manLink = "https://drive.google.com/file/d/0B1qQ0VknaJehaF94SmNxaTI4YlE/view?usp=sharing";
+    public final static String manLink = "http://bit.ly/srman081";
 	private static EditText editName;
 	private static EditText editPassword;
 	private EditText editIP;
@@ -161,9 +161,9 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
                         new PrimaryDrawerItem().withName(R.string.signup).withIcon(FontAwesome.Icon.faw_barcode),
                         new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
                         new PrimaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_info),
-                        new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment),
-                        new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),
+                        //new DividerDrawerItem(),
+                        //new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment),
+                        //new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome
 								.Icon.faw_close)
@@ -180,13 +180,13 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
                     case 2:
                         openHelp();
                         break;
-                    case 4:
+                    /*case 4:
                         gotoCurDisq();
                         break;
                     case 5:
                         gotoDisqList();
-                        break;
-                    case 7:
+                        break;*/
+                    case 4:
                         exitApp();
                         break;
                     default:
