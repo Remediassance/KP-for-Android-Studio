@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.mikepenz\materialdrawer\3.1.0\jars\classes.jar"
+        jar="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="d2992ef4fc94783ae5165002a2e81d11a59f17d7">
-        <dex dex="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\pre-dexed\release\classes-22176a4d3dc3d720ee15260f9352e21c1082ebae.jar" />
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\pre-dexed\release\internal_impl-22.2.0-fe4e36c5ece22b4058f73b18a2a4523c2b6807e1.jar" />
     </item>
     <item
         jar="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.mikepenz\iconics\1.2.0\jars\classes.jar"
@@ -16,32 +16,11 @@
         <dex dex="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\pre-dexed\release\classes-e5ee2b32c9795b57a018d5328908b50fbf5a6963.jar" />
     </item>
     <item
-        jar="C:\Android Projects\KP-for-Android-Studio\app\libs\jspeex.jar"
+        jar="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="5fd8184cfea4c5aa4e3c14bb3d21fd83539d6f47">
-        <dex dex="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\pre-dexed\release\jspeex-677c65fe880e4533fa5eed578aa58b99d6d3ef71.jar" />
-    </item>
-    <item
-        jar="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\pre-dexed\release\internal_impl-22.2.0-fe4e36c5ece22b4058f73b18a2a4523c2b6807e1.jar" />
-    </item>
-    <item
-        jar="C:\Users\Андрей\Documents\GitHub\KP-for-Android-Studio\app\libs\jspeex.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="5fd8184cfea4c5aa4e3c14bb3d21fd83539d6f47">
-        <dex dex="C:\Users\Андрей\Documents\GitHub\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\jspeex-36bf129ffc09998b83c84731158818f364c72dc4.jar" />
-    </item>
-    <item
-        jar="C:\Users\Андрей\Desktop\      \Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\Андрей\Documents\GitHub\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-d3ea39817bed4cd14effc4e115c681c04ad1c539.jar" />
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\pre-dexed\release\classes-a9a195b82dc8fc009c39c382f63736c5e3ecad6a.jar" />
     </item>
     <item
         jar="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
@@ -51,11 +30,25 @@
         <dex dex="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\pre-dexed\release\classes-bb5e7292bb5f2f961477fd0963522f579b90db26.jar" />
     </item>
     <item
-        jar="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jar="C:\Android Projects\KP-for-Android-Studio\app\libs\jspeex.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\pre-dexed\release\classes-a9a195b82dc8fc009c39c382f63736c5e3ecad6a.jar" />
+        sha1="5fd8184cfea4c5aa4e3c14bb3d21fd83539d6f47">
+        <dex dex="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\pre-dexed\release\jspeex-677c65fe880e4533fa5eed578aa58b99d6d3ef71.jar" />
+    </item>
+    <item
+        jar="C:\Users\Андрей\Desktop\      \Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\pre-dexed\release\support-annotations-22.2.0-d3ea39817bed4cd14effc4e115c681c04ad1c539.jar" />
+    </item>
+    <item
+        jar="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.mikepenz\materialdrawer\3.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d2992ef4fc94783ae5165002a2e81d11a59f17d7">
+        <dex dex="C:\Android Projects\KP-for-Android-Studio\app\build\intermediates\pre-dexed\release\classes-22176a4d3dc3d720ee15260f9352e21c1082ebae.jar" />
     </item>
 
 </items>
