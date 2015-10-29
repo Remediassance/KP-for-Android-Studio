@@ -161,9 +161,9 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
                         new PrimaryDrawerItem().withName(R.string.signup).withIcon(FontAwesome.Icon.faw_barcode),
                         new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
                         new PrimaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_info),
-                        //new DividerDrawerItem(),
-                        //new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment),
-                        //new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),
+                        new DividerDrawerItem(),
+                        new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment),
+                        new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome
 								.Icon.faw_close)
@@ -180,13 +180,13 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
                     case 2:
                         openHelp();
                         break;
-                    /*case 4:
+                    case 4:
                         gotoCurDisq();
                         break;
                     case 5:
                         gotoDisqList();
-                        break;*/
-                    case 4:
+                        break;
+                    case 7:
                         exitApp();
                         break;
                     default:
@@ -207,10 +207,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
      *==========================================================================
      */
     private void gotoCurDisq(){
-        String contentUrl = KP.getContentUrl();
-        //String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
-        //Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
-
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
         intent.putExtra("url", KP.dqAddr+"chat");
         intent.putExtra("flag", true);
@@ -224,8 +220,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
      *==========================================================================
      */
     private void gotoDisqList(){
-        String contentUrl = KP.getContentUrl();
-        //String addr = contentUrl.substring(0, contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
         intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
