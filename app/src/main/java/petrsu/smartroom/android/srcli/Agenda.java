@@ -95,8 +95,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		absentImg = "absentImage";
 		noImage = "noImage";
 		presentationPath = "/SmartRoom/Presentations/";
-		//KP.dqAddr = KP.getDiscussionServiceIP();
-        //KP.spAddr = KP.getSocialProgramServiceIP();
+		KP.dqAddr = KP.getDiscussionServiceIP();
+        KP.spAddr = KP.getSocialProgramServiceIP();
 	}
 	
 	@Override
