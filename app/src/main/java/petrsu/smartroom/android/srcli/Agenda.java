@@ -95,6 +95,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		absentImg = "absentImage";
 		noImage = "noImage";
 		presentationPath = "/SmartRoom/Presentations/";
+		//KP.dqAddr = KP.getDiscussionServiceIP();
+        //KP.spAddr = KP.getSocialProgramServiceIP();
 	}
 	
 	@Override
@@ -173,26 +175,48 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
                         new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
 
                         new DividerDrawerItem(),
-                        new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
+                        new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close),
+                        new SecondaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                        //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
-                        switch ((int) id) {
-                            case 1: break;
-                            case 2:    gotoPresentation(); break;
-                            case 4:     gotoCurDisq();      break;
-                            case 5:     gotoDisqList();     break;
-                            case 7:    gotoSettings();     break;
-                            case 8:    updateCurTimeslot();break;
-                            case 10:    openHelp();         break;
-                            case 11:    gotoManual();       break;
-                            case 13:   exitApp();          break;
-                            default:  break;
-                        }
-						return true;
-                    }
-                }).build();
+            @Override
+            public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                switch ((int) id) {
+                    case 1:
+                        break;
+                    case 2:
+                        gotoPresentation();
+                        break;
+                    case 4:
+                        gotoCurDisq();
+                        break;
+                    case 5:
+                        gotoDisqList();
+                        break;
+                    case 7:
+                        gotoSettings();
+                        break;
+                    case 8:
+                        updateCurTimeslot();
+                        break;
+                    case 10:
+                        openHelp();
+                        break;
+                    case 11:
+                        gotoManual();
+                        break;
+                    case 13:
+                        exitApp();
+                        break;
+                    case 14:
+                        showsp();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        }).build();
 		
 		/* Initialize context menu */
 		initListView();
@@ -252,6 +276,13 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	}
 
 
+    /**========================================================================
+     * SHOW SPS IP ADDRESS
+     *=========================================================================
+     */
+    private void showsp(){
+        Toast.makeText(this.getApplicationContext(),KP.spAddr,Toast.LENGTH_LONG).show();
+    }
 
 
     /**========================================================================

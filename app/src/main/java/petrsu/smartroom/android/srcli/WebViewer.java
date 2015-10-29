@@ -131,9 +131,6 @@ public class WebViewer extends ActionBarActivity {
                             new PrimaryDrawerItem().withName(R.string.loginMenu).withIcon(FontAwesome.Icon.faw_desktop),
                             new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
                             new DividerDrawerItem(),
-                            new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment),
-                            new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),
-                            new DividerDrawerItem(),
                             new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome
                                     .Icon.faw_close)
                     ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -147,12 +144,6 @@ public class WebViewer extends ActionBarActivity {
                                     gotoManual();
                                     break;
                                 case 3:
-                                    gotoCurDisq();
-                                    break;
-                                case 4:
-                                    gotoDisqList();
-                                    break;
-                                case 6:
                                     exitApp();
                                     break;
                                 default:

@@ -53,7 +53,8 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	public static int port;					// SIB port
 	public static int personIndex = -1;		// Time slot index of a person
 	public static boolean isRegistered;		// User was registered in SS
-    public static String dqAddr = "http://192.168.43.33/";
+    public static String dqAddr = "null";
+    public static String spAddr = "null";
 	private ImageView advancedModeImg;		// Advance mode trigger
 	private TextView advancedModeText;
 	private Button connectBtn;	
@@ -84,6 +85,8 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	public static native boolean checkSpeakerState();
 	public static native String getMicServiceIP();
 	public static native String getMicServicePort();
+	public static native String getDiscussionServiceIP();
+    public static native String getSocialProgramServiceIP();
 	public static native String getSpeakerName();
 	public static native int personTimeslotIndex();
 	public static native boolean checkConnection();
@@ -162,9 +165,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
                         new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
                         new PrimaryDrawerItem().withName(R.string.drawer_item_help).withIcon(FontAwesome.Icon.faw_info),
                         new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment),
-                        new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),
-                        new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome
 								.Icon.faw_close)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -181,12 +181,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
                         openHelp();
                         break;
                     case 4:
-                        gotoCurDisq();
-                        break;
-                    case 5:
-                        gotoDisqList();
-                        break;
-                    case 7:
                         exitApp();
                         break;
                     default:
