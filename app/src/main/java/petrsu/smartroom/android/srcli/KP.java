@@ -85,8 +85,8 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	public static native boolean checkSpeakerState();
 	public static native String getMicServiceIP();
 	public static native String getMicServicePort();
-	public static native String getDiscussionServiceIP();
-    public static native String getSocialProgramServiceIP();
+	/*public static native String getDiscussionServiceIP();
+    public static native String getSocialProgramServiceIP();*/
 	public static native String getSpeakerName();
 	public static native int personTimeslotIndex();
 	public static native boolean checkConnection();

@@ -52,7 +52,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import java.lang.Thread;
 
 /**
- * 
+ *
  * @author pavlin
  * @author remediassance
  *
@@ -62,8 +62,8 @@ import java.lang.Thread;
  *
  */
 public class Agenda extends ActionBarActivity {// implements  View.OnClickListener{
-	
-	private final int LOOK_PRESENTATION = 0;	
+
+	private final int LOOK_PRESENTATION = 0;
 	private final int PERSON_PROFILE = 1;
 	private final int START_CONFERENCE_FROM = 2;
 	private final String CUR_TIMESLOT_KEY = "curTimeslot";
@@ -71,13 +71,13 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	private final String noImage;				// No image constant
 	private final String contentUrl;			// Content service URL
 	public final String presentationPath;		// Presentation local directory
-	
+
 	private static ArrayList<Timeslot> list;	// Agenda program
 	private static AgendaAdapter adapter;
 	private static ListView listView;
 	public static int agendaCreated;			// Agenda created indicator
 	public static int currentTimeslotIndex;
-	
+
 	private BroadcastReceiver bc;
 	private Bitmap imgDefault;
 	private Bitmap imgNoImage;
@@ -86,7 +86,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	public boolean conferenceEnded;
 
 
-	
+
 	public Agenda() {
 		contentUrl = KP.getContentUrl();
 		agendaCreated = 0;
@@ -95,22 +95,20 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		absentImg = "absentImage";
 		noImage = "noImage";
 		presentationPath = "/SmartRoom/Presentations/";
-		KP.dqAddr = KP.getDiscussionServiceIP();
-        KP.spAddr = KP.getSocialProgramServiceIP();
 	}
-	
+
 	@Override
 	protected void onPause() {
 		super.onPause();
 		unregisterReceiver(bc);
 		agendaCreated = 0;
 	}
-	
+
 	@Override
 	protected void onStop() {
 		super.onStop();
 	}
-	
+
 	@Override
 	protected void onStart() {
 		super.onStart();
@@ -124,7 +122,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		if(value != currentTimeslotIndex)
 			updateCurTimeslot();
 	}
-	
+
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -134,93 +132,71 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		/* Save the last application state */
 		editor.putString("last_state", "Agenda");
 		editor.commit();
-		
+
 		//if(KP.checkSubscriptionState() != 0)
-			//Log.e("Agenda check sbcr", "failed to refresh sbcr");
-		
+		//Log.e("Agenda check sbcr", "failed to refresh sbcr");
+
 		registerReceiver();
 		agendaCreated = 1;
 	}
-	
-	@Override				
+
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.agenda_interface);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Drawer result = new DrawerBuilder()
-                .withActivity(this)
-                .withToolbar(toolbar)
-                .withActionBarDrawerToggle(true)
-                .withHeader(R.layout.drawer_header)
-                .withDrawerWidthDp(320)
-                .addDrawerItems(
-                        new SectionDrawerItem().withName(R.string.services),
-                        new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
-                        new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
+		Drawer result = new DrawerBuilder()
+				.withActivity(this)
+				.withToolbar(toolbar)
+				.withActionBarDrawerToggle(true)
+				.withHeader(R.layout.drawer_header)
+				.withDrawerWidthDp(320)
+				.addDrawerItems(
+						new SectionDrawerItem().withName(R.string.services),
+						new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
+						new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
 
-                       new SectionDrawerItem().withName(R.string.discussion),
+                       /* new SectionDrawerItem().withName(R.string.discussion),
                         new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
-                        new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
+                        new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),*/
 
-                        new SectionDrawerItem().withName(R.string.action_settings),
-                        new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
-                        new PrimaryDrawerItem().withName(R.string.reconnectText).withIcon(FontAwesome.Icon.faw_refresh),
+						new SectionDrawerItem().withName(R.string.action_settings),
+						new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
+						new PrimaryDrawerItem().withName(R.string.reconnectText).withIcon(FontAwesome.Icon.faw_refresh),
 
-                        new SectionDrawerItem().withName(R.string.help),
-                        new PrimaryDrawerItem().withName(R.string.help_agenda).withIcon(FontAwesome.Icon.faw_info),
-                        new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
+						new SectionDrawerItem().withName(R.string.help),
+						new PrimaryDrawerItem().withName(R.string.help_agenda).withIcon(FontAwesome.Icon.faw_info),
+						new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
 
-                        new DividerDrawerItem(),
-                        new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close),
-                        new SecondaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe)
-                ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-            @Override
-            public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
-                switch ((int) id) {
-                    case 1:
-                        break;
-                    case 2:
-                        gotoPresentation();
-                        break;
-                    case 4:
-                        gotoCurDisq();
-                        break;
-                    case 5:
-                        gotoDisqList();
-                        break;
-                    case 7:
-                        gotoSettings();
-                        break;
-                    case 8:
-                        updateCurTimeslot();
-                        break;
-                    case 10:
-                        openHelp();
-                        break;
-                    case 11:
-                        gotoManual();
-                        break;
-                    case 13:
-                        exitApp();
-                        break;
-                    case 14:
-                        showsp();
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        }).build();
+						new DividerDrawerItem(),
+						new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
+				).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+					@Override
+					public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+						//Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+						switch ((int) id) {
+							case 1: break;
+							case 2:    gotoPresentation(); break;
+                           /* case 4:     gotoCurDisq();      break;
+                            case 5:     gotoDisqList();     break;*/
+							case 4:    gotoSettings();     break;
+							case 5:    updateCurTimeslot();break;
+							case 7:    openHelp();         break;
+							case 8:    gotoManual();       break;
+							case 10:   exitApp();          break;
+							default:  break;
+						}
+						return true;
+					}
+				}).build();
 		
 		/* Initialize context menu */
 		initListView();
-		
+
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inSampleSize = 1;
 		imgDefault = BitmapFactory.decodeResource(getResources(),R.drawable.crop, options);
@@ -234,7 +210,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		if(list == null) {
 			if(prepareAgendaData() != 0) {
 				setContentView(R.layout.agenda_interface_ext);
-				
+
 				ImageView refreshBtn = (ImageView) findViewById (R.id.agendaRefresh);
 				refreshBtn.setImageDrawable(getResources().getDrawable(R.drawable.refresh));
 				refreshBtn.setOnClickListener(new View.OnClickListener() {
@@ -257,17 +233,17 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 			ArrayList<ErrorView> list = new ArrayList<ErrorView>();
 			list.add(new ErrorView(getResources()
 					.getString(R.string.agendaNotAvailable)));
-			
+
 			adapter = new AgendaAdapter(
 					this, list, R.layout.agenda_interface_ext,
 					new String[] {ErrorView.MSG},
 					new int[] {R.id.noAgendaView});
 		} else {
 			adapter = new AgendaAdapter(
-					this, list, R.layout.agenda_item, 
-					new String[] {Timeslot.NAME, Timeslot.TITLE, 
+					this, list, R.layout.agenda_item,
+					new String[] {Timeslot.NAME, Timeslot.TITLE,
 							Timeslot.IMG, Timeslot.STATUS},
-					new int[] {R.id.speakerName, R.id.presentationTitle, 
+					new int[] {R.id.speakerName, R.id.presentationTitle,
 							R.id.avatar, R.id.speakerStatus});
 		}
 
@@ -276,104 +252,97 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	}
 
 
-    /**========================================================================
-     * SHOW SPS IP ADDRESS
-     *=========================================================================
-     */
-    private void showsp(){
-        Toast.makeText(this.getApplicationContext(),KP.spAddr,Toast.LENGTH_LONG).show();
-    }
 
 
-    /**========================================================================
-    * GO TO PRESENTATION SERVICE
-    *=========================================================================
-     */
-    private void gotoPresentation(){
-        Intent intent = new Intent();
-        intent.setClass(this, Projector.class);
-        startActivity(intent);
-    }
+	/**========================================================================
+	 * GO TO PRESENTATION SERVICE
+	 *=========================================================================
+	 */
+	private void gotoPresentation(){
+		Intent intent = new Intent();
+		intent.setClass(this, Projector.class);
+		startActivity(intent);
+	}
 
 
 
-    /**=========================================================================
-    * QITS TO THE DESKTOP
-    *==========================================================================
-    */
-    private void exitApp() {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-    }
+	/**=========================================================================
+	 * QITS TO THE DESKTOP
+	 *==========================================================================
+	 */
+	private void exitApp() {
+		Intent intent = new Intent(Intent.ACTION_MAIN);
+		intent.addCategory(Intent.CATEGORY_HOME);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(intent);
+	}
 
 
-    /*=========================================================================
+	/*=========================================================================
     * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
     * =========================================================================
      */
-    private void gotoManual() {
-        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.manLink);
-        intent.putExtra("reading", true);
+	private void gotoManual() {
+		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+		intent.putExtra("url",KP.manLink);
+		intent.putExtra("reading", true);
 
-        startActivity(intent);
-    }
-
-
-
-    /**=========================================================================
-    * SHOWS HELP WINDOW
-    *==========================================================================
-     */
-    private void openHelp() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.joiningSR);
-        builder.setMessage(Html.fromHtml(getResources().getString(R.string.agenda_help_content)));
-        builder.create();
-        builder.show();
-    }
+		startActivity(intent);
+	}
 
 
 
-    /**========================================================================
-     * REFRESH AGENDA PAGE
-     *=========================================================================
-     */
-    public void updateAgenda() {
-        agendaCreated = 0;
-        list = null;
-        KP.personIndex = KP.personTimeslotIndex();
-        finish();
-        Intent restartIntent = new Intent(this, Agenda.class);
-        startActivity(restartIntent);
-    }
+	/**=========================================================================
+	 * SHOWS HELP WINDOW
+	 *==========================================================================
+	 */
+	private void openHelp() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(R.string.joiningSR);
+		builder.setMessage(Html.fromHtml(getResources().getString(R.string.agenda_help_content)));
+		builder.create();
+		builder.show();
+	}
 
 
 
-    /**
-     * Updates agenda time slot
-     */
-    public void updateCurTimeslot() {
-        int index = KP.getCurrentTimeslotIndex() - 1;
-        setCurrentTimeslot(index);
+	/**========================================================================
+	 * REFRESH AGENDA PAGE
+	 *=========================================================================
+	 */
+	public void updateAgenda() {
+		agendaCreated = 0;
+		list = null;
+		KP.personIndex = KP.personTimeslotIndex();
+		finish();
+		Intent restartIntent = new Intent(this, Agenda.class);
+		startActivity(restartIntent);
+	}
+
+
+
+	/**
+	 * Updates agenda time slot
+	 */
+	public void updateCurTimeslot() {
+		int index = KP.getCurrentTimeslotIndex() - 1;
+		setCurrentTimeslot(index);
 
 		/* Update agenda view */
-        try {
-            new updateAgendaAsync(index).execute();
-        } catch(ExceptionInInitializerError e) {
-            e.printStackTrace();
-            updateAgenda();
-        }
+		try {
+			new updateAgendaAsync(index).execute();
+		} catch(ExceptionInInitializerError e) {
+			e.printStackTrace();
+			updateAgenda();
+		}
 
 		/* Triggers to Projector if user is speaker */
-        if(KP.checkSpeakerState()) {
-            Intent intent = new Intent();
-            intent.setClass(this, Projector.class);
-            startActivity(intent);
-        }
-    }
+		if(KP.checkSpeakerState()) {
+			Intent intent = new Intent();
+			intent.setClass(this, Projector.class);
+			startActivity(intent);
+		}
+	}
 
 
 
@@ -382,6 +351,10 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	 *==========================================================================
 	 */
 	private void gotoCurDisq(){
+		String contentUrl = KP.getContentUrl();
+		//String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
+		//Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
+
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
 		intent.putExtra("url", KP.dqAddr+"chat");
 
@@ -395,6 +368,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	 *==========================================================================
 	 */
 	private void gotoDisqList(){
+		String contentUrl = KP.getContentUrl();
+		//String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
 		intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
@@ -404,15 +379,15 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 
 
 
-    /**========================================================================
-     * GO TO SETTINGS ACTIVITY
-     *=========================================================================
-     */
-    private void gotoSettings() {
-        Intent intentSettings = new Intent();
-        intentSettings.setClass(this, SettingsMenu.class);
-        startActivity(intentSettings);
-    }
+	/**========================================================================
+	 * GO TO SETTINGS ACTIVITY
+	 *=========================================================================
+	 */
+	private void gotoSettings() {
+		Intent intentSettings = new Intent();
+		intentSettings.setClass(this, SettingsMenu.class);
+		startActivity(intentSettings);
+	}
 
 
 
@@ -424,53 +399,53 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		outState.putInt(CUR_TIMESLOT_KEY, currentTimeslotIndex);
 	}
 
-	
+
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-	    super.onRestoreInstanceState(savedInstanceState);
+		super.onRestoreInstanceState(savedInstanceState);
 	    
 	    /* Load saved time slot index */
-	    currentTimeslotIndex = savedInstanceState.getInt(CUR_TIMESLOT_KEY, -1);
+		currentTimeslotIndex = savedInstanceState.getInt(CUR_TIMESLOT_KEY, -1);
 	}
-	
-	
+
+
 	/**
 	 * Adds time slot item to agenda program list.
-	 * 
+	 *
 	 * @param name Name of participant
 	 * @param title Presentation title
 	 * @param img Participant's avatar
 	 * @param status Participant status (online, offline)
 	 * @throws InterruptedException
 	 */
-	public void addTimeslotItemToList(final String name, final String title, 
-			final String img, final String status) throws InterruptedException {
+	public void addTimeslotItemToList(final String name, final String title,
+									  final String img, final String status) throws InterruptedException {
 		if(!img.equals(absentImg) && !img.equals(noImage)) {
 			Thread t = new Thread() {
-					@Override
-					public void run() {
-							String imageLink = prepareLink(img);
-							Bitmap imgAvatar = loadImage(imageLink);
-							if(imgAvatar == null) {
-								list.add(new Timeslot(name, title, imgNoImage,
-										status));
-							} else { 
-								list.add(new Timeslot(name, title, imgAvatar,
-										status));
-							}
-					};
+				@Override
+				public void run() {
+					String imageLink = prepareLink(img);
+					Bitmap imgAvatar = loadImage(imageLink);
+					if(imgAvatar == null) {
+						list.add(new Timeslot(name, title, imgNoImage,
+								status));
+					} else {
+						list.add(new Timeslot(name, title, imgAvatar,
+								status));
+					}
+				};
 			};
 			t.start();
 			t.join();
-			
+
 		} else if(img.equals(noImage)) {
 			list.add(new Timeslot(name, title, imgNoImage, status));
 		} else {
 			list.add(new Timeslot(name, title, imgDefault, status));
 		}
 	}
-	
-	
+
+
 	/**
 	 * Loads image by URL.
 	 *
@@ -485,7 +460,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		try {
 			URLConnection url = new URL(link).openConnection();
 			url.setConnectTimeout(2000);
-			
+
 			InputStream is = (InputStream) url.getContent();
 			image = BitmapFactory.decodeStream(is, null, options);
 		} catch (OutOfMemoryError e) {
@@ -495,15 +470,15 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 			e.printStackTrace();
 			return null;
 		}
-		
+
 		return image;
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.agenda_menu, menu);
-		
+
 		if(!KP.isChairman) {
 			menu.findItem(R.id.conferenceStart).setVisible(false);
 			menu.findItem(R.id.conferenceEnd).setVisible(false);
@@ -511,14 +486,14 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 
 		return super.onCreateOptionsMenu(menu);
 	}
-	
+
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		menu.findItem(R.id.conferenceStart).setEnabled(true);
 		menu.findItem(R.id.conferenceEnd).setEnabled(true);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch(item.getItemId()) {
@@ -527,39 +502,39 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 				intentServices.setClass(this, ServicesMenu.class);
 				startActivity(intentServices);
 				break;
-			
+
 			case R.id.settings:
 				Intent intentSettings = new Intent();
 				intentSettings.setClass(this, SettingsMenu.class);
 				startActivity(intentSettings);
 				break;
-				
-			case R.id.conferenceStart:				
-				if(!checkConnection()) 
+
+			case R.id.conferenceStart:
+				if(!checkConnection())
 					return false;
-				
+
 				if(startConference() != 0)
-					Toast.makeText(this, "Start conference failed", 
+					Toast.makeText(this, "Start conference failed",
 							Toast.LENGTH_SHORT).show();
 				conferenceStarted = true;
 				break;
-				
+
 			case R.id.conferenceEnd:
-				if(!checkConnection()) 
+				if(!checkConnection())
 					return false;
-				
+
 				if(endConference() != 0)
-					Toast.makeText(this, "End conference failed", 
+					Toast.makeText(this, "End conference failed",
 							Toast.LENGTH_SHORT).show();
 				conferenceEnded = true;
 				conferenceStarted = false;
 				break;
-				
+
 			case R.id.reconnect:
 				if(KP.reconnect() == 0)
 					updateAgenda();
 				break;
-				
+
 			case R.id.agenda_help:
 				/* Show help dialog */
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -570,31 +545,31 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 				builder.show();
 				break;
 		}
-		
+
 		return super.onOptionsItemSelected(item);
 	}
-	
 
-	
+
+
 	/**
 	 * Tells content service to start conference
-	 * 
+	 *
 	 * @return 0 if success and -1 otherwise
 	 */
 	public int startConference() {
 		return KP.startConference();
 	}
-	
+
 	/**
 	 * Tells content service to stop conference
-	 * 
+	 *
 	 * @return 0 if success and -1 otherwise
 	 */
 	public int endConference() {
 		return KP.endConference();
 	}
 
-	
+
 	/**
 	 * Opens presentation service activity
 	 */
@@ -603,10 +578,10 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		intent.setClass(this, Projector.class);
 		startActivity(intent);
 	}
-	
+
 	/**
 	 * Loads agenda program
-	 * 
+	 *
 	 * @return 0 in success and -1 otherwise
 	 */
 	public int prepareAgendaData() {
@@ -618,10 +593,10 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 			Log.i("Agenda GUI", "Fill agenda fail");
 			return -1;
 		}
-		
+
 		return 0;
 	}
-	
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event)  {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -650,40 +625,40 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 			dialog.setNegativeButton(android.R.string.cancel,
 					new DialogInterface.OnClickListener() {
 
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					return;
-				}
-			});
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							return;
+						}
+					});
 			dialog.show();
 		}
-		
+
 		return super.onKeyDown(keyCode, event);
 	}
-	
+
 	/**
 	 * Sets current time slot index value
-	 * 
+	 *
 	 * @param index Time slot index value
 	 */
 	public void setCurrentTimeslot(int index) {
 		currentTimeslotIndex = index;
 	}
-	
+
 	/**
 	 * Checks whether connection is active
-	 * 
+	 *
 	 * @return True if connection established and false otherwise
 	 */
 	public boolean checkConnection() {
 		boolean state = KP.checkConnection();
-		
+
 		if(!state)
-			Toast.makeText(this, R.string.connectionLost, 
+			Toast.makeText(this, R.string.connectionLost,
 					Toast.LENGTH_SHORT).show();
 		return state;
 	}
-	
+
 	/**
 	 * Initializes agenda context menu
 	 */
@@ -740,7 +715,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 			}
 		});
 	}
-	
+
 	/**
 	 * Registers broadcast receiver for showing
 	 * recovering connection process
@@ -756,9 +731,9 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 						agendaCreated = 0;
 						progressDialog = ProgressDialog.show(context,
 								getResources()
-								.getString(R.string.connectionRecoverTitle), 
+										.getString(R.string.connectionRecoverTitle),
 								getResources()
-								.getString(R.string.connectionRecoverMsg), 
+										.getString(R.string.connectionRecoverMsg),
 								false, false);
 						break;
 						
@@ -772,13 +747,13 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 					/* If recovering failed */
 					case NetworkService.FAIL_RECOVER:
 						//Toast.makeText(context, R.string.connectionRecoverFail, 
-							//	Toast.LENGTH_LONG).show();
+						//	Toast.LENGTH_LONG).show();
 						//TODO: better to use some graphical indicator
 						break;
 						
 					/* If recovering successful */
 					case NetworkService.OK_RECOVER:
-						Toast.makeText(context, R.string.connectionRecoverOk, 
+						Toast.makeText(context, R.string.connectionRecoverOk,
 								Toast.LENGTH_LONG).show();
 						break;
 				}
@@ -788,12 +763,12 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 				NetworkService.BC_RECOVERING_CONNECTION);
 		this.registerReceiver(bc, filter);
 	}
-	
 
-	
+
+
 	/**
 	 * Formatting URL as an absolute link
-	 * 
+	 *
 	 * @param link to format
 	 * @return Absolute link
 	 */
@@ -803,70 +778,70 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 				link = contentUrl + link;
 		return link;
 	}
-	
+
 	/**
 	 * Shows dialog of presentation downloading options 
-	 * 
+	 *
 	 * @param uri - presentation resource identifier
 	 */
 	public void showDownloadDialog(final Uri uri) {
 		String fileName = uri.toString();
 		fileName = fileName.substring(fileName.lastIndexOf("/") + 1);
-		
+
 		if(fileExists(fileName, presentationPath)) {
 			showRewriteDialog(uri);
 			return;
 		}
-		
+
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle(R.string.presDownloadTitle);
 		builder.setMessage(R.string.presDownload);
-		builder.setPositiveButton(android.R.string.ok, 
+		builder.setPositiveButton(android.R.string.ok,
 				new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
 				
 				/* Show download progress dialog */
-				new DownloadFileProgress().execute(uri);
-			}
-		});
+						new DownloadFileProgress().execute(uri);
+					}
+				});
 		builder.setNegativeButton(android.R.string.cancel, null);
-		
+
 		AlertDialog dialog = builder.create();
 		dialog.show();
 	}
-	
+
 	/**
 	 * Shows the dialog for rewriting downloaded presentation
-	 * 
+	 *
 	 * @param uri - presentation identifier
 	 */
 	public void showRewriteDialog(final Uri uri) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle(R.string.presDownloadTitle);
 		builder.setMessage(R.string.presRewriteDownload);
-		builder.setPositiveButton(android.R.string.yes, 
+		builder.setPositiveButton(android.R.string.yes,
 				new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				new DownloadFileProgress().execute(uri);
-			}
-		});
-		builder.setNegativeButton(android.R.string.no, 
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						new DownloadFileProgress().execute(uri);
+					}
+				});
+		builder.setNegativeButton(android.R.string.no,
 				new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				openLocalPresentation(uri);
-			}
-		});
-		
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						openLocalPresentation(uri);
+					}
+				});
+
 		AlertDialog dialog = builder.create();
 		dialog.show();
 	}
-	
+
 	/**
 	 * Creates progress dialog
-	 * 
+	 *
 	 * @return Progress dialog object
 	 */
 	public ProgressDialog createProgressDialog() {
@@ -876,34 +851,34 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		progressDialog.setIndeterminate(false);
 		progressDialog.setCancelable(true);
-		
+
 		return progressDialog;
 	}
-	
+
 	/**
 	 * Checks whether file exists in local storage
-	 * 
+	 *
 	 * @param fileName - name of a file
 	 * @param subPath - local path to presentation
 	 * @return True if file exists and false otherwise
 	 */
 	public static boolean fileExists(String fileName, String subPath) {
 		File file = new File(Environment.getExternalStorageDirectory()
-    			.getPath() + subPath + fileName);
+				.getPath() + subPath + fileName);
 		return file.exists();
 	}
-	
+
 	/**
 	 * Opens presentation by URI if appropriate
 	 * application installed
-	 * 
+	 *
 	 * @param uri - presentation identifier
 	 * @return 0 in success and -1 otherwise
 	 */
 	public int openRemotePresentation(Uri uri) {
 		Intent intent = new Intent(Intent.ACTION_VIEW);
 		intent.setDataAndType(uri, "application/pdf");
-		
+
 		try {
 			startActivity(intent);
 		} catch (ActivityNotFoundException e) {
@@ -912,11 +887,11 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		}
 		return 0;
 	}
-	
+
 	/**
 	 * Opens local presentation which was
 	 * downloaded earlier
-	 * 
+	 *
 	 * @param uri - presentation identifier
 	 * @return 0 in success and -1 otherwise
 	 */
@@ -924,8 +899,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		String fileName = uri.toString().substring(uri.toString().
 				lastIndexOf('/') + 1);
 		try {
-        	File file = new File(Environment.getExternalStorageDirectory()
-        			.getPath() + presentationPath + fileName);
+			File file = new File(Environment.getExternalStorageDirectory()
+					.getPath() + presentationPath + fileName);
 			Intent intent = new Intent(Intent.ACTION_VIEW);
 			intent.setDataAndType(Uri.fromFile(file), "application/pdf");
 			startActivity(intent);
@@ -933,117 +908,117 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 			e.printStackTrace();
 			return -1;
 		}
-		
+
 		return 0;
 	}
 
 
-    /**
-	 * 
+	/**
+	 *
 	 * @author pavlin
 	 *
 	 *	Shows downloading progress dialog.
 	 */
 	class DownloadFileProgress extends AsyncTask<Uri, Integer, Long> {
 		private String fileName;	// Presentation file name
-		
+
 		protected void onPreExecute() {
 			super.onPreExecute();
 			progressDialog.show();
 			makeDir();
 		}
-		
+
 		protected Long doInBackground(Uri...uris) {
 			byte data[] = new byte[1024];
-	        long total = 0;
-	        int count = 0;
-	        
+			long total = 0;
+			int count = 0;
+
 			try {
 				URL url = new URL(uris[0].toString());
 				fileName = url.toString().substring(url.toString().
 						lastIndexOf('/') + 1);
-				
+
 				if(Agenda.fileExists(fileName, presentationPath))
 					return total;
-				
+
 				URLConnection connection = url.openConnection();
 				connection.connect();
 				progressDialog.setMax(connection.getContentLength());
-		        
+
 				InputStream input = new BufferedInputStream(
-		        		url.openStream(), 8192);
-				
-		        OutputStream output = new FileOutputStream(Environment.
-		        		getExternalStorageDirectory().getPath() + 
-		        		presentationPath + fileName);
+						url.openStream(), 8192);
+
+				OutputStream output = new FileOutputStream(Environment.
+						getExternalStorageDirectory().getPath() +
+						presentationPath + fileName);
 		        
 		        /* Downloading and updating progress */
-		        while ((count = input.read(data)) != -1) {
-		        	total += count;
-		        	publishProgress((int)total);
-		        	output.write(data, 0, count);
-		        }
-		        
-		        output.flush();
-		        output.close();
-		        input.close();
+				while ((count = input.read(data)) != -1) {
+					total += count;
+					publishProgress((int)total);
+					output.write(data, 0, count);
+				}
+
+				output.flush();
+				output.close();
+				input.close();
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
+
 			return total;
 		}
-		
+
 		protected void onProgressUpdate(Integer...progress) {
 			progressDialog.setProgress((int)progress[0]);
 		}
-		
+
 		protected void onPostExecute(Long result) {
-	        progressDialog.dismiss();
-	        try {
-	        	File file = new File(Environment.getExternalStorageDirectory()
-	        			.getPath() + presentationPath + fileName);
+			progressDialog.dismiss();
+			try {
+				File file = new File(Environment.getExternalStorageDirectory()
+						.getPath() + presentationPath + fileName);
 				Intent intent = new Intent(Intent.ACTION_VIEW);
 				intent.setDataAndType(Uri.fromFile(file), "application/pdf");
 				startActivity(intent);
 			} catch (ActivityNotFoundException e) {
 				e.printStackTrace();
 			}
-	    }
-		
+		}
+
 		/**
 		 * Creates local directory for storing
 		 * downloaded presentations
 		 */
 		private void makeDir() {
 			File dir = new File(Environment.getExternalStorageDirectory()
-        			.getPath() + presentationPath);
+					.getPath() + presentationPath);
 			if(!dir.exists())
 				dir.mkdirs();
 		}
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @author pavlin
 	 *
 	 *	Updates agenda current time slot view
 	 */
 	class updateAgendaAsync extends AsyncTask<Void, Void, Void> {
 		private int index;	// time slot index value
-		
+
 		public updateAgendaAsync(int index) {
 			super();
 			this.index = index;
 		}
-		
+
 		@Override
 		protected Void doInBackground(Void...empty) {
 			return null;
 		}
-		
+
 		@Override
 		protected void onPostExecute(Void empty) {
 			adapter.updateHighlight();

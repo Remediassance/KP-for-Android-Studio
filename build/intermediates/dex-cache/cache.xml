@@ -2,6 +2,34 @@
 <items version="2" >
 
     <item
+        jar="C:\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-c94286d502dc0e3038e4fcf6ed7e6b77bc724b84.jar" />
+    </item>
+    <item
+        jar="C:\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.mikepenz\iconics\1.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="720dcbcd8744b145da58d835d7e4dbc546886df7">
+        <dex dex="C:\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\classes-0c59dac0a041254e71fe37ce41f7d6da5eb4f83f.jar" />
+    </item>
+    <item
+        jar="C:\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\classes-f22b4eff6f2169125890d2e6733dd61563ff794e.jar" />
+    </item>
+    <item
+        jar="C:\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\classes-14910ffdb3c303a7ad1f6ef28e406b5f53d4facb.jar" />
+    </item>
+    <item
         jar="C:\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.mikepenz\materialdrawer\3.1.0\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -16,39 +44,11 @@
         <dex dex="C:\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-70ba567356d3f4e70248bb87208265e9c5e15549.jar" />
     </item>
     <item
-        jar="C:\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\classes-14910ffdb3c303a7ad1f6ef28e406b5f53d4facb.jar" />
-    </item>
-    <item
         jar="C:\KP-for-Android-Studio\app\libs\jspeex.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="5fd8184cfea4c5aa4e3c14bb3d21fd83539d6f47">
         <dex dex="C:\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\jspeex-11132ada43640c4edae01ddde6a76b6501c1b23c.jar" />
-    </item>
-    <item
-        jar="C:\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\classes-f22b4eff6f2169125890d2e6733dd61563ff794e.jar" />
-    </item>
-    <item
-        jar="C:\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-c94286d502dc0e3038e4fcf6ed7e6b77bc724b84.jar" />
-    </item>
-    <item
-        jar="C:\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.mikepenz\iconics\1.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="720dcbcd8744b145da58d835d7e4dbc546886df7">
-        <dex dex="C:\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\classes-0c59dac0a041254e71fe37ce41f7d6da5eb4f83f.jar" />
     </item>
 
 </items>
