@@ -122,10 +122,11 @@ public class Profile extends ActionBarActivity {
                         new SectionDrawerItem().withName(R.string.services),
                         new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
                         new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
+                        new PrimaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe),
 
-                        /*new SectionDrawerItem().withName(R.string.discussion),
+                        new SectionDrawerItem().withName(R.string.discussion),
                         new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
-						new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),*/
+						new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
 
                         new SectionDrawerItem().withName(R.string.action_settings),
                         new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
@@ -140,16 +141,34 @@ public class Profile extends ActionBarActivity {
             public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                 //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                 switch ((int) id) {
-                    case 1:     gotoAgenda(); break;
-                    case 2:     gotoPresentation(); break;
-                    /*case 4:     gotoCurDisq();      break;
-                    case 5:     gotoDisqList();     break;*/
-                    case 4:     gotoSettings();     break;
-                    case 6:     gotoManual();       break;
-                    case 8:    exitApp();          break;
-                    default:  break;
+                    case 1:
+                        gotoAgenda();
+                        break;
+                    case 2:
+                        gotoPresentation();
+                        break;
+                    case 4:
+                        gotoSocialProgram();
+                        break;
+                    case 5:
+                        gotoCurDisq();
+                        break;
+                    case 6:
+                        gotoDisqList();
+                        break;
+                    case 8:
+                        gotoSettings();
+                        break;
+                    case 10:
+                        gotoManual();
+                        break;
+                    case 12:
+                        exitApp();
+                        break;
+                    default:
+                        break;
                 }
-				return true;
+                return true;
             }
         }).build();
 		
@@ -202,7 +221,7 @@ public class Profile extends ActionBarActivity {
      */
     private void gotoManual() {
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.manLink);
+        intent.putExtra("url", KP.manLink);
         intent.putExtra("reading", true);
 
         startActivity(intent);
@@ -226,13 +245,9 @@ public class Profile extends ActionBarActivity {
      *==========================================================================
      */
     private void gotoCurDisq(){
-        String contentUrl = KP.getContentUrl();
-        //String addr = contentUrl.substring(0, contentUrl.lastIndexOf("files")); //smartroom.cs
-
-        //Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr+"chat");
+        intent.putExtra("url", KP.dqAddr.toString());
 
         startActivity(intent);
     }
@@ -243,14 +258,27 @@ public class Profile extends ActionBarActivity {
      *==========================================================================
      */
     private void gotoDisqList(){
-        String contentUrl = KP.getContentUrl();
-        //String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
+        intent.putExtra("url",KP.dqAddr.toString()+"/listCurrentThreads");
 
         startActivity(intent);
     }
+
+
+
+    /**=========================================================================
+     * GO TO  SOCIAL PROGRAM
+     *==========================================================================
+     */
+    private void gotoSocialProgram(){
+
+        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url",KP.spAddr.toString());
+
+        startActivity(intent);
+    }
+
 
 
     /**========================================================================

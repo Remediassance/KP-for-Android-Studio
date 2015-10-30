@@ -62,7 +62,7 @@ public class WebViewer extends ActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // ������ ���� ��� ������ �  ������ ��������
+
         if(isFromLogin==false) {
             drawer = new DrawerBuilder()
                     .withActivity(this)
@@ -74,10 +74,11 @@ public class WebViewer extends ActionBarActivity {
                             new SectionDrawerItem().withName(R.string.services),
                             new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
                             new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
+                            new PrimaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe),
 
-                            /*new SectionDrawerItem().withName(R.string.discussion),
+                            new SectionDrawerItem().withName(R.string.discussion),
                             new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
-                            new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),*/
+                            new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
 
                             new SectionDrawerItem().withName(R.string.action_settings),
                             new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
@@ -98,19 +99,22 @@ public class WebViewer extends ActionBarActivity {
                                 case 2:
                                     gotoPresentation();
                                     break;
-                                /*case 4:
-                                    gotoCurDisq();
+                                case 3:
+                                    gotoSocialProgram();
                                     break;
                                 case 5:
-                                    gotoDisqList();
-                                    break;*/
-                                case 4:
-                                    gotoSettings();
+                                    gotoCurDisq();
                                     break;
                                 case 6:
-                                    gotoManual();
+                                    gotoDisqList();
                                     break;
                                 case 8:
+                                    gotoSettings();
+                                    break;
+                                case 10:
+                                    gotoManual();
+                                    break;
+                                case 12:
                                     exitApp();
                                     break;
                                 default:
@@ -130,9 +134,6 @@ public class WebViewer extends ActionBarActivity {
                     .addDrawerItems(
                             new PrimaryDrawerItem().withName(R.string.loginMenu).withIcon(FontAwesome.Icon.faw_desktop),
                             new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
-                            /*new DividerDrawerItem(),
-                            new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment),
-                            new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),*/
                             new DividerDrawerItem(),
                             new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome
                                     .Icon.faw_close)
@@ -146,12 +147,6 @@ public class WebViewer extends ActionBarActivity {
                                 case 1:
                                     gotoManual();
                                     break;
-                                /*case 3:
-                                    gotoCurDisq();
-                                    break;
-                                case 4:
-                                    gotoDisqList();
-                                    break;*/
                                 case 3:
                                     exitApp();
                                     break;
@@ -167,6 +162,20 @@ public class WebViewer extends ActionBarActivity {
     private void gotoLogin() {
         Intent intent = new Intent();
         intent.setClass(this, KP.class);
+        startActivity(intent);
+    }
+
+
+
+    /**=========================================================================
+     * GO TO  SOCIAL PROGRAM
+     *==========================================================================
+     */
+    private void gotoSocialProgram(){
+
+        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url", KP.spAddr.toString());
+
         startActivity(intent);
     }
 
@@ -273,12 +282,9 @@ public class WebViewer extends ActionBarActivity {
      *==========================================================================
      */
     private void gotoCurDisq(){
-        String contentUrl = KP.getContentUrl();
-        //String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
-        //Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr+"chat");
+        intent.putExtra("url", KP.dqAddr.toString());
 
         if (KP.isRegistered == true)
             intent.putExtra("flag", false);
@@ -293,11 +299,9 @@ public class WebViewer extends ActionBarActivity {
      *==========================================================================
      */
     private void gotoDisqList(){
-        String contentUrl = KP.getContentUrl();
-        //String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files"));
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
+        intent.putExtra("url",KP.dqAddr.toString()+"/listCurrentThreads");
 
         if (KP.isRegistered == true)
             intent.putExtra("flag", false);

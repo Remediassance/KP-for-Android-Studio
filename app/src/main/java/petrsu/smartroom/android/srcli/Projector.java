@@ -150,10 +150,11 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 						new SectionDrawerItem().withName(R.string.services),
 						new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
 						new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
+                        new PrimaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe),
 
-						/*new SectionDrawerItem().withName(R.string.discussion),
+						new SectionDrawerItem().withName(R.string.discussion),
 						new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
-						new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),*/
+						new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
 
 						new SectionDrawerItem().withName(R.string.action_settings),
 						new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
@@ -172,13 +173,14 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
                 switch ((int) id) {
                     case 1:     gotoAgenda();       break;
                     case 2:     break;
-                    /*case 4:     gotoCurDisq();      break;
-                    case 5:     gotoDisqList();     break;*/
-                    case 4:     gotoSettings();     break;
-                    case 5:     updateProjector();  break;
-                    case 7:     openHelp();     	break;
-                    case 8:	    gotoManual();       break;
-                    case 10:    exitApp();          break;
+                    case 3:     gotoSocialProgram();break;
+                    case 4:     gotoCurDisq();      break;
+                    case 5:     gotoDisqList();     break;
+                    case 7:     gotoSettings();     break;
+                    case 8:     updateProjector();  break;
+                    case 10:    openHelp();     	break;
+                    case 11:	gotoManual();       break;
+                    case 13:    exitApp();          break;
                     default:    break;
 
                 }
@@ -212,6 +214,19 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	}
 
 
+
+
+    /**=========================================================================
+     * GO TO  SOCIAL PROGRAM
+     *==========================================================================
+     */
+    private void gotoSocialProgram(){
+
+        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url",KP.spAddr.toString());
+
+        startActivity(intent);
+    }
 
 
 
@@ -283,12 +298,9 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	 *==========================================================================
 	 */
 	private void gotoCurDisq(){
-		String contentUrl = KP.getContentUrl();
-		//String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
-		//Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr+"chat");
+        intent.putExtra("url", KP.dqAddr.toString());
 
         startActivity(intent);
 	}
@@ -299,11 +311,9 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	 *==========================================================================
 	 */
 	private void gotoDisqList(){
-		String contentUrl = KP.getContentUrl();
-		//String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
+        intent.putExtra("url",KP.dqAddr.toString()+"listCurrentThreads");
 
 		startActivity(intent);
 	}
