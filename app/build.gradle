@@ -9,16 +9,13 @@ android {
         minSdkVersion 15
         targetSdkVersion 21
 
+
         sourceSets.main {
             jni.srcDirs = [] // This prevents the auto generation of Android.mk
             jniLibs.srcDirs = ['src/main/jniLibs']
             // This is not necessary unless you have precompiled libraries in your project.
         }
     }
-
-
-
-
 
 
 

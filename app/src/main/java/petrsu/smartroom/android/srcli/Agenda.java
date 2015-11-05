@@ -161,9 +161,11 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 						new SectionDrawerItem().withName(R.string.services),
 						new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
 						new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
+
                         new PrimaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe),
 
                         new SectionDrawerItem().withName(R.string.discussion),
+
                         new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
                         new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
 
@@ -217,6 +219,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
                 return true;
             }
         }).build();
+
 		
 		/* Initialize context menu */
 		initListView();
@@ -315,7 +318,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		startActivity(intent);
 	}
 
-
+    
 	/*=========================================================================
     * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
     * =========================================================================

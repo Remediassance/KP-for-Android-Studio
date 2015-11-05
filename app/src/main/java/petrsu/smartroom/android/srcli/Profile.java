@@ -141,6 +141,7 @@ public class Profile extends ActionBarActivity {
             public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                 //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                 switch ((int) id) {
+
                     case 1:
                         gotoAgenda();
                         break;
@@ -167,6 +168,7 @@ public class Profile extends ActionBarActivity {
                         break;
                     default:
                         break;
+
                 }
                 return true;
             }

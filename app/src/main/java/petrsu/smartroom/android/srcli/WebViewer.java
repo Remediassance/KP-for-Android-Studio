@@ -99,8 +99,13 @@ public class WebViewer extends ActionBarActivity {
                                 case 2:
                                     gotoPresentation();
                                     break;
+<<<<<<< HEAD
                                 case 3:
                                     gotoSocialProgram();
+=======
+                                case 4:
+                                    gotoCurDisq();
+>>>>>>> origin/SRv0.9.0
                                     break;
                                 case 5:
                                     gotoCurDisq();
@@ -108,6 +113,7 @@ public class WebViewer extends ActionBarActivity {
                                 case 6:
                                     gotoDisqList();
                                     break;
+<<<<<<< HEAD
                                 case 8:
                                     gotoSettings();
                                     break;
@@ -115,6 +121,15 @@ public class WebViewer extends ActionBarActivity {
                                     gotoManual();
                                     break;
                                 case 12:
+=======
+                                case 7:
+                                    gotoSettings();
+                                    break;
+                                case 9:
+                                    gotoManual();
+                                    break;
+                                case 11:
+>>>>>>> origin/SRv0.9.0
                                     exitApp();
                                     break;
                                 default:
