@@ -173,10 +173,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
                 switch ((int) id) {
                     case 1:     gotoAgenda();       break;
                     case 2:     break;
-<<<<<<< HEAD
                     case 3:     gotoSocialProgram();break;
-=======
->>>>>>> origin/SRv0.9.0
                     case 4:     gotoCurDisq();      break;
                     case 5:     gotoDisqList();     break;
                     case 7:     gotoSettings();     break;

@@ -301,7 +301,9 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
     private void gotoSocialProgram(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.spAddr.toString());
+        String uuid = KP.getPersonUuid();
+        intent.putExtra("url", KP.spAddr.toString() + "?person_uuid="
+                + uuid.substring(uuid.indexOf("#")+1));
 
         startActivity(intent);
     }
@@ -314,7 +316,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	private void exitApp() {
 		Intent intent = new Intent(Intent.ACTION_MAIN);
 		intent.addCategory(Intent.CATEGORY_HOME);
-		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(intent);
 	}
 
@@ -325,8 +327,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
      */
 	private void gotoManual() {
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-		intent.putExtra("url",KP.manLink);
-		intent.putExtra("reading", true);
+        intent.putExtra("url",KP.manLink);
+        intent.putExtra("reading", true);
 
 		startActivity(intent);
 	}
@@ -770,9 +772,9 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 						agendaCreated = 0;
 						progressDialog = ProgressDialog.show(context,
 								getResources()
-										.getString(R.string.connectionRecoverTitle),
+                                        .getString(R.string.connectionRecoverTitle),
 								getResources()
-										.getString(R.string.connectionRecoverMsg),
+                                        .getString(R.string.connectionRecoverMsg),
 								false, false);
 						break;
 						
@@ -939,7 +941,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 				lastIndexOf('/') + 1);
 		try {
 			File file = new File(Environment.getExternalStorageDirectory()
-					.getPath() + presentationPath + fileName);
+                    .getPath() + presentationPath + fileName);
 			Intent intent = new Intent(Intent.ACTION_VIEW);
 			intent.setDataAndType(Uri.fromFile(file), "application/pdf");
 			startActivity(intent);
@@ -1018,7 +1020,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 			progressDialog.dismiss();
 			try {
 				File file = new File(Environment.getExternalStorageDirectory()
-						.getPath() + presentationPath + fileName);
+                        .getPath() + presentationPath + fileName);
 				Intent intent = new Intent(Intent.ACTION_VIEW);
 				intent.setDataAndType(Uri.fromFile(file), "application/pdf");
 				startActivity(intent);
@@ -1033,7 +1035,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		 */
 		private void makeDir() {
 			File dir = new File(Environment.getExternalStorageDirectory()
-					.getPath() + presentationPath);
+                    .getPath() + presentationPath);
 			if(!dir.exists())
 				dir.mkdirs();
 		}

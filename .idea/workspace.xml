@@ -5,9 +5,6 @@
       <config />
     </shared>
   </component>
-  <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="41f49a2f-de9e-4bd8-8cce-7956a65e2806" name="Default" comment="" />
     <ignored path="KP-for-Android-Studio.iws" />
@@ -40,11 +37,8 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-              <folding>
-                <element signature="e#6744#7478#0" expanded="true" />
-                <element signature="e#7477#7478#0" expanded="true" />
-              </folding>
+              <caret line="83" column="53" selection-start-line="83" selection-start-column="53" selection-end-line="83" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,80 +47,24 @@
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
+              <caret line="32" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding>
+                <marker date="1449216239412" expanded="true" signature="49:237" placeholder="{...}" />
+                <marker date="1449216239412" expanded="true" signature="126:237" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Agenda.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Agenda.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6775956">
-              <caret line="320" column="4" selection-start-line="320" selection-start-column="4" selection-end-line="320" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="306" column="0" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3261#3262#0" expanded="true" />
-                <element signature="e#3282#3283#0" expanded="true" />
-                <element signature="e#4573#4590#0" expanded="true" />
-                <element signature="e#4727#4748#0" expanded="true" />
-                <element signature="e#4959#4978#0" expanded="true" />
-                <element signature="e#5039#5061#0" expanded="true" />
-                <element signature="e#5162#5185#0" expanded="true" />
-                <element signature="e#5270#5294#0" expanded="true" />
-                <element signature="e#5336#5360#0" expanded="true" />
-                <element signature="e#5437#5459#0" expanded="true" />
-                <element signature="e#5541#5554#0" expanded="true" />
-                <element signature="e#5596#5616#0" expanded="true" />
-                <element signature="e#5694#5709#0" expanded="true" />
-                <element signature="e#5825#5849#0" expanded="true" />
                 <element signature="e#5936#7336#0" expanded="true" />
                 <element signature="e#7335#7336#0" expanded="true" />
-                <element signature="e#8114#8386#0" expanded="true" />
-                <element signature="e#8385#8386#0" expanded="true" />
-                <element signature="e#8525#8536#0" expanded="true" />
-                <element signature="e#8566#8625#0" expanded="true" />
-                <element signature="e#11143#11161#0" expanded="true" />
-                <element signature="e#11199#11253#0" expanded="true" />
-                <element signature="e#14271#14614#0" expanded="true" />
-                <element signature="e#14613#14614#0" expanded="true" />
-                <element signature="e#17159#17179#0" expanded="true" />
-                <element signature="e#17219#17280#0" expanded="true" />
-                <element signature="e#17524#17525#0" expanded="true" />
-                <element signature="e#17558#17559#0" expanded="true" />
-                <element signature="e#17690#17691#0" expanded="true" />
-                <element signature="e#17722#17723#0" expanded="true" />
-                <element signature="e#18415#18439#0" expanded="true" />
-                <element signature="e#18463#18490#0" expanded="true" />
-                <element signature="e#18542#19005#0" expanded="true" />
-                <element signature="e#19004#19005#0" expanded="true" />
-                <element signature="e#19067#19216#0" expanded="true" />
-                <element signature="e#19215#19216#0" expanded="true" />
-                <element signature="e#19423#19424#0" expanded="true" />
-                <element signature="e#19458#19459#0" expanded="true" />
-                <element signature="e#19692#19715#0" expanded="true" />
-                <element signature="e#19944#21418#0" expanded="true" />
-                <element signature="e#20342#20363#0" expanded="true" />
-                <element signature="e#20406#21283#0" expanded="true" />
-                <element signature="e#20878#20898#0" expanded="true" />
-                <element signature="e#21282#21283#0" expanded="true" />
-                <element signature="e#21417#21418#0" expanded="true" />
-                <element signature="e#21555#22713#0" expanded="true" />
-                <element signature="e#21875#21943#0" expanded="true" />
-                <element signature="e#21953#22019#0" expanded="true" />
-                <element signature="e#22621#22649#0" expanded="true" />
-                <element signature="e#22712#22713#0" expanded="true" />
-                <element signature="e#23540#23566#0" expanded="true" />
-                <element signature="e#23590#23611#0" expanded="true" />
-                <element signature="e#23667#23888#0" expanded="true" />
-                <element signature="e#23887#23888#0" expanded="true" />
-                <element signature="e#24258#24284#0" expanded="true" />
-                <element signature="e#24308#24336#0" expanded="true" />
-                <element signature="e#24393#24569#0" expanded="true" />
-                <element signature="e#24568#24569#0" expanded="true" />
-                <element signature="e#24625#24788#0" expanded="true" />
-                <element signature="e#24787#24788#0" expanded="true" />
-                <element signature="e#25052#25109#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,8 +73,8 @@
       <file leaf-file-name="Profile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Profile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-54.0">
-              <caret line="169" column="30" selection-start-line="169" selection-start-column="30" selection-end-line="169" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="198" column="30" selection-start-line="198" selection-start-column="30" selection-end-line="198" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -146,17 +84,17 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="194" column="5" selection-start-line="194" selection-start-column="5" selection-end-line="194" selection-end-column="5" />
+              <caret line="118" column="40" selection-start-line="118" selection-start-column="40" selection-end-line="118" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Projector.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Projector.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.6345178">
+              <caret line="283" column="27" selection-start-line="283" selection-start-column="27" selection-end-line="283" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -194,56 +132,6 @@
         <entry key="$PROJECT_DIR$">
           <value>
             <list>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by root project 'KP-for-Android-Studio'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="components" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in root project 'KP-for-Android-Studio'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in root project 'KP-for-Android-Studio'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependencyInsight" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays a help message." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="help" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Initializes a new Gradle build. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="init" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of root project 'KP-for-Android-Studio'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="model" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of root project 'KP-for-Android-Studio'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="projects" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of root project 'KP-for-Android-Studio'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="properties" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from root project 'KP-for-Android-Studio' (some of the displayed tasks may belong to subprojects)." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="tasks" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates Gradle wrapper files. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="wrapper" />
-              </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the Android dependencies of the project." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -909,11 +797,6 @@
                 <option name="name" value="compileReleaseUnitTestSources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by project ':app'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="components" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="description" value="Installs and runs instrumentation tests for all flavors on connected devices." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="connectedAndroidTest" />
@@ -927,16 +810,6 @@
                 <option name="description" value="Runs all device checks on currently connected devices." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="connectedCheck" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in project ':app'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="dependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in project ':app'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="dependencyInsight" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Installs and runs instrumentation tests using all Device Providers." />
@@ -1021,11 +894,6 @@
                 <option name="name" value="generateReleaseSources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays a help message." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="help" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="description" value="Installs the Debug build." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="installDebug" />
@@ -1091,11 +959,6 @@
                 <option name="description" value="Creates a version of android.jar that's suitable for unit tests." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="mockableAndroidJar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of project ':app'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="model" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -1238,24 +1101,9 @@
                 <option name="name" value="processReleaseUnitTestJavaRes" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of project ':app'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="projects" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of project ':app'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="properties" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="description" value="Displays the signing info for each variant." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="signingReport" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from project ':app'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="tasks" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Run unit tests for all variants." />
@@ -1307,7 +1155,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4338086815760" />
+        <entry key="$PROJECT_DIR$" value="4347605783867" />
         <entry key="C:\Android Projects\KP-for-Android-Studio" value="4338728752057" />
         <entry key="C:\KP-for-Android-Studio" value="4338085186943" />
       </map>
@@ -1492,117 +1340,59 @@
               <option name="name" value="KP-for-Android-Studio" />
               <option name="projectBuildClasspath">
                 <list>
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/announce" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/antlr" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/base-services" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/base-services-groovy" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/build-comparison" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/build-init" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/cli" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/code-quality" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/core" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/dependency-management" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/diagnostics" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/ear" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/ide" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/ide-native" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/internal-integ-testing" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/internal-testing" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/ivy" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/jacoco" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/javascript" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/jetty" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/language-groovy" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/language-java" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/language-jvm" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/language-native" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/language-scala" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/launcher" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/maven" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/messaging" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/model-core" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/model-groovy" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/native" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/open-api" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/osgi" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/platform-base" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/platform-jvm" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/platform-native" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/platform-play" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/plugin-development" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/plugin-use" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/plugins" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/publish" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/reporting" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/resources" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/resources-http" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/resources-s3" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/resources-sftp" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/scala" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/signing" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/sonar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/testing-native" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/tooling-api" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/tooling-api-builders" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/ui" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/wrapper" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/ant-1.9.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/ant-launcher-1.9.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-base-services-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-base-services-groovy-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-cli-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-core-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-docs-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-launcher-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-messaging-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-model-core-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-model-groovy-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-native-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-open-api-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-resources-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-tooling-api-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-ui-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-wrapper-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/groovy-all-2.3.10.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-announce-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-antlr-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-build-comparison-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-build-init-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-code-quality-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-dependency-management-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-diagnostics-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-ear-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-ide-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-ide-native-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-ivy-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-jacoco-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-javascript-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-jetty-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-language-groovy-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-language-java-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-language-jvm-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-language-native-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-language-scala-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-maven-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-osgi-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-platform-base-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-platform-jvm-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-platform-native-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-platform-play-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-plugin-development-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-plugin-use-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-plugins-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-publish-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-reporting-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-resources-http-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-resources-s3-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-resources-sftp-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-scala-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-signing-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-sonar-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-testing-native-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-tooling-api-builders-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/ivy-2.2.0.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/ant-1.9.3.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/ant-launcher-1.9.3.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-base-services-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-base-services-groovy-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-cli-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-core-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-docs-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-launcher-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-messaging-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-model-core-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-model-groovy-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-native-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-open-api-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-resources-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-tooling-api-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-ui-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/gradle-wrapper-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/groovy-all-2.3.6.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/ant-antlr-1.9.3.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-announce-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-antlr-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-build-comparison-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-build-init-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-code-quality-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-cunit-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-dependency-management-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-diagnostics-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-ear-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-ide-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-ide-native-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-ivy-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-jacoco-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-javascript-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-jetty-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-language-groovy-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-language-java-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-language-jvm-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-language-native-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-maven-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-osgi-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-platform-base-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-platform-jvm-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-platform-native-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-plugin-development-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-plugin-use-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-plugins-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-publish-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-reporting-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-resources-http-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-scala-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-signing-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/gradle-sonar-2.2.1.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1/lib/plugins/ivy-2.2.0.jar" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
                 </list>
@@ -1620,12 +1410,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Profile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java" />
       </list>
     </option>
   </component>
@@ -1635,7 +1425,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1376" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -1700,10 +1490,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1747,15 +1537,10 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <option name="SELECTED_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_SELECTION_ERROR" value="" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1848,15 +1633,10 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <option name="SELECTED_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_SELECTION_ERROR" value="" />
       <method />
     </configuration>
     <list size="1">
@@ -1893,26 +1673,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1376" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32879046" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2810903" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2810903" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1920,11 +1702,9 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1949,10 +1729,18 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <element signature="e#6744#7478#0" expanded="true" />
-            <element signature="e#7477#7478#0" expanded="true" />
+            <marker date="1449216239412" expanded="true" signature="49:237" placeholder="{...}" />
+            <marker date="1449216239412" expanded="true" signature="126:237" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1963,67 +1751,52 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3261#3262#0" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
-            <element signature="e#4573#4590#0" expanded="true" />
-            <element signature="e#4727#4748#0" expanded="true" />
-            <element signature="e#4959#4978#0" expanded="true" />
-            <element signature="e#5039#5061#0" expanded="true" />
-            <element signature="e#5162#5185#0" expanded="true" />
-            <element signature="e#5270#5294#0" expanded="true" />
-            <element signature="e#5336#5360#0" expanded="true" />
-            <element signature="e#5437#5459#0" expanded="true" />
-            <element signature="e#5541#5554#0" expanded="true" />
-            <element signature="e#5596#5616#0" expanded="true" />
-            <element signature="e#5694#5709#0" expanded="true" />
-            <element signature="e#5825#5849#0" expanded="true" />
             <element signature="e#5936#7336#0" expanded="true" />
             <element signature="e#7335#7336#0" expanded="true" />
-            <element signature="e#8114#8386#0" expanded="true" />
-            <element signature="e#8385#8386#0" expanded="true" />
-            <element signature="e#8525#8536#0" expanded="true" />
-            <element signature="e#8566#8625#0" expanded="true" />
-            <element signature="e#11143#11161#0" expanded="true" />
-            <element signature="e#11199#11253#0" expanded="true" />
-            <element signature="e#14271#14614#0" expanded="true" />
-            <element signature="e#14613#14614#0" expanded="true" />
-            <element signature="e#17159#17179#0" expanded="true" />
-            <element signature="e#17219#17280#0" expanded="true" />
-            <element signature="e#17524#17525#0" expanded="true" />
-            <element signature="e#17558#17559#0" expanded="true" />
-            <element signature="e#17690#17691#0" expanded="true" />
-            <element signature="e#17722#17723#0" expanded="true" />
-            <element signature="e#18415#18439#0" expanded="true" />
-            <element signature="e#18463#18490#0" expanded="true" />
-            <element signature="e#18542#19005#0" expanded="true" />
-            <element signature="e#19004#19005#0" expanded="true" />
-            <element signature="e#19067#19216#0" expanded="true" />
-            <element signature="e#19215#19216#0" expanded="true" />
-            <element signature="e#19423#19424#0" expanded="true" />
-            <element signature="e#19458#19459#0" expanded="true" />
-            <element signature="e#19692#19715#0" expanded="true" />
-            <element signature="e#19944#21418#0" expanded="true" />
-            <element signature="e#20342#20363#0" expanded="true" />
-            <element signature="e#20406#21283#0" expanded="true" />
-            <element signature="e#20878#20898#0" expanded="true" />
-            <element signature="e#21282#21283#0" expanded="true" />
-            <element signature="e#21417#21418#0" expanded="true" />
-            <element signature="e#21555#22713#0" expanded="true" />
-            <element signature="e#21875#21943#0" expanded="true" />
-            <element signature="e#21953#22019#0" expanded="true" />
-            <element signature="e#22621#22649#0" expanded="true" />
-            <element signature="e#22712#22713#0" expanded="true" />
-            <element signature="e#23540#23566#0" expanded="true" />
-            <element signature="e#23590#23611#0" expanded="true" />
-            <element signature="e#23667#23888#0" expanded="true" />
-            <element signature="e#23887#23888#0" expanded="true" />
-            <element signature="e#24258#24284#0" expanded="true" />
-            <element signature="e#24308#24336#0" expanded="true" />
-            <element signature="e#24393#24569#0" expanded="true" />
-            <element signature="e#24568#24569#0" expanded="true" />
-            <element signature="e#24625#24788#0" expanded="true" />
-            <element signature="e#24787#24788#0" expanded="true" />
-            <element signature="e#25052#25109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Profile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="169" column="30" selection-start-line="169" selection-start-column="30" selection-end-line="169" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="194" column="5" selection-start-line="194" selection-start-column="5" selection-end-line="194" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5936#7336#0" expanded="true" />
+            <element signature="e#7335#7336#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2056,10 +1829,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="88" column="60" selection-start-line="88" selection-start-column="60" selection-end-line="88" selection-end-column="60" />
-          <folding>
-            <element signature="e#6744#7478#0" expanded="true" />
-            <element signature="e#7477#7478#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2069,67 +1839,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3261#3262#0" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
-            <element signature="e#4573#4590#0" expanded="true" />
-            <element signature="e#4727#4748#0" expanded="true" />
-            <element signature="e#4959#4978#0" expanded="true" />
-            <element signature="e#5039#5061#0" expanded="true" />
-            <element signature="e#5162#5185#0" expanded="true" />
-            <element signature="e#5270#5294#0" expanded="true" />
-            <element signature="e#5336#5360#0" expanded="true" />
-            <element signature="e#5437#5459#0" expanded="true" />
-            <element signature="e#5541#5554#0" expanded="true" />
-            <element signature="e#5596#5616#0" expanded="true" />
-            <element signature="e#5694#5709#0" expanded="true" />
-            <element signature="e#5825#5849#0" expanded="true" />
             <element signature="e#5936#7336#0" expanded="true" />
             <element signature="e#7335#7336#0" expanded="true" />
-            <element signature="e#8114#8386#0" expanded="true" />
-            <element signature="e#8385#8386#0" expanded="true" />
-            <element signature="e#8525#8536#0" expanded="true" />
-            <element signature="e#8566#8625#0" expanded="true" />
-            <element signature="e#11143#11161#0" expanded="true" />
-            <element signature="e#11199#11253#0" expanded="true" />
-            <element signature="e#14271#14614#0" expanded="true" />
-            <element signature="e#14613#14614#0" expanded="true" />
-            <element signature="e#17159#17179#0" expanded="true" />
-            <element signature="e#17219#17280#0" expanded="true" />
-            <element signature="e#17524#17525#0" expanded="true" />
-            <element signature="e#17558#17559#0" expanded="true" />
-            <element signature="e#17690#17691#0" expanded="true" />
-            <element signature="e#17722#17723#0" expanded="true" />
-            <element signature="e#18415#18439#0" expanded="true" />
-            <element signature="e#18463#18490#0" expanded="true" />
-            <element signature="e#18542#19005#0" expanded="true" />
-            <element signature="e#19004#19005#0" expanded="true" />
-            <element signature="e#19067#19216#0" expanded="true" />
-            <element signature="e#19215#19216#0" expanded="true" />
-            <element signature="e#19423#19424#0" expanded="true" />
-            <element signature="e#19458#19459#0" expanded="true" />
-            <element signature="e#19692#19715#0" expanded="true" />
-            <element signature="e#19944#21418#0" expanded="true" />
-            <element signature="e#20342#20363#0" expanded="true" />
-            <element signature="e#20406#21283#0" expanded="true" />
-            <element signature="e#20878#20898#0" expanded="true" />
-            <element signature="e#21282#21283#0" expanded="true" />
-            <element signature="e#21417#21418#0" expanded="true" />
-            <element signature="e#21555#22713#0" expanded="true" />
-            <element signature="e#21875#21943#0" expanded="true" />
-            <element signature="e#21953#22019#0" expanded="true" />
-            <element signature="e#22621#22649#0" expanded="true" />
-            <element signature="e#22712#22713#0" expanded="true" />
-            <element signature="e#23540#23566#0" expanded="true" />
-            <element signature="e#23590#23611#0" expanded="true" />
-            <element signature="e#23667#23888#0" expanded="true" />
-            <element signature="e#23887#23888#0" expanded="true" />
-            <element signature="e#24258#24284#0" expanded="true" />
-            <element signature="e#24308#24336#0" expanded="true" />
-            <element signature="e#24393#24569#0" expanded="true" />
-            <element signature="e#24568#24569#0" expanded="true" />
-            <element signature="e#24625#24788#0" expanded="true" />
-            <element signature="e#24787#24788#0" expanded="true" />
-            <element signature="e#25052#25109#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2162,10 +1873,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
-          <folding>
-            <element signature="e#6744#7478#0" expanded="true" />
-            <element signature="e#7477#7478#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2175,67 +1883,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3261#3262#0" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
-            <element signature="e#4573#4590#0" expanded="true" />
-            <element signature="e#4727#4748#0" expanded="true" />
-            <element signature="e#4959#4978#0" expanded="true" />
-            <element signature="e#5039#5061#0" expanded="true" />
-            <element signature="e#5162#5185#0" expanded="true" />
-            <element signature="e#5270#5294#0" expanded="true" />
-            <element signature="e#5336#5360#0" expanded="true" />
-            <element signature="e#5437#5459#0" expanded="true" />
-            <element signature="e#5541#5554#0" expanded="true" />
-            <element signature="e#5596#5616#0" expanded="true" />
-            <element signature="e#5694#5709#0" expanded="true" />
-            <element signature="e#5825#5849#0" expanded="true" />
             <element signature="e#5936#7336#0" expanded="true" />
             <element signature="e#7335#7336#0" expanded="true" />
-            <element signature="e#8114#8386#0" expanded="true" />
-            <element signature="e#8385#8386#0" expanded="true" />
-            <element signature="e#8525#8536#0" expanded="true" />
-            <element signature="e#8566#8625#0" expanded="true" />
-            <element signature="e#11143#11161#0" expanded="true" />
-            <element signature="e#11199#11253#0" expanded="true" />
-            <element signature="e#14271#14614#0" expanded="true" />
-            <element signature="e#14613#14614#0" expanded="true" />
-            <element signature="e#17159#17179#0" expanded="true" />
-            <element signature="e#17219#17280#0" expanded="true" />
-            <element signature="e#17524#17525#0" expanded="true" />
-            <element signature="e#17558#17559#0" expanded="true" />
-            <element signature="e#17690#17691#0" expanded="true" />
-            <element signature="e#17722#17723#0" expanded="true" />
-            <element signature="e#18415#18439#0" expanded="true" />
-            <element signature="e#18463#18490#0" expanded="true" />
-            <element signature="e#18542#19005#0" expanded="true" />
-            <element signature="e#19004#19005#0" expanded="true" />
-            <element signature="e#19067#19216#0" expanded="true" />
-            <element signature="e#19215#19216#0" expanded="true" />
-            <element signature="e#19423#19424#0" expanded="true" />
-            <element signature="e#19458#19459#0" expanded="true" />
-            <element signature="e#19692#19715#0" expanded="true" />
-            <element signature="e#19944#21418#0" expanded="true" />
-            <element signature="e#20342#20363#0" expanded="true" />
-            <element signature="e#20406#21283#0" expanded="true" />
-            <element signature="e#20878#20898#0" expanded="true" />
-            <element signature="e#21282#21283#0" expanded="true" />
-            <element signature="e#21417#21418#0" expanded="true" />
-            <element signature="e#21555#22713#0" expanded="true" />
-            <element signature="e#21875#21943#0" expanded="true" />
-            <element signature="e#21953#22019#0" expanded="true" />
-            <element signature="e#22621#22649#0" expanded="true" />
-            <element signature="e#22712#22713#0" expanded="true" />
-            <element signature="e#23540#23566#0" expanded="true" />
-            <element signature="e#23590#23611#0" expanded="true" />
-            <element signature="e#23667#23888#0" expanded="true" />
-            <element signature="e#23887#23888#0" expanded="true" />
-            <element signature="e#24258#24284#0" expanded="true" />
-            <element signature="e#24308#24336#0" expanded="true" />
-            <element signature="e#24393#24569#0" expanded="true" />
-            <element signature="e#24568#24569#0" expanded="true" />
-            <element signature="e#24625#24788#0" expanded="true" />
-            <element signature="e#24787#24788#0" expanded="true" />
-            <element signature="e#25052#25109#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2258,7 +1907,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding />
+          <folding>
+            <marker date="1449216239412" expanded="true" signature="49:237" placeholder="{...}" />
+            <marker date="1449216239412" expanded="true" signature="126:237" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2266,10 +1918,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="194" column="9" selection-start-line="194" selection-start-column="9" selection-end-line="194" selection-end-column="9" />
-          <folding>
-            <element signature="e#6744#7478#0" expanded="true" />
-            <element signature="e#7477#7478#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2284,7 +1933,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1449216239412" expanded="true" signature="49:237" placeholder="{...}" />
+            <marker date="1449216239412" expanded="true" signature="126:237" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2302,26 +1954,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="194" column="5" selection-start-line="194" selection-start-column="5" selection-end-line="194" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Profile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-54.0">
-          <caret line="169" column="30" selection-start-line="169" selection-start-column="30" selection-end-line="169" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="198" column="30" selection-start-line="198" selection-start-column="30" selection-end-line="198" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -2329,7 +1965,30 @@
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <caret line="32" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <marker date="1449216239412" expanded="true" signature="49:237" placeholder="{...}" />
+            <marker date="1449216239412" expanded="true" signature="126:237" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="306" column="0" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5936#7336#0" expanded="true" />
+            <element signature="e#7335#7336#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="118" column="40" selection-start-line="118" selection-start-column="40" selection-end-line="118" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -2337,82 +1996,16 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding>
-            <element signature="e#6744#7478#0" expanded="true" />
-            <element signature="e#7477#7478#0" expanded="true" />
-          </folding>
+          <caret line="83" column="53" selection-start-line="83" selection-start-column="53" selection-end-line="83" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6775956">
-          <caret line="320" column="4" selection-start-line="320" selection-start-column="4" selection-end-line="320" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3261#3262#0" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
-            <element signature="e#4573#4590#0" expanded="true" />
-            <element signature="e#4727#4748#0" expanded="true" />
-            <element signature="e#4959#4978#0" expanded="true" />
-            <element signature="e#5039#5061#0" expanded="true" />
-            <element signature="e#5162#5185#0" expanded="true" />
-            <element signature="e#5270#5294#0" expanded="true" />
-            <element signature="e#5336#5360#0" expanded="true" />
-            <element signature="e#5437#5459#0" expanded="true" />
-            <element signature="e#5541#5554#0" expanded="true" />
-            <element signature="e#5596#5616#0" expanded="true" />
-            <element signature="e#5694#5709#0" expanded="true" />
-            <element signature="e#5825#5849#0" expanded="true" />
-            <element signature="e#5936#7336#0" expanded="true" />
-            <element signature="e#7335#7336#0" expanded="true" />
-            <element signature="e#8114#8386#0" expanded="true" />
-            <element signature="e#8385#8386#0" expanded="true" />
-            <element signature="e#8525#8536#0" expanded="true" />
-            <element signature="e#8566#8625#0" expanded="true" />
-            <element signature="e#11143#11161#0" expanded="true" />
-            <element signature="e#11199#11253#0" expanded="true" />
-            <element signature="e#14271#14614#0" expanded="true" />
-            <element signature="e#14613#14614#0" expanded="true" />
-            <element signature="e#17159#17179#0" expanded="true" />
-            <element signature="e#17219#17280#0" expanded="true" />
-            <element signature="e#17524#17525#0" expanded="true" />
-            <element signature="e#17558#17559#0" expanded="true" />
-            <element signature="e#17690#17691#0" expanded="true" />
-            <element signature="e#17722#17723#0" expanded="true" />
-            <element signature="e#18415#18439#0" expanded="true" />
-            <element signature="e#18463#18490#0" expanded="true" />
-            <element signature="e#18542#19005#0" expanded="true" />
-            <element signature="e#19004#19005#0" expanded="true" />
-            <element signature="e#19067#19216#0" expanded="true" />
-            <element signature="e#19215#19216#0" expanded="true" />
-            <element signature="e#19423#19424#0" expanded="true" />
-            <element signature="e#19458#19459#0" expanded="true" />
-            <element signature="e#19692#19715#0" expanded="true" />
-            <element signature="e#19944#21418#0" expanded="true" />
-            <element signature="e#20342#20363#0" expanded="true" />
-            <element signature="e#20406#21283#0" expanded="true" />
-            <element signature="e#20878#20898#0" expanded="true" />
-            <element signature="e#21282#21283#0" expanded="true" />
-            <element signature="e#21417#21418#0" expanded="true" />
-            <element signature="e#21555#22713#0" expanded="true" />
-            <element signature="e#21875#21943#0" expanded="true" />
-            <element signature="e#21953#22019#0" expanded="true" />
-            <element signature="e#22621#22649#0" expanded="true" />
-            <element signature="e#22712#22713#0" expanded="true" />
-            <element signature="e#23540#23566#0" expanded="true" />
-            <element signature="e#23590#23611#0" expanded="true" />
-            <element signature="e#23667#23888#0" expanded="true" />
-            <element signature="e#23887#23888#0" expanded="true" />
-            <element signature="e#24258#24284#0" expanded="true" />
-            <element signature="e#24308#24336#0" expanded="true" />
-            <element signature="e#24393#24569#0" expanded="true" />
-            <element signature="e#24568#24569#0" expanded="true" />
-            <element signature="e#24625#24788#0" expanded="true" />
-            <element signature="e#24787#24788#0" expanded="true" />
-            <element signature="e#25052#25109#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="1.6345178">
+          <caret line="283" column="27" selection-start-line="283" selection-start-column="27" selection-end-line="283" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
