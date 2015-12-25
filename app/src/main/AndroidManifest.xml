@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="petrsu.smartroom.android.srcli"
-    android:versionCode="14092"
-    android:versionName="0.8.1" >
+    android:versionCode="14101"
+    android:versionName="0.9.0" >
 
     <uses-sdk
         android:minSdkVersion="15"
