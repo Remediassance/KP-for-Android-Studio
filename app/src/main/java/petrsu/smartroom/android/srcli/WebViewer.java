@@ -33,6 +33,7 @@ public class WebViewer extends ActionBarActivity {
     WebView webview;
     static Boolean isFromLogin = false;
     static Boolean isReadingman = false;
+    static String personUuid = KP.getPersonUuid();
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class WebViewer extends ActionBarActivity {
         isFromLogin = intent.getBooleanExtra("flag", false);
         isReadingman = intent.getBooleanExtra("reading",false);
 
-        if (isReadingman == true)
+        if (isReadingman)
             this.setTitle(R.string.manual);
         else
             this.setTitle(R.string.dqBrowser);
@@ -63,7 +64,7 @@ public class WebViewer extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        if(isFromLogin==false) {
+        if(!isFromLogin) {
             drawer = new DrawerBuilder()
                     .withActivity(this)
                     .withToolbar(toolbar)
@@ -176,7 +177,7 @@ public class WebViewer extends ActionBarActivity {
     private void gotoSocialProgram(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.spAddr.toString());
+        intent.putExtra("url", KP.spAddr);
 
         startActivity(intent);
     }
@@ -252,12 +253,12 @@ public class WebViewer extends ActionBarActivity {
      */
     private void gotoManual() {
 
-        if(this.getTitle().toString() != getString(R.string.manual)) {
+        if(this.getTitle().toString().equals(getString(R.string.manual))) {
             Intent intent = new Intent(getApplicationContext(), WebViewer.class);
             intent.putExtra("url", KP.manLink);
             intent.putExtra("reading", true);
 
-            if (KP.isRegistered == true)
+            if (KP.isRegistered)
                 intent.putExtra("flag", false);
             else intent.putExtra("flag", true);
 
@@ -286,9 +287,9 @@ public class WebViewer extends ActionBarActivity {
     private void gotoCurDisq(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr.toString());
+        intent.putExtra("url", KP.dqAddr+"/?user_uuid="+KP.getPersonUuid());
 
-        if (KP.isRegistered == true)
+        if (KP.isRegistered)
             intent.putExtra("flag", false);
         else intent.putExtra("flag", true);
 
@@ -303,9 +304,9 @@ public class WebViewer extends ActionBarActivity {
     private void gotoDisqList(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr.toString()+"/listCurrentThreads");
+        intent.putExtra("url",KP.dqAddr+"/listCurrentThreads/?user_uuid="+KP.getPersonUuid());
 
-        if (KP.isRegistered == true)
+        if (KP.isRegistered)
             intent.putExtra("flag", false);
         else intent.putExtra("flag", true);
 

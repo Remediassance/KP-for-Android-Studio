@@ -257,7 +257,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		
 		/* If agenda is empty show error window */
 		if(list.isEmpty()) {
-			ArrayList<ErrorView> list = new ArrayList<ErrorView>();
+			ArrayList<ErrorView> list = new ArrayList<>();
 			list.add(new ErrorView(getResources()
 					.getString(R.string.agendaNotAvailable)));
 
@@ -302,7 +302,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
         String uuid = KP.getPersonUuid();
-        intent.putExtra("url", KP.spAddr.toString() + "?person_uuid="
+        intent.putExtra("url", KP.spAddr + "?person_uuid="
                 + uuid.substring(uuid.indexOf("#")+1));
 
         startActivity(intent);
@@ -399,7 +399,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	private void gotoCurDisq(){
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-		intent.putExtra("url", KP.dqAddr.toString());
+		intent.putExtra("url", KP.dqAddr+"/?user_uuid="+KP.getPersonUuid());
 
 		startActivity(intent);
 	}
@@ -413,7 +413,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	private void gotoDisqList(){
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-		intent.putExtra("url",KP.dqAddr.toString()+"/listCurrentThreads");
+		intent.putExtra("url",KP.dqAddr+"/listCurrentThreads/?user_uuid" + KP.getPersonUuid());
 
 		startActivity(intent);
 	}
@@ -474,7 +474,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 						list.add(new Timeslot(name, title, imgAvatar,
 								status));
 					}
-				};
+				}
 			};
 			t.start();
 			t.join();
@@ -496,7 +496,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	synchronized public Bitmap loadImage(String link) {
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inSampleSize = 1;
-		Bitmap image = null;
+		Bitmap image;
 
 		try {
 			URLConnection url = new URL(link).openConnection();
@@ -627,7 +627,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	 */
 	public int prepareAgendaData() {
 
-		list = new ArrayList<Timeslot>();
+		list = new ArrayList<>();
 		
 		/* If loading program failed */
 		if(KP.loadTimeslotList(this) == -1) {
@@ -656,7 +656,9 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 					KP.personIndex = -1;
 					list = null;
 					currentTimeslotIndex = -1;
-
+					/**
+					 * TODO: get rid of this warning
+					 */
 					if(list != null)
 						list.clear();
 					finish();
@@ -972,7 +974,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		protected Long doInBackground(Uri...uris) {
 			byte data[] = new byte[1024];
 			long total = 0;
-			int count = 0;
+			int count;
 
 			try {
 				URL url = new URL(uris[0].toString());

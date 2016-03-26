@@ -223,7 +223,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
     private void gotoSocialProgram(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.spAddr.toString());
+        intent.putExtra("url",KP.spAddr);
 
         startActivity(intent);
     }
@@ -300,7 +300,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	private void gotoCurDisq(){
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr.toString());
+        intent.putExtra("url", KP.dqAddr+"/?user_uuid="+KP.getPersonUuid());
 
         startActivity(intent);
 	}
@@ -313,9 +313,9 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	private void gotoDisqList(){
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr.toString()+"listCurrentThreads");
+        intent.putExtra("url", KP.dqAddr + "listCurrentThreads/?user_uuid="+KP.getPersonUuid());
 
-		startActivity(intent);
+				startActivity(intent);
 	}
 
 
@@ -381,7 +381,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	 * @return Image Bitmap if success and null otherwise
 	 */
 	public Bitmap loadImage(String link) {
-		Bitmap imgBitmap = null;
+		Bitmap imgBitmap;
 		HttpURLConnection connection = null;
 
 		try {
@@ -412,7 +412,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.projector_menu, menu);
-		boolean visibility = false;
+		boolean visibility;
 
 		if(isSpeaker || KP.isChairman) {
 			visibility = true;
@@ -429,7 +429,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		boolean visibility = false;
+		boolean visibility;
 
 		if(isSpeaker || KP.isChairman) {
 			visibility = true;
@@ -604,7 +604,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	
 	/**
 	 * Checks whether connection has been established
-	 * @return
+	 * @return true if connected, false otherwise
 	 */
 	public boolean checkConnection() {
 		boolean state = KP.checkConnection();
@@ -622,7 +622,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	 * @return Bitmap object if success and null otherwise
 	 */
 	public Bitmap bitmapImageFromRes(int resId) {
-		Bitmap image = null;
+		Bitmap image;
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inSampleSize = 1;
 		image = BitmapFactory.decodeResource(getResources(), resId, options);

@@ -99,7 +99,7 @@ public class Profile extends ActionBarActivity {
 						imageView.setImageBitmap(loadImage(image));
 					} else
 						imageView.setImageResource(R.drawable.no_image);
-				};
+				}
 			};
 		
 			thread.start();
@@ -249,7 +249,7 @@ public class Profile extends ActionBarActivity {
     private void gotoCurDisq(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr.toString());
+        intent.putExtra("url", KP.dqAddr+"/?user_uuid="+KP.getPersonUuid());
 
         startActivity(intent);
     }
@@ -262,7 +262,7 @@ public class Profile extends ActionBarActivity {
     private void gotoDisqList(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr.toString()+"/listCurrentThreads");
+        intent.putExtra("url",KP.dqAddr+"/listCurrentThreads/?user_uuid="+KP.getPersonUuid());
 
         startActivity(intent);
     }
@@ -276,7 +276,7 @@ public class Profile extends ActionBarActivity {
     private void gotoSocialProgram(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.spAddr.toString());
+        intent.putExtra("url",KP.spAddr);
 
         startActivity(intent);
     }
@@ -317,7 +317,7 @@ public class Profile extends ActionBarActivity {
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inSampleSize = 2;
 		
-		Bitmap image = null;
+		Bitmap image;
 
 		try {
 			URLConnection url = new URL(link).openConnection();

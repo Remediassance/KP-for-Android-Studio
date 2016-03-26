@@ -204,7 +204,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
      */
     private void gotoCurDisq(){
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr+"chat");
+        intent.putExtra("url", KP.dqAddr+"chat/?user_uuid="+getPersonUuid());
         intent.putExtra("flag", true);
 
         startActivity(intent);
@@ -218,7 +218,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
     private void gotoDisqList(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
+        intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads/?user_uuid=" + getPersonUuid());
         intent.putExtra("flag", true);
 
         startActivity(intent);
