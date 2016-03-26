@@ -302,8 +302,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
         String uuid = KP.getPersonUuid();
-        intent.putExtra("url", KP.spAddr + "?person_uuid="
-                + uuid.substring(uuid.indexOf("#")+1));
+
+        intent.putExtra("url", KP.spAddr + "?person_uuid="+ uuid.substring(uuid.indexOf("#")+1));
 
         startActivity(intent);
     }
