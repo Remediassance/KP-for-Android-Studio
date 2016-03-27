@@ -8,7 +8,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/cityTxt"
         android:autoText="false"
         android:clickable="true"
         android:editable="true"
@@ -24,17 +24,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/searchBtn"
-        android:id="@+id/button"
-        android:layout_below="@+id/editText"
+        android:id="@+id/searchBtn"
+        android:layout_below="@+id/cityTxt"
         android:layout_centerHorizontal="true" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/searchBtn"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:foreground="#ffffff"
-        android:alpha="0.4" />
+        android:alpha="0.4" >
+
+    </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/displayedText"
+        android:layout_alignTop="@+id/scrollView"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
