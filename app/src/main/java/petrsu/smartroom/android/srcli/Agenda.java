@@ -178,6 +178,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 						new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
 
 						new DividerDrawerItem(),
+						new PrimaryDrawerItem().withName("City gallery *WIP*").withIcon(FontAwesome.Icon.faw_globe),
 						new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
             @Override
@@ -211,6 +212,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
                         gotoManual();
                         break;
                     case 14:
+                        gotoGallery();
+                    case 15:
                         exitApp();
                         break;
                     default:
@@ -278,6 +281,17 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		listView.setAdapter(adapter);
 	}
 
+
+
+    /**========================================================================
+     * GO TO GALLERY SERVICE
+     *=========================================================================
+     */
+    private void gotoGallery(){
+        Intent intent = new Intent();
+        intent.setClass(this, CityGallery.class);
+        startActivity(intent);
+    }
 
 
 
