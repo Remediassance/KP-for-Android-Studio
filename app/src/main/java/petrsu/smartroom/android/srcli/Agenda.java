@@ -213,6 +213,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
                         break;
                     case 14:
                         gotoGallery();
+                        break;
                     case 15:
                         exitApp();
                         break;

@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:background="@drawable/city_background"
-    android:id="@+id/background">
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/background"
+    android:background="@drawable/city_bkgrnd">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        android:transitionName="actionBar"
+
+        />
 
     <EditText
         android:layout_width="wrap_content"
@@ -16,9 +27,9 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:hint="@string/city"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="62dp" />
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -32,11 +43,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView"
-        android:layout_below="@+id/searchBtn"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:foreground="#ffffff"
-        android:alpha="0.4" >
+        android:alpha="0.4"
+        android:layout_below="@+id/searchBtn">
 
     </ScrollView>
 

@@ -181,3 +181,11 @@ ADDED from AndroidManifest.xml:88:9
 		ADDED from AndroidManifest.xml:89:13
 	android:name
 		ADDED from AndroidManifest.xml:88:19
+activity#petrsu.smartroom.android.srcli.CityGallery
+ADDED from AndroidManifest.xml:92:9
+	android:label
+		ADDED from AndroidManifest.xml:95:13
+	android:launchMode
+		ADDED from AndroidManifest.xml:94:13
+	android:name
+		ADDED from AndroidManifest.xml:93:13

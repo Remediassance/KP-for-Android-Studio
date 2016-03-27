@@ -86,6 +86,11 @@
             android:name="petrsu.smartroom.android.srcli.WebViewer"
             android:label="@string/dqBrowser" >
         </activity>
+        <activity
+            android:name="petrsu.smartroom.android.srcli.CityGallery"
+            android:label="CityGallery"
+            android:launchMode="singleTask" >
+        </activity>
     </application>
 
 </manifest>
