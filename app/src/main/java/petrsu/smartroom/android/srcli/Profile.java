@@ -4,31 +4,21 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-import android.app.ActionBar;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
+
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-import com.mikepenz.iconics.typeface.FontAwesome;
-import com.mikepenz.materialdrawer.Drawer;
-import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.model.DividerDrawerItem;
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SectionDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+
 
 /**
  * 
@@ -37,9 +27,9 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
  *
  *	Class holds participant's information
  */
-public class Profile extends ActionBarActivity {
+public class Profile extends AppCompatActivity {
 	
-	private ActionBar actionBar;
+	//private ActionBar actionBar;
 	private ImageView imageView;
 	private EditText nameEditor;
 	private EditText phoneEditor;
@@ -47,9 +37,9 @@ public class Profile extends ActionBarActivity {
 	private String name;
 	private String image;
 	private String phone;
-	private String personUuid;
+
 	
-	/* TODO: fields are not used
+	/* fields are not used
 	private String status;
 	private String age;
 	private String mbox;
@@ -66,7 +56,8 @@ public class Profile extends ActionBarActivity {
 		
 		Intent intent = getIntent();
 		int index = intent.getIntExtra("index", -1);
-		
+
+        String personUuid;
 		personUuid = KP.loadProfile(this, index);
 		System.out.println("Person UUID: " + personUuid);
 		
@@ -110,7 +101,12 @@ public class Profile extends ActionBarActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        try{
+            if(getSupportActionBar()!=null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
 
 
 		Navigation.getBasicDrawer(getApplicationContext(),this,toolbar);

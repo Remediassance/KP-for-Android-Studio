@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.*;
 
@@ -33,7 +33,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -61,7 +60,7 @@ import java.lang.Thread;
  * presentation, etc.
  *
  */
-public class Agenda extends ActionBarActivity {// implements  View.OnClickListener{
+public class Agenda extends AppCompatActivity {// implements  View.OnClickListener{
 
 	private final int LOOK_PRESENTATION = 0;
 	private final int PERSON_PROFILE = 1;
@@ -133,7 +132,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		
 		/* Save the last application state */
 		editor.putString("last_state", "Agenda");
-		editor.commit();
+		editor.apply(); // was commit()
 
 		//if(KP.checkSubscriptionState() != 0)
 		//Log.e("Agenda check sbcr", "failed to refresh sbcr");
@@ -147,11 +146,16 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.agenda_interface);
 
-		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		try {
+			setSupportActionBar(toolbar);
+            if(getSupportActionBar() != null)
+			    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		} catch(NullPointerException e){
+			e.printStackTrace();
+		}
 
-		Drawer result = new DrawerBuilder()
+		new DrawerBuilder()
 				.withActivity(this)
 				.withToolbar(toolbar)
 				.withActionBarDrawerToggle(true)
@@ -161,7 +165,6 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 						new SectionDrawerItem().withName(R.string.services),
 						new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
 						new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
-
                         new PrimaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe),
 
                         new SectionDrawerItem().withName(R.string.discussion),
@@ -185,23 +188,23 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
             public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                 //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                 switch ((int) id) {
-                    case 1:
-                        break;
-                    case 2:
-                        gotoPresentation();
-                        break;
-                    case 3:
-                        gotoSocialProgram();
-                        break;
-                    case 5:
-                        startActivity(Navigation.getCurDisqIntent(getApplicationContext()));
-                        break;
-                    case 6:
-                        gotoDisqList();
-                        break;
-                    case 8:
-                        gotoSettings();
-                        break;
+					case 1:
+						break;
+					case 2:
+						startActivity(Navigation.getPresentationIntent(getApplicationContext()));
+						break;
+					case 3:
+						startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));
+						break;
+					case 5:
+						startActivity(Navigation.getCurDisqIntent(getApplicationContext()));
+						break;
+					case 6:
+						startActivity(Navigation.getDisqListIntent(getApplicationContext()));
+						break;
+					case 8:
+						startActivity(Navigation.getSettingsIntent(getApplicationContext()));
+						break;
                     case 9:
                         updateCurTimeslot();
                         break;
@@ -209,13 +212,13 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
                         openHelp();
                         break;
                     case 12:
-                        gotoManual();
+						startActivity(Navigation.getManIntent(getApplicationContext()));
                         break;
                     case 14:
-                        gotoGallery();
+						startActivity(Navigation.getGalleryIntent(getApplicationContext()));
                         break;
                     case 15:
-                        exitApp();
+						startActivity(Navigation.exitApp());
                         break;
                     default:
                         break;
@@ -247,7 +250,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 				refreshBtn.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						ImageButton image = (ImageButton) v.findViewById(R.id.agendaRefresh);
+						//ImageButton image = (ImageButton) v.findViewById(R.id.agendaRefresh);
 						switch(v.getId()) {
 							case R.id.agendaRefresh:
 								updateAgenda();
@@ -278,79 +281,11 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 							R.id.avatar, R.id.speakerStatus});
 		}
 
-		((SimpleAdapter) adapter).setViewBinder(new AgendaViewBinder());
+        // was cast to SimpleAdapter
+		(adapter).setViewBinder(new AgendaViewBinder());
 		listView.setAdapter(adapter);
 	}
 
-
-
-    /**========================================================================
-     * GO TO GALLERY SERVICE
-     *=========================================================================
-     */
-    private void gotoGallery(){
-        Intent intent = new Intent();
-        intent.setClass(this, CityGallery.class);
-        startActivity(intent);
-    }
-
-
-
-	/**========================================================================
-	 * GO TO PRESENTATION SERVICE
-	 *=========================================================================
-	 */
-	private void gotoPresentation(){
-		Intent intent = new Intent();
-		intent.setClass(this, Projector.class);
-		startActivity(intent);
-	}
-
-
-
-
-    /**=========================================================================
-     * GO TO  SOCIAL PROGRAM
-     *==========================================================================
-     */
-    private void gotoSocialProgram(){
-
-        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        String uuid = KP.getPersonUuid();
-
-        intent.putExtra("url", KP.spAddr + "?person_uuid="+ uuid.substring(uuid.indexOf("#")+1));
-
-        startActivity(intent);
-    }
-
-
-	/**=========================================================================
-	 * QITS TO THE DESKTOP
-	 *==========================================================================
-	 */
-	private void exitApp() {
-		Intent intent = new Intent(Intent.ACTION_MAIN);
-		intent.addCategory(Intent.CATEGORY_HOME);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		startActivity(intent);
-	}
-
-    
-	/*=========================================================================
-    * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
-    * =========================================================================
-     */
-	private void gotoManual() {
-		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.manLink);
-        intent.putExtra("reading", true);
-
-		startActivity(intent);
-	}
-
-    public void spiptest() {
-        Toast.makeText(this.getApplicationContext(),KP.dqAddr+'\n'+KP.spAddr,Toast.LENGTH_LONG).show();
-    }
 
 
 	/**=========================================================================
@@ -407,43 +342,6 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 
 
 
-
-	private void gotoCurDisq(){
-
-		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-		intent.putExtra("url", KP.dqAddr);
-
-		startActivity(intent);
-	}
-
-
-
-	/**=========================================================================
-	 * GO TO  DISCUSSION LIST
-	 *==========================================================================
-	 */
-	private void gotoDisqList(){
-
-		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-		intent.putExtra("url",KP.dqAddr);
-
-		startActivity(intent);
-	}
-
-
-
-	/**========================================================================
-	 * GO TO SETTINGS ACTIVITY
-	 *=========================================================================
-	 */
-	private void gotoSettings() {
-		Intent intentSettings = new Intent();
-		intentSettings.setClass(this, SettingsMenu.class);
-		startActivity(intentSettings);
-	}
-
-
-
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -462,7 +360,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	}
 
 
-	/**
+	/**=============================================================================================
 	 * Adds time slot item to agenda program list.
 	 *
 	 * @param name Name of participant
@@ -470,6 +368,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	 * @param img Participant's avatar
 	 * @param status Participant status (online, offline)
 	 * @throws InterruptedException
+     * =============================================================================================
 	 */
 	public void addTimeslotItemToList(final String name, final String title,
 									  final String img, final String status) throws InterruptedException {
@@ -623,14 +522,6 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	}
 
 
-	/**
-	 * Opens presentation service activity
-	 */
-	public void startPresentation() {
-		Intent intent = new Intent();
-		intent.setClass(this, Projector.class);
-		startActivity(intent);
-	}
 
 	/**
 	 * Loads agenda program
@@ -668,11 +559,11 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 					KP.personIndex = -1;
 					list = null;
 					currentTimeslotIndex = -1;
-					/**
-					 * TODO: get rid of this warning
+					/*
+					 * This thing below is always false. Don't quite know why this was done this way
 					 */
-					if(list != null)
-						list.clear();
+					/*if(list != null)
+						list.clear();*/
 					finish();
 				}
 			});
@@ -682,7 +573,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
-							return;
+							//return;
 						}
 					});
 			dialog.show();
@@ -801,9 +692,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 					
 					/* If recovering failed */
 					case NetworkService.FAIL_RECOVER:
-						//Toast.makeText(context, R.string.connectionRecoverFail, 
-						//	Toast.LENGTH_LONG).show();
-						//TODO: better to use some graphical indicator
+                        Toast.makeText(context, "Failed to recover",
+                                Toast.LENGTH_LONG).show();
 						break;
 						
 					/* If recovering successful */
@@ -1017,8 +907,6 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 				output.flush();
 				output.close();
 				input.close();
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -1027,7 +915,8 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		}
 
 		protected void onProgressUpdate(Integer...progress) {
-			progressDialog.setProgress((int)progress[0]);
+			progressDialog.setProgress(progress[0]);
+            //prog 0 was cast to int
 		}
 
 		protected void onPostExecute(Long result) {
@@ -1048,10 +937,12 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 		 * downloaded presentations
 		 */
 		private void makeDir() {
-			File dir = new File(Environment.getExternalStorageDirectory()
-                    .getPath() + presentationPath);
-			if(!dir.exists())
-				dir.mkdirs();
+			File dir = new File(Environment.getExternalStorageDirectory().getPath() + presentationPath);
+            boolean isDirCreated = dir.exists();
+			if(!isDirCreated)
+                isDirCreated = dir.mkdirs();
+            if(isDirCreated)
+                System.out.println("Dirs are already created");
 		}
 	}
 

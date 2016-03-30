@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Toolbar;
 
 import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
@@ -26,18 +25,13 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
  */
 public abstract class Navigation {
 
-    /*public Drawer getDrawer(String classname){
-        Drawer drawer = null;
-        switch (classname) {
-            case "profile":
-                drawer = getBasicDrawer();
-                break;
-        }
-        return drawer;
-    }*/
 
+    /**
+     * Возвращает боковое меню. Из-за трудностей переноса, аналогичные меню Agenda и Presentation
+     * оставлены в соответствующих классах
+     */
     public static  void getBasicDrawer(final Context context, final Activity activity, android.support.v7.widget.Toolbar toolbar){
-        Drawer result = new DrawerBuilder()
+        new DrawerBuilder()
                 .withActivity(activity)
                 .withToolbar(toolbar)
                 .withActionBarDrawerToggle(true)
@@ -89,7 +83,7 @@ public abstract class Navigation {
                                 activity.startActivity(getManIntent(context));
                                 break;
                             case 12:
-                                activity.startActivity(exitApp(context));
+                                activity.startActivity(exitApp());
                                 break;
                             default:
                                 break;
@@ -104,8 +98,7 @@ public abstract class Navigation {
      *=========================================================================
      */
     public static Intent getPresentationIntent(Context context){
-        Intent intent = new Intent(context, Projector.class);
-        return intent;
+        return new Intent(context, Projector.class);
     }
 
 
@@ -115,8 +108,7 @@ public abstract class Navigation {
      *=========================================================================
      */
     public static Intent getAgendaIntent(Context context){
-        Intent intent = new Intent(context, Agenda.class);
-        return intent;
+        return new Intent(context, Agenda.class);
     }
 
 
@@ -161,8 +153,7 @@ public abstract class Navigation {
      *==========================================================================
      */
     public static Intent getSettingsIntent(Context context){
-        Intent intent = new Intent(context, SettingsMenu.class);
-        return intent;
+        return new Intent(context, SettingsMenu.class);
     }
 
 
@@ -171,7 +162,7 @@ public abstract class Navigation {
     * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
     * =========================================================================
      */
-    private static Intent getManIntent(Context context) {
+    public static Intent getManIntent(Context context) {
         Intent intent = new Intent(context, WebViewer.class);
         intent.putExtra("url", KP.manLink);
         intent.putExtra("reading", true);
@@ -185,10 +176,91 @@ public abstract class Navigation {
      * QITS TO THE DESKTOP
      *==========================================================================
      */
-    private static Intent exitApp(Context context) {
+    public static Intent exitApp() {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         return intent;
     }
+
+
+
+    /**========================================================================
+     * GO TO GALLERY SERVICE
+     *=========================================================================
+     */
+    public static Intent getGalleryIntent(Context context){
+        Intent intent = new Intent();
+        intent.setClass(context, CityGallery.class);
+        return intent;
+    }
 }
+
+/*
+* Если все пойдет плохо, заменить вызовы getBasicDrawer вот этой простыней
+*/
+
+/*Drawer result = new DrawerBuilder()
+        .withActivity(this)
+        .withToolbar(toolbar)
+        .withActionBarDrawerToggle(true)
+        .withHeader(R.layout.drawer_header)
+        .withDrawerWidthDp(320)
+        .addDrawerItems(
+                new SectionDrawerItem().withName(R.string.services),
+                new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
+                new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
+
+                new PrimaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe),
+
+                new SectionDrawerItem().withName(R.string.discussion),
+
+                new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
+                new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
+
+                new SectionDrawerItem().withName(R.string.action_settings),
+                new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
+
+                new SectionDrawerItem().withName(R.string.help),
+                new PrimaryDrawerItem().withName(R.string.help_agenda).withIcon(FontAwesome.Icon.faw_info),
+                new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
+
+                new DividerDrawerItem(),
+                new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
+        ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+            @Override
+            public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                switch ((int) id) {
+                    case 1:
+                        break;
+                    case 2:
+                        gotoPresentation();
+                        break;
+                    case 3:
+                        gotoSocialProgram();
+                        break;
+                    case 5:
+                        gotoCurDisq();
+                        break;
+                    case 6:
+                        gotoDisqList();
+                        break;
+                    case 8:
+                        gotoSettings();
+                        break;
+                    case 10:
+                        openHelp();
+                        break;
+                    case 11:
+                        gotoManual();
+                        break;
+                    case 13:
+                        exitApp();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        }).build();*/
