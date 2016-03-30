@@ -414,7 +414,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	private void gotoCurDisq(){
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-		intent.putExtra("url", KP.dqAddr+"/?user_uuid="+KP.getPersonUuid());
+		intent.putExtra("url", KP.dqAddr);
 
 		startActivity(intent);
 	}
@@ -428,7 +428,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 	private void gotoDisqList(){
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-		intent.putExtra("url",KP.dqAddr+"/listCurrentThreads/?user_uuid" + KP.getPersonUuid());
+		intent.putExtra("url",KP.dqAddr);
 
 		startActivity(intent);
 	}

@@ -287,7 +287,7 @@ public class WebViewer extends ActionBarActivity {
     private void gotoCurDisq(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr+"/?user_uuid="+KP.getPersonUuid());
+        intent.putExtra("url", KP.dqAddr);
 
         if (KP.isRegistered)
             intent.putExtra("flag", false);
@@ -304,7 +304,7 @@ public class WebViewer extends ActionBarActivity {
     private void gotoDisqList(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr+"/listCurrentThreads/?user_uuid="+KP.getPersonUuid());
+        intent.putExtra("url",KP.dqAddr);
 
         if (KP.isRegistered)
             intent.putExtra("flag", false);

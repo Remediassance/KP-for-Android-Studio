@@ -249,7 +249,7 @@ public class Profile extends ActionBarActivity {
     private void gotoCurDisq(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr+"/?user_uuid="+KP.getPersonUuid());
+        intent.putExtra("url", KP.dqAddr);
 
         startActivity(intent);
     }
@@ -262,7 +262,7 @@ public class Profile extends ActionBarActivity {
     private void gotoDisqList(){
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr+"/listCurrentThreads/?user_uuid="+KP.getPersonUuid());
+        intent.putExtra("url",KP.dqAddr);
 
         startActivity(intent);
     }
