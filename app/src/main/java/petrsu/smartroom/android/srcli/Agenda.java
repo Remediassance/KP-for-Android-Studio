@@ -194,7 +194,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
                         gotoSocialProgram();
                         break;
                     case 5:
-                        gotoCurDisq();
+                        startActivity(Navigation.getCurDisqIntent(getApplicationContext()));
                         break;
                     case 6:
                         gotoDisqList();
@@ -407,10 +407,7 @@ public class Agenda extends ActionBarActivity {// implements  View.OnClickListen
 
 
 
-	/**=========================================================================
-	 * GO TO CURRENT DISCUSSION
-	 *==========================================================================
-	 */
+
 	private void gotoCurDisq(){
 
 		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
