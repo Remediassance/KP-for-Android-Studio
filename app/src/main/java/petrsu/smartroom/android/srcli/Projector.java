@@ -171,16 +171,16 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
             public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                 //Toast.makeText(Projector.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                 switch ((int) id) {
-                    case 1:     gotoAgenda();       break;
+                    case 1:     startActivity(Navigation.getAgendaIntent(getApplicationContext()));       break;
                     case 2:     break;
-                    case 3:     gotoSocialProgram();break;
-                    case 4:     gotoCurDisq();      break;
-                    case 5:     gotoDisqList();     break;
-                    case 7:     gotoSettings();     break;
+                    case 3:     startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));break;
+                    case 4:     startActivity(Navigation.getCurDisqIntent(getApplicationContext()));      break;
+                    case 5:     startActivity(Navigation.getDisqListIntent(getApplicationContext()));    break;
+                    case 7:     startActivity(Navigation.getSettingsIntent(getApplicationContext()));     break;
                     case 8:     updateProjector();  break;
                     case 10:    openHelp();     	break;
-                    case 11:	gotoManual();       break;
-                    case 13:    exitApp();          break;
+                    case 11:	startActivity(Navigation.getManIntent(getApplicationContext()));       break;
+                    case 13:    startActivity(Navigation.exitApp());          break;
                     default:    break;
 
                 }

@@ -36,6 +36,7 @@ public class WebViewer extends ActionBarActivity {
     static String personUuid = KP.getPersonUuid();
 
 
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.web_view);
@@ -45,11 +46,10 @@ public class WebViewer extends ActionBarActivity {
         String link = intent.getStringExtra("url");
         isFromLogin = intent.getBooleanExtra("flag", false);
         isReadingman = intent.getBooleanExtra("reading",false);
+        String serviceName = intent.getStringExtra("service");
 
-        if (isReadingman)
-            this.setTitle(R.string.manual);
-        else
-            this.setTitle(R.string.dqBrowser);
+        this.setTitle("Explorer");
+        this.setTitle(serviceName);
 
         webview = (WebView) findViewById(R.id.webView);
         webview.getSettings().setJavaScriptEnabled(true);
@@ -64,8 +64,8 @@ public class WebViewer extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        if(!isFromLogin) {
-            drawer = new DrawerBuilder()
+
+        drawer = new DrawerBuilder()
                     .withActivity(this)
                     .withToolbar(toolbar)
                     .withActionBarDrawerToggle(true)
@@ -95,27 +95,25 @@ public class WebViewer extends ActionBarActivity {
 
                             switch ((int) id) {
                                 case 1:
-                                    gotoAgenda();
+                                    startActivity(Navigation.getAgendaIntent(getApplicationContext()));
                                     break;
                                 case 2:
-                                    gotoPresentation();
+                                    startActivity(Navigation.getPresentationIntent(getApplicationContext()));
                                     break;
                                 case 3:
-                                    gotoSocialProgram();
-                                case 4:
-                                    gotoCurDisq();
+                                    startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));
                                     break;
                                 case 5:
-                                    gotoCurDisq();
+                                    startActivity(Navigation.getCurDisqIntent(getApplicationContext()));
                                     break;
                                 case 6:
-                                    gotoDisqList();
+                                    startActivity(Navigation.getDisqListIntent(getApplicationContext()));
                                     break;
                                 case 8:
-                                    gotoSettings();
+                                    startActivity(Navigation.getSettingsIntent(getApplicationContext()));
                                     break;
                                 case 10:
-                                    gotoManual();
+                                    startActivity(Navigation.getManIntent(getApplicationContext()));
                                     break;
                                 case 12:
                                     exitApp();
@@ -127,40 +125,6 @@ public class WebViewer extends ActionBarActivity {
                         }
                     }).build();
         }
-        else {
-            drawer = new DrawerBuilder()
-                    .withActivity(this)
-                    .withToolbar(toolbar)
-                    .withActionBarDrawerToggle(true)
-                    .withHeader(R.layout.drawer_header)
-                    .withDrawerWidthDp(320)
-                    .addDrawerItems(
-                            new PrimaryDrawerItem().withName(R.string.loginMenu).withIcon(FontAwesome.Icon.faw_desktop),
-                            new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
-                            new DividerDrawerItem(),
-                            new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome
-                                    .Icon.faw_close)
-                    ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                        @Override
-                        public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                            switch ((int) id) {
-                                case 0:
-                                    gotoLogin();
-                                    break;
-                                case 1:
-                                    gotoManual();
-                                    break;
-                                case 3:
-                                    exitApp();
-                                    break;
-                                default:
-                                    break;
-                            }
-                            return true;
-                        }
-                    }).build();
-        }
-    }
 
     private void gotoLogin() {
         Intent intent = new Intent();

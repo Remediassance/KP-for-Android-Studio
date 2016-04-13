@@ -59,6 +59,7 @@ import java.lang.Thread;
  * handles events like start conference, end
  * presentation, etc.
  *
+ * TODO: обрабатывать вылет при попытке залогиниться, когда секция пустая
  */
 public class Agenda extends AppCompatActivity {// implements  View.OnClickListener{
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
@@ -119,7 +120,10 @@ public abstract class Navigation {
      */
     public static Intent getCurDisqIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
-        intent.putExtra("url", KP.dqAddr);
+        intent.putExtra("url", KP.dqAddr + "?user_uuid=" +  KP.getPersonUuid());
+        intent.putExtra("service", R.string.discussion);
+        Toast.makeText(context,  "Uuid:" + KP.getPersonUuid(), Toast.LENGTH_LONG).show();
+
         return intent;
     }
 
@@ -130,7 +134,9 @@ public abstract class Navigation {
      */
     public static Intent getDisqListIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
-        intent.putExtra("url", KP.dqAddr + "chat/");
+        intent.putExtra("url", KP.dqAddr + "chat/?user_uuid=" + KP.getPersonUuid());
+        intent.putExtra("service", R.string.discussion);
+        Toast.makeText(context,  "Uuid:" + KP.getPersonUuid(), Toast.LENGTH_LONG).show();
         return intent;
     }
 
@@ -143,6 +149,7 @@ public abstract class Navigation {
     public static Intent getSocialProgramIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
         intent.putExtra("url",KP.spAddr);
+        intent.putExtra("service", "SocialProgram");
         return intent;
     }
 
@@ -165,7 +172,7 @@ public abstract class Navigation {
     public static Intent getManIntent(Context context) {
         Intent intent = new Intent(context, WebViewer.class);
         intent.putExtra("url", KP.manLink);
-        intent.putExtra("reading", true);
+        intent.putExtra("service", R.string.manual);
 
         return intent;
     }
