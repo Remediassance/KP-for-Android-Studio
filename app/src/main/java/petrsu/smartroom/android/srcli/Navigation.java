@@ -121,9 +121,9 @@ public class Navigation { // was abstract lol
     public static Intent getCurDisqIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
         String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
-        intent.putExtra("url", KP.dqAddr+"?user_uuid="+uuid);
+        intent.putExtra("url", KP.dqAddr);
         intent.putExtra("service", R.string.discussion);
-        Toast.makeText(context,  "Uuid:" + uuid, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context,  "Uuid:" + uuid, Toast.LENGTH_LONG).show();
 
         return intent;
     }
@@ -136,9 +136,9 @@ public class Navigation { // was abstract lol
     public static Intent getDisqListIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
         String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
-        intent.putExtra("url", KP.dqAddr + "chat/?user_uuid=" + uuid); //"chat/?user_uuid=" + uuid
+        intent.putExtra("url", KP.dqAddr); //"chat/?user_uuid=" + uuid
         intent.putExtra("service", R.string.discussion);
-        Toast.makeText(context,  "Uuid:" + KP.getPersonUuid(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(context,  "Uuid:" + KP.getPersonUuid(), Toast.LENGTH_LONG).show();
         return intent;
     }
 
