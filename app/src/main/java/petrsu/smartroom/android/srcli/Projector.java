@@ -171,16 +171,16 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
             public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
                 //Toast.makeText(Projector.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                 switch ((int) id) {
-                    case 1:     startActivity(Navigation.getAgendaIntent(getApplicationContext()));       break;
+                    case 1:     startActivity(Navigation.getAgendaIntent(getApplicationContext()));       	break;
                     case 2:     break;
-                    case 3:     startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));break;
-                    case 4:     startActivity(Navigation.getCurDisqIntent(getApplicationContext()));      break;
-                    case 5:     startActivity(Navigation.getDisqListIntent(getApplicationContext()));    break;
-                    case 7:     startActivity(Navigation.getSettingsIntent(getApplicationContext()));     break;
+                    case 3:     startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));	break;
+                    case 4:     startActivity(Navigation.getCurDisqIntent(getApplicationContext()));      	break;
+                    case 5:     startActivity(Navigation.getDisqListIntent(getApplicationContext()));    	break;
+                    case 7:     startActivity(Navigation.getSettingsIntent(getApplicationContext()));     	break;
                     case 8:     updateProjector();  break;
                     case 10:    openHelp();     	break;
-                    case 11:	startActivity(Navigation.getManIntent(getApplicationContext()));       break;
-                    case 13:    startActivity(Navigation.exitApp());          break;
+                    case 11:	startActivity(Navigation.getManIntent(getApplicationContext()));       		break;
+                    case 13:    startActivity(Navigation.exitApp());          								break;
                     default:    break;
 
                 }
@@ -213,57 +213,6 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 		presentationCreated = 1;
 	}
 
-
-
-
-    /**=========================================================================
-     * GO TO  SOCIAL PROGRAM
-     *==========================================================================
-     */
-    private void gotoSocialProgram(){
-
-        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.spAddr);
-
-        startActivity(intent);
-    }
-
-
-
-    /**========================================================================
-     * GO TO AGENDA SERVICE
-     *=========================================================================
-     */
-    private void gotoAgenda(){
-        Intent intent = new Intent();
-        intent.setClass(this, Agenda.class);
-        startActivity(intent);
-    }
-
-    /**=========================================================================
-     * QITS TO THE DESKTOP
-     *==========================================================================
-     */
-    private void exitApp() {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-    }
-
-
-    /*=========================================================================
-    * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
-    * =========================================================================
-     */
-    private void gotoManual() {
-        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.manLink);
-        intent.putExtra("reading", true);
-
-        startActivity(intent);
-    }
-
     /**=========================================================================
      * SHOWS HELP WINDOW
      *==========================================================================
@@ -290,43 +239,6 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
             stopService(new Intent(this, MicService.class));
         }
         new updatePresentationAsync().execute();
-    }
-
-
-	/**=========================================================================
-	 * GO TO CURRENT DISCUSSION
-	 *==========================================================================
-	 */
-	private void gotoCurDisq(){
-
-		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr);
-
-        startActivity(intent);
-	}
-
-
-	/**=========================================================================
-	 * GO TO  DISCUSSION LIST
-	 *==========================================================================
-	 */
-	private void gotoDisqList(){
-
-		Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr);
-
-				startActivity(intent);
-	}
-
-
-    /**========================================================================
-     * GO TO SETTINGS ACTIVITY
-     *=========================================================================
-     */
-    private void gotoSettings() {
-        Intent intentSettings = new Intent();
-        intentSettings.setClass(this, SettingsMenu.class);
-        startActivity(intentSettings);
     }
 	
 	

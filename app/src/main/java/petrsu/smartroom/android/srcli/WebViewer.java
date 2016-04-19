@@ -22,11 +22,12 @@ import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 /**
- * Created by ������ on 22.07.2015.
+ * Created by Borodulin Andrey on 22.07.2015.
  *
  * This class can be used to display any web related
  * information or act as a built-in web-browser.
- * ATM it is used to display Discussion service pages.
+ * ATM it is used to display Discussion and
+ * SocialProgram service pages.
  */
 public class WebViewer extends ActionBarActivity {
 

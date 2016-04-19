@@ -17,14 +17,14 @@ import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 /**
- * Created by Remediassance on 26.03.2016.
+ * Created by Borodulin Andrey on 26.03.2016.
  * This class is created solely to keep functions
  * that serve to navigate between activities in one place.
  *
  * For future reference: practice shows that you will highly possible be editing this class.
  *                       Add everything connected to switching between intents / activities here
  */
-public abstract class Navigation {
+public class Navigation { // was abstract lol
 
 
     /**
@@ -120,9 +120,10 @@ public abstract class Navigation {
      */
     public static Intent getCurDisqIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
-        intent.putExtra("url", KP.dqAddr + "?user_uuid=" +  KP.getPersonUuid());
+        String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
+        intent.putExtra("url", KP.dqAddr + "?user_uuid=" +  uuid);
         intent.putExtra("service", R.string.discussion);
-        Toast.makeText(context,  "Uuid:" + KP.getPersonUuid(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(context,  "Uuid:" + uuid, Toast.LENGTH_LONG).show();
 
         return intent;
     }
@@ -134,9 +135,10 @@ public abstract class Navigation {
      */
     public static Intent getDisqListIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
-        intent.putExtra("url", KP.dqAddr + "chat/?user_uuid=" + KP.getPersonUuid());
+        String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
+        intent.putExtra("url", KP.dqAddr + "chat/?user_uuid=" + uuid);
         intent.putExtra("service", R.string.discussion);
-        Toast.makeText(context,  "Uuid:" + KP.getPersonUuid(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(context,  "Uuid:" + KP.getPersonUuid(), Toast.LENGTH_LONG).show();
         return intent;
     }
 
@@ -148,7 +150,8 @@ public abstract class Navigation {
      */
     public static Intent getSocialProgramIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
-        intent.putExtra("url",KP.spAddr);
+        String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
+        intent.putExtra("url",KP.spAddr+"/?person_uuid="+uuid);
         intent.putExtra("service", "SocialProgram");
         return intent;
     }
