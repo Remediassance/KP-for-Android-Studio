@@ -19,17 +19,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb082fef-6ae7-42a6-8954-f2db2f3ed2a6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/arm64-v8a/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/arm64-v8a/libsslog.so" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/armeabi/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/armeabi/libsslog.so" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/armeabi-v7a/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/armeabi-v7a/libsslog.so" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/mips/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/mips/libsslog.so" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/mips64/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/mips64/libsslog.so" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/x86/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/x86/libsslog.so" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/x86_64/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/x86_64/libsslog.so" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java" afterPath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" afterPath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java" afterPath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java" afterPath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KP-for-Android-Studio.iws" />
@@ -90,12 +81,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Agenda.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Agenda.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="3" selection-start-line="61" selection-start-column="3" selection-end-line="61" selection-end-column="3" />
-              <folding />
+            <state vertical-scroll-proportion="0.48803827">
+              <caret line="220" column="28" selection-start-line="220" selection-start-column="28" selection-end-line="220" selection-end-column="28" />
+              <folding>
+                <element signature="e#6199#7761#0" expanded="true" />
+                <element signature="e#7760#7761#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Navigation.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Navigation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.99282295">
-              <caret line="154" column="31" selection-start-line="154" selection-start-column="31" selection-end-line="154" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="123" column="40" selection-start-line="123" selection-start-column="40" selection-end-line="123" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -1637,11 +1631,11 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Profile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java" />
       </list>
     </option>
   </component>
@@ -2061,7 +2055,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460548240436</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Добавил uuid к сп сервису и дискуссии, скинул Минне.&#10;Теерь удалю uuid из дискуссии">
+      <created>1461066561244</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1461066561244</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2075,7 +2075,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24508321" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15502556" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2084,14 +2084,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24020442" sideWeight="0.4969743" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24020442" sideWeight="0.4969743" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22617246" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2753404" sideWeight="0.49403748" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2753404" sideWeight="0.49403748" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18154311" sideWeight="0.49403748" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.50596255" order="6" side_tool="true" content_ui="tabs" />
@@ -2131,7 +2131,8 @@
     <MESSAGE value="Почистил варнинги в Navigation, Agenda и Profile" />
     <MESSAGE value="Добавил фоновые рисунки в VCS" />
     <MESSAGE value="Исправил баги:&#10;* Переход на СП сервис из него же вызывал запуск дискуссии&#10;* Неверно отображалось имя сервиса в СП сервисе" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправил баги:&#10;* Переход на СП сервис из него же вызывал запуск дискуссии&#10;* Неверно отображалось имя сервиса в СП сервисе" />
+    <MESSAGE value="Добавил uuid к сп сервису и дискуссии, скинул Минне.&#10;Теерь удалю uuid из дискуссии" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил uuid к сп сервису и дискуссии, скинул Минне.&#10;Теерь удалю uuid из дискуссии" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2160,6 +2161,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="105" column="66" selection-start-line="105" selection-start-column="66" selection-end-line="105" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2183,7 +2187,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#6199#7761#0" expanded="true" />
+            <element signature="e#7760#7761#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2225,6 +2232,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="105" column="66" selection-start-line="105" selection-start-column="66" selection-end-line="105" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2248,7 +2258,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="215" column="30" selection-start-line="215" selection-start-column="30" selection-end-line="215" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="e#6199#7761#0" expanded="true" />
+            <element signature="e#7760#7761#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2301,6 +2314,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="319" column="20" selection-start-line="319" selection-start-column="20" selection-end-line="319" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2324,7 +2340,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#6199#7761#0" expanded="true" />
+            <element signature="e#7760#7761#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2366,6 +2385,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="319" column="20" selection-start-line="319" selection-start-column="20" selection-end-line="319" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2389,7 +2411,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#6199#7761#0" expanded="true" />
+            <element signature="e#7760#7761#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2471,6 +2496,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.2123287">
           <caret line="105" column="66" selection-start-line="105" selection-start-column="66" selection-end-line="105" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2478,14 +2506,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-41.407406">
           <caret line="159" column="35" selection-start-line="159" selection-start-column="35" selection-end-line="159" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="3" selection-start-line="61" selection-start-column="3" selection-end-line="61" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -2548,9 +2568,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.99282295">
-          <caret line="154" column="31" selection-start-line="154" selection-start-column="31" selection-end-line="154" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="123" column="40" selection-start-line="123" selection-start-column="40" selection-end-line="123" selection-end-column="40" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48803827">
+          <caret line="220" column="28" selection-start-line="220" selection-start-column="28" selection-end-line="220" selection-end-column="28" />
+          <folding>
+            <element signature="e#6199#7761#0" expanded="true" />
+            <element signature="e#7760#7761#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

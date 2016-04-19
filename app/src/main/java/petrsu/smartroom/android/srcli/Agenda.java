@@ -182,7 +182,7 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 						new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
 
 						new DividerDrawerItem(),
-						new PrimaryDrawerItem().withName("City gallery *WIP*").withIcon(FontAwesome.Icon.faw_globe),
+						//new PrimaryDrawerItem().withName("City gallery *WIP*").withIcon(FontAwesome.Icon.faw_globe),
 						new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
             @Override
@@ -215,10 +215,10 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
                     case 12:
 						startActivity(Navigation.getManIntent(getApplicationContext()));
                         break;
-                    case 14:
+                    /*case 14:
 						startActivity(Navigation.getGalleryIntent(getApplicationContext()));
-                        break;
-                    case 15:
+                        break;*/
+                    case 14:
 						startActivity(Navigation.exitApp());
                         break;
                     default:
