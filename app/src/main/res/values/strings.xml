@@ -156,4 +156,7 @@
 	</string>
     <string name="readingMan">Manual</string>
 
+	<string name="city">City: e.g. Petrozavodsk</string>
+	<string name="searchBtn">Search</string>
+
 </resources>

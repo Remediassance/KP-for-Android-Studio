@@ -22,17 +22,20 @@ import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 /**
- * Created by ������ on 22.07.2015.
+ * Created by Borodulin Andrey on 22.07.2015.
  *
  * This class can be used to display any web related
  * information or act as a built-in web-browser.
- * ATM it is used to display Discussion service pages.
+ * ATM it is used to display Discussion and
+ * SocialProgram service pages.
  */
 public class WebViewer extends ActionBarActivity {
 
     WebView webview;
     static Boolean isFromLogin = false;
     static Boolean isReadingman = false;
+    static String personUuid = KP.getPersonUuid();
+
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -44,11 +47,10 @@ public class WebViewer extends ActionBarActivity {
         String link = intent.getStringExtra("url");
         isFromLogin = intent.getBooleanExtra("flag", false);
         isReadingman = intent.getBooleanExtra("reading",false);
+        String serviceName = intent.getStringExtra("service");
 
-        if (isReadingman == true)
-            this.setTitle(R.string.manual);
-        else
-            this.setTitle(R.string.dqBrowser);
+        this.setTitle("Explorer");
+        this.setTitle(serviceName);
 
         webview = (WebView) findViewById(R.id.webView);
         webview.getSettings().setJavaScriptEnabled(true);
@@ -62,9 +64,9 @@ public class WebViewer extends ActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // ������ ���� ��� ������ �  ������ ��������
-        if(isFromLogin==false) {
-            drawer = new DrawerBuilder()
+
+
+        drawer = new DrawerBuilder()
                     .withActivity(this)
                     .withToolbar(toolbar)
                     .withActionBarDrawerToggle(true)
@@ -74,10 +76,11 @@ public class WebViewer extends ActionBarActivity {
                             new SectionDrawerItem().withName(R.string.services),
                             new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
                             new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
+                            new PrimaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe),
 
-                            /*new SectionDrawerItem().withName(R.string.discussion),
+                            new SectionDrawerItem().withName(R.string.discussion),
                             new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
-                            new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),*/
+                            new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments_o),
 
                             new SectionDrawerItem().withName(R.string.action_settings),
                             new PrimaryDrawerItem().withName(R.string.action_settings).withIcon(FontAwesome.Icon.faw_cog),
@@ -93,24 +96,27 @@ public class WebViewer extends ActionBarActivity {
 
                             switch ((int) id) {
                                 case 1:
-                                    gotoAgenda();
+                                    startActivity(Navigation.getAgendaIntent(getApplicationContext()));
                                     break;
                                 case 2:
-                                    gotoPresentation();
+                                    startActivity(Navigation.getPresentationIntent(getApplicationContext()));
                                     break;
-                                /*case 4:
-                                    gotoCurDisq();
+                                case 3:
+                                    startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));
                                     break;
                                 case 5:
-                                    gotoDisqList();
-                                    break;*/
-                                case 4:
-                                    gotoSettings();
+                                    startActivity(Navigation.getCurDisqIntent(getApplicationContext()));
                                     break;
                                 case 6:
-                                    gotoManual();
+                                    startActivity(Navigation.getDisqListIntent(getApplicationContext()));
                                     break;
                                 case 8:
+                                    startActivity(Navigation.getSettingsIntent(getApplicationContext()));
+                                    break;
+                                case 10:
+                                    startActivity(Navigation.getManIntent(getApplicationContext()));
+                                    break;
+                                case 12:
                                     exitApp();
                                     break;
                                 default:
@@ -120,53 +126,24 @@ public class WebViewer extends ActionBarActivity {
                         }
                     }).build();
         }
-        else {
-            drawer = new DrawerBuilder()
-                    .withActivity(this)
-                    .withToolbar(toolbar)
-                    .withActionBarDrawerToggle(true)
-                    .withHeader(R.layout.drawer_header)
-                    .withDrawerWidthDp(320)
-                    .addDrawerItems(
-                            new PrimaryDrawerItem().withName(R.string.loginMenu).withIcon(FontAwesome.Icon.faw_desktop),
-                            new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
-                            /*new DividerDrawerItem(),
-                            new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment),
-                            new PrimaryDrawerItem().withName(R.string.discussionList).withIcon(FontAwesome.Icon.faw_comments),*/
-                            new DividerDrawerItem(),
-                            new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome
-                                    .Icon.faw_close)
-                    ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                        @Override
-                        public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                            switch ((int) id) {
-                                case 0:
-                                    gotoLogin();
-                                    break;
-                                case 1:
-                                    gotoManual();
-                                    break;
-                                /*case 3:
-                                    gotoCurDisq();
-                                    break;
-                                case 4:
-                                    gotoDisqList();
-                                    break;*/
-                                case 3:
-                                    exitApp();
-                                    break;
-                                default:
-                                    break;
-                            }
-                            return true;
-                        }
-                    }).build();
-        }
-    }
 
     private void gotoLogin() {
         Intent intent = new Intent();
         intent.setClass(this, KP.class);
+        startActivity(intent);
+    }
+
+
+
+    /**=========================================================================
+     * GO TO  SOCIAL PROGRAM
+     *==========================================================================
+     */
+    private void gotoSocialProgram(){
+
+        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
+        intent.putExtra("url", KP.spAddr);
+
         startActivity(intent);
     }
 
@@ -241,12 +218,12 @@ public class WebViewer extends ActionBarActivity {
      */
     private void gotoManual() {
 
-        if(this.getTitle().toString() != getString(R.string.manual)) {
+        if(this.getTitle().toString().equals(getString(R.string.manual))) {
             Intent intent = new Intent(getApplicationContext(), WebViewer.class);
             intent.putExtra("url", KP.manLink);
             intent.putExtra("reading", true);
 
-            if (KP.isRegistered == true)
+            if (KP.isRegistered)
                 intent.putExtra("flag", false);
             else intent.putExtra("flag", true);
 
@@ -273,14 +250,11 @@ public class WebViewer extends ActionBarActivity {
      *==========================================================================
      */
     private void gotoCurDisq(){
-        String contentUrl = KP.getContentUrl();
-        //String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files")); //smartroom.cs.petrsu.ru
-        //Toast.makeText(getApplicationContext(), addr, Toast.LENGTH_LONG).show();
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr+"chat");
+        intent.putExtra("url", KP.dqAddr);
 
-        if (KP.isRegistered == true)
+        if (KP.isRegistered)
             intent.putExtra("flag", false);
         else intent.putExtra("flag", true);
 
@@ -293,13 +267,11 @@ public class WebViewer extends ActionBarActivity {
      *==========================================================================
      */
     private void gotoDisqList(){
-        String contentUrl = KP.getContentUrl();
-        //String addr = contentUrl.substring(0,contentUrl.lastIndexOf("files"));
 
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads");
+        intent.putExtra("url",KP.dqAddr);
 
-        if (KP.isRegistered == true)
+        if (KP.isRegistered)
             intent.putExtra("flag", false);
         else intent.putExtra("flag", true);
 

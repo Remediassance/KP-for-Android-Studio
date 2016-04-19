@@ -9,10 +9,15 @@ android {
         minSdkVersion 15
         targetSdkVersion 21
 
-        /*ndk {
-            moduleName "sslog"
-        }*/
+
+        sourceSets.main {
+            jni.srcDirs = [] // This prevents the auto generation of Android.mk
+            jniLibs.srcDirs = ['src/main/jniLibs']
+            // This is not necessary unless you have precompiled libraries in your project.
+        }
     }
+
+
 
     buildTypes {
         release {
@@ -23,7 +28,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:appcompat-v7:21.2.0'
     compile files('libs/jspeex.jar')
     compile('com.mikepenz:materialdrawer:3.1.0@aar') {
         transitive = true
