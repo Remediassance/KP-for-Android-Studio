@@ -19,17 +19,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb082fef-6ae7-42a6-8954-f2db2f3ed2a6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java" afterPath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/iconics/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/iconics/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/materialdrawer/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/materialdrawer/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" afterPath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KP-for-Android-Studio.iws" />
@@ -83,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Agenda.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Agenda.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.74816626">
+            <state vertical-scroll-proportion="0.0">
               <caret line="184" column="24" selection-start-line="184" selection-start-column="24" selection-end-line="184" selection-end-column="24" />
               <folding>
                 <element signature="e#4736#4753#0" expanded="true" />
@@ -147,11 +137,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Navigation.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Navigation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="123" column="40" selection-start-line="123" selection-start-column="40" selection-end-line="123" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.29095355">
+              <caret line="124" column="56" selection-start-line="124" selection-start-column="56" selection-end-line="124" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -1681,9 +1671,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
       </list>
     </option>
   </component>
@@ -2135,7 +2125,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461067621332</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Initial commit">
+      <created>1461070396745</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1461070396745</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2207,7 +2203,8 @@
     <MESSAGE value="Исправил баги:&#10;* Переход на СП сервис из него же вызывал запуск дискуссии&#10;* Неверно отображалось имя сервиса в СП сервисе" />
     <MESSAGE value="Добавил uuid к сп сервису и дискуссии, скинул Минне.&#10;Теерь удалю uuid из дискуссии" />
     <MESSAGE value="Коммит для демо без нового сервиса.&#10;Уже новые либы." />
-    <option name="LAST_COMMIT_MESSAGE" value="Коммит для демо без нового сервиса.&#10;Уже новые либы." />
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2804,14 +2801,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="123" column="40" selection-start-line="123" selection-start-column="40" selection-end-line="123" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.481482">
@@ -2843,7 +2832,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74816626">
+        <state vertical-scroll-proportion="0.0">
           <caret line="184" column="24" selection-start-line="184" selection-start-column="24" selection-end-line="184" selection-end-column="24" />
           <folding>
             <element signature="e#4736#4753#0" expanded="true" />
@@ -2900,6 +2889,14 @@
             <element signature="e#22551#22552#0" expanded="true" />
             <element signature="e#22816#22873#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29095355">
+          <caret line="124" column="56" selection-start-line="124" selection-start-column="56" selection-end-line="124" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>
