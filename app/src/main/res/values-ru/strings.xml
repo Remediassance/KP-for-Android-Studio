@@ -109,5 +109,7 @@
     <string name="dqBrowser">Обсуждения</string>
     <string name="loginMenu">Войти</string>
     <string name="readingMan">Руководство SmartRoom</string>
+    <string name="city">Город: напр. Москва</string>
+    <string name="searchBtn">Найти</string>
 
 </resources>
