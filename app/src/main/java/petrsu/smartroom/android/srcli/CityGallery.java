@@ -93,9 +93,10 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
     public void onClick(View v) {
         String city = cityText.getText().toString();
         displayedCity.setText(city);
-        String url = KP.setPlaceInfo(city,KP.getPersonUuid());
+        String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
+        String url = KP.setPlaceInfo(city,uuid);
         if(url == null)
-            displayedCity.setText("Unable to recover images for "+city);
+            displayedCity.setText("Unable to recover images");
 
     }
 }

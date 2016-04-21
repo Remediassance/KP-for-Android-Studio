@@ -19,7 +19,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb082fef-6ae7-42a6-8954-f2db2f3ed2a6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/arm64-v8a/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/arm64-v8a/libsslog.so" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/armeabi/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/armeabi/libsslog.so" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/armeabi-v7a/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/armeabi-v7a/libsslog.so" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/mips/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/mips/libsslog.so" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/mips64/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/mips64/libsslog.so" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/x86/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/x86/libsslog.so" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/jniLibs/x86_64/libsslog.so" afterPath="$PROJECT_DIR$/app/src/main/jniLibs/x86_64/libsslog.so" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java" afterPath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" afterPath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/iconics/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/iconics/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/materialdrawer/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/materialdrawer/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KP-for-Android-Studio.iws" />
@@ -54,22 +68,9 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="84" column="40" selection-start-line="84" selection-start-column="40" selection-end-line="84" selection-end-column="40" />
+              <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="city_gallery.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -77,98 +78,28 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="184" column="24" selection-start-line="184" selection-start-column="24" selection-end-line="184" selection-end-column="24" />
-              <folding>
-                <element signature="e#4736#4753#0" expanded="true" />
-                <element signature="e#4795#4810#0" expanded="true" />
-                <element signature="e#4890#4911#0" expanded="true" />
-                <element signature="e#5121#5140#0" expanded="true" />
-                <element signature="e#5201#5223#0" expanded="true" />
-                <element signature="e#5324#5347#0" expanded="true" />
-                <element signature="e#5432#5456#0" expanded="true" />
-                <element signature="e#5498#5522#0" expanded="true" />
-                <element signature="e#5599#5621#0" expanded="true" />
-                <element signature="e#5703#5716#0" expanded="true" />
-                <element signature="e#5758#5778#0" expanded="true" />
-                <element signature="e#5856#5871#0" expanded="true" />
-                <element signature="e#6086#6110#0" expanded="true" />
-                <element signature="e#6197#7755#0" expanded="true" />
-                <element signature="e#7754#7755#0" expanded="true" />
-                <element signature="e#8533#8807#0" expanded="true" />
-                <element signature="e#8806#8807#0" expanded="true" />
-                <element signature="e#8978#9037#0" expanded="true" />
-                <element signature="e#9888#9906#0" expanded="true" />
-                <element signature="e#9944#9998#0" expanded="true" />
-                <element signature="e#12096#12438#0" expanded="true" />
-                <element signature="e#12437#12438#0" expanded="true" />
-                <element signature="e#14976#14996#0" expanded="true" />
-                <element signature="e#15036#15097#0" expanded="true" />
-                <element signature="e#16037#16061#0" expanded="true" />
-                <element signature="e#16085#16112#0" expanded="true" />
-                <element signature="e#16164#16733#0" expanded="true" />
-                <element signature="e#16732#16733#0" expanded="true" />
-                <element signature="e#16795#16946#0" expanded="true" />
-                <element signature="e#16945#16946#0" expanded="true" />
-                <element signature="e#17422#17445#0" expanded="true" />
-                <element signature="e#17674#19148#0" expanded="true" />
-                <element signature="e#18072#18093#0" expanded="true" />
-                <element signature="e#18136#19013#0" expanded="true" />
-                <element signature="e#18608#18628#0" expanded="true" />
-                <element signature="e#19012#19013#0" expanded="true" />
-                <element signature="e#19147#19148#0" expanded="true" />
-                <element signature="e#19285#20477#0" expanded="true" />
-                <element signature="e#19605#19703#0" expanded="true" />
-                <element signature="e#19713#19809#0" expanded="true" />
-                <element signature="e#20385#20413#0" expanded="true" />
-                <element signature="e#20476#20477#0" expanded="true" />
-                <element signature="e#21304#21330#0" expanded="true" />
-                <element signature="e#21354#21375#0" expanded="true" />
-                <element signature="e#21431#21652#0" expanded="true" />
-                <element signature="e#21651#21652#0" expanded="true" />
-                <element signature="e#22022#22048#0" expanded="true" />
-                <element signature="e#22072#22100#0" expanded="true" />
-                <element signature="e#22157#22333#0" expanded="true" />
-                <element signature="e#22332#22333#0" expanded="true" />
-                <element signature="e#22389#22552#0" expanded="true" />
-                <element signature="e#22551#22552#0" expanded="true" />
-                <element signature="e#22816#22873#0" expanded="true" />
-              </folding>
+              <caret line="97" column="23" selection-start-line="97" selection-start-column="23" selection-end-line="97" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Navigation.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Navigation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29095355">
-              <caret line="124" column="56" selection-start-line="124" selection-start-column="56" selection-end-line="124" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.481482">
-              <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MicService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/MicService.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="131" column="32" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1174#1175#0" expanded="false" />
-                <element signature="e#1192#1193#0" expanded="false" />
-                <element signature="e#2799#2800#0" expanded="false" />
-                <element signature="e#2824#2825#0" expanded="false" />
-              </folding>
+              <caret line="123" column="48" selection-start-line="123" selection-start-column="48" selection-end-line="123" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CityGallery.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.24938875">
+              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1664,15 +1595,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Profile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
       </list>
     </option>
@@ -1757,7 +1688,8 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1775,61 +1707,10 @@
               <option name="myItemId" value="KP-for-Android-Studio" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KP-for-Android-Studio" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KP-for-Android-Studio" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KP-for-Android-Studio" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1837,8 +1718,8 @@
     <property name="FullScreen" value="false" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Smartroom_svn/docs/SmartRoom/androidKeystore/Smart-spaces-key.jks" />
-    <property name="ExportApk.ApkPath" value="C:\Users\Remediassance\Documents\work" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/studies" />
+    <property name="ExportApk.ApkPath" value="C:\Users\Remediassance\Documents\studies" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/layout" />
@@ -1847,6 +1728,39 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="eca3fb2" />
   </component>
   <component name="RunManager" selected="Android Application.app">
+    <configuration default="true" type="AndroidNativeRunConfigurationType" factoryName="Android Native">
+      <module name="" />
+      <option name="WORKING_DIR" value="" />
+      <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -1909,6 +1823,17 @@
       <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="AppEngineRunConfiguration" factoryName="App Engine DevAppServer">
+      <module name="" />
+      <setting name="serverAddress" value="" />
+      <setting name="sdkPath" value="" />
+      <setting name="serverPort" value="" />
+      <setting name="vmArgs" value="" />
+      <setting name="warPath" value="" />
+      <setting name="sync" value="false" />
+      <setting name="disableUpdateCheck" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -1922,6 +1847,22 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -2131,7 +2072,19 @@
       <option name="project" value="LOCAL" />
       <updated>1461070396745</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Для курсовой Минны">
+      <created>1461070579012</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1461070579012</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Подготовка к демо: впилена публикация мест в сервис.">
+      <created>1461071303398</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1461071303398</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2148,20 +2101,20 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24508321" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25553662" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16868381" sideWeight="0.50596255" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25553662" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2753404" sideWeight="0.51522845" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24020442" sideWeight="0.4969743" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36797273" sideWeight="0.4969743" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22617246" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2753404" sideWeight="0.49403748" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2753404" sideWeight="0.48477158" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18154311" sideWeight="0.49403748" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.50596255" order="6" side_tool="true" content_ui="tabs" />
@@ -2176,7 +2129,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2204,7 +2157,9 @@
     <MESSAGE value="Добавил uuid к сп сервису и дискуссии, скинул Минне.&#10;Теерь удалю uuid из дискуссии" />
     <MESSAGE value="Коммит для демо без нового сервиса.&#10;Уже новые либы." />
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Для курсовой Минны" />
+    <MESSAGE value="Подготовка к демо: впилена публикация мест в сервис." />
+    <option name="LAST_COMMIT_MESSAGE" value="Подготовка к демо: впилена публикация мест в сервис." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2240,61 +2195,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#4736#4753#0" expanded="true" />
-            <element signature="e#4795#4810#0" expanded="true" />
-            <element signature="e#4890#4911#0" expanded="true" />
-            <element signature="e#5121#5140#0" expanded="true" />
-            <element signature="e#5201#5223#0" expanded="true" />
-            <element signature="e#5324#5347#0" expanded="true" />
-            <element signature="e#5432#5456#0" expanded="true" />
-            <element signature="e#5498#5522#0" expanded="true" />
-            <element signature="e#5599#5621#0" expanded="true" />
-            <element signature="e#5703#5716#0" expanded="true" />
-            <element signature="e#5758#5778#0" expanded="true" />
-            <element signature="e#5856#5871#0" expanded="true" />
-            <element signature="e#6086#6110#0" expanded="true" />
-            <element signature="e#6197#7755#0" expanded="true" />
-            <element signature="e#7754#7755#0" expanded="true" />
-            <element signature="e#8533#8807#0" expanded="true" />
-            <element signature="e#8806#8807#0" expanded="true" />
-            <element signature="e#8978#9037#0" expanded="true" />
-            <element signature="e#9888#9906#0" expanded="true" />
-            <element signature="e#9944#9998#0" expanded="true" />
-            <element signature="e#12096#12438#0" expanded="true" />
-            <element signature="e#12437#12438#0" expanded="true" />
-            <element signature="e#14976#14996#0" expanded="true" />
-            <element signature="e#15036#15097#0" expanded="true" />
-            <element signature="e#16037#16061#0" expanded="true" />
-            <element signature="e#16085#16112#0" expanded="true" />
-            <element signature="e#16164#16733#0" expanded="true" />
-            <element signature="e#16732#16733#0" expanded="true" />
-            <element signature="e#16795#16946#0" expanded="true" />
-            <element signature="e#16945#16946#0" expanded="true" />
-            <element signature="e#17422#17445#0" expanded="true" />
-            <element signature="e#17674#19148#0" expanded="true" />
-            <element signature="e#18072#18093#0" expanded="true" />
-            <element signature="e#18136#19013#0" expanded="true" />
-            <element signature="e#18608#18628#0" expanded="true" />
-            <element signature="e#19012#19013#0" expanded="true" />
-            <element signature="e#19147#19148#0" expanded="true" />
-            <element signature="e#19285#20477#0" expanded="true" />
-            <element signature="e#19605#19703#0" expanded="true" />
-            <element signature="e#19713#19809#0" expanded="true" />
-            <element signature="e#20385#20413#0" expanded="true" />
-            <element signature="e#20476#20477#0" expanded="true" />
-            <element signature="e#21304#21330#0" expanded="true" />
-            <element signature="e#21354#21375#0" expanded="true" />
-            <element signature="e#21431#21652#0" expanded="true" />
-            <element signature="e#21651#21652#0" expanded="true" />
-            <element signature="e#22022#22048#0" expanded="true" />
-            <element signature="e#22072#22100#0" expanded="true" />
-            <element signature="e#22157#22333#0" expanded="true" />
-            <element signature="e#22332#22333#0" expanded="true" />
-            <element signature="e#22389#22552#0" expanded="true" />
-            <element signature="e#22551#22552#0" expanded="true" />
-            <element signature="e#22816#22873#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2306,21 +2207,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="315" column="40" selection-start-line="315" selection-start-column="40" selection-end-line="315" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2359,61 +2259,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="215" column="30" selection-start-line="215" selection-start-column="30" selection-end-line="215" selection-end-column="30" />
-          <folding>
-            <element signature="e#4736#4753#0" expanded="true" />
-            <element signature="e#4795#4810#0" expanded="true" />
-            <element signature="e#4890#4911#0" expanded="true" />
-            <element signature="e#5121#5140#0" expanded="true" />
-            <element signature="e#5201#5223#0" expanded="true" />
-            <element signature="e#5324#5347#0" expanded="true" />
-            <element signature="e#5432#5456#0" expanded="true" />
-            <element signature="e#5498#5522#0" expanded="true" />
-            <element signature="e#5599#5621#0" expanded="true" />
-            <element signature="e#5703#5716#0" expanded="true" />
-            <element signature="e#5758#5778#0" expanded="true" />
-            <element signature="e#5856#5871#0" expanded="true" />
-            <element signature="e#6086#6110#0" expanded="true" />
-            <element signature="e#6197#7755#0" expanded="true" />
-            <element signature="e#7754#7755#0" expanded="true" />
-            <element signature="e#8533#8807#0" expanded="true" />
-            <element signature="e#8806#8807#0" expanded="true" />
-            <element signature="e#8978#9037#0" expanded="true" />
-            <element signature="e#9888#9906#0" expanded="true" />
-            <element signature="e#9944#9998#0" expanded="true" />
-            <element signature="e#12096#12438#0" expanded="true" />
-            <element signature="e#12437#12438#0" expanded="true" />
-            <element signature="e#14976#14996#0" expanded="true" />
-            <element signature="e#15036#15097#0" expanded="true" />
-            <element signature="e#16037#16061#0" expanded="true" />
-            <element signature="e#16085#16112#0" expanded="true" />
-            <element signature="e#16164#16733#0" expanded="true" />
-            <element signature="e#16732#16733#0" expanded="true" />
-            <element signature="e#16795#16946#0" expanded="true" />
-            <element signature="e#16945#16946#0" expanded="true" />
-            <element signature="e#17422#17445#0" expanded="true" />
-            <element signature="e#17674#19148#0" expanded="true" />
-            <element signature="e#18072#18093#0" expanded="true" />
-            <element signature="e#18136#19013#0" expanded="true" />
-            <element signature="e#18608#18628#0" expanded="true" />
-            <element signature="e#19012#19013#0" expanded="true" />
-            <element signature="e#19147#19148#0" expanded="true" />
-            <element signature="e#19285#20477#0" expanded="true" />
-            <element signature="e#19605#19703#0" expanded="true" />
-            <element signature="e#19713#19809#0" expanded="true" />
-            <element signature="e#20385#20413#0" expanded="true" />
-            <element signature="e#20476#20477#0" expanded="true" />
-            <element signature="e#21304#21330#0" expanded="true" />
-            <element signature="e#21354#21375#0" expanded="true" />
-            <element signature="e#21431#21652#0" expanded="true" />
-            <element signature="e#21651#21652#0" expanded="true" />
-            <element signature="e#22022#22048#0" expanded="true" />
-            <element signature="e#22072#22100#0" expanded="true" />
-            <element signature="e#22157#22333#0" expanded="true" />
-            <element signature="e#22332#22333#0" expanded="true" />
-            <element signature="e#22389#22552#0" expanded="true" />
-            <element signature="e#22551#22552#0" expanded="true" />
-            <element signature="e#22816#22873#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2425,32 +2271,31 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/agenda_interface.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="16" selection-end-column="10" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="138" column="8" selection-start-line="138" selection-start-column="8" selection-end-line="140" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2473,7 +2318,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2489,61 +2333,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#4736#4753#0" expanded="true" />
-            <element signature="e#4795#4810#0" expanded="true" />
-            <element signature="e#4890#4911#0" expanded="true" />
-            <element signature="e#5121#5140#0" expanded="true" />
-            <element signature="e#5201#5223#0" expanded="true" />
-            <element signature="e#5324#5347#0" expanded="true" />
-            <element signature="e#5432#5456#0" expanded="true" />
-            <element signature="e#5498#5522#0" expanded="true" />
-            <element signature="e#5599#5621#0" expanded="true" />
-            <element signature="e#5703#5716#0" expanded="true" />
-            <element signature="e#5758#5778#0" expanded="true" />
-            <element signature="e#5856#5871#0" expanded="true" />
-            <element signature="e#6086#6110#0" expanded="true" />
-            <element signature="e#6197#7755#0" expanded="true" />
-            <element signature="e#7754#7755#0" expanded="true" />
-            <element signature="e#8533#8807#0" expanded="true" />
-            <element signature="e#8806#8807#0" expanded="true" />
-            <element signature="e#8978#9037#0" expanded="true" />
-            <element signature="e#9888#9906#0" expanded="true" />
-            <element signature="e#9944#9998#0" expanded="true" />
-            <element signature="e#12096#12438#0" expanded="true" />
-            <element signature="e#12437#12438#0" expanded="true" />
-            <element signature="e#14976#14996#0" expanded="true" />
-            <element signature="e#15036#15097#0" expanded="true" />
-            <element signature="e#16037#16061#0" expanded="true" />
-            <element signature="e#16085#16112#0" expanded="true" />
-            <element signature="e#16164#16733#0" expanded="true" />
-            <element signature="e#16732#16733#0" expanded="true" />
-            <element signature="e#16795#16946#0" expanded="true" />
-            <element signature="e#16945#16946#0" expanded="true" />
-            <element signature="e#17422#17445#0" expanded="true" />
-            <element signature="e#17674#19148#0" expanded="true" />
-            <element signature="e#18072#18093#0" expanded="true" />
-            <element signature="e#18136#19013#0" expanded="true" />
-            <element signature="e#18608#18628#0" expanded="true" />
-            <element signature="e#19012#19013#0" expanded="true" />
-            <element signature="e#19147#19148#0" expanded="true" />
-            <element signature="e#19285#20477#0" expanded="true" />
-            <element signature="e#19605#19703#0" expanded="true" />
-            <element signature="e#19713#19809#0" expanded="true" />
-            <element signature="e#20385#20413#0" expanded="true" />
-            <element signature="e#20476#20477#0" expanded="true" />
-            <element signature="e#21304#21330#0" expanded="true" />
-            <element signature="e#21354#21375#0" expanded="true" />
-            <element signature="e#21431#21652#0" expanded="true" />
-            <element signature="e#21651#21652#0" expanded="true" />
-            <element signature="e#22022#22048#0" expanded="true" />
-            <element signature="e#22072#22100#0" expanded="true" />
-            <element signature="e#22157#22333#0" expanded="true" />
-            <element signature="e#22332#22333#0" expanded="true" />
-            <element signature="e#22389#22552#0" expanded="true" />
-            <element signature="e#22551#22552#0" expanded="true" />
-            <element signature="e#22816#22873#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2555,21 +2345,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="736" column="8" selection-start-line="736" selection-start-column="8" selection-end-line="736" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2592,7 +2381,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2608,61 +2396,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#4736#4753#0" expanded="true" />
-            <element signature="e#4795#4810#0" expanded="true" />
-            <element signature="e#4890#4911#0" expanded="true" />
-            <element signature="e#5121#5140#0" expanded="true" />
-            <element signature="e#5201#5223#0" expanded="true" />
-            <element signature="e#5324#5347#0" expanded="true" />
-            <element signature="e#5432#5456#0" expanded="true" />
-            <element signature="e#5498#5522#0" expanded="true" />
-            <element signature="e#5599#5621#0" expanded="true" />
-            <element signature="e#5703#5716#0" expanded="true" />
-            <element signature="e#5758#5778#0" expanded="true" />
-            <element signature="e#5856#5871#0" expanded="true" />
-            <element signature="e#6086#6110#0" expanded="true" />
-            <element signature="e#6197#7755#0" expanded="true" />
-            <element signature="e#7754#7755#0" expanded="true" />
-            <element signature="e#8533#8807#0" expanded="true" />
-            <element signature="e#8806#8807#0" expanded="true" />
-            <element signature="e#8978#9037#0" expanded="true" />
-            <element signature="e#9888#9906#0" expanded="true" />
-            <element signature="e#9944#9998#0" expanded="true" />
-            <element signature="e#12096#12438#0" expanded="true" />
-            <element signature="e#12437#12438#0" expanded="true" />
-            <element signature="e#14976#14996#0" expanded="true" />
-            <element signature="e#15036#15097#0" expanded="true" />
-            <element signature="e#16037#16061#0" expanded="true" />
-            <element signature="e#16085#16112#0" expanded="true" />
-            <element signature="e#16164#16733#0" expanded="true" />
-            <element signature="e#16732#16733#0" expanded="true" />
-            <element signature="e#16795#16946#0" expanded="true" />
-            <element signature="e#16945#16946#0" expanded="true" />
-            <element signature="e#17422#17445#0" expanded="true" />
-            <element signature="e#17674#19148#0" expanded="true" />
-            <element signature="e#18072#18093#0" expanded="true" />
-            <element signature="e#18136#19013#0" expanded="true" />
-            <element signature="e#18608#18628#0" expanded="true" />
-            <element signature="e#19012#19013#0" expanded="true" />
-            <element signature="e#19147#19148#0" expanded="true" />
-            <element signature="e#19285#20477#0" expanded="true" />
-            <element signature="e#19605#19703#0" expanded="true" />
-            <element signature="e#19713#19809#0" expanded="true" />
-            <element signature="e#20385#20413#0" expanded="true" />
-            <element signature="e#20476#20477#0" expanded="true" />
-            <element signature="e#21304#21330#0" expanded="true" />
-            <element signature="e#21354#21375#0" expanded="true" />
-            <element signature="e#21431#21652#0" expanded="true" />
-            <element signature="e#21651#21652#0" expanded="true" />
-            <element signature="e#22022#22048#0" expanded="true" />
-            <element signature="e#22072#22100#0" expanded="true" />
-            <element signature="e#22157#22333#0" expanded="true" />
-            <element signature="e#22332#22333#0" expanded="true" />
-            <element signature="e#22389#22552#0" expanded="true" />
-            <element signature="e#22551#22552#0" expanded="true" />
-            <element signature="e#22816#22873#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2670,7 +2404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2678,7 +2411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2694,7 +2426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2715,20 +2446,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/agenda_interface.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="16" selection-end-column="10" />
           <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -2751,62 +2475,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="177" column="114" selection-start-line="177" selection-start-column="114" selection-end-line="177" selection-end-column="114" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/MicService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="131" column="32" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1174#1175#0" expanded="false" />
-            <element signature="e#1192#1193#0" expanded="false" />
-            <element signature="e#2799#2800#0" expanded="false" />
-            <element signature="e#2824#2825#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="84" column="40" selection-start-line="84" selection-start-column="40" selection-end-line="84" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Documents/layout-2016-04-17-215947.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.481482">
-          <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml">
@@ -2826,6 +2500,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9068493">
+          <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/MicService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="131" column="32" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -2833,69 +2540,31 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="184" column="24" selection-start-line="184" selection-start-column="24" selection-end-line="184" selection-end-column="24" />
-          <folding>
-            <element signature="e#4736#4753#0" expanded="true" />
-            <element signature="e#4795#4810#0" expanded="true" />
-            <element signature="e#4890#4911#0" expanded="true" />
-            <element signature="e#5121#5140#0" expanded="true" />
-            <element signature="e#5201#5223#0" expanded="true" />
-            <element signature="e#5324#5347#0" expanded="true" />
-            <element signature="e#5432#5456#0" expanded="true" />
-            <element signature="e#5498#5522#0" expanded="true" />
-            <element signature="e#5599#5621#0" expanded="true" />
-            <element signature="e#5703#5716#0" expanded="true" />
-            <element signature="e#5758#5778#0" expanded="true" />
-            <element signature="e#5856#5871#0" expanded="true" />
-            <element signature="e#6086#6110#0" expanded="true" />
-            <element signature="e#6197#7755#0" expanded="true" />
-            <element signature="e#7754#7755#0" expanded="true" />
-            <element signature="e#8533#8807#0" expanded="true" />
-            <element signature="e#8806#8807#0" expanded="true" />
-            <element signature="e#8978#9037#0" expanded="true" />
-            <element signature="e#9888#9906#0" expanded="true" />
-            <element signature="e#9944#9998#0" expanded="true" />
-            <element signature="e#12096#12438#0" expanded="true" />
-            <element signature="e#12437#12438#0" expanded="true" />
-            <element signature="e#14976#14996#0" expanded="true" />
-            <element signature="e#15036#15097#0" expanded="true" />
-            <element signature="e#16037#16061#0" expanded="true" />
-            <element signature="e#16085#16112#0" expanded="true" />
-            <element signature="e#16164#16733#0" expanded="true" />
-            <element signature="e#16732#16733#0" expanded="true" />
-            <element signature="e#16795#16946#0" expanded="true" />
-            <element signature="e#16945#16946#0" expanded="true" />
-            <element signature="e#17422#17445#0" expanded="true" />
-            <element signature="e#17674#19148#0" expanded="true" />
-            <element signature="e#18072#18093#0" expanded="true" />
-            <element signature="e#18136#19013#0" expanded="true" />
-            <element signature="e#18608#18628#0" expanded="true" />
-            <element signature="e#19012#19013#0" expanded="true" />
-            <element signature="e#19147#19148#0" expanded="true" />
-            <element signature="e#19285#20477#0" expanded="true" />
-            <element signature="e#19605#19703#0" expanded="true" />
-            <element signature="e#19713#19809#0" expanded="true" />
-            <element signature="e#20385#20413#0" expanded="true" />
-            <element signature="e#20476#20477#0" expanded="true" />
-            <element signature="e#21304#21330#0" expanded="true" />
-            <element signature="e#21354#21375#0" expanded="true" />
-            <element signature="e#21431#21652#0" expanded="true" />
-            <element signature="e#21651#21652#0" expanded="true" />
-            <element signature="e#22022#22048#0" expanded="true" />
-            <element signature="e#22072#22100#0" expanded="true" />
-            <element signature="e#22157#22333#0" expanded="true" />
-            <element signature="e#22332#22333#0" expanded="true" />
-            <element signature="e#22389#22552#0" expanded="true" />
-            <element signature="e#22551#22552#0" expanded="true" />
-            <element signature="e#22816#22873#0" expanded="true" />
-          </folding>
+          <caret line="97" column="23" selection-start-line="97" selection-start-column="23" selection-end-line="97" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29095355">
-          <caret line="124" column="56" selection-start-line="124" selection-start-column="56" selection-end-line="124" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="123" column="48" selection-start-line="123" selection-start-column="48" selection-end-line="123" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24938875">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding />
         </state>
       </provider>

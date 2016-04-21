@@ -121,6 +121,7 @@ public class Navigation { // was abstract lol
     public static Intent getCurDisqIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
         String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
+        KP.dqAddr = KP.getDiscussionServiceIP();
         intent.putExtra("url", KP.dqAddr);
         intent.putExtra("service", R.string.discussion);
         //Toast.makeText(context,  "Uuid:" + uuid, Toast.LENGTH_LONG).show();
@@ -136,6 +137,7 @@ public class Navigation { // was abstract lol
     public static Intent getDisqListIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
         String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
+        KP.dqAddr = KP.getDiscussionServiceIP();
         intent.putExtra("url", KP.dqAddr); //"chat/?user_uuid=" + uuid
         intent.putExtra("service", R.string.discussion);
         //Toast.makeText(context,  "Uuid:" + KP.getPersonUuid(), Toast.LENGTH_LONG).show();
@@ -151,6 +153,7 @@ public class Navigation { // was abstract lol
     public static Intent getSocialProgramIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
         String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
+        KP.spAddr = KP.getSocialProgramServiceIP();
         intent.putExtra("url",KP.spAddr+"/?person_uuid="+uuid);
         intent.putExtra("service", "SocialProgram");
         return intent;
