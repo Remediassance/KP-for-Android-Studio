@@ -59,14 +59,14 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	private TextView advancedModeText;
 	private Button connectBtn;	
 	private Button guestBtn;
-	private Button regServiceBtn;
-	private final String regServiceLink = "http://smartroom.cs.petrsu.ru/content/login";
+	//private Button regServiceBtn;
+	//private final String regServiceLink = "http://smartroom.cs.petrsu.ru/content/login";
     public final static String manLink = "http://bit.ly/srman081";
 	private static EditText editName;
 	private static EditText editPassword;
 	private EditText editIP;
 	private static EditText editPort;	
-	private ArrayList<String> timeslotList;
+	//private ArrayList<String> timeslotList;
 	private String lastState;
 	
 	public static native int connectSmartSpace(String hostname, String ip,  int port);
@@ -78,7 +78,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	public static native int initSubscription();
 	public static native int startConference();
 	public static native int endConference();
-	public static native void getProjectorClassObject();
+	//public static native void getProjectorClassObject();
 	public static native int showSlide(int slideNumber);
 	public static native int endPresentation();
 	public static native int getCurrentTimeslotIndex();
@@ -154,7 +154,12 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
         // Handle Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		try {
+			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		}
+		catch(NullPointerException e) {
+			e.printStackTrace();
+		}
 
         Drawer result = new DrawerBuilder()
                 .withActivity(this)
@@ -195,34 +200,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
             isChairman=false;
             isRegistered=false;
         }
-
-
-
-    /**=========================================================================
-     * GO TO CURRENT DISCUSSION
-     *==========================================================================
-     */
-    private void gotoCurDisq(){
-        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr+"chat/?user_uuid="+getPersonUuid());
-        intent.putExtra("flag", true);
-
-        startActivity(intent);
-    }
-
-
-    /**=========================================================================
-     * GO TO  DISCUSSION LIST
-     *==========================================================================
-     */
-    private void gotoDisqList(){
-
-        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr+"chat/listCurrentThreads/?user_uuid=" + getPersonUuid());
-        intent.putExtra("flag", true);
-
-        startActivity(intent);
-    }
 
 
     /*=========================================================================
@@ -360,15 +337,10 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		
 		/* If user joined as a guest */
 		if(name.equals("") && password.equals("")) {
-			/* TODO: it is might be that after loosing connection
-			 * SIB was cleaned and such reconnection for guest
-			 * will not create profile but user will have access to SS
-			 */
 			KP.isRegistered = true;
 			return 0;
 		}
-		
-		/* TODO: password is open! */
+
 		if(password.equals("chairman")) {
 			KP.isChairman = true;
 		} else {
@@ -423,7 +395,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		}
 
 		if(!isRegistered) {
-			/* TODO: password is open! */
 			if(password.equals("chairman")) {
 				isChairman = true;
 			} else {
@@ -742,7 +713,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	            String contents = data.getStringExtra("SCAN_RESULT");
 	            Uri marketUri = Uri.parse(contents);
 			    Intent marketIntent = new Intent(Intent.ACTION_VIEW, marketUri);
-			    startActivity(marketIntent);
+			    startActivity(marketIntent); 
 	        }
 	    }
 	}

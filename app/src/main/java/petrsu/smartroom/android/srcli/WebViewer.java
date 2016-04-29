@@ -179,29 +179,9 @@ public class WebViewer extends ActionBarActivity {
 
 
 
-    /**========================================================================
-     * GO TO AGENDA SERVICE
-     *=========================================================================
-     */
-    private void gotoAgenda(){
-        Intent intent = new Intent();
-        intent.setClass(this, Agenda.class);
-        startActivity(intent);
-    }
-
-
-    /**========================================================================
-     * GO TO PRESENTATION SERVICE
-     *=========================================================================
-     */
-    private void gotoPresentation(){
-        Intent intent = new Intent();
-        intent.setClass(this, Projector.class);
-        startActivity(intent);
-    }
 
     /**=========================================================================
-     * QITS TO THE DESKTOP
+     * QUITS TO THE DESKTOP
      *==========================================================================
      */
     private void exitApp() {
@@ -210,84 +190,4 @@ public class WebViewer extends ActionBarActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
-
-
-    /*=========================================================================
-    * OPENS BROWSER ON THE DOWNLOAD MANUAL PAGE
-    * =========================================================================
-     */
-    private void gotoManual() {
-
-        if(this.getTitle().toString().equals(getString(R.string.manual))) {
-            Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-            intent.putExtra("url", KP.manLink);
-            intent.putExtra("reading", true);
-
-            if (KP.isRegistered)
-                intent.putExtra("flag", false);
-            else intent.putExtra("flag", true);
-
-            startActivity(intent);
-        }
-
-    }
-
-    /**=========================================================================
-     * SHOWS HELP WINDOW
-     *==========================================================================
-     */
-    private void openHelp() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.joiningSR);
-        builder.setMessage(Html.fromHtml(getResources().getString(R.string.agenda_help_content)));
-        builder.create();
-        builder.show();
-    }
-
-
-    /**=========================================================================
-     * GO TO CURRENT DISCUSSION
-     *==========================================================================
-     */
-    private void gotoCurDisq(){
-
-        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.dqAddr);
-
-        if (KP.isRegistered)
-            intent.putExtra("flag", false);
-        else intent.putExtra("flag", true);
-
-        startActivity(intent);
-    }
-
-
-    /**=========================================================================
-     * GO TO  DISCUSSION LIST
-     *==========================================================================
-     */
-    private void gotoDisqList(){
-
-        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",KP.dqAddr);
-
-        if (KP.isRegistered)
-            intent.putExtra("flag", false);
-        else intent.putExtra("flag", true);
-
-        startActivity(intent);
-    }
-
-
-    /**========================================================================
-     * GO TO SETTINGS ACTIVITY
-     *=========================================================================
-     */
-    private void gotoSettings() {
-        Intent intentSettings = new Intent();
-        intentSettings.setClass(this, SettingsMenu.class);
-        startActivity(intentSettings);
-    }
 }
-
-

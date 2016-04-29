@@ -120,7 +120,7 @@ public class Navigation { // was abstract lol
      */
     public static Intent getCurDisqIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
-        String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
+        //String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
         intent.putExtra("url", KP.dqAddr);
         intent.putExtra("service", R.string.discussion);
         //Toast.makeText(context,  "Uuid:" + uuid, Toast.LENGTH_LONG).show();
@@ -135,10 +135,10 @@ public class Navigation { // was abstract lol
      */
     public static Intent getDisqListIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
-        String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
+        //String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
         intent.putExtra("url", KP.dqAddr + "chat"); //"chat/?user_uuid=" + uuid
         intent.putExtra("service", R.string.discussion);
-        //Toast.makeText(context,  "Uuid:" + KP.getPersonUuid(), Toast.LENGTH_LONG).show();
+        Toast.makeText(context,  KP.dqAddr, Toast.LENGTH_LONG).show();
         return intent;
     }
 
@@ -151,7 +151,7 @@ public class Navigation { // was abstract lol
     public static Intent getSocialProgramIntent(Context context){
         Intent intent = new Intent(context, WebViewer.class);
         String uuid = KP.getPersonUuid().substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
-        intent.putExtra("url",KP.spAddr+"/?person_uuid="+uuid);
+        intent.putExtra("url",KP.spAddr+"?person_uuid="+uuid);
         intent.putExtra("service", "SocialProgram");
         return intent;
     }
@@ -183,7 +183,7 @@ public class Navigation { // was abstract lol
 
 
     /**=========================================================================
-     * QITS TO THE DESKTOP
+     * QUITS TO THE DESKTOP
      *==========================================================================
      */
     public static Intent exitApp() {
