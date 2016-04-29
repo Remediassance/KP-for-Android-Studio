@@ -135,20 +135,6 @@ public class WebViewer extends ActionBarActivity {
 
 
 
-    /**=========================================================================
-     * GO TO  SOCIAL PROGRAM
-     *==========================================================================
-     */
-    private void gotoSocialProgram(){
-
-        Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url", KP.spAddr);
-
-        startActivity(intent);
-    }
-
-
-
     /**========================================================================
      *  ENABLES USING ACTIVITY AS IF IT WAS A WEB BROWSER
      *=========================================================================
