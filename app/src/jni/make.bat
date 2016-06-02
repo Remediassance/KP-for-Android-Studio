@@ -1,0 +1,1 @@
+C:\ndk\build\ndk-build all

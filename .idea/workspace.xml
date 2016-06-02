@@ -15,11 +15,155 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb082fef-6ae7-42a6-8954-f2db2f3ed2a6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java" afterPath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/Android.mk" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/src/AndroidKp.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/Application.mk" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/Makefile.am" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/Makefile.in" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SRClient.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SRClient_4_2_2.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/amigaconfig.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/android_4.2.2.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/ascii.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/asciitab.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/attribute.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/attribute.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/bool.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/check_func.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/check_func.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/ckpi.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/ckpi.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/classes.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/classes.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/compose_ssap_msg.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/compose_ssap_msg.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/description.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/element.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/element.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/element_attribute.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/element_compare.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/element_copy.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/element_search.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/error.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/error.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/expat.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/expat_config.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/expat_external.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/export.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/generic.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/iasciitab.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/internal.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/src/kp.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/src/kp.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/kp_bool.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/kp_debug.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/kp_error.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/kp_error.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/kp_errors_define_decl.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/kpi_interface.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/kpi_interface.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/latin1tab.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/list.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/list.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/list.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/list.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/macconfig.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/make.bat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/make.bat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/nametab.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/src/ontology.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/src/ontology.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/parse_ssap_msg.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/parse_ssap_msg.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/parser.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/parser.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/patterns.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/patterns.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/printer.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/printer.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/process_ssap_cnf.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/process_ssap_cnf.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/properties.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/properties.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/property_changes.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/property_changes.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/reader.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/reader.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/reader_buffer.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/reader_buffer.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/reader_file.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/reader_file.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/repository.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/repository.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/scew.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/sib_access_tcp.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/sib_access_tcp.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/srclient_4.2.2.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_classes.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_classes.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_func.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_func.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_multisib.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_multisib.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_populate.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_populate.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_properties.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_properties.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/ssap_msg_common.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/sskp_errno.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/sskp_errno.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/sslog.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/str.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/str.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/structures.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/structures.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/subscription.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/subscription.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/subscription_changes.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/subscription_changes.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/subscription_changes_internal.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/subscription_internal.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/tree.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/tree.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/utf8tab.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/util_func.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/util_func.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/winconfig.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/writer.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/writer.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/writer_buffer.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/writer_buffer.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/writer_file.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/writer_file.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/xattribute.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/xattribute.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/xelement.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/xerror.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/xerror.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/expat/xmlparse.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/expat/xmlrole.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/xmlrole.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/expat/xmltok.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/xmltok.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/expat/xmltok_impl.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/xmltok_impl.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/expat/xmltok_ns.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/xparser.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/xparser.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" afterPath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/iconics/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/iconics/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/materialdrawer/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/materialdrawer/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KP-for-Android-Studio.iws" />
@@ -50,51 +194,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="KP.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java">
+      <file leaf-file-name="AgendaViewBinder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/AgendaViewBinder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="715" column="45" selection-start-line="715" selection-start-column="45" selection-end-line="715" selection-end-column="45" />
+              <caret line="36" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Agenda.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
+      <file leaf-file-name="ErrorView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/ErrorView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="336" column="26" selection-start-line="336" selection-start-column="26" selection-end-line="336" selection-end-column="26" />
+              <caret line="34" column="1" selection-start-line="26" selection-start-column="0" selection-end-line="34" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Navigation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
+      <file leaf-file-name="MicService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/MicService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="146" column="45" selection-start-line="146" selection-start-column="45" selection-end-line="146" selection-end-column="45" />
+              <caret line="176" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+              <folding>
+                <element signature="e#1174#1175#0" expanded="true" />
+                <element signature="e#1192#1193#0" expanded="true" />
+                <element signature="e#2799#2800#0" expanded="true" />
+                <element signature="e#2824#2825#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NetworkService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/NetworkService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CityGallery.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebViewer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0495627">
-              <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.21039604">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -113,6 +262,7 @@
   <component name="GenerateSignedApkSettings">
     <option name="KEY_STORE_PATH" value="C:\Users\Remediassance\Documents\Smartroom_svn\docs\SmartRoom\androidKeystore\Smart-spaces-key.jks" />
     <option name="KEY_ALIAS" value="smartspaces" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -1271,7 +1421,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="C:\KP-for-Android-Studio" value="4347605783867" />
-        <entry key="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio" value="4380890201041" />
+        <entry key="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio" value="4384692647434" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1585,12 +1735,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Profile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/MicService.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -1605,10 +1758,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-7" />
+    <option name="width" value="1378" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1673,6 +1825,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="AndroidView">
@@ -1692,48 +1846,27 @@
               <option name="myItemId" value="KP-for-Android-Studio" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KP-for-Android-Studio" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="srcli" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/studies" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/Smartroom_svn/docs/SmartRoom/androidKeystore/Smart-spaces-key.jks" />
     <property name="ExportApk.ApkPath" value="C:\Users\Remediassance\Documents\studies" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/layout" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="eca3fb2" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="1a98cb94" />
+    <property name="android.sdk.path" value="C:/sdk" />
+    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.proportion" value="0.15" />
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidNativeRunConfigurationType" factoryName="Android Native">
@@ -2104,7 +2237,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461921010158</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Continued fixing warnings and unused methods in classes">
+      <created>1461922558850</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1461922558850</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2117,26 +2256,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24508321" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25553662" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25432527" sideWeight="0.48786038" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2753404" sideWeight="0.51522845" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25605536" sideWeight="0.5060698" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36797273" sideWeight="0.4969743" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22617246" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33391005" sideWeight="0.5182094" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22610015" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25259516" sideWeight="0.4817906" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33391005" sideWeight="0.5091047" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2753404" sideWeight="0.48477158" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27389985" sideWeight="0.48477158" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18154311" sideWeight="0.49403748" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.50596255" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16868381" sideWeight="0.50596255" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2213,7 +2352,8 @@
     <MESSAGE value="Подготовка к демо: впилена публикация мест в сервис." />
     <MESSAGE value="Minor bugfixes&#10;*Shouldn't double /chat in address now" />
     <MESSAGE value="Fixed warnings, added return checks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed warnings, added return checks" />
+    <MESSAGE value="Continued fixing warnings and unused methods in classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continued fixing warnings and unused methods in classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2222,59 +2362,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="162" column="51" selection-start-line="162" selection-start-column="51" selection-end-line="162" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="315" column="40" selection-start-line="315" selection-start-column="40" selection-end-line="315" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="289" column="40" selection-start-line="289" selection-start-column="40" selection-end-line="289" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2289,7 +2380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="51" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2297,7 +2387,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="147" column="9" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2305,7 +2394,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="215" column="30" selection-start-line="215" selection-start-column="30" selection-end-line="215" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2317,23 +2405,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/agenda_interface.xml">
-      <provider editor-type-id="android-designer">
+      <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/agenda_interface.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="16" selection-end-column="10" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java">
@@ -2347,7 +2435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="308" column="27" selection-start-line="308" selection-start-column="27" selection-end-line="308" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2369,7 +2456,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="179" column="25" selection-start-line="179" selection-start-column="24" selection-end-line="179" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2377,7 +2463,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2389,13 +2474,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Projector.java">
@@ -2409,7 +2494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="308" column="27" selection-start-line="308" selection-start-column="27" selection-end-line="308" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2431,7 +2515,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="99" column="48" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2439,7 +2522,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2461,7 +2543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="99" column="48" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2476,7 +2557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2484,18 +2564,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/agenda_interface.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="16" selection-end-column="10" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Profile.java">
@@ -2517,11 +2596,55 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://C:/sdk/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0-sources.jar!/android/support/v4/app/FragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70660144">
+          <caret line="421" column="19" selection-start-line="421" selection-start-column="19" selection-end-line="421" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/ServicesMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.113703">
+          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="158" column="4" selection-start-line="158" selection-start-column="4" selection-end-line="159" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -2534,61 +2657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9068493">
-          <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/city_gallery.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/MicService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="131" column="32" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/sdk/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0-sources.jar!/android/support/v4/app/FragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70660144">
-          <caret line="421" column="19" selection-start-line="421" selection-start-column="19" selection-end-line="421" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/ServicesMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.113703">
-          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="715" column="45" selection-start-line="715" selection-start-column="45" selection-end-line="715" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="336" column="26" selection-start-line="336" selection-start-column="26" selection-end-line="336" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -2596,23 +2664,79 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="146" column="45" selection-start-line="146" selection-start-column="45" selection-end-line="146" selection-end-column="45" />
-          <folding />
+          <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+          <caret line="720" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="720" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="975" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="975" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/AgendaAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/AgendaViewBinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/ErrorView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0495627">
-          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="1" selection-start-line="26" selection-start-column="0" selection-end-line="34" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/MicService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="176" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+          <folding>
+            <element signature="e#1174#1175#0" expanded="true" />
+            <element signature="e#1192#1193#0" expanded="true" />
+            <element signature="e#2799#2800#0" expanded="true" />
+            <element signature="e#2824#2825#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/NetworkService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21039604">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
