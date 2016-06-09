@@ -15,155 +15,19 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb082fef-6ae7-42a6-8954-f2db2f3ed2a6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/Android.mk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/src/AndroidKp.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/Application.mk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/Makefile.am" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/Makefile.in" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SRClient.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SRClient_4_2_2.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/amigaconfig.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/android_4.2.2.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/ascii.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/asciitab.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/attribute.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/attribute.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/bool.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/check_func.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/check_func.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/ckpi.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/ckpi.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/classes.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/classes.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/compose_ssap_msg.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/compose_ssap_msg.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/description.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/element.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/element.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/element_attribute.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/element_compare.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/element_copy.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/element_search.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/error.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/error.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/expat.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/expat_config.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/expat_external.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/export.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/generic.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/iasciitab.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/internal.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/src/kp.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/src/kp.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/kp_bool.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/kp_debug.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/kp_error.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/kp_error.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/kp_errors_define_decl.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/kpi_interface.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/kpi_interface.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/latin1tab.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/list.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/list.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/list.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/list.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/macconfig.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/make.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/make.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/nametab.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/src/ontology.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/src/ontology.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/parse_ssap_msg.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/parse_ssap_msg.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/parser.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/parser.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/patterns.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/patterns.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/printer.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/printer.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/process_ssap_cnf.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/process_ssap_cnf.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/properties.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/properties.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/property_changes.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/property_changes.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/reader.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/reader.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/reader_buffer.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/reader_buffer.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/reader_file.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/reader_file.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/repository.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/repository.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/scew.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/sib_access_tcp.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/sib_access_tcp.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/srclient_4.2.2.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_classes.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_classes.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_func.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_func.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_multisib.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_multisib.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_populate.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_populate.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_properties.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ss_properties.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/ssap_msg_common.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/sskp_errno.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/ckpi/sskp_errno.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/sslog.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/str.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/str.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/structures.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/structures.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/subscription.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/subscription.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/subscription_changes.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/subscription_changes.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/subscription_changes_internal.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/subscription_internal.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/tree.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/tree.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/utf8tab.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/util_func.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/utils/util_func.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/winconfig.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/writer.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/writer.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/writer_buffer.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/writer_buffer.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/writer_file.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/writer_file.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/xattribute.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/xattribute.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/xelement.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/xerror.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/xerror.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/expat/xmlparse.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/expat/xmlrole.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/xmlrole.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/expat/xmltok.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/xmltok.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/expat/xmltok_impl.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/expat/xmltok_impl.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/expat/xmltok_ns.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/SmartSlog/scew/xparser.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/jni/includes/scew/xparser.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/libs/arm64-v8a/libsslog.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/libs/armeabi/libsslog.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/libs/armeabi-v7a/libsslog.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/libs/mips/libsslog.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/libs/mips64/libsslog.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/libs/x86/libsslog.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/libs/x86_64/libsslog.so" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" afterPath="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/iconics/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/iconics/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/materialdrawer/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mikepenz/materialdrawer/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KP-for-Android-Studio.iws" />
@@ -194,41 +58,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AgendaViewBinder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/AgendaViewBinder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ErrorView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/ErrorView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="1" selection-start-line="26" selection-start-column="0" selection-end-line="34" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MicService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/MicService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="176" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
-              <folding>
-                <element signature="e#1174#1175#0" expanded="true" />
-                <element signature="e#1192#1193#0" expanded="true" />
-                <element signature="e#2799#2800#0" expanded="true" />
-                <element signature="e#2824#2825#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="NetworkService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/NetworkService.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -239,11 +68,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <file leaf-file-name="Agenda.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21039604">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="168" column="39" selection-start-line="168" selection-start-column="39" selection-end-line="168" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Navigation.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3392226">
+              <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1421,7 +1260,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="C:\KP-for-Android-Studio" value="4347605783867" />
-        <entry key="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio" value="4384692647434" />
+        <entry key="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio" value="4385297781326" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1739,11 +1578,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/CityGallery.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/WebViewer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/MicService.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java" />
       </list>
     </option>
   </component>
@@ -1825,9 +1664,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
@@ -1846,9 +1684,32 @@
               <option name="myItemId" value="KP-for-Android-Studio" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KP-for-Android-Studio" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="srcli" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1863,7 +1724,7 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/layout" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="1a98cb94" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="0908d82c" />
     <property name="android.sdk.path" value="C:/sdk" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
@@ -2243,7 +2104,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461922558850</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added automated generation of .so files, changed jnilibs placement">
+      <created>1464871495774</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1464871495774</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2257,19 +2124,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24508321" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25432527" sideWeight="0.48786038" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46193773" sideWeight="0.323217" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2753404" sideWeight="0.51522845" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25605536" sideWeight="0.5060698" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33391005" sideWeight="0.5182094" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22610015" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25259516" sideWeight="0.4817906" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46193773" sideWeight="0.676783" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22610015" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.48786038" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25259516" sideWeight="0.4817906" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33391005" sideWeight="0.5091047" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2353,7 +2220,8 @@
     <MESSAGE value="Minor bugfixes&#10;*Shouldn't double /chat in address now" />
     <MESSAGE value="Fixed warnings, added return checks" />
     <MESSAGE value="Continued fixing warnings and unused methods in classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Continued fixing warnings and unused methods in classes" />
+    <MESSAGE value="Added automated generation of .so files, changed jnilibs placement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added automated generation of .so files, changed jnilibs placement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2387,6 +2255,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="147" column="9" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6871#7605#0" expanded="true" />
+            <element signature="e#7604#7605#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2408,6 +2281,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2456,6 +2330,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="179" column="25" selection-start-line="179" selection-start-column="24" selection-end-line="179" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6871#7605#0" expanded="true" />
+            <element signature="e#7604#7605#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2477,6 +2356,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2515,6 +2395,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="99" column="48" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6871#7605#0" expanded="true" />
+            <element signature="e#7604#7605#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2543,6 +2428,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="99" column="48" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6871#7605#0" expanded="true" />
+            <element signature="e#7604#7605#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2557,6 +2447,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6871#7605#0" expanded="true" />
+            <element signature="e#7604#7605#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2564,6 +2459,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6871#7605#0" expanded="true" />
+            <element signature="e#7604#7605#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2600,6 +2500,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer">
@@ -2638,6 +2539,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2645,6 +2547,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="158" column="4" selection-start-line="158" selection-start-column="4" selection-end-line="159" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2661,24 +2564,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/KP.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="720" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="720" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="975" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="975" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6871#7605#0" expanded="true" />
+            <element signature="e#7604#7605#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2701,7 +2595,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="1" selection-start-line="26" selection-start-column="0" selection-end-line="34" selection-end-column="1" />
-          <folding />
+          <folding>
+            <element signature="e#0#289#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2709,12 +2605,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="176" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
-          <folding>
-            <element signature="e#1174#1175#0" expanded="true" />
-            <element signature="e#1192#1193#0" expanded="true" />
-            <element signature="e#2799#2800#0" expanded="true" />
-            <element signature="e#2824#2825#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2722,6 +2613,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8168168">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2733,10 +2632,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Agenda.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21039604">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="168" column="39" selection-start-line="168" selection-start-column="39" selection-end-line="168" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/petrsu/smartroom/android/srcli/Navigation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3392226">
+          <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
           <folding />
         </state>
       </provider>

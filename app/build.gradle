@@ -15,8 +15,6 @@ android {
             jniLibs.srcDirs = ['src/libs']
             // This is not necessary unless you have precompiled libraries in your project.
         }
-
-
     }
 
 
