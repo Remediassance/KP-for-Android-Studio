@@ -112,5 +112,6 @@
 
     <string name="city">Город (Напр. Москва)</string>
     <string name="searchBtn">Найти</string>
+    <string name="quickBtn">Демо запуск</string>
 
 </resources>

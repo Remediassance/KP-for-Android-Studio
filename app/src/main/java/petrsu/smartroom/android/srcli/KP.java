@@ -65,7 +65,8 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	private static EditText editName;
 	private static EditText editPassword;
 	private EditText editIP;
-	private static EditText editPort;	
+	private static EditText editPort;
+	private static CheckBox checkBox;
 	//private ArrayList<String> timeslotList;
 	private String lastState;
 	
@@ -146,6 +147,8 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
         editPassword = (EditText) findViewById (R.id.editPassword);
         editIP = (EditText) findViewById (R.id.editIP);
         editPort = (EditText) findViewById (R.id.editPort);
+
+		checkBox = (CheckBox)findViewById(R.id.quickBox);
         /*advancedModeImg = (ImageView) findViewById (R.id.advModeImg);
         advancedModeImg.setOnClickListener(this);
         advancedModeText = (TextView) findViewById (R.id.advModeText);
@@ -264,7 +267,10 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 			case R.id.connectBtn:
                 try {
                     port = Integer.parseInt(editPort.getText().toString());
-                    joinSmartSpace(name, password);
+					if(!checkBox.isChecked())
+                    	joinSmartSpace(name, password);
+					else
+						joinDemoMode(name, password);
                 } catch(NumberFormatException e) {
                     Toast.makeText(this, R.string.portFormatErr,
                             Toast.LENGTH_SHORT).show();
@@ -500,6 +506,34 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		
 		lastState = prefs.getString("last_state", "Agenda");
 	}
+
+
+
+	/**
+	 * Joins to Smart Space in demo mode skipping the
+	 * agenda service part in case there is no active section
+	 *
+	 * @param name - User name
+	 * @param password - User password
+	 */
+	public void joinDemoMode(final String name, final String password) {
+		if(name.equals("") || password.equals("")) {
+			showAnonimousDialog();
+			return;
+		}
+
+		if(establishConnection(name, password, port) != 0) {
+			return;
+		}
+
+		personIndex = KP.personTimeslotIndex();
+
+		stopService(new Intent(this, NetworkService.class));
+		startService(new Intent(this, NetworkService.class));
+
+		startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));
+	}
+
 	
 	/**
 	 * Joins to Smart Space and starts background services
@@ -521,8 +555,13 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		
 		stopService(new Intent(this, NetworkService.class));
 		startService(new Intent(this, NetworkService.class));
-		
-		loadAgenda();
+
+		if(!checkBox.isChecked())
+			loadAgenda();
+		else
+			startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));
+
+
 		/*if(lastState.equals("Agenda"))
 			loadAgenda();
 		else if(lastState.equals("Projector"))

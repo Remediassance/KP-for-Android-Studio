@@ -125,4 +125,14 @@
         android:layout_toStartOf="@+id/guestBtn"
         android:layout_marginTop="16sp"/>
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quickBtn"
+        android:id="@+id/quickBox"
+        android:layout_below="@+id/connectBtn"
+        android:layout_alignLeft="@+id/editPort"
+        android:layout_alignStart="@+id/editPort"
+        android:layout_marginTop="35dp" />
+
 </RelativeLayout>

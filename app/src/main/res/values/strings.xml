@@ -158,5 +158,6 @@
 
 	<string name="city">City: e.g. Petrozavodsk</string>
 	<string name="searchBtn">Search</string>
+	<string name="quickBtn">Quick launch</string>
 
 </resources>
