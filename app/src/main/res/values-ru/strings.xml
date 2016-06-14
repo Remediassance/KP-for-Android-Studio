@@ -73,7 +73,7 @@
     <string name="registrationFail">Регистрация не удалась</string>
     <string name="registrationService">Регистрация пользователя</string>
     <string name="registrationTitle">Регистрация</string>
-    <string name="screenTimeoutDialog">Выключает экран пустя заданное время простоя</string>
+    <string name="screenTimeoutDialog">Выключает экран спустя заданное время простоя</string>
     <string name="screenTimeoutTitle">Выключение экрана</string>
     <string name="services">Сервисы</string>
     <string name="showLackOfMemory">Ошибка отображения данных. Недостаточно памяти.</string>
@@ -94,7 +94,7 @@
     <string name="wifiConnLost">Потеряно соедиенеие</string>
     <string name="agenda_help_content"><![CDATA[ 	    <html>         <body>         	<p>В данном окне отображается программа мероприятия и список участников</p>         	         	<b>--</b>&#32;Если вы являетесь участником, ваше имя будет выделено<br><br>         	<b>--</b>&#32;Нажатие на профиль участника вызовет контекстное меню<br>         </body>         </html> 	    ]]></string>
     <string name="kp_help_content"><![CDATA[ 	    <html>         <body>         	<h3>Добро пожаловать в SmartRoom</h3>         	Выберите пункт  <b>Регистрация пользователя</b> из меню для регистрации.<br><br>         	<b>Войти как гость</b>: требуется лишь имя.<br><br>         	<b>Анонимный вход</b>: оставьте поля логина и пароля пустыми<br><br>         	         	<div>Описание полей:<br>         		<b>IP</b> - IP адрес<br>         		<b>Порт</b> - номер порта<br>         		<b>Логин</b> - логин при регистрации<br>         		<b>Пароль</b> - ваш пароль         	</div>         </body>         </html> 	    ]]></string>
-    <string name="presentation_help_content"><![CDATA[ 	    <html>         <body>         	<p>В данном окне вы можете просматривать презентации и управлять своей.</p>         	         	<b>--</b>&#32;Используйте пункт "Обновить" меню, чтобы заново подключиться.<br><br>         	<b>--</b>&#32;Значок микрофона позволяет использовать ваше устройство как микрофон.<br>         	<b>--</b>&#32;переключайте слайды вашего доклада, используя стрелки "влево" и "вправо".<br>         </body>         </html> 	    ]]></string>
+    <string name="presentation_help_content"><![CDATA[ 	    <html>         <body>         	<p>В данном окне вы можете просматривать презентации и управлять своей.</p>         	         	<b>--</b>&#32;Используйте пункт "Обновить" меню, чтобы заново подключиться.<br><br>         	<b>--</b>&#32;Значок микрофона позволяет использовать ваше устройство как микрофон.<br><br>         	<b>--</b>&#32;Переключайте слайды вашего доклада, используя стрелки "влево" и "вправо".<br>         </body>         </html> 	    ]]></string>
 
     <string-array name="agenda_action_chairman">
         <item>Посмотреть слайды</item>
@@ -106,5 +106,11 @@
         <item>Просмотр слайдов</item>
         <item>Профиль пользователя</item>
     </string-array>
+    <string name="dqBrowser">Обсуждения</string>
+    <string name="loginMenu">Войти</string>
+    <string name="readingMan">Руководство SmartRoom</string>
+
+    <string name="city">Город (Напр. Москва)</string>
+    <string name="searchBtn">Найти</string>
 
 </resources>

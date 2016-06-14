@@ -1,0 +1,102 @@
+/*
+ * kp_errors_define_decl.txt - describe errors, then used in enum and array.
+ * This file is part of SmartSlog ANSI C KP Library.
+ *
+ * Copyright (C) 2009 - SmartSlog. All rights reserved.
+ *
+ * PetrSU KP Library is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * PetrSU KP Library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with SmartSlog KP Library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor,
+ * Boston, MA  02110-1301  USA
+ */
+
+/*
+ * KP_ERROR_DECLARATION - name of macros.
+ * First parameters - representation of error in source code, using for enum.
+ * Second - value for enum.
+ * Third - Error text.
+ */
+
+KP_ERROR_DECLARATION( SSLOG_ERROR_NO,         = 0,    "" )
+KP_ERROR_DECLARATION( SSLOG_ERROR_UNKNOWN,    = -1,   "Unknown error." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_ARGUMENT,    = 1,   "Incorrect argument." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_NULL_ARGUMENT,         = 2,   "Argument is null." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_NOT_IMPLEMENTED,    = -2,   "Not implemented." )
+
+/* Memory errors */
+KP_ERROR_DECLARATION( SSLOG_ERROR_OUT_OF_MEMORY, = 100, "Out of memory." )
+
+/* Errors for OWL-entities */
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_CLASS,            = 200,  "Incorrect class structure." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_ENTITY,           ,       "Incorrect entity structure." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_CLASSTYPE,        ,       "Incorrect type of class." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_PATTERN,          ,       "Incorrect pattern structure." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_RTTI,             ,       "Incorrect RTTI type." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_UUID,             ,       "Incorrect identifier of individual." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_PROPERTY,         ,       "Incorrect property structure." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_SS_NO_INDIVIDUAL,           ,       "No individual in SS, no triples described it." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_TEMPLATE,         ,       "Incorrect template: class or individual." )
+
+/* Errors associated with individuals */
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_INDIVIDUAL,       = 300,       "Incorrect individual structure." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_INDIVIDUAL_PARENTCLASS,         ,       "Incorrect individual's parent class." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_CANT_CHANGED_SUBSCRIBED_INDIVIDUAL,       , "Unable to changed subscribed individual manually." )
+
+/* Errors associated with properties */
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_PROPERTY_NAME,    = 400,  "Incorrect name of property." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_PROPERTY_ABOUT,   ,       "Incorrect about field of property." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_PROPERTY_VALUE,   ,       "Incorrect property value(incorrect value type)." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_PROPERTY_TYPE,    ,       "Wrong property type: datatypeproperty, objectproperty." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_CANT_FIND_PROPERTY,         ,       "No property in the class or individual." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_CONDITION_TYPE,   ,       "Invalid condition type for pattern." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_PROPLIST,         ,       "Property list has incorrect data(properties)." )
+
+/* Cardinality errors */
+KP_ERROR_DECLARATION( SSLOG_ERROR_MINCARDINALITY_VIOLATED,    = 500,  "Minimal cardinality violated." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_MAXCARDINALITY_VIOLATED,    ,       "Maximal cardinality violated." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_CARDINALITY,      ,       "Incorrect set cardinality restriction." )
+
+/* Triples errors */
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_TRIPLE_SUBJECT,    = 600, "Incorrect subjet of triple." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_TRIPLE_OBJECT,     ,      "Incorrect object of triple." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_TRIPLE_PREDICATE,  ,      "Incorrect prdicate of triple." )
+
+/* Subscription errors */
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_SUBSCRIPTION, = 700, "Incorrect subscription." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_SUBSCRIPTION_IS_INACTIVE, , "Inactive subscription." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_SUBSCRIPTION_IS_ACTIVE, , "Subscription is active." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_INCORRECT_SUBSCRIPTION_TYPE, , "Incorrect type or type is not suported." )        
+KP_ERROR_DECLARATION( SSLOG_ERROR_CANT_SUBSCRIBE, , "Can't subscribe." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_CANT_UNSUBSCRIBE, , "Can't unsubscribe." )
+
+/* Network errors (throw KPI) */
+KP_ERROR_DECLARATION( SSLOG_ERROR_SOCKET_OPEN, = 800,  "Error occurred while opening socket." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_SOCKET_SEND,            ,       "Error occurred while sending message." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_SOCKET_RECV,  ,         "Error occurred while receiving message." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_RECV_TIMEOUT,  ,         "Receive timeout." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_SOCKET_CLOSE,  ,         "Error occurred while closing socket." )
+
+/* Ontology limitations errors */
+KP_ERROR_DECLARATION( SSLOG_ERROR_INDIVIDUALS_LIMIT_EXCEEDED,             = 900,    "Reached limit of individual for all ontology." )
+KP_ERROR_DECLARATION( SSLOG_ERROR_CLASS_INDIVIDUALS_LIMIT_EXCEEDED,  ,         "Reached limit of individual for class." )
+
+/* KPI ERRORS */
+KP_ERROR_DECLARATION( SSLOG_ERROR_KPI_UNKNOWN,             = 1000,    "Unknown error from mediator (KPI) library" )
+KP_ERROR_DECLARATION( SSLOG_ERROR_KPI_WRONG_SUBSCRIBE_ID,  ,         "Wrong subscribe ID: error in mediator (KPI) library" )
+KP_ERROR_DECLARATION( SSLOG_ERROR_KPI_NO_SUBSCRIBE_ID,  ,         "No subscribe ID: error in mediator (KPI) library" )
+KP_ERROR_DECLARATION( SSLOG_ERROR_KPI_TRANSACTION_FAILED,  ,         "Transaction failed: error in mediator (KPI) library" )
+KP_ERROR_DECLARATION( SSLOG_ERROR_KPI_UNKNOWN_NODE,  ,         "Unknown node: error in mediator (KPI) library" )
+KP_ERROR_DECLARATION( SSLOG_ERROR_KPI_UNKNOWN_SS,  ,         "Unknown SS: error in mediator (KPI) library" )
+KP_ERROR_DECLARATION( SSLOG_ERROR_KPI_SS_ERROR_MESSAGE_TYPE,  ,         "Wrong message type: error in mediator (KPI) library" )
+KP_ERROR_DECLARATION( SSLOG_ERROR_KPI_TRANSACTION_TYPE,  ,         "Wrong transaction type: error in mediator (KPI) library" )
+KP_ERROR_DECLARATION_LAST( SSLOG_ERROR_KPI_SSAP_MSG_FORMAT,  ,         "Wrong SSAP message format: error in mediator (KPI) library" )

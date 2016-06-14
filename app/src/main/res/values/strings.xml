@@ -12,6 +12,7 @@
     <string name="discussion">Discussion</string>
     <string name="discussionCur">Active discussion</string>
     <string name="discussionList">List of discussions</string>
+    <string name="loginMenu">Log in</string>
     
 	<string name="userNameEx">Ivanov Ivan</string>
     <string name="userPhoneEx" translatable="false">+71234567890</string>
@@ -43,7 +44,7 @@
     <string name="startConference">Start conference</string>
     <string name="endConference">End conference</string>
     <string name="exitClientTitle">Exit client</string>
-    <string name="exitClientQuestion">Do you really want to logout?</string>
+    <string name="exitClientQuestion">Do you really want to log out?</string>
     <string name="screenTimeoutTitle">Screen timeout</string>
     <string name="screenTimeoutDialog">Locks the screen after certain amount of idle time</string>
     <string name="showSpeakerTitle">Show speaker name</string>
@@ -106,7 +107,9 @@
 	<string name="speakerIs" translatable="false">Speaker is</string>
 	
 	<string name="signup"> Sign up</string>
-	<string name="manual">Download a manual</string>
+	<string name="manual">Manual</string>
+    <!--<string name="readingMan">Manual</string>-->
+	<string name="dqBrowser">Discussion</string>
 	
 	<string name="kp_help_content"><![CDATA[
 	    <html>
@@ -151,5 +154,9 @@
         </html>
 	    ]]>
 	</string>
-	
+    <string name="readingMan">Manual</string>
+
+	<string name="city">City: e.g. Petrozavodsk</string>
+	<string name="searchBtn">Search</string>
+
 </resources>
