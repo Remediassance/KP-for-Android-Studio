@@ -146,10 +146,10 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
         editPassword = (EditText) findViewById (R.id.editPassword);
         editIP = (EditText) findViewById (R.id.editIP);
         editPort = (EditText) findViewById (R.id.editPort);
-        advancedModeImg = (ImageView) findViewById (R.id.advModeImg);
+        /*advancedModeImg = (ImageView) findViewById (R.id.advModeImg);
         advancedModeImg.setOnClickListener(this);
         advancedModeText = (TextView) findViewById (R.id.advModeText);
-        advancedModeText.setOnClickListener(this);
+        advancedModeText.setOnClickListener(this);*/
 
         // Handle Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -246,7 +246,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		ip = editIP.getText().toString();
 
 		switch(view.getId()) {
-			case R.id.advModeImg:
+			/*case R.id.advModeImg:
 			case R.id.advModeText:
 				if(editIP.getVisibility() == EditText.VISIBLE) {
 					advancedModeImg.setImageResource(R.drawable.ic_add);
@@ -259,7 +259,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 					editIP.setVisibility(EditText.VISIBLE);
 					editPort.setVisibility(EditText.VISIBLE);
 				}
-				break;
+				break;*/
 
 			case R.id.connectBtn:
                 try {

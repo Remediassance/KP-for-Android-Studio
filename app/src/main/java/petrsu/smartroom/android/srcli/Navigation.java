@@ -24,7 +24,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
  * For future reference: practice shows that you will highly possible be editing this class.
  *                       Add everything connected to switching between intents / activities here
  */
-public class Navigation { // was abstract lol
+public class Navigation {
 
 
     /**
