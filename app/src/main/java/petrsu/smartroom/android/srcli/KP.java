@@ -19,7 +19,6 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 
-import java.util.ArrayList;
 import java.lang.ClassCastException;
 
 import android.support.v7.app.ActionBarActivity;
@@ -53,6 +52,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	public static int port;					// SIB port
 	public static int personIndex = -1;		// Time slot index of a person
 	public static boolean isRegistered;		// User was registered in SS
+	public static boolean isMeetingMode;	// If meeting mode was checked
     public static String dqAddr = "null";
     public static String spAddr = "null";
 	private ImageView advancedModeImg;		// Advance mode trigger
@@ -66,7 +66,8 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	private static EditText editPassword;
 	private EditText editIP;
 	private static EditText editPort;
-	private static CheckBox checkBox;
+	private static CheckBox demoModeBox;
+	private static CheckBox meetingModeBox;
 	//private ArrayList<String> timeslotList;
 	private String lastState;
 	
@@ -148,7 +149,11 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
         editIP = (EditText) findViewById (R.id.editIP);
         editPort = (EditText) findViewById (R.id.editPort);
 
-		checkBox = (CheckBox)findViewById(R.id.quickBox);
+		demoModeBox = (CheckBox)findViewById(R.id.quickBox);
+		meetingModeBox = (CheckBox)findViewById(R.id.meetingBox);
+
+		isMeetingMode = false;
+
         /*advancedModeImg = (ImageView) findViewById (R.id.advModeImg);
         advancedModeImg.setOnClickListener(this);
         advancedModeText = (TextView) findViewById (R.id.advModeText);
@@ -266,11 +271,18 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 
 			case R.id.connectBtn:
                 try {
+					if(meetingModeBox.isChecked())
+						isMeetingMode = true;
+					else
+						isMeetingMode = false;
+
                     port = Integer.parseInt(editPort.getText().toString());
-					if(!checkBox.isChecked())
+
+					if(!demoModeBox.isChecked())
                     	joinSmartSpace(name, password);
 					else
 						joinDemoMode(name, password);
+
                 } catch(NumberFormatException e) {
                     Toast.makeText(this, R.string.portFormatErr,
                             Toast.LENGTH_SHORT).show();
@@ -547,7 +559,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		stopService(new Intent(this, NetworkService.class));
 		startService(new Intent(this, NetworkService.class));
 
-		if(!checkBox.isChecked())
+		if(!demoModeBox.isChecked())
 			loadAgenda();
 		else
 			startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));

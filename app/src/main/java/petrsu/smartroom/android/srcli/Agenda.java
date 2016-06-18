@@ -85,6 +85,8 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 	public boolean conferenceStarted;
 	public boolean conferenceEnded;
 
+	private ImageButton addSpeechBtn;
+
 
 
 	public Agenda() {
@@ -146,6 +148,8 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.agenda_interface);
+
+		addSpeechBtn = (ImageButton) findViewById(R.id.addSpeechBtn);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		try {
@@ -228,6 +232,10 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
             }
         }).build();
 
+		if(KP.isMeetingMode)
+			addSpeechBtn.setVisibility(RelativeLayout.VISIBLE);
+		else
+			addSpeechBtn.setVisibility(RelativeLayout.INVISIBLE);
 		
 		/* Initialize context menu */
 		initListView();

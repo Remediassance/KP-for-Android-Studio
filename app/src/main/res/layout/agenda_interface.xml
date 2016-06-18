@@ -22,8 +22,18 @@
         android:layout_height="fill_parent"
         android:contentDescription="@string/agenda"
         android:layout_below="@+id/toolbar" />
-    	
-</RelativeLayout>    
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/addSpeechBtn"
+        android:layout_alignBottom="@+id/agendaListView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_add_black_48dp"
+        android:background="@drawable/circle_btn_selector" />
+
+</RelativeLayout>
 		
 
     

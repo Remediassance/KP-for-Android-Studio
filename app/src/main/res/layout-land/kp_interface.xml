@@ -134,5 +134,13 @@
         android:layout_alignLeft="@+id/editPort"
         android:layout_alignStart="@+id/editPort"
         android:layout_marginTop="35dp" />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meetingBox"
+        android:id="@+id/meetingBox"
+        android:layout_below="@+id/quickBox"
+        android:layout_alignLeft="@+id/quickBox"
+        android:layout_alignStart="@+id/quickBox" />
 
 </RelativeLayout>
