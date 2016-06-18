@@ -308,15 +308,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	}
 	
 	/**
-	 * Starts Services menu activity
-	 */
-	public void loadServicesMenu() {
-		Intent intent = new Intent();
-		intent.setClass(getApplicationContext(), ServicesMenu.class);
-		startActivity(intent);
-	}
-	
-	/**
 	 * Starts reconnection process
 	 * 
 	 * @return 0 if reconnection was successful and -1 otherwise
