@@ -231,8 +231,8 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
      *=========================================================================
      */
     private void updateProjector() {
-        speakerName = KP.getSpeakerName();
-        isSpeaker = KP.checkSpeakerState();
+        speakerName = KP.getSpeakerName(KP.isMeetingMode);
+        isSpeaker = KP.checkSpeakerState(KP.isMeetingMode);
 
         if(!isSpeaker && !KP.isChairman && micIsActive) {
             micIsActive = false;
@@ -384,7 +384,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 					presentationImage.setClickable(false);
 				}
 				isSpeaker = false;
-				endPresentation();
+				endPresentation(KP.isMeetingMode);
 				break;
 			
 			case R.id.reconnect:
@@ -487,8 +487,10 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 	 * 
 	 * @return 0 if success and -1 otherwise
 	 */
-	public int endPresentation() {
-		return KP.endPresentation();
+	public int endPresentation(boolean isMeetingMode) {
+		if(!isMeetingMode)
+			return KP.endPresentation();
+		else return KP.endMeetingPresentation();
 	}
 	
 	public void setSlideNumber(String number) {

@@ -58,7 +58,7 @@ public class Profile extends AppCompatActivity {
 		int index = intent.getIntExtra("index", -1);
 
         String personUuid;
-		personUuid = KP.loadProfile(this, index);
+		personUuid = KP.loadProfile(this, index, KP.isMeetingMode);
 		System.out.println("Person UUID: " + personUuid);
 		
 		/* Checks whether user is online */

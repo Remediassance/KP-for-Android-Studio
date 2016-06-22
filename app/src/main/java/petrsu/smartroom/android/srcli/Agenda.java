@@ -66,6 +66,7 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 	private final int LOOK_PRESENTATION = 0;
 	private final int PERSON_PROFILE = 1;
 	private final int START_CONFERENCE_FROM = 2;
+	private final int REMOVE_SPEECH = 3;
 	private final String CUR_TIMESLOT_KEY = "curTimeslot";
 	private final String absentImg;				// Absent image constant
 	private final String noImage;				// No image constant
@@ -119,7 +120,7 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 		int value = KP.getCurrentTimeslotIndex() - 1;
 		
 		/* If section was changed */
-		if(KP.sectionChanged())
+		if(KP.sectionChanged(KP.isMeetingMode))
 			updateAgenda();
 
 		/* If time slot index was changed */
@@ -137,9 +138,6 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 		editor.putString("last_state", "Agenda");
 		editor.apply(); // was commit()
 
-		//if(KP.checkSubscriptionState() != 0)
-		//Log.e("Agenda check sbcr", "failed to refresh sbcr");
-
 		registerReceiver();
 		agendaCreated = 1;
 	}
@@ -149,7 +147,16 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.agenda_interface);
 
+		/*
+		* Button that sends new speech request to meeting service
+		 */
 		addSpeechBtn = (ImageButton) findViewById(R.id.addSpeechBtn);
+		addSpeechBtn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(getApplicationContext(),"Sent new speech notification",Toast.LENGTH_LONG);
+			}
+		});
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		try {
@@ -318,7 +325,7 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 	public void updateAgenda() {
 		agendaCreated = 0;
 		list = null;
-		KP.personIndex = KP.personTimeslotIndex();
+		KP.personIndex = KP.personTimeslotIndex(KP.isMeetingMode);
 		finish();
 		Intent restartIntent = new Intent(this, Agenda.class);
 		startActivity(restartIntent);
@@ -342,7 +349,7 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 		}
 
 		/* Triggers to Projector if user is speaker */
-		if(KP.checkSpeakerState()) {
+		if(KP.checkSpeakerState(KP.isMeetingMode)) {
 			Intent intent = new Intent();
 			intent.setClass(this, Projector.class);
 			startActivity(intent);
@@ -542,7 +549,7 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 		list = new ArrayList<>();
 		
 		/* If loading program failed */
-		if(KP.loadTimeslotList(this) == -1) {
+		if(KP.loadTimeslotList(this, KP.isMeetingMode) == -1) {
 			Log.i("Agenda GUI", "Fill agenda fail");
 			return -1;
 		}
@@ -634,7 +641,7 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 					public void onClick(DialogInterface dialog, int which) {
 						switch (which) {
 							case LOOK_PRESENTATION:
-								String link = KP.getPresentationLink(pos);
+								String link = KP.getPresentationLink(pos, KP.isMeetingMode);
 								if (link != null) {
 									Uri uri = Uri.parse(prepareLink(link));
 
@@ -649,15 +656,17 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 								break;
 
 							case PERSON_PROFILE:
-								Intent intent = new Intent(
-										getApplicationContext(),
-										Profile.class);
+								Intent intent = new Intent(getApplicationContext(), Profile.class);
 								intent.putExtra("index", pos);
 								startActivity(intent);
 								break;
 
+							case REMOVE_SPEECH:
+								Toast.makeText(getApplicationContext(),"Speech was removed",Toast.LENGTH_LONG);
+								break;
+
 							case START_CONFERENCE_FROM:
-								KP.startConferenceFrom(pos);
+								KP.startConferenceFrom(pos, KP.isMeetingMode);
 								break;
 						}
 					}

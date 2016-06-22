@@ -26,8 +26,11 @@ jobject *agendaClassObject;
 jobject *presentationClassObject;
 
 subscription_t *conferenceSubscriptionContainer;
+subscription_t *meetingSubscriptionContainer;
 subscription_t *presentationSubscriptionContainer;
+
 subscription_t *conferenceClassSubscriptionContainer;
+subscription_t *meetingClassSubscriptionContainer;
 subscription_t *presentationClassSubscriptionContainer;
 
 char *startedVideoUuid;
@@ -40,10 +43,13 @@ void subscriptionHandler(subscription_t *);
 void projectorNotificationHandler(subscription_t *);
 void agendaNotificationHandler(subscription_t *);
 void conferenceNotificationHandler(subscription_t *);
+void meetingNotificationHandler(subscription_t *);
 void logout();
+int sendNewMeetingSpeechNotification(const char *);
 int getListSize(list_t*);
 int subscribeConferenceService();
 int subscribePresentationService();
+int subscribeMeetingService();
 int calculateTimeslotIndex(prop_val_t *);
 int searchPerson(individual_t *, const char *, const char *);
 int activatePerson(individual_t *);

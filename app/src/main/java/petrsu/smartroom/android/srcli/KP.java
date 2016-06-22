@@ -55,12 +55,9 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	public static boolean isMeetingMode;	// If meeting mode was checked
     public static String dqAddr = "null";
     public static String spAddr = "null";
-	private ImageView advancedModeImg;		// Advance mode trigger
-	private TextView advancedModeText;
 	private Button connectBtn;	
 	private Button guestBtn;
-	//private Button regServiceBtn;
-	//private final String regServiceLink = "http://smartroom.cs.petrsu.ru/content/login";
+
     public final static String manLink = "http://bit.ly/srman081";
 	private static EditText editName;
 	private static EditText editPassword;
@@ -72,42 +69,50 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	private String lastState;
 	
 	public static native int connectSmartSpace(String hostname, String ip,  int port);
-	public static native int loadTimeslotList(Agenda obj);
+	public static native int loadTimeslotList(Agenda obj, boolean isMeetingMode);
 	public static native void disconnectSmartSpace();
 	public static native int getServicesInfo(ServicesMenu menu);
 	public static native int  userRegistration(String userName, String password);
 	public static native int loadPresentation(Projector projector);
 	public static native int initSubscription();
-	public static native int startConference();
-	public static native int endConference();
+	public static native int initMeetingSubscription();     // Done
+	public static native int startConference();             // Не используется, поскольку выпилено меню опций за ненадобностью
+    public static native int startMeeting();                // Done ^
+	public static native int endConference();               // Тоже не используется
+    public static native int endMeeting();                  // Done ^
 	//public static native void getProjectorClassObject();
 	public static native int showSlide(int slideNumber);
 	public static native int endPresentation();
+    public static native int endMeetingPresentation();      // Done
+
 	public static native int getCurrentTimeslotIndex();
-    public static native String getSpeakerName();
-	public static native boolean checkSpeakerState();
+    public static native String getSpeakerName(boolean isMeetingMode);
+	public static native boolean checkSpeakerState(boolean isMeetingMode);
 	public static native String getMicServiceIP();
 	public static native String getMicServicePort();
 
 	public static native String getDiscussionServiceIP();
     public static native String getSocialProgramServiceIP();
 
-	public static native int personTimeslotIndex();
+	public static native int personTimeslotIndex(boolean isMeetingMode);
 	public static native boolean checkConnection();
-	public static native String getPresentationLink(int index);
+	public static native String getPresentationLink(int index, boolean isMeetingMode);
 	public static native int registerGuest(String name, String phone, String email);
-	public static native int startConferenceFrom(int index);
-	public static native String loadProfile(Profile profile, int index);
+	public static native int startConferenceFrom(int index, boolean isMeetingMode);
+    public static native int startMeetingFrom(int index, boolean isMeetingMode); //======================================
+	public static native String loadProfile(Profile profile, int index, boolean isMeetingMode);
 	public static native int saveProfileChanges(String name, String phone);
 	public static native String getPersonUuid();
 	public static native CharSequence[] getVideoTitleList();
 	public static native CharSequence[] getVideoUuidList();
 	public static native String getContentUrl();
 	public static native int isActiveSubscriptions();
+	public static native int isActiveMeetingSubscriptions();//=============================================
 	public static native int refreshConferenceSbcr();
 	public static native int refreshPresentationSbcr();
+    public static native int refreshMeetingSbcr();//=============================================
 	public static native String[] getCurrentSectionList();
-	public static native boolean sectionChanged();
+	public static native boolean sectionChanged(boolean isMeetingMode);
 	public static native int startVideo(String url);
 	public static native void stopVideo();
 	
@@ -154,10 +159,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 
 		isMeetingMode = false;
 
-        /*advancedModeImg = (ImageView) findViewById (R.id.advModeImg);
-        advancedModeImg.setOnClickListener(this);
-        advancedModeText = (TextView) findViewById (R.id.advModeText);
-        advancedModeText.setOnClickListener(this);*/
 
         // Handle Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -216,7 +217,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
      */
     private void gotoManual() {
         Intent intent = new Intent(getApplicationContext(), WebViewer.class);
-        intent.putExtra("url",manLink);
+        intent.putExtra("url", manLink);
         intent.putExtra("flag", true);
         intent.putExtra("reading", true);
 
@@ -254,20 +255,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		ip = editIP.getText().toString();
 
 		switch(view.getId()) {
-			/*case R.id.advModeImg:
-			case R.id.advModeText:
-				if(editIP.getVisibility() == EditText.VISIBLE) {
-					advancedModeImg.setImageResource(R.drawable.ic_add);
-					advancedModeText.setText(R.string.advancedModeOn);
-					editIP.setVisibility(EditText.INVISIBLE);
-					editPort.setVisibility(EditText.INVISIBLE);
-				} else {
-					advancedModeImg.setImageResource(R.drawable.ic_close);
-					advancedModeText.setText(R.string.advancedModeOff);
-					editIP.setVisibility(EditText.VISIBLE);
-					editPort.setVisibility(EditText.VISIBLE);
-				}
-				break;*/
 
 			case R.id.connectBtn:
                 try {
@@ -298,6 +285,18 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
                             Toast.LENGTH_SHORT).show();
                 }
                 break;
+
+			case R.id.meetingBox:
+				try {
+					if (meetingModeBox.isChecked())
+						isMeetingMode = true;
+					else
+						isMeetingMode = false;
+				} catch(NullPointerException e){
+					Toast.makeText(this, "Meeting mode error!",
+							Toast.LENGTH_SHORT).show();
+				}
+				break;
 		}
 	}
 
@@ -336,12 +335,21 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 			return -1;
 		} else		
 			connectionState = 1;
-		
-		if(initSubscription() != 0) {
-			System.out.println("Sbcr init failed");
-			KP.disconnectSmartSpace();
-			KP.connectionState = -1;
-			return -1;
+
+		if(!isMeetingMode) {
+			if (initSubscription() != 0) {
+				System.out.println("Sbcr init failed");
+				KP.disconnectSmartSpace();
+				KP.connectionState = -1;
+				return -1;
+			}
+		} else {
+			if (initMeetingSubscription() != 0) {
+				System.out.println("Meetind sbcr init failed");
+				KP.disconnectSmartSpace();
+				KP.connectionState = -1;
+				return -1;
+			}
 		}
 		
 		/* If user joined as a guest */
@@ -394,12 +402,21 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 				return -1;
 			} else
 				connectionState = 1;
-			
-			if(initSubscription() != 0) {
-				Log.e("Java KP", "Init subscription failed");
-				KP.disconnectSmartSpace();
-				connectionState = -1;
-				return -1;
+
+			if(!isMeetingMode){
+				if(initSubscription() != 0) {
+					Log.e("Java KP", "Init subscription failed");
+					KP.disconnectSmartSpace();
+					connectionState = -1;
+					return -1;
+				}
+			} else {
+				if(initMeetingSubscription() != 0) {
+					Log.e("Java KP", "Meeting init subscription failed");
+					KP.disconnectSmartSpace();
+					connectionState = -1;
+					return -1;
+				}
 			}
 		}
 
@@ -463,7 +480,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		editor.putString("port", editPort.getText().toString());
 		editor.putString("username", editName.getText().toString());
 		editor.putString("password", editPassword.getText().toString());
-		editor.putInt("advancedMode", editIP.getVisibility());
 		editor.commit();
 	}
 	
@@ -477,14 +493,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		String port = prefs.getString("port", "");
 		String username = prefs.getString("username", "");
 		String password = prefs.getString("password", "");
-		int advancedMode = prefs.getInt("advancedMode", EditText.INVISIBLE);
-		
-		if(getResources().getConfiguration().orientation == 
-        		Configuration.ORIENTATION_LANDSCAPE) {
-        	advancedModeImg.setVisibility(ImageView.VISIBLE);
-        	advancedModeText.setVisibility(TextView.VISIBLE);
-        	advancedMode = EditText.VISIBLE;
-        }
 		
 		editIP.setText(ip);
 		editPort.setText(port);
@@ -492,19 +500,13 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
         editPassword.setText(password);
         editIP.setVisibility(View.VISIBLE);
         editPort.setVisibility(View.VISIBLE);
-        
-        if(advancedMode == EditText.VISIBLE) {
-        	advancedModeImg.setImageResource(R.drawable.ic_close);
-			advancedModeText.setText(R.string.advancedModeOff);
-        } else {
-        	advancedModeImg.setImageResource(R.drawable.ic_add);
-			advancedModeText.setText(R.string.advancedModeOn);
-        }
+
+
 
         int timeout = prefs.getInt(SettingsMenu.TIMEOUT_SCREEN_PREF, 
 				SettingsMenu.defaultTimeout);
 		
-		android.provider.Settings.System.putInt(getContentResolver(), 
+		android.provider.Settings.System.putInt(getContentResolver(),
 				Settings.System.SCREEN_OFF_TIMEOUT, timeout);
 		
 		lastState = prefs.getString("last_state", "Agenda");
@@ -529,7 +531,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 			return;
 		}
 
-		personIndex = KP.personTimeslotIndex();
+		personIndex = KP.personTimeslotIndex(KP.isMeetingMode);
 
 		stopService(new Intent(this, NetworkService.class));
 		startService(new Intent(this, NetworkService.class));
@@ -554,7 +556,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 			return;
 		}
 		
-		personIndex = KP.personTimeslotIndex();
+		personIndex = KP.personTimeslotIndex(KP.isMeetingMode);
 		
 		stopService(new Intent(this, NetworkService.class));
 		startService(new Intent(this, NetworkService.class));
@@ -616,12 +618,21 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 						return;
 					} else					
 						connectionState = 1;
-					
-					if(initSubscription() != 0) {
-						System.out.println("Sbcr failed");
-						KP.disconnectSmartSpace();
-						KP.connectionState = -1;
-						return;
+
+					if(!isMeetingMode) {
+						if (initSubscription() != 0) {
+							System.out.println("Sbcr failed");
+							KP.disconnectSmartSpace();
+							KP.connectionState = -1;
+							return;
+						}
+					} else {
+						if (initMeetingSubscription() != 0) {
+							System.out.println("Meeting Sbcr failed");
+							KP.disconnectSmartSpace();
+							KP.connectionState = -1;
+							return;
+						}
 					}
 					
 					ret_value = registerGuest(name, phone, email);
@@ -689,7 +700,11 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	 * @return 0 if subscriptions are active and -1 otherwise
 	 */
 	public static int checkSubscriptionState() {
-		final int sbcrState = KP.isActiveSubscriptions();
+        final int sbcrState;
+        if(!isMeetingMode)
+            sbcrState = KP.isActiveSubscriptions();
+        else
+            sbcrState = KP.isActiveMeetingSubscriptions();
 		final int conferenceSbcrNotActive = -1;
 		final int presentationSbcrNotActive = -2;
 		

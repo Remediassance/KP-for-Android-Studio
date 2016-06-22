@@ -142,9 +142,9 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_userRegistration(
  * @return Time slot index if success and -1 otherwise
  */
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_personTimeslotIndex(
-		JNIEnv *env, jobject obj) {
+		JNIEnv *env, jobject obj, jboolean ismeeting) {
 
-	individual_t *timeslot = getFirstTimeslot();
+	individual_t *timeslot = getFirstTimeslot(ismeeting);
 	prop_val_t *person = sslog_ss_get_property(personProfile,
 			PROPERTY_PERSONINFORMATION);
 	individual_t *personInfo;
@@ -510,7 +510,7 @@ int activatePerson(individual_t *profile) {
  * @return Returns 0 in success and -1 if failed
  */
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList(
-		JNIEnv *env, jclass clazz, jobject obj) {
+		JNIEnv *env, jclass clazz, jobject obj, jboolean ismeeting) {
 
 	if(obj != NULL) {
 		agendaClassObject = (jobject *)(*env)->NewGlobalRef(env, obj);
@@ -518,8 +518,11 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList(
 		return -1;
 	}
 
-	prop_val_t *propTimeslot = sslog_ss_get_property(getCurrentSection(),
-			PROPERTY_FIRSTTIMESLOT);
+	if(ismeeting == false) {
+		prop_val_t *propTimeslot = sslog_ss_get_property(getCurrentSection(), PROPERTY_FIRSTTIMESLOT);
+	} else {
+		prop_val_t *propTimeslot = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_FIRSTTIMESLOT);
+	}
 
 	if(propTimeslot == NULL) {
 		return -1;
@@ -759,6 +762,94 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_initSubscription(
 	return 0;
 }
 
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_initMeetingSubscription(
+		JNIEnv *env, jobject obj){
+		jclass *classAgendaObj = getJClassObject(env, "Agenda");
+	jclass *classProjectorObj = getJClassObject(env, "Projector");
+
+	classAgenda = (jclass *)(*env)->NewGlobalRef(env, classAgendaObj);
+	classProjector = (jclass *)(*env)->NewGlobalRef(env, classProjectorObj);
+
+	if(subscribePresentationService() != 0)
+		return -1;
+	if(subscribeMeetingService() != 0)
+		return -1;
+
+	return 0;
+}
+
+
+/**
+ * @brief Subscribes to meeting-service events and properties
+ *
+ * @return 0 in success and -1 otherwise
+ */
+int subscribeMeetingService() {
+	extern void meetingNotificationHandler(subscription_t *);
+	void (*pMeetingHandler)(subscription_t *) =
+			&meetingNotificationHandler;
+
+	individual_t *meetingService;
+	list_t *meetingList =
+			sslog_ss_get_individual_by_class_all(CLASS_MEETINGSERVICE);
+	list_t *listPropertiesMeetService = list_get_new_list();
+	list_t *listPropertiesSection = list_get_new_list();
+
+	meetingClassSubscriptionContainer = sslog_new_subscription(true);
+	meetingSubscriptionContainer = sslog_new_subscription(true);
+	currentSection = getCurrentMeetingSection();
+
+	if(meetingList != NULL) {
+		list_head_t* pos = NULL;
+
+		list_for_each(pos, &meetingList->links) {
+			list_t* node = list_entry(pos, list_t, links);
+			meetingService = (individual_t *)(node->data);
+			break;
+		}
+
+		list_add_data(PROPERTY_CURRENTSECTION, listPropertiesMeetService);
+		sslog_sbcr_add_individual(meetingSubscriptionContainer,
+				meetingService, listPropertiesMeetService);
+
+		/* If subscribed to presentation service class */
+		if(sslog_sbcr_is_active(meetingClassSubscriptionContainer))
+			sslog_sbcr_unsubscribe(meetingClassSubscriptionContainer);
+
+	} else {
+		/* If meeting service does not exist in SIB */
+		sslog_sbcr_add_class(meetingClassSubscriptionContainer,
+				CLASS_MEETINGSERVICE);
+		sslog_sbcr_add_class(meetingClassSubscriptionContainer,
+				CLASS_AGENDANOTIFICATION);
+		sslog_sbcr_set_changed_handler(meetingClassSubscriptionContainer,
+				pMeetingHandler);
+
+		if(sslog_sbcr_subscribe(meetingClassSubscriptionContainer)
+				!= SSLOG_ERROR_NO) {
+
+			__android_log_print(ANDROID_LOG_ERROR, "Meeting service", "%s",
+					sslog_get_error_text());
+			return -1;
+		}
+	}
+
+	list_add_data(PROPERTY_CURRENTTIMESLOT, listPropertiesSection);
+	sslog_sbcr_add_individual(meetingSubscriptionContainer, currentSection,
+				listPropertiesSection);
+
+	sslog_sbcr_set_changed_handler(meetingSubscriptionContainer,
+			pMeetingHandler);
+
+	if(sslog_sbcr_subscribe(meetingSubscriptionContainer) != SSLOG_ERROR_NO) {
+		__android_log_print(ANDROID_LOG_ERROR, "Meeting service", "%s",
+				sslog_get_error_text());
+		return -1;
+	}
+
+	return 0;
+}
+
 
 /**
  * @brief Subscribes to conference-service events and properties
@@ -911,6 +1002,22 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_isActiveSubscripti
 	return 0;
 }
 
+
+/**
+ * @brief Checks whether subscriptions are active
+ *
+ * @return 0 in success, -1 or -2 if meeting or presentation sbcr inactive
+ */
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_isActiveMeetingSubscriptions(
+		JNIEnv *env, jclass clazz) {
+	if(!sslog_sbcr_is_active(meetingSubscriptionContainer))
+		return -1;
+	if(!sslog_sbcr_is_active(presentationSubscriptionContainer))
+		return -2;
+
+	return 0;
+}
+
 /**
  * obsolete
  */
@@ -918,6 +1025,16 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_refreshConferenceS
 		JNIEnv *env, jclass clazz) {
 	sslog_free_subscription(conferenceSubscriptionContainer);
 	return subscribeConferenceService();
+}
+
+
+/**
+ * obsolete
+ */
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_refreshMeetingSbcr(
+		JNIEnv *env, jclass clazz) {
+	sslog_free_subscription(meetingSubscriptionContainer);
+	return subscribeMeetingService();
 }
 
 
@@ -1027,6 +1144,104 @@ void conferenceNotificationHandler(subscription_t *sbcr) {
 }
 
 
+
+/**
+ * @brief Handles meeting subscription
+ *
+ * @param sbcr - subscriptions from Smart Space
+ */
+void meetingNotificationHandler(subscription_t *sbcr) {
+	/* Gets JNI environment pointer (env) */
+	JNIEnv *env = NULL;
+	bool attached = JNI_FALSE;
+
+	/* Initialize `env` pointer in current thread */
+	switch((*JVM)->GetEnv(JVM, (void **)&env, JNI_VERSION_1_6)) {
+		case JNI_OK:
+			break;
+
+		case JNI_EDETACHED:
+			(*JVM)->AttachCurrentThread(JVM, &env, NULL);
+			attached = JNI_TRUE;
+			break;
+
+		case JNI_EVERSION:
+			__android_log_print(ANDROID_LOG_ERROR, "meetingHandler:",
+					"invalid JNI version");
+			break;
+	}
+
+	if(!sslog_sbcr_is_active(meetingSubscriptionContainer))
+			subscribeMeetingService();
+
+	jmethodID updateAgenda = (*env)->GetMethodID(env, classAgenda,
+			"updateAgenda", "()V");
+	jmethodID updateCurTimeslot = (*env)->GetMethodID(env, classAgenda,
+			"updateCurTimeslot", "()V");
+	jfieldID meetingCreatedField = (*env)->GetStaticFieldID(env, classAgenda,
+			"agendaCreated", "I");
+
+	/* Agenda activity is active now */
+	int meetingCreated = (*env)->GetStaticIntField(env,
+			classAgenda, meetingCreatedField);
+
+	subscription_changes_data_t *changes = sslog_sbcr_get_changes_last(sbcr);
+	list_t *list = sslog_sbcr_ch_get_individual_all(changes);
+
+	if(list != NULL) {
+		list_head_t *list_walker = NULL;
+
+		list_for_each(list_walker, &list->links) {
+			list_t *node = list_entry(list_walker, list_t, links);
+			char *uuid = (char *) node->data;
+			individual_t *individual = (individual_t *)
+					sslog_repo_get_individual_by_uuid(uuid);
+
+			/* Current time slot has been changed */
+			prop_val_t *p_val_curtslot = sslog_ss_get_property (individual,
+					PROPERTY_CURRENTTIMESLOT);
+			if(p_val_curtslot != NULL) {
+				if(meetingCreated == 1)
+					(*env)->CallVoidMethod(env, agendaClassObject,
+							updateCurTimeslot);
+			}
+
+			/* Current section has been changed */
+			prop_val_t *p_val_cursec = sslog_ss_get_property (individual,
+					PROPERTY_CURRENTSECTION);
+			if(p_val_cursec != NULL) {
+					sslog_sbcr_unsubscribe(meetingSubscriptionContainer);
+					subscribeMeetingService();
+					if(meetingCreated == 1)
+						(*env)->CallVoidMethod(env, agendaClassObject,
+								updateAgenda);
+			}
+
+			/* Agenda has been updated */
+			prop_val_t *p_val_upd_agenda = sslog_ss_get_property (individual,
+					PROPERTY_UPDATEAGENDA);
+			if(p_val_upd_agenda != NULL) {
+				__android_log_print(ANDROID_LOG_ERROR, "Meeting service",
+						"updateAgenda");
+
+				if(p_val_upd_agenda->property != NULL)
+					__android_log_print(ANDROID_LOG_ERROR,
+							"Meeting service", "%s",
+							p_val_upd_agenda->property->name);
+				//if(conferenceCreated == 1)
+					//(*env)->CallVoidMethod(env, agendaClassObject, updateAgenda);
+			}
+		}
+	}
+
+	list_free_with_nodes(list, NULL);
+
+	if(attached)
+		(*JVM)->DetachCurrentThread(JVM);
+}
+
+
+
 /**
  * @brief Handles presentation subscription
  *
@@ -1132,8 +1347,8 @@ void presentationNotificationHandler(subscription_t *sbcr) {
  * @return Current time slot index
  */
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_getCurrentTimeslotIndex(
-		JNIEnv *env, jclass clazz) {
-	return calculateTimeslotIndex(NULL);
+		JNIEnv *env, jclass clazz, jboolean ismeeting) {
+	return calculateTimeslotIndex(NULL, ismeeting);
 }
 
 
@@ -1143,8 +1358,12 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_getCurrentTimeslot
  * @return TRUE if section has been changed and FALSE otherwise
  */
 JNIEXPORT jboolean JNICALL Java_petrsu_smartroom_android_srcli_KP_sectionChanged(
-		JNIEnv *env, jclass class) {
-	individual_t *currentSection_ = getCurrentSection();
+		JNIEnv *env, jclass class, jboolean ismeeting) {
+	if(ismeeting == false){
+		individual_t *currentSection_ = getCurrentSection();
+	} else {
+		individual_t *currentSection_ = getCurrentMeetingSection();
+	}
 
 	if(currentSection == NULL && currentSection_ != NULL) {
 		return JNI_TRUE;
@@ -1165,17 +1384,22 @@ JNIEXPORT jboolean JNICALL Java_petrsu_smartroom_android_srcli_KP_sectionChanged
  * @param propTimeslot - property with current time slot
  * @return Time slot index and -1 otherwise
  */
-int calculateTimeslotIndex(prop_val_t *propTimeslot) {
+int calculateTimeslotIndex(prop_val_t *propTimeslot, bool ismeeting) {
 
 	individual_t *curTimeslot;
-	individual_t *timeslot = getFirstTimeslot();
+	individual_t *timeslot = getFirstTimeslot(ismeeting);
 	currentTimeslotIndex = 1;
 
 	if(propTimeslot != NULL) {
 		curTimeslot = (individual_t *) propTimeslot->prop_value;
 	} else {
-		propTimeslot = sslog_ss_get_property (getCurrentSection(),
-				PROPERTY_CURRENTTIMESLOT);
+		if(ismeeting == false){
+			propTimeslot = sslog_ss_get_property (getCurrentSection(),
+					PROPERTY_CURRENTTIMESLOT);
+		} ele{
+			propTimeslot = sslog_ss_get_property (getCurrentMeetingSection(),
+					PROPERTY_CURRENTTIMESLOT);
+		}
 
 		if(propTimeslot != NULL)
 			curTimeslot = (individual_t *) propTimeslot->prop_value;
@@ -1206,11 +1430,17 @@ int calculateTimeslotIndex(prop_val_t *propTimeslot) {
  * false otherwise
  */
 JNIEXPORT jboolean JNICALL Java_petrsu_smartroom_android_srcli_KP_checkSpeakerState(
-		JNIEnv *env, jclass clazz) {
+		JNIEnv *env, jclass clazz, jboolean ismeeting) {
 
 	individual_t *timeslot;
-	prop_val_t *curValue = sslog_ss_get_property(getCurrentSection(),
-			PROPERTY_CURRENTTIMESLOT);
+	prop_val_t *curValue = NULL;
+
+	if(ismeeting == false){
+		curValue = sslog_ss_get_property(getCurrentSection(), PROPERTY_CURRENTTIMESLOT);
+	}
+	else {
+		curValue = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_CURRENTTIMESLOT);
+	}
 
 	if(curValue == NULL) {
 		return JNI_FALSE;
@@ -1373,8 +1603,62 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_startConference(
 	return 0;
 }
 
+
 /**
- * @brief Ends conference
+ * @brief Starts meeting
+ *
+ * @return 0 in success, -1 otherwise
+ */
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_startMeeting(
+		JNIEnv *env, jobject obj) {
+
+	individual_t *agendaNotif = sslog_new_individual(CLASS_AGENDANOTIFICATION);
+	individual_t *meetNotif = sslog_new_individual(CLASS_MEETINGNOTIFICATION);
+
+	if(agendaNotif == NULL || meetNotif == NULL) {
+		return -1;
+	}
+
+	sslog_set_individual_uuid(agendaNotif,
+			generateUuid("http://www.cs.karelia.ru/smartroom#AgendaNotification"));
+	sslog_set_individual_uuid(meetNotif,
+			generateUuid("http://www.cs.karelia.ru/smartroom#MeetingNotification"));
+
+	/* Prepare agenda notification */
+	if(sslog_ss_add_property(agendaNotif, PROPERTY_STARTMEETING,
+			getCurrentMeetingSection()) != 0 ) {
+		__android_log_print(ANDROID_LOG_ERROR,
+				"startMeeting(): agendaNotif",
+				"%s", sslog_get_error_text());
+		return -1;
+	}
+
+	/* Prepare meeting notification */
+	if(sslog_ss_add_property(meetNotif, PROPERTY_STARTMEETING,
+			getCurrentMeetingSection()) != 0 ) {
+		__android_log_print(ANDROID_LOG_ERROR,
+				"startMeeting(): meetingNotif",
+				"%s", sslog_get_error_text());
+		return -1;
+	}
+
+	if(sslog_ss_insert_individual(agendaNotif) != 0) {
+		__android_log_print(ANDROID_LOG_ERROR, "startMeeting()",
+				"%s", sslog_get_error_text());
+		return -1;
+	}
+
+	if(sslog_ss_insert_individual(meetNotif) != 0) {
+		__android_log_print(ANDROID_LOG_ERROR, "startMeeting()",
+				"%s", sslog_get_error_text());
+		return -1;
+	}
+
+	return 0;
+}
+
+/**
+ * @brief Ends Conference
  *
  * @return 0 in success, -1 otherwise
  */
@@ -1389,7 +1673,7 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_endConference(
 	sslog_set_individual_uuid(confNotif,
 			generateUuid("http://www.cs.karelia.ru/smartroom#ConferenceNotification"));
 
-	/* Prepare conference notification */
+	/* Prepare Conference notification */
 	if(sslog_ss_add_property(confNotif, PROPERTY_ENDCONFERENCE,
 			getCurrentSection()) != 0 ) {
 		__android_log_print(ANDROID_LOG_ERROR, "endConference()",
@@ -1399,6 +1683,39 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_endConference(
 
 	if(sslog_ss_insert_individual(confNotif) != 0) {
 		__android_log_print(ANDROID_LOG_ERROR, "endConference()",
+				"%s", sslog_get_error_text());
+		return -1;
+	}
+
+	return 0;
+}
+
+/**
+ * @brief Ends meeting
+ *
+ * @return 0 in success, -1 otherwise
+ */
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_endMeeting(
+		JNIEnv *env, jobject obj) {
+	individual_t *meetNotif = sslog_new_individual(CLASS_MEETINGNOTIFICATION);
+
+	if(meetNotif == NULL) {
+		return -1;
+	}
+
+	sslog_set_individual_uuid(meetNotif,
+			generateUuid("http://www.cs.karelia.ru/smartroom#MeetingNotification"));
+
+	/* Prepare Meeting notification */
+	if(sslog_ss_add_property(meetNotif, PROPERTY_ENDMEETING,
+			getCurrentMeetingSection()) != 0 ) {
+		__android_log_print(ANDROID_LOG_ERROR, "endMeeting()",
+				"%s", sslog_get_error_text());
+		return -1;
+	}
+
+	if(sslog_ss_insert_individual(meetNotif) != 0) {
+		__android_log_print(ANDROID_LOG_ERROR, "endMeeting()",
 				"%s", sslog_get_error_text());
 		return -1;
 	}
@@ -1522,6 +1839,87 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_endPresentation(
 	}
 
 	if(sslog_ss_insert_individual(conferenceNotif) != 0) {
+		__android_log_print(ANDROID_LOG_ERROR, "endPresentation()",
+				"%s", sslog_get_error_text());
+		return -1;
+	}
+
+	return 0;
+}
+
+
+/**
+ * @brief Ends current presentation
+ *
+ * @return 0 in success and -1 otherwise
+ */
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_endMeetingPresentation(
+		JNIEnv *env, jclass clazz) {
+	prop_val_t *curPresentation = NULL;
+	individual_t *presentationService = NULL;
+	list_t* presentationServiceList = sslog_ss_get_individual_by_class_all(
+			CLASS_PRESENTATIONSERVICE);
+
+	if(presentationServiceList != NULL) {
+		list_head_t* pos = NULL;
+		list_for_each(pos, &presentationServiceList->links) {
+			list_t* node = list_entry(pos, list_t, links);
+			presentationService = (individual_t*)(node->data);
+			break;
+		}
+	}
+
+	if(presentationService != NULL) {
+		curPresentation = sslog_ss_get_property(presentationService,
+				PROPERTY_CURRENTPRESENTATION);
+	} else {
+		return -1;
+	}
+
+	if(curPresentation == NULL) {
+		__android_log_print(ANDROID_LOG_ERROR, "endPresentation()",
+				"current presentation prop = NULL");
+		return -1;
+	}
+
+	individual_t *presentation = (individual_t *)curPresentation->prop_value;
+	individual_t *presentationNotif = sslog_new_individual(
+			CLASS_PRESENTATIONNOTIFICATION);
+
+	sslog_set_individual_uuid(presentationNotif,
+					generateUuid(
+							"http://www.cs.karelia.ru/smartroom#PresentationNotification"));
+
+	/* Prepare presentation notification */
+	if(sslog_ss_add_property(presentationNotif, PROPERTY_ENDPRESENTATION,
+			presentation) != 0 ) {
+		__android_log_print(ANDROID_LOG_ERROR, "endPresentation()",
+				"%s", sslog_get_error_text());
+		return -1;
+	}
+
+	if(sslog_ss_insert_individual(presentationNotif) != 0) {
+		__android_log_print(ANDROID_LOG_ERROR, "endPresentation()",
+				"%s", sslog_get_error_text());
+		return -1;
+	}
+
+	individual_t *meetingNotif = sslog_new_individual(
+			CLASS_MEETINGNOTIFICATION);
+
+	sslog_set_individual_uuid(meetingNotif,
+					generateUuid(
+							"http://www.cs.karelia.ru/smartroom#MeetingNotification"));
+
+	/* Prepare meeting notification */
+	if(sslog_ss_add_property(meetingNotif, PROPERTY_ENDPRESENTATION,
+			presentation) != 0 ) {
+		__android_log_print(ANDROID_LOG_ERROR, "endPresentation()",
+				"%s", sslog_get_error_text());
+		return -1;
+	}
+
+	if(sslog_ss_insert_individual(meetingNotif) != 0) {
 		__android_log_print(ANDROID_LOG_ERROR, "endPresentation()",
 				"%s", sslog_get_error_text());
 		return -1;
@@ -1662,10 +2060,17 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getMicServicePo
  * @return Speaker name in success and NULL otherwise
  */
 JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getSpeakerName(
-		JNIEnv *env, jclass clazz) {
+		JNIEnv *env, jclass clazz, jboolean ismeeting) {
 
-	prop_val_t *curTimeslotProp = sslog_ss_get_property(getCurrentSection(),
-			PROPERTY_CURRENTTIMESLOT);
+	prop_val_t *curTimeslotProp = NULL;
+
+	if(ismeeting == false){
+		curTimeslotProp = sslog_ss_get_property(getCurrentSection(), PROPERTY_CURRENTTIMESLOT);
+	}
+	else {
+		curTimeslotProp = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_CURRENTTIMESLOT);
+
+	}
 
 	if(curTimeslotProp == NULL) {
 		return NULL;
@@ -1713,13 +2118,13 @@ JNIEXPORT jboolean JNICALL Java_petrsu_smartroom_android_srcli_KP_checkConnectio
  * @return Presentation URL in success and NULL otherwise
  */
 JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPresentationLink(
-		JNIEnv *env, jclass clazz, jint index) {
+		JNIEnv *env, jclass clazz, jint index, jboolean ismeeting) {
 
 	individual_t *person = NULL;
 	individual_t *presentation = NULL;
 	individual_t *pTimeslot = NULL;
 
-	pTimeslot = getTimeslot(index);
+	pTimeslot = getTimeslot(index, ismeeting);
 
 	if(pTimeslot == NULL)
 		return NULL;
@@ -1762,7 +2167,7 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPresentation
  * @return 0 in success and -1 otherwise
  */
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_startConferenceFrom
-  (JNIEnv *env, jclass clazz, jint index) {
+  (JNIEnv *env, jclass clazz, jint index, jboolean ismeeting) {
 
 	int ret_val = 0;
 	individual_t *timeslot = NULL;
@@ -1777,7 +2182,7 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_startConferenceFro
 	if(ret_val != SSLOG_ERROR_NO)
 		return -1;
 
-	timeslot = getTimeslot(index);
+	timeslot = getTimeslot(index, ismeeting);
 
 	/* Prepare agenda notification */
 	if(sslog_ss_add_property(individual, PROPERTY_STARTCONFERENCEFROM,
@@ -1796,30 +2201,80 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_startConferenceFro
 	return 0;
 }
 
+
+/**
+ * @brief Starts Meeting from selected time slot
+ *
+ * @param index - time slot index
+ * @return 0 in success and -1 otherwise
+ */
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_startMetingFrom
+  (JNIEnv *env, jclass clazz, jint index, jboolean ismeeting) {
+
+	int ret_val = 0;
+	individual_t *timeslot = NULL;
+	individual_t *individual = sslog_new_individual(CLASS_AGENDANOTIFICATION);
+
+	if(individual == NULL)
+		return -1;
+
+	ret_val = sslog_set_individual_uuid(individual,
+			generateUuid("http://www.cs.karelia.ru/smartroom#Notification"));
+
+	if(ret_val != SSLOG_ERROR_NO)
+		return -1;
+
+	timeslot = getTimeslot(index, ismeeting);
+
+	/* Prepare agenda notification */
+	if(sslog_ss_add_property(individual, PROPERTY_STARTMEETINGFROM,
+			timeslot) != 0 ) {
+		__android_log_print(ANDROID_LOG_ERROR, "startMeetingFrom()",
+				"%s", sslog_get_error_text());
+		return -1;
+	}
+
+	if(sslog_ss_insert_individual(individual) != 0) {
+		__android_log_print(ANDROID_LOG_ERROR, "startMeetingFrom()",
+				"%s", sslog_get_error_text());
+		return -1;
+	}
+
+	return 0;
+}
+
 /**
  * @brief Get timeslot's individual by index
  *
  * @param index - time slot index
+ * @param ismeeting - indicates wheter conference or meeting mode is enabled now
  * @return Time slot individual in success and NULL otherwise
  */
-individual_t* getTimeslot(int index) {
+individual_t* getTimeslot(int index, bool ismeeting) {
 
-	prop_val_t *propTimeslot = sslog_ss_get_property(getCurrentSection(),
-			PROPERTY_FIRSTTIMESLOT);
+	prop_val_t *propTimeslot = NULL;
 	individual_t *pTimeslot = NULL;
 	int i = 0;
 
+	if(ismeeting == true) {
+		propTimeslot = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_FIRSTTIMESLOT);
+	} else {
+		propTimeslot = sslog_ss_get_property(getCurrentSection(), PROPERTY_FIRSTTIMESLOT);
+	}
+
 	if(propTimeslot == NULL) {
-		propTimeslot = sslog_ss_get_property(getCurrentSection(),
-				PROPERTY_FIRSTTIMESLOT);
+		if(ismeeting == true){
+			propTimeslot = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_FIRSTTIMESLOT);
+		} else{
+			propTimeslot = sslog_ss_get_property(getCurrentSection(), PROPERTY_FIRSTTIMESLOT);
+		}
 	}
 
 	for(; (i <= index) && (propTimeslot != NULL); i++) {
 		pTimeslot = (individual_t *) propTimeslot->prop_value;
 
 		if(pTimeslot != NULL) {
-			propTimeslot = sslog_ss_get_property(pTimeslot,
-					PROPERTY_NEXTTIMESLOT);
+			propTimeslot = sslog_ss_get_property(pTimeslot,	PROPERTY_NEXTTIMESLOT);
 		}
 	}
 
@@ -1834,10 +2289,10 @@ individual_t* getTimeslot(int index) {
  * @return Profile uuid in success and NULL otherwise
  */
 JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_loadProfile(
-		JNIEnv *env, jclass clazz, jobject obj, jint index) {
+		JNIEnv *env, jclass clazz, jobject obj, jint index, jboolean ismeeting) {
 
 	jclass *classProfile = getJClassObject(env, "Profile");
-	individual_t *timeslot = getTimeslot(index);
+	individual_t *timeslot = getTimeslot(index, ismeeting);
 	individual_t *person = NULL;
 
 	if(obj == NULL || timeslot == NULL) {
@@ -1995,6 +2450,41 @@ individual_t* getCurrentSection() {
 }
 
 
+
+/**
+ * @brief Gets current section individual
+ *
+ * @return Individual of current section in success and NULL otherwise
+ */
+individual_t* getCurrentMeetingSection() {
+	list_t *meetingList = sslog_ss_get_individual_by_class_all(
+			CLASS_MEETINGSERVICE);
+	individual_t *meeting;
+
+	// TODO: choose section according to user's choice
+
+	if(meetingList == NULL) {
+		return getExistingSection();
+	}
+
+	list_head_t* pos = NULL;
+	list_for_each(pos, &meetingList->links) {
+		list_t* node = list_entry(pos, list_t, links);
+		meeting = (individual_t *)(node->data);
+		break;
+	}
+
+	prop_val_t *curSectionProp = sslog_ss_get_property(meeting,
+			PROPERTY_CURRENTSECTION);
+
+	if(curSectionProp == NULL) {
+		return getExistingSection();
+	}
+
+	return (individual_t *)(curSectionProp->prop_value);
+}
+
+
 /**
  * @brief Gets first existing section
  *
@@ -2024,8 +2514,15 @@ individual_t* getExistingSection() {
  *
  * @return First time slot individual in success and NULL otherwise
  */
-individual_t* getFirstTimeslot() {
-	individual_t *section = getCurrentSection();
+individual_t* getFirstTimeslot(bool ismeeting) {
+	individual_t *section = NULL;
+
+	if(ismeeting == true ){
+		section = getCurrentMeetingSection();
+	} else {
+		section = getCurrentSection();
+	}
+
 	individual_t *timeslot;
 	prop_val_t *firstTimeslotProp = sslog_ss_get_property(section,
 			PROPERTY_FIRSTTIMESLOT);
@@ -2083,7 +2580,7 @@ individual_t* getContentService() {
 
 
 /**
- * TODO
+ * TODO not implemented in androcli yet
  */
 JNIEXPORT jobjectArray JNICALL Java_petrsu_smartroom_android_srcli_KP_getCurrentSectionList(
 		JNIEnv *env, jclass clazz) {
