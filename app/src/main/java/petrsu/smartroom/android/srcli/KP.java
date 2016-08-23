@@ -70,9 +70,8 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	
 	public static native int connectSmartSpace(String hostname, String ip,  int port);
 	public static native int loadTimeslotList(Agenda obj, boolean isMeetingMode);
-	public static native void disconnectSmartSpace();
 	public static native int getServicesInfo(ServicesMenu menu);
-	public static native int  userRegistration(String userName, String password);
+	public static native int userRegistration(String userName, String password);
 	public static native int loadPresentation(Projector projector);
 	public static native int initSubscription();
 	public static native int initMeetingSubscription();     // Done
@@ -80,41 +79,46 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
     public static native int startMeeting();                // Done ^
 	public static native int endConference();               // Тоже не используется
     public static native int endMeeting();                  // Done ^
-	//public static native void getProjectorClassObject();
 	public static native int showSlide(int slideNumber);
 	public static native int endPresentation();
     public static native int endMeetingPresentation();      // Done
-
 	public static native int getCurrentTimeslotIndex();
+    public static native int personTimeslotIndex(boolean isMeetingMode);
+    public static native int registerGuest(String name, String phone, String email);
+    public static native int startConferenceFrom(int index, boolean isMeetingMode);
+    public static native int startMeetingFrom(int index, boolean isMeetingMode); //======================================
+    public static native int isActiveSubscriptions();
+    public static native int isActiveMeetingSubscriptions();//=============================================
+    public static native int refreshConferenceSbcr();
+    public static native int refreshPresentationSbcr();
+    public static native int refreshMeetingSbcr();//=============================================
+    public static native int saveProfileChanges(String name, String phone);
+    public static native int startVideo(String url);
+    public static native void stopVideo();
+    public static native void disconnectSmartSpace();
+
+
+    public static native boolean checkSpeakerState(boolean isMeetingMode);
+    public static native boolean checkConnection();
+    public static native boolean sectionChanged(boolean isMeetingMode);
+
     public static native String getSpeakerName(boolean isMeetingMode);
-	public static native boolean checkSpeakerState(boolean isMeetingMode);
 	public static native String getMicServiceIP();
 	public static native String getMicServicePort();
-
 	public static native String getDiscussionServiceIP();
     public static native String getSocialProgramServiceIP();
-
-	public static native int personTimeslotIndex(boolean isMeetingMode);
-	public static native boolean checkConnection();
 	public static native String getPresentationLink(int index, boolean isMeetingMode);
-	public static native int registerGuest(String name, String phone, String email);
-	public static native int startConferenceFrom(int index, boolean isMeetingMode);
-    public static native int startMeetingFrom(int index, boolean isMeetingMode); //======================================
 	public static native String loadProfile(Profile profile, int index, boolean isMeetingMode);
-	public static native int saveProfileChanges(String name, String phone);
 	public static native String getPersonUuid();
-	public static native CharSequence[] getVideoTitleList();
-	public static native CharSequence[] getVideoUuidList();
 	public static native String getContentUrl();
-	public static native int isActiveSubscriptions();
-	public static native int isActiveMeetingSubscriptions();//=============================================
-	public static native int refreshConferenceSbcr();
-	public static native int refreshPresentationSbcr();
-    public static native int refreshMeetingSbcr();//=============================================
-	public static native String[] getCurrentSectionList();
-	public static native boolean sectionChanged(boolean isMeetingMode);
-	public static native int startVideo(String url);
-	public static native void stopVideo();
+    public static native String[] getCurrentSectionList();
+    public static native String setPlaceInfo(String city, String uuid);
+
+    public static native CharSequence[] getVideoTitleList();
+    public static native CharSequence[] getVideoUuidList();
+
+
+
 	
 	/* Loading of shared library */
 	static {

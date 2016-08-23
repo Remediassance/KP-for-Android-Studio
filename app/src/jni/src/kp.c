@@ -512,6 +512,8 @@ int activatePerson(individual_t *profile) {
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList(
 		JNIEnv *env, jclass clazz, jobject obj, jboolean ismeeting) {
 
+	prop_val_t *propTimeslot = NULL;
+
 	if(obj != NULL) {
 		agendaClassObject = (jobject *)(*env)->NewGlobalRef(env, obj);
 	} else {
@@ -519,9 +521,9 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList(
 	}
 
 	if(ismeeting == false) {
-		prop_val_t *propTimeslot = sslog_ss_get_property(getCurrentSection(), PROPERTY_FIRSTTIMESLOT);
+		propTimeslot = sslog_ss_get_property(getCurrentSection(), PROPERTY_FIRSTTIMESLOT);
 	} else {
-		prop_val_t *propTimeslot = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_FIRSTTIMESLOT);
+		propTimeslot = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_FIRSTTIMESLOT);
 	}
 
 	if(propTimeslot == NULL) {
@@ -1359,10 +1361,13 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_getCurrentTimeslot
  */
 JNIEXPORT jboolean JNICALL Java_petrsu_smartroom_android_srcli_KP_sectionChanged(
 		JNIEnv *env, jclass class, jboolean ismeeting) {
+	
+	individual_t *currentSection_ = NULL;
+
 	if(ismeeting == false){
-		individual_t *currentSection_ = getCurrentSection();
+		currentSection_ = getCurrentSection();
 	} else {
-		individual_t *currentSection_ = getCurrentMeetingSection();
+		currentSection_ = getCurrentMeetingSection();
 	}
 
 	if(currentSection == NULL && currentSection_ != NULL) {
@@ -1394,11 +1399,9 @@ int calculateTimeslotIndex(prop_val_t *propTimeslot, bool ismeeting) {
 		curTimeslot = (individual_t *) propTimeslot->prop_value;
 	} else {
 		if(ismeeting == false){
-			propTimeslot = sslog_ss_get_property (getCurrentSection(),
-					PROPERTY_CURRENTTIMESLOT);
+			propTimeslot = sslog_ss_get_property (getCurrentSection(), PROPERTY_CURRENTTIMESLOT);
 		} ele{
-			propTimeslot = sslog_ss_get_property (getCurrentMeetingSection(),
-					PROPERTY_CURRENTTIMESLOT);
+			propTimeslot = sslog_ss_get_property (getCurrentMeetingSection(), PROPERTY_CURRENTTIMESLOT);
 		}
 
 		if(propTimeslot != NULL)
@@ -1408,8 +1411,7 @@ int calculateTimeslotIndex(prop_val_t *propTimeslot, bool ismeeting) {
 	}
 
 	while(strcmp(curTimeslot->uuid, timeslot->uuid) != 0) {
-		prop_val_t *val = sslog_ss_get_property(timeslot,
-				PROPERTY_NEXTTIMESLOT);
+		prop_val_t *val = sslog_ss_get_property(timeslot, PROPERTY_NEXTTIMESLOT);
 
 		if(val != NULL) {
 			timeslot = (individual_t *) val->prop_value;
