@@ -68,11 +68,10 @@
        android:textColor="@color/primary_text_default_material_light"
        android:textColorHint="@color/material_drawer_hint_text"
        android:textSize="20sp"
-       android:enabled="false"
+       android:enabled="true"
        android:layout_below="@+id/editPassword"
        android:layout_alignLeft="@+id/editPassword"
        android:layout_alignStart="@+id/editPassword"
-       android:editable="false"
        android:layout_marginTop="15sp"/>
    <!-- IP field -->
    
@@ -92,7 +91,7 @@
        android:textColor="@color/primary_text_default_material_light"
        android:textColorHint="@color/material_drawer_hint_text"
        android:textSize="20sp"
-       android:enabled="false" />
+       android:enabled="true" />
    <!-- Port field -->
 
 	<Button

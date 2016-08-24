@@ -160,4 +160,5 @@
 	<string name="searchBtn">Search</string>
 	<string name="quickBtn">Quick launch</string>
 	<string name="meetingBox">Run in Meeting mode</string>
+	<string name="userCity">City</string>
 </resources>

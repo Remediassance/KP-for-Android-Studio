@@ -114,5 +114,6 @@
     <string name="searchBtn">Найти</string>
     <string name="quickBtn">Демо запуск</string>
     <string name="meetingBox">Режим совещания</string>
+    <string name="userCity">Город</string>
 
 </resources>

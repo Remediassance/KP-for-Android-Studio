@@ -117,7 +117,7 @@ public class WebViewer extends ActionBarActivity {
                                     startActivity(Navigation.getManIntent(getApplicationContext()));
                                     break;
                                 case 12:
-                                    exitApp();
+                                    startActivity(Navigation.getGalleryIntent(getApplicationContext()));
                                     break;
                                 default:
                                     break;

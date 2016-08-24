@@ -1,26 +1,15 @@
 package petrsu.smartroom.android.srcli;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.mikepenz.iconics.typeface.FontAwesome;
-import com.mikepenz.materialdrawer.Drawer;
-import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.model.DividerDrawerItem;
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SectionDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 /**
  * Created by Remediassance on 26.03.2016.
@@ -32,7 +21,12 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
     private Button cityBtn;
     private EditText cityText;
     private TextView displayedCity;
+    private String ipAddr = null;
 
+    /*=========================================================================
+   *  IMPLEMENTATION OF ONCREATE LISTENER
+   *==========================================================================
+    */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +43,15 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
 
         displayedCity = (TextView) findViewById(R.id.displayedText);
 
-        Navigation.getBasicDrawer(getApplicationContext(),this,toolbar);
+        Navigation.getBasicDrawer(getApplicationContext(), this, toolbar);
+
+        /*if(KP.getWelcomeServiceIP() != null)
+            ipAddr = KP.getWelcomeServiceIP();
+        else
+            Toast.makeText(CityGallery.this, "Can't get servises' address!", Toast.LENGTH_SHORT).show();
+        */
+
+
     }
 
     @Override
@@ -72,10 +74,6 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         super.onResume();
     }
 
-    public void spiptest() {
-        Toast.makeText(this.getApplicationContext(), KP.dqAddr + '\n' + KP.spAddr, Toast.LENGTH_LONG).show();
-    }
-
 
     /**=========================================================================
      * SHOWS HELP WINDOW
@@ -89,11 +87,17 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         builder.show();
     }
 
+    /*=========================================================================
+    *  IMPLEMENTATION OF ONCLICK LISTENER
+    *==========================================================================
+     */
     @Override
     public void onClick(View v) {
         String city = cityText.getText().toString();
         displayedCity.setText(city);
-        String url = KP.setPlaceInfo(city,KP.getPersonUuid());
+        String uuid = KP.getPersonUuid();//.substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
+        Toast.makeText(CityGallery.this, uuid, Toast.LENGTH_LONG).show();
+        String url = KP.getPlaceInfo(city, uuid);
         if(url == null)
             displayedCity.setText("Unable to recover images for "+city);
 

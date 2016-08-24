@@ -71,7 +71,7 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_connectSmartSpace
  * Signature: (Lpetrsu/smartroom/android/srcli/Agenda;)I
  */
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList
-  (JNIEnv *, jclass, jobject);
+  (JNIEnv *, jclass, jobject, jboolean);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP
@@ -159,7 +159,7 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_endPresentation
  * Signature: ()I
  */
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_getCurrentTimeslotIndex
-  (JNIEnv *, jclass);
+  (JNIEnv *, jclass, jboolean);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP
@@ -167,7 +167,7 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_getCurrentTimeslot
  * Signature: ()Z
  */
 JNIEXPORT jboolean JNICALL Java_petrsu_smartroom_android_srcli_KP_checkSpeakerState
-  (JNIEnv *, jclass);
+  (JNIEnv *, jclass, jboolean);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP
@@ -207,7 +207,7 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getMicServicePo
  * Signature: ()Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getSpeakerName
-  (JNIEnv *, jclass);
+  (JNIEnv *, jclass, jboolean);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP
@@ -215,7 +215,7 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getSpeakerName
  * Signature: ()I
  */
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_personTimeslotIndex
-  (JNIEnv *, jclass);
+  (JNIEnv *, jclass, jboolean);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP
@@ -231,7 +231,7 @@ JNIEXPORT jboolean JNICALL Java_petrsu_smartroom_android_srcli_KP_checkConnectio
  * Signature: (I)Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPresentationLink
-  (JNIEnv *, jclass, jint);
+  (JNIEnv *, jclass, jint, jboolean);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP
@@ -239,7 +239,7 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPresentation
  * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
  */
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_registerGuest
-  (JNIEnv *, jclass, jstring, jstring, jstring);
+  (JNIEnv *, jclass, jstring, jstring, jstring, jstring);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP
@@ -247,7 +247,7 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_registerGuest
  * Signature: (I)I
  */
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_startConferenceFrom
-  (JNIEnv *, jclass, jint);
+  (JNIEnv *, jclass, jint, jboolean);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP
@@ -255,7 +255,7 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_startConferenceFro
  * Signature: (Lpetrsu/smartroom/android/srcli/Profile;I)Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_loadProfile
-  (JNIEnv *, jclass, jobject, jint);
+  (JNIEnv *, jclass, jobject, jint, jboolean);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP
@@ -343,7 +343,7 @@ JNIEXPORT jobjectArray JNICALL Java_petrsu_smartroom_android_srcli_KP_getCurrent
  * Signature: ()Z
  */
 JNIEXPORT jboolean JNICALL Java_petrsu_smartroom_android_srcli_KP_sectionChanged
-  (JNIEnv *, jclass);
+  (JNIEnv *, jclass, jboolean);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP
@@ -355,7 +355,7 @@ JNIEXPORT void JNICALL Java_petrsu_smartroom_android_srcli_KP_stopVideo
 
  /*
  * Class:     petrsu_smartroom_android_srcli_KP
- * Method:    setPlaceInfo
+ * Method:    getPlaceInfo
  * Signature: ()[Ljava/lang/String;
  */
  JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_setPlaceInfo
