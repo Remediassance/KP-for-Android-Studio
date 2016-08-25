@@ -55,14 +55,14 @@ int searchPerson(individual_t *, const char *, const char *);
 int activatePerson(individual_t *);
 char* generateUuid(char*);
 bool personExists(const char *);
-bool placeExists(const char *); 
+individual_t* placeExists(const char *); 
 
 jclass getJClassObject(JNIEnv *, char *);
 jfieldID getFieldID(JNIEnv *, jclass, char *, char *);
 prop_val_t* initNullProperty();
 prop_val_t* getPresentationTitleProp(individual_t*);
 individual_t* createProfile(individual_t *);
-individual_t* createPerson(const char *, const char *, const char*);
+individual_t* createPerson(const char *, const char *, const char*, const char*);
 individual_t* getTimeslot(int, bool);
 individual_t* getCurrentSection();
 individual_t* getCurrentMeetingSection();

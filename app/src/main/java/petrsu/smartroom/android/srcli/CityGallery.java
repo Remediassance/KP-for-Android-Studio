@@ -1,15 +1,31 @@
 package petrsu.smartroom.android.srcli;
 
 import android.app.AlertDialog;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.entity.BufferedHttpEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.InputStream;
+import java.net.URL;
 
 /**
  * Created by Remediassance on 26.03.2016.
@@ -22,6 +38,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
     private EditText cityText;
     private TextView displayedCity;
     private String ipAddr = null;
+    public static ProgressBar progressBar;
 
     /*=========================================================================
    *  IMPLEMENTATION OF ONCREATE LISTENER
@@ -36,6 +53,9 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setMax(100);
+
         cityBtn = (Button) findViewById (R.id.searchBtn);
         cityBtn.setOnClickListener(this);
 
@@ -45,13 +65,37 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
 
         Navigation.getBasicDrawer(getApplicationContext(), this, toolbar);
 
-        /*if(KP.getWelcomeServiceIP() != null)
-            ipAddr = KP.getWelcomeServiceIP();
-        else
-            Toast.makeText(CityGallery.this, "Can't get servises' address!", Toast.LENGTH_SHORT).show();
-        */
+        LinearLayout linear = (LinearLayout)findViewById(R.id.linearlayout4pics);
+        linear.addView(getImageView());
+    }
 
 
+    private View getImageView() {
+        ImageView imageView = new ImageView(getApplicationContext());
+        try {
+            URL url = new URL("http://0.tqn.com/d/webclipart/1/0/5/l/4/floral-icon-5.jpg");
+            //try this url = "http://0.tqn.com/d/webclipart/1/0/5/l/4/floral-icon-5.jpg"
+            HttpGet httpRequest = null;
+
+            httpRequest = new HttpGet(url.toURI());
+
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpResponse response = (HttpResponse) httpclient
+                    .execute(httpRequest);
+
+            HttpEntity entity = response.getEntity();
+            BufferedHttpEntity b_entity = new BufferedHttpEntity(entity);
+            InputStream input = b_entity.getContent();
+
+            Bitmap bitmap = BitmapFactory.decodeStream(input);
+
+            imageView.setImageBitmap(bitmap);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return imageView;
     }
 
     @Override
@@ -93,13 +137,27 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
      */
     @Override
     public void onClick(View v) {
-        String city = cityText.getText().toString();
-        displayedCity.setText(city);
-        String uuid = KP.getPersonUuid();//.substring(KP.getPersonUuid().indexOf("#")+1,KP.getPersonUuid().length());
-        Toast.makeText(CityGallery.this, uuid, Toast.LENGTH_LONG).show();
-        String url = KP.getPlaceInfo(city, uuid);
-        if(url == null)
-            displayedCity.setText("Unable to recover images for "+city);
+        String city;
+        String uuid;
+        String[] urls;
 
+        city = cityText.getText().toString();
+        displayedCity.setText(city);
+
+        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setProgress(0);
+
+        uuid = KP.getPersonUuid();
+        urls = KP.getPlaceInfo(city, uuid);
+
+        if(urls == null)
+            displayedCity.setText("Unable to recover images for "+city);
+        else {
+            for (int i = 0; i < urls.length; i++) {
+                String pic = urls[i];
+
+
+            }
+        }
     }
 }

@@ -113,7 +113,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
     public static native String getSpeakerName(boolean isMeetingMode);
     public static native String getWelcomeServiceIP();
 	public static native String loadProfile(Profile profile, int index, boolean isMeetingMode);
-    public static native String getPlaceInfo(String city, String uuid);
+    public static native String[] getPlaceInfo(String city, String uuid);
 
     public static native CharSequence[] getVideoTitleList();
     public static native CharSequence[] getVideoUuidList();
