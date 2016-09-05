@@ -305,6 +305,14 @@ JNIEXPORT jobjectArray JNICALL Java_petrsu_smartroom_android_srcli_KP_getVideoUu
 JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getContentUrl
   (JNIEnv *, jclass);
 
+/**
+ * Class:     petrsu_smartroom_android_srcli_KP
+ * Method:    getCityByPersonUuid
+ * Signature: ()Ljava/lang/String;
+*/
+JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getCityByPersonUuid(
+    JNIEnv *env, jclass clazz, jstring uuid);
+
 /*
  * Class:     petrsu_smartroom_android_srcli_KP
  * Method:    isActiveSubscriptions

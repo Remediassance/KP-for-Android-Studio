@@ -31,6 +31,12 @@
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/displayedText"
+        android:layout_below="@+id/searchBtn"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,38 +45,14 @@
         android:layout_below="@+id/cityTxt"
         android:layout_centerHorizontal="true" />
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/horiScrollView"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:foreground="#ffffff"
-        android:alpha="0.4"
-        android:layout_below="@+id/searchBtn">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/linearlayout4pics">
-        </LinearLayout>
-    </HorizontalScrollView>
-
-    <TextView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/displayedText"
-        android:layout_alignTop="@+id/horiScrollView"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/listView"
+        android:layout_centerHorizontal="true"
+        android:background="#ffffff"
+        android:layout_below="@+id/displayedText"/>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:minHeight="20dip"
-        android:maxHeight="20dip"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>

@@ -33,4 +33,6 @@ dependencies {
     compile('com.mikepenz:materialdrawer:3.1.0@aar') {
         transitive = true
     }
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
+
 }

@@ -279,59 +279,47 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlaceInfo(
 		return NULL;
 	}
 	else{
-		__android_log_print(ANDROID_LOG_INFO, "createPlace():", "Passed successfully");
+		__android_log_print(ANDROID_LOG_INFO, "createPlace():", "Passed successfully3");
 	}
 
 
-	list_t *photosList = sslog_get_property_all(place, PROPERTY_PLACEHASPHOTO);
+	/*Только 1 фото на место*/
+	prop_val_t* photo_prop = sslog_ss_get_property(place, PROPERTY_PLACEHASPHOTO); 
+	individual_t *photo;
 
-	if(photosList == NULL) {
+	if(photo_prop == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "getPlaceInfo():", "%s", "PROPERTY_PLACEHASPHOTO is NULL");
+		return NULL;
+	}
+	else 
+		__android_log_print(ANDROID_LOG_INFO, "getPlaceInfo():", "PROPERTY_PLACEHASPHOTO is not NULL");
+
+	photo = (individual_t*) (photo_prop -> prop_value);
+
+	if(photo == NULL){
 		__android_log_print(ANDROID_LOG_ERROR, "getPlaceInfo():", "%s", "Place has no photos");
 		return NULL;
 	}
+	else
+		__android_log_print(ANDROID_LOG_INFO, "getPlaceInfo():", "Place has photo with uuid %s", photo->uuid);
 
-	jobjectArray photosArray = (*env)->NewObjectArray(env, 20, stringObject, (*env)->NewStringUTF(env, NULL));
-	int index = 0;
-
-	list_head_t* pos = NULL;
-	list_for_each(pos, &photosList->links) {
-		list_t* node = list_entry(pos, list_t, links);
-		individual_t *photo = (individual_t *)(node->data);
-		prop_val_t *prop_title = sslog_ss_get_property(photo, PROPERTY_PHOTOURL);
-
-		if(index >= 20) // тут и выше - макс число фото для возврата
-			break;
-
-		if(prop_title != NULL)
-			photoValue = (jstring)(prop_title->prop_value);
-
-		(*env)->SetObjectArrayElement(env, photosArray, index, (*env)->NewStringUTF(env, photoValue));
-		(*env)->SetObjectArrayElement(env, photosArray, ++index, (*env)->NewStringUTF(env, photo->uuid));
-		++index;
-	}
-
-	return photosArray;
-
-
-
-	/*list_t *photosList = sslog_ss_get_individual_by_class_all(CLASS_PHOTO);
-
-	if(photosList != NULL) {
-		list_head_t* pos = NULL;
-		list_for_each(pos, &photosList->links) {
-			list_t* node = list_entry(pos, list_t, links);
-			individual_t* photo = (individual_t*)(node->data);
-			prop_val_t *p_name = sslog_ss_get_property(photo, PROPERTY_PHOTOURL);
-
-			if(p_name != NULL) {
-				return (char *)p_name->prop_value;
-			}
-		}
-	}
-	else{
-		__android_log_print(ANDROID_LOG_ERROR, "getPlaceInfo():", "List of photos is empty or nonexistent");
+	prop_val_t *photoURL = sslog_ss_get_property(photo, PROPERTY_PHOTOURL);
+	if(photoURL == NULL) {
+		__android_log_print(ANDROID_LOG_ERROR, "getPlaceInfo():", "%s", "Error getting url of photo");
 		return NULL;
-	}*/
+	}
+	else {		
+		__android_log_print(ANDROID_LOG_INFO, "getPlaceInfo():", "got photo url! It is %s", (char*)(photoURL->prop_value));
+
+		(*env)->ReleaseStringUTFChars(env, city, p_city);
+		(*env)->ReleaseStringUTFChars(env, uuid, _uuid);
+
+		photoValue = (*env)->NewStringUTF(env,(jstring)(photoURL->prop_value));
+		return photoValue;
+	}
+
+	return NULL;
+
 }
 
 /**
@@ -452,6 +440,50 @@ individual_t* createPerson(const char *name, const char *phone,	const char *emai
 
 	return person;
 }
+
+
+
+/**
+ * @brief Gets the name of a persons city by his uuid
+ * @param uuid - Uuid of a person
+ * @return - Returns name of a city if one is set, NULL otherwise
+ */
+JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getCityByPersonUuid(
+		JNIEnv *env, jclass clazz, jstring uuid) {
+
+	jstring cityName;
+	jclass stringObject = (*env)->FindClass(env, "java/lang/String");
+
+	const char *_uuid = (*env)->GetStringUTFChars(env, uuid, NULL);
+
+	individual_t* person = (individual_t *)sslog_repo_get_individual_by_uuid(_uuid);
+
+	if(person == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "getCityByPersonUuid():", "Cannot get person by uuid");
+		return NULL;
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "Got person by uuid!");
+
+	prop_val_t *city = sslog_ss_get_property(person, PROPERTY_CITY);
+
+	if(city == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "getCityByPersonUuid():", "Cannot get city property");
+		return NULL;
+	}
+	else {
+		__android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "Person lives in %s ", (char*) city->prop_value);	
+		cityName = (*env)->NewStringUTF(env,(jstring)(city->prop_value));
+
+		return cityName
+	}
+
+	return NULL;
+
+
+
+}
+
+
 
 /**
  * @brief Checks whether username in Smart Space exists

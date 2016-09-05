@@ -64,12 +64,23 @@ public class CityGalleryAsyncLoader extends AsyncTask<String, Void, Bitmap> {
         try{
             URL uri = new URL(url);
             conn = (HttpURLConnection) uri.openConnection();
+            conn.setInstanceFollowRedirects(true);
+            HttpURLConnection.setFollowRedirects(true);
 
             int status = conn.getResponseCode();
+            /*if (status == 301) {
+                String location = conn.getHeaderField("Location");
+                Log.i("Status is", String.valueOf(status));
+                Log.i("Link is a redirect to ", location);
+                conn = (HttpURLConnection)(new URL(location).openConnection());
+            }*/
+
+
             if(status != HttpStatus.SC_OK)
                 return null;
 
             InputStream inputStream = conn.getInputStream();
+
             if(inputStream != null) {
                 bitmap = BitmapFactory.decodeStream(inputStream);
                 return bitmap;
