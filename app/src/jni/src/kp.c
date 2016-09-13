@@ -144,15 +144,18 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_userRegistration(
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_personTimeslotIndex(
 		JNIEnv *env, jobject obj, jboolean ismeeting) {
 
+	__android_log_print(ANDROID_LOG_INFO, "personTimeslotIndex():", "Went in!");
+
 	individual_t *timeslot = getFirstTimeslot(ismeeting);
-	prop_val_t *person = sslog_ss_get_property(personProfile,
-			PROPERTY_PERSONINFORMATION);
+	prop_val_t *person = sslog_ss_get_property(personProfile, PROPERTY_PERSONINFORMATION);
 	individual_t *personInfo;
 	int index = 0;		// Time slot index
 
 	if(person != NULL) {
 		personInfo = (individual_t *) person->prop_value;
+		__android_log_print(ANDROID_LOG_INFO, "personTimeslotIndex():", "Fetched person from SmartSpace");
 	} else {
+		__android_log_print(ANDROID_LOG_INFO, "personTimeslotIndex():", "Error fetching from ss");
 		return -1;
 	}
 
@@ -162,6 +165,7 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_personTimeslotInde
 
 		/* If person is not active */
 		if(timeslotData == NULL) {
+			__android_log_print(ANDROID_LOG_INFO, "personTimeslotIndex():", "Person is not active");
 			index += 1;
 			prop_val_t *nextTimeslot = sslog_ss_get_property(timeslot,
 					PROPERTY_NEXTTIMESLOT);
@@ -169,6 +173,7 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_personTimeslotInde
 			if(nextTimeslot != NULL) {
 				timeslot = (individual_t *) nextTimeslot->prop_value;
 			} else {
+				__android_log_print(ANDROID_LOG_INFO, "personTimeslotIndex():", "Smth went wrong here");
 				return -1;
 			}
 
@@ -178,8 +183,10 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_personTimeslotInde
 		individual_t *personTimeslot = (individual_t *) timeslotData->prop_value;
 
 		if(strcmp(personInfo->uuid, personTimeslot->uuid) == 0) {
+			__android_log_print(ANDROID_LOG_INFO, "personTimeslotIndex():", "Indexing went OK");
 			return index;
 		} else {
+			__android_log_print(ANDROID_LOG_INFO, "personTimeslotIndex():", "Indexing increased");
 			index += 1;
 		}
 
@@ -323,6 +330,105 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlaceInfo(
 }
 
 /**
+ * @brief Gets the name of a persons city by his uuid
+ * @param uuid - Uuid of a person
+ * @return - Returns name of a city if one is set, NULL otherwise
+ */
+JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getCityByPersonUuid(
+		JNIEnv *env, jclass clazz, jstring uuid) {
+
+	jstring cityName;
+	jclass stringObject = (*env)->FindClass(env, "java/lang/String");
+
+	const char *_uuid = (*env)->GetStringUTFChars(env, uuid, NULL);
+
+	individual_t* person = (individual_t *)sslog_repo_get_individual_by_uuid(_uuid);
+
+	if(person == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "getCityByPersonUuid():", "Cannot get person by uuid");
+		return NULL;
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "Got person by uuid!");
+
+	prop_val_t *city_prop = sslog_ss_get_property(person, PROPERTY_CITY);
+
+	if(city_prop == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "getCityByPersonUuid():", "Cannot get city property");
+		return NULL;
+	}
+	else {
+		__android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "Person lives in some city ");	
+		
+		individual_t* city = (individual_t*) (city_prop -> prop_value);
+
+		prop_val_t *cityTitle = sslog_ss_get_property(city, PROPERTY_PLACETITLE);
+		
+		if(cityTitle == NULL){
+			__android_log_print(ANDROID_LOG_ERROR, "getCityByPersonUuid():", "City title property is not set");
+			return NULL;
+		}
+		else __android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "City title property is set");
+
+		cityName = (*env)->NewStringUTF(env,(jstring)(cityTitle->prop_value));
+
+		return cityName;
+	}
+
+	return NULL;
+
+}
+
+
+/**
+ * @brief sets sity property to individual
+ * @param uuid - uuid of a user
+ * @param city - name of a city to assign
+ * @return 0 if success, -1 otherwise
+ */
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_setCity(JNIEnv *env, jclass clazz, jstring uuid, jstring city) {
+
+	jclass stringObject = (*env)->FindClass(env, "java/lang/String");
+
+	const char *_uuid = (*env)->GetStringUTFChars(env, uuid, NULL);
+	const char *_city = (*env)->GetStringUTFChars(env, city, NULL);
+
+	individual_t* place = placeExists(_city);
+	individual_t* person = (individual_t *)sslog_repo_get_individual_by_uuid(_uuid);
+
+	if(!place){
+		__android_log_print(ANDROID_LOG_INFO, "setCity():", "Place does not exist!");
+		place = createPlace(_city);
+	}
+
+
+	if(person == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "setCity():", "Cannot get person by uuid");
+		return NULL -1;
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "setCity():", "Got person by uuid!");
+
+	if(sslog_add_property(person, PROPERTY_CITY, (void *)place) == -1){
+		__android_log_print(ANDROID_LOG_ERROR, "setCity():", "Cannot add PROPERTY_CITY to the person");
+		return -1;
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "setCity():", "Added property to the individual!");
+
+
+	if(sslog_ss_insert_individual(person) == -1){
+		__android_log_print(ANDROID_LOG_ERROR, "setCity():", "Cannot insert individual");
+		return -1;
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "setCity():", "Inserted the individual to the SS!");
+
+
+
+	return 0;
+
+}
+
+
+
+/**
  * @brief Creates empty profile in SmartSpace
  *
  * @param person - person individual
@@ -439,48 +545,6 @@ individual_t* createPerson(const char *name, const char *phone,	const char *emai
 	}
 
 	return person;
-}
-
-
-
-/**
- * @brief Gets the name of a persons city by his uuid
- * @param uuid - Uuid of a person
- * @return - Returns name of a city if one is set, NULL otherwise
- */
-JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getCityByPersonUuid(
-		JNIEnv *env, jclass clazz, jstring uuid) {
-
-	jstring cityName;
-	jclass stringObject = (*env)->FindClass(env, "java/lang/String");
-
-	const char *_uuid = (*env)->GetStringUTFChars(env, uuid, NULL);
-
-	individual_t* person = (individual_t *)sslog_repo_get_individual_by_uuid(_uuid);
-
-	if(person == NULL){
-		__android_log_print(ANDROID_LOG_ERROR, "getCityByPersonUuid():", "Cannot get person by uuid");
-		return NULL;
-	}
-	else __android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "Got person by uuid!");
-
-	prop_val_t *city = sslog_ss_get_property(person, PROPERTY_CITY);
-
-	if(city == NULL){
-		__android_log_print(ANDROID_LOG_ERROR, "getCityByPersonUuid():", "Cannot get city property");
-		return NULL;
-	}
-	else {
-		__android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "Person lives in %s ", (char*) city->prop_value);	
-		cityName = (*env)->NewStringUTF(env,(jstring)(city->prop_value));
-
-		return cityName
-	}
-
-	return NULL;
-
-
-
 }
 
 

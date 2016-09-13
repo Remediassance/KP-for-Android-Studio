@@ -161,4 +161,6 @@
 	<string name="quickBtn">Quick launch</string>
 	<string name="meetingBox">Run in Meeting mode</string>
 	<string name="userCity">City</string>
+	<string name="welcome">Welcome service</string>
+	<string name="socialservice">Social Service</string>
 </resources>

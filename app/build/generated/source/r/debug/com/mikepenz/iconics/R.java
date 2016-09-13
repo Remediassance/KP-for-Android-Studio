@@ -14,19 +14,19 @@ public final class R {
 		public static final int iiv_size = 0x7f010031;
 	}
 	public static final class string {
-		public static final int app_name = 0x7f070078;
-		public static final int define_AndroidIconics = 0x7f070079;
-		public static final int library_AndroidIconics_author = 0x7f070081;
-		public static final int library_AndroidIconics_authorWebsite = 0x7f070082;
-		public static final int library_AndroidIconics_isOpenSource = 0x7f070083;
-		public static final int library_AndroidIconics_libraryDescription = 0x7f070084;
-		public static final int library_AndroidIconics_libraryName = 0x7f070085;
-		public static final int library_AndroidIconics_libraryVersion = 0x7f070086;
-		public static final int library_AndroidIconics_libraryWebsite = 0x7f070087;
-		public static final int library_AndroidIconics_licenseId = 0x7f070088;
-		public static final int library_AndroidIconics_owner = 0x7f070089;
-		public static final int library_AndroidIconics_repositoryLink = 0x7f07008a;
-		public static final int library_AndroidIconics_year = 0x7f07008b;
+		public static final int app_name = 0x7f070098;
+		public static final int define_AndroidIconics = 0x7f07009b;
+		public static final int library_AndroidIconics_author = 0x7f0700a3;
+		public static final int library_AndroidIconics_authorWebsite = 0x7f0700a4;
+		public static final int library_AndroidIconics_isOpenSource = 0x7f0700a5;
+		public static final int library_AndroidIconics_libraryDescription = 0x7f0700a6;
+		public static final int library_AndroidIconics_libraryName = 0x7f0700a7;
+		public static final int library_AndroidIconics_libraryVersion = 0x7f0700a8;
+		public static final int library_AndroidIconics_libraryWebsite = 0x7f0700a9;
+		public static final int library_AndroidIconics_licenseId = 0x7f0700aa;
+		public static final int library_AndroidIconics_owner = 0x7f0700ab;
+		public static final int library_AndroidIconics_repositoryLink = 0x7f0700ac;
+		public static final int library_AndroidIconics_year = 0x7f0700ad;
 	}
 	public static final class styleable {
 		public static final int[] IconicsImageView = { 0x7f01002f, 0x7f010030, 0x7f010031, 0x7f010032 };

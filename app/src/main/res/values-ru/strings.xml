@@ -115,5 +115,7 @@
     <string name="quickBtn">Демо запуск</string>
     <string name="meetingBox">Режим совещания</string>
     <string name="userCity">Город</string>
+    <string name="welcome">Сервис Приветствия</string>
+    <string name="socialservice">Культурная программа</string>
 
 </resources>

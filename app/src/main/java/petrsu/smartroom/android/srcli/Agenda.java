@@ -177,7 +177,8 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 						new SectionDrawerItem().withName(R.string.services),
 						new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
 						new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
-                        new PrimaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe),
+                        new PrimaryDrawerItem().withName(R.string.socialservice).withIcon(FontAwesome.Icon.faw_globe),
+						new PrimaryDrawerItem().withName(R.string.welcome).withIcon(FontAwesome.Icon.faw_group),
 
                         new SectionDrawerItem().withName(R.string.discussion),
 
@@ -192,8 +193,8 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 						new PrimaryDrawerItem().withName(R.string.help_agenda).withIcon(FontAwesome.Icon.faw_info),
 						new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
 
-						new DividerDrawerItem(),
-						new PrimaryDrawerItem().withName("City gallery *WIP*").withIcon(FontAwesome.Icon.faw_globe),
+						new DividerDrawerItem(),//TODO ДОПИШИ ВХОД В ВЕЛКОМ ОТОВСЮДУ
+						//new PrimaryDrawerItem().withName("City gallery *WIP*").withIcon(FontAwesome.Icon.faw_globe),
 						new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
             @Override
@@ -208,26 +209,26 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 					case 3:
 						startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));
 						break;
-					case 5:
-						startActivity(Navigation.getCurDisqIntent(getApplicationContext()));
+					case 4:
+						startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));
 						break;
 					case 6:
+						startActivity(Navigation.getCurDisqIntent(getApplicationContext()));
+						break;
+					case 7:
 						startActivity(Navigation.getDisqListIntent(getApplicationContext()));
 						break;
-					case 8:
+					case 9:
 						startActivity(Navigation.getSettingsIntent(getApplicationContext()));
 						break;
-                    case 9:
+                    case 10:
                         updateCurTimeslot();
                         break;
-                    case 11:
+                    case 12:
                         openHelp();
                         break;
-                    case 12:
+                    case 13:
 						startActivity(Navigation.getManIntent(getApplicationContext()));
-                        break;
-                    case 14:
-						startActivity(Navigation.getGalleryIntent(getApplicationContext()));
                         break;
                     case 15:
 						startActivity(Navigation.exitApp());

@@ -310,8 +310,16 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getContentUrl
  * Method:    getCityByPersonUuid
  * Signature: ()Ljava/lang/String;
 */
-JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getCityByPersonUuid(
-    JNIEnv *env, jclass clazz, jstring uuid);
+JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getCityByPersonUuid
+  (JNIEnv *env, jclass clazz, jstring uuid);
+
+/**
+ * Class:     petrsu_smartroom_android_srcli_KP
+ * Method:    setCity
+ * Signature: ()I;
+*/
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_setCity
+  (JNIEnv *env, jclass clazz, jstring uuid, jstring city);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP

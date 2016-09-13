@@ -76,7 +76,8 @@ public class WebViewer extends ActionBarActivity {
                             new SectionDrawerItem().withName(R.string.services),
                             new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
                             new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
-                            new PrimaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe),
+                            new PrimaryDrawerItem().withName(R.string.socialservice).withIcon(FontAwesome.Icon.faw_globe),
+                            new PrimaryDrawerItem().withName(R.string.welcome).withIcon(FontAwesome.Icon.faw_group),
 
                             new SectionDrawerItem().withName(R.string.discussion),
                             new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
@@ -104,20 +105,23 @@ public class WebViewer extends ActionBarActivity {
                                 case 3:
                                     startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));
                                     break;
-                                case 5:
-                                    startActivity(Navigation.getCurDisqIntent(getApplicationContext()));
+                                case 4:
+                                    startActivity(Navigation.getGalleryIntent(getApplicationContext()));
                                     break;
                                 case 6:
+                                    startActivity(Navigation.getCurDisqIntent(getApplicationContext()));
+                                    break;
+                                case 7:
                                     startActivity(Navigation.getDisqListIntent(getApplicationContext()));
                                     break;
-                                case 8:
+                                case 9:
                                     startActivity(Navigation.getSettingsIntent(getApplicationContext()));
                                     break;
-                                case 10:
+                                case 11:
                                     startActivity(Navigation.getManIntent(getApplicationContext()));
                                     break;
-                                case 12:
-                                    startActivity(Navigation.getGalleryIntent(getApplicationContext()));
+                                case 13:
+                                    exitApp();
                                     break;
                                 default:
                                     break;

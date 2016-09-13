@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:2:1-100:12
+ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:2:1-104:12
 	package
 		ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:3:5-45
 		INJECTED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml
@@ -23,6 +23,9 @@ MERGED from [com.mikepenz:materialdrawer:3.1.0] C:\Users\Remediassance\AndroidSt
 MERGED from [com.android.support:appcompat-v7:22.2.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:22.2.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\AndroidManifest.xml:20:5-43
 MERGED from [com.mikepenz:iconics:1.2.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.mikepenz\iconics\1.2.0\AndroidManifest.xml:8:5-10:41
+MERGED from [com.google.android.gms:play-services-appindexing:8.1.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:8.1.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:22.2.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\AndroidManifest.xml:20:5-43
 	android:targetSdkVersion
 		ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:9:9-38
 		INJECTED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml
@@ -64,10 +67,13 @@ ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\ma
 	android:name
 		ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:19:22-65
 application
-ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:21:5-98:19
+ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:21:5-102:19
 MERGED from [com.android.support:appcompat-v7:22.2.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:22.2.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:appcompat-v7:22.2.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:22.2.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-appindexing:8.1.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-basement:8.1.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:22.2.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:24:9-41
@@ -191,3 +197,10 @@ ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\ma
 		ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:94:13-44
 	android:name
 		ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:93:13-70
+meta-data#com.google.android.gms.version
+ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:98:9-100:68
+MERGED from [com.google.android.gms:play-services-basement:8.1.0] C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:100:13-66
+	android:name
+		ADDED from C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\src\main\AndroidManifest.xml:99:13-58

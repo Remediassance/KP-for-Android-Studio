@@ -1,8 +1,7 @@
 package petrsu.smartroom.android.srcli;
 
 import android.app.AlertDialog;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,9 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -22,16 +18,6 @@ import android.widget.Toast;
 
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.entity.BufferedHttpEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.InputStream;
-import java.net.URL;
-import java.security.MessageDigest;
 import java.util.ArrayList;
 
 /**
@@ -75,7 +61,13 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
 
         Navigation.getBasicDrawer(getApplicationContext(), this, toolbar);
         uuid = KP.getPersonUuid();
-        city = "Petrozavodsk";
+
+        for(int i = 0; i < 5; i++)
+            if(city == null)
+                city = KP.getCityByPersonUuid(uuid);
+
+        Log.i("CityGallery: City is ", city);
+
 
 
 
@@ -106,6 +98,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         lv.setAdapter(new CityGalleryAdapter(this, dataList));
 
     }
+
 
 
 
@@ -157,28 +150,31 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         uuid = KP.getPersonUuid();
         url = KP.getPlaceInfo(city, uuid);
 
-        picName = url.substring(url.lastIndexOf("/")+1,url.indexOf("?"));
-        md5Hex = new String(Hex.encodeHex(DigestUtils.md5(picName)));
-        url = "https://upload.wikimedia.org/wikipedia/commons/thumb/"
-                + md5Hex.substring(0,1) + "/"
-                + md5Hex.substring(0,2) + "/"
-                + picName + "/300px-"
-                +picName;
+        if (url != null) {
+            picName = url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"));
+            md5Hex = new String(Hex.encodeHex(DigestUtils.md5(picName)));
+            url = "https://upload.wikimedia.org/wikipedia/commons/thumb/"
+                    + md5Hex.substring(0, 1) + "/"
+                    + md5Hex.substring(0, 2) + "/"
+                    + picName + "/300px-"
+                    + picName;
 
-        Log.i("Full url is", url);
+            Log.i("Full url is", url);
 
 
-        arrayList = new ArrayList(50);
+            arrayList = new ArrayList(50);
 
-        if (url == null) {
-            displayedCity.setText("Unable to recover images for " + city);
-        } else {
-            if(arrayList != null)
-                arrayList.clear();
-            arrayList.add(url);
-            lv.setAdapter(new CityGalleryAdapter(this, arrayList));
+            if (url == null) {
+                displayedCity.setText("Unable to recover images for " + city);
+            } else {
+                if (arrayList != null)
+                    arrayList.clear();
+                arrayList.add(url);
+                lv.setAdapter(new CityGalleryAdapter(this, arrayList));
 
+            }
         }
+        else Log.i("CityGallery-OnClick()", "Url is NULL, check getPlaceInfo()!");
     }
 }
 
