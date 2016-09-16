@@ -4,7 +4,7 @@
                 android:minHeight="100dp"
                 android:padding="8dp">
 
-    <ImageView
+   <!-- <ImageView
         android:id="@+id/thumbImage"
         android:layout_width="300px"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         android:id="@+id/desctitle"
         android:layout_below="@+id/textView2"
         android:layout_toRightOf="@+id/thumbImage"
-        android:layout_toEndOf="@+id/thumbImage"/>
+        android:layout_toEndOf="@+id/thumbImage"/> -->
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,8 +47,8 @@
         android:layout_below="@+id/fdsource"
         android:layout_alignLeft="@+id/fdsource"
         android:layout_alignStart="@+id/fdsource"
-        android:clickable="true"
-        android:focusableInTouchMode="true"/>
+        android:clickable="false"
+        android:focusableInTouchMode="false"/>
 
 
 </RelativeLayout>

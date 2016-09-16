@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -17,6 +18,8 @@ import android.widget.Toast;
 
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -29,6 +32,8 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
     private Button cityBtn;
     private EditText cityText;
     private TextView displayedCity;
+    private TextView foundingDate;
+    private ImageView imageView;
     private String ipAddr = null;
     private String picName;
     private String md5Hex;
@@ -50,15 +55,18 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         setContentView(R.layout.city_gallery);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        cityBtn = (Button) findViewById(R.id.searchBtn);
-        cityBtn.setOnClickListener(this);
+        //cityBtn = (Button) findViewById(R.id.searchBtn);
+        //cityBtn.setOnClickListener(this);
 
-        cityText = (EditText) findViewById(R.id.cityTxt);
+        //cityText = (EditText) findViewById(R.id.cityTxt);
 
         displayedCity = (TextView) findViewById(R.id.displayedText);
+        imageView = (ImageView) findViewById(R.id.thumbImage);
+        foundingDate = (TextView) findViewById(R.id.fdsource);
 
         Navigation.getBasicDrawer(getApplicationContext(), this, toolbar);
         uuid = KP.getPersonUuid();//TODO В агенде неверный линк в велком
@@ -69,7 +77,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
             }
 
         Log.i("CityGallery():","City title is " + city);
-
+        displayedCity.setText(city);
 
         ArrayList dataList = new ArrayList(3);
         try {
@@ -78,7 +86,6 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
             cityFD = KP.getPlaceFoundingDate(city);
 
             if (url != null) {
-                dataList.clear();
                 picName = url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"));
                 md5Hex = new String(Hex.encodeHex(DigestUtils.md5(picName)));
                 url = "https://upload.wikimedia.org/wikipedia/commons/thumb/"
@@ -86,22 +93,25 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
                         + md5Hex.substring(0, 2) + "/"
                         + picName + "/300px-"
                         + picName;
-                dataList.add(url);
+                new CityGalleryAsyncLoader(imageView).execute(url);
             } else {
-                dataList.clear();
-                dataList.add("http://0.tqn.com/d/webclipart/1/0/5/l/4/floral-icon-5.jpg");
+                new CityGalleryAsyncLoader(imageView).execute("http://0.tqn.com/d/webclipart/1/0/5/l/4/floral-icon-5.jpg");
             }
 
-            //TODO аналогичные проверки для описания и даты основания
+
             if(cityDesc != null){
+                dataList.clear();
                 dataList.add(cityDesc);
             }
-            else dataList.add("NaN");
+            else {
+                dataList.clear();
+                dataList.add("Oops! Description was lost :(");
+            }
 
             if(cityFD != null){
-                dataList.add(cityFD);
+                foundingDate.setText(cityFD);
             }
-            else dataList.add("Oops! Description was lost :(");
+            else foundingDate.setText("NaN");
 
         } catch (NullPointerException e) {
             e.printStackTrace();
@@ -183,10 +193,12 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
                         + picName + "/300px-"
                         + picName;
 
+
+
                 Log.i("Full url is", url);
 
 
-                arrayList = new ArrayList(50);
+                arrayList = new ArrayList(3);
 
                 if (url == null) {
                     displayedCity.setText("Unable to recover images for " + city);

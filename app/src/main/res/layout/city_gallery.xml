@@ -3,7 +3,7 @@
                 android:orientation="vertical" android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:id="@+id/background"
-                android:background="@drawable/city_bkgrnd"
+                android:background="@drawable/bkgrnd2"
     >
 
     <android.support.v7.widget.Toolbar
@@ -17,34 +17,47 @@
 
         />
 
-    <EditText
+    <ImageView
+        android:id="@+id/thumbImage"
+        android:layout_width="300px"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"/>
+
+    <TextView
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cityTxt"
-        android:autoText="false"
-        android:clickable="true"
-        android:editable="true"
-        android:enabled="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:hint="Petrozavodsk"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/toolbar"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/displayedText"
+        android:layout_below="@+id/thumbImage"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/displayedText"
-        android:layout_below="@+id/searchBtn"/>
+        android:text="@string/fdtitle"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/displayedText"
+        android:layout_alignLeft="@+id/thumbImage"
+        android:layout_alignStart="@+id/thumbImage"/>
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/searchBtn"
-        android:id="@+id/searchBtn"
-        android:layout_below="@+id/cityTxt"
-        android:layout_centerHorizontal="true" />
+        android:text="New Text"
+        android:id="@+id/fdsource"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_marginLeft="8dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/descTitle"
+        android:id="@+id/desctitle"
+        android:layout_above="@+id/listView"
+        android:layout_centerHorizontal="true"/>
 
 
     <ListView
@@ -54,8 +67,7 @@
         android:layout_centerHorizontal="true"
         android:background="#ffffff"
         android:layout_alignParentBottom="true"
-        android:backgroundTint="#29a69b"
-        />
+        android:alpha="0.8"/>
 
 
 </RelativeLayout>

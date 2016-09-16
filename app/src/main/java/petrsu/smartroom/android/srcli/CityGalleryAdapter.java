@@ -17,6 +17,10 @@ import java.util.ArrayList;
  * Created by Remediassance on 25.08.2016.
  * Adapter for entries in the City Gallery activity.
  * Maintains the content of activity.
+ *
+ * As of 16.09.16 I changed it so it only displays description of a city.
+ * To mke it display all data again, uncomment everything here and add
+ * proper changes to CityGallery class.
  */
 public class CityGalleryAdapter extends BaseAdapter {
 
@@ -31,8 +35,8 @@ public class CityGalleryAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getCount() {             // для отображения неск. записей
-        return 1;                       // dataList.size();
+    public int getCount() {
+        return dataList.size();
     }
 
     @Override
@@ -52,10 +56,10 @@ public class CityGalleryAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.list_column_layout, null);
             holder = new ViewHolder();
-            holder.imageView = (ImageView) convertView.findViewById(R.id.thumbImage);
+            //holder.imageView = (ImageView) convertView.findViewById(R.id.thumbImage);
             holder.description = (TextView) convertView.findViewById(R.id.seemore);
 
-            holder.description.setOnClickListener(new View.OnClickListener() {
+           /* holder.description.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(parentActivity);
@@ -64,27 +68,25 @@ public class CityGalleryAdapter extends BaseAdapter {
                     builder.create();
                     builder.show();
                 }
-            });
-            holder.foundingDate = (TextView) convertView.findViewById(R.id.fdsource);
+            });*/
+            //holder.foundingDate = (TextView) convertView.findViewById(R.id.fdsource);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        //Костыль: 0 1 и 2 - это индексы ссфлки на фото, даты основания и описания, переданных
-        // в массиве из класса галереи. Если передать вместо 0 переменную position, будет плохо,
-        // но если при этом не получать founding date и description, то все вообще красиво и работает.
-        if (holder.imageView != null) {
-            new CityGalleryAsyncLoader(holder.imageView).execute(dataList.get(0).toString());
+
+        /*if (holder.imageView != null) {
+            new CityGalleryAsyncLoader(holder.imageView).execute(dataList.get(position).toString());
         }
 
         if(holder.foundingDate != null){
             holder.foundingDate.setText(dataList.get(1).toString());
-        }
-
-        /*if(holder.description != null){
-            holder.description.setText(dataList.get(2).toString());
         }*/
+
+        if(holder.description != null){
+            holder.description.setText(dataList.get(position).toString());
+        }
 
         return convertView;
     }
