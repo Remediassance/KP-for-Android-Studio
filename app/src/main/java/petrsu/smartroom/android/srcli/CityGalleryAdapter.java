@@ -26,8 +26,8 @@ public class CityGalleryAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getCount() {
-        return dataList.size();
+    public int getCount() {             // для отображения неск. записей
+        return 1;                       // dataList.size();
     }
 
     @Override

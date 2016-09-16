@@ -70,7 +70,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         Log.i("CityGallery():","City title is " + city);
 
 
-        ArrayList dataList = new ArrayList(20);
+        ArrayList dataList = new ArrayList(3);
         try {
             url = KP.getPlacePhoto(city, uuid);
             cityDesc = KP.getPlaceDescription(city);
