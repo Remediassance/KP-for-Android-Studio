@@ -36,7 +36,8 @@ public class CityGalleryAsyncLoader extends AsyncTask<String, Void, Bitmap> {
 
     @Override
     protected Bitmap doInBackground(String... params) {
-        return downloadBitmap(params[0]);
+        return downloadBitmap(params[0]);   // парамс ссылается на arraylist данных, в каждой ячейке
+                                            // которого находится 3 элемента: ссылка, дата основания, описание.
     }
 
     @Override

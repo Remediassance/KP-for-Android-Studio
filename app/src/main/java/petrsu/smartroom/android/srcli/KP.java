@@ -17,7 +17,6 @@ import android.content.Context;
 import android.view.KeyEvent;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 
 import java.lang.ClassCastException;
 
@@ -83,13 +82,11 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		// See https://g.co/AppIndexing/AndroidStudio for more information.
 		client.connect();
 		Action viewAction = Action.newAction(
-				Action.TYPE_VIEW, // TODO: choose an action type.
-				"KP Page", // TODO: Define a title for the content shown.
-				// TODO: If you have web page content that matches this app activity's content,
-				// make sure this auto-generated web page URL is correct.
-				// Otherwise, set the URL to null.
+				Action.TYPE_VIEW, //
+				"KP Page", //
+				//
 				Uri.parse("http://host/path"),
-				// TODO: Make sure this auto-generated app URL is correct.
+
 				Uri.parse("android-app://petrsu.smartroom.android.srcli/http/host/path")
 		);
 		AppIndex.AppIndexApi.start(client, viewAction);
@@ -102,13 +99,9 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		// ATTENTION: This was auto-generated to implement the App Indexing API.
 		// See https://g.co/AppIndexing/AndroidStudio for more information.
 		Action viewAction = Action.newAction(
-				Action.TYPE_VIEW, // TODO: choose an action type.
-				"KP Page", // TODO: Define a title for the content shown.
-				// TODO: If you have web page content that matches this app activity's content,
-				// make sure this auto-generated web page URL is correct.
-				// Otherwise, set the URL to null.
+				Action.TYPE_VIEW, //
+				"KP Page", //
 				Uri.parse("http://host/path"),
-				// TODO: Make sure this auto-generated app URL is correct.
 				Uri.parse("android-app://petrsu.smartroom.android.srcli/http/host/path")
 		);
 		AppIndex.AppIndexApi.end(client, viewAction);
@@ -202,9 +195,13 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 
 	public static native String loadProfile(Profile profile, int index, boolean isMeetingMode);
 
-	public static native String getPlaceInfo(String city, String uuid);
+	public static native String getPlacePhoto(String city, String uuid);
 
 	public static native String getCityByPersonUuid(String uuid);
+
+	public static native String getPlaceDescription(String name);
+
+	public static native String getPlaceFoundingDate(String name);
 
 	public static native CharSequence[] getVideoTitleList();
 
@@ -666,11 +663,11 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 				EditText editCity = (EditText) dialogViewCity.findViewById(R.id.cityField);
 				String city = editCity.getText().toString();
 
-				if(city.equals("")) {
-					Toast.makeText(getApplicationContext(),R.string.guestNameEmpty,Toast.LENGTH_SHORT).show();
+				if(city.equals("") || CityGallery.isCityNameCorrect(city) == false) {
+					Toast.makeText(getApplicationContext(),R.string.citycheck,Toast.LENGTH_LONG).show();
 				} else {
 					if(KP.setCity(uuid,city) == -1) {
-						Toast.makeText(getApplicationContext(), R.string.registrationFail, Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), R.string.registrationFail, Toast.LENGTH_LONG).show();
 						return;
 					}
 					else {
@@ -693,6 +690,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	 * @param password - User password
 	 */
 	public void joinSmartSpace(final String name, final String password) {
+
 		if (name.equals("") || password.equals("")) {
 			showAnonimousDialog();
 			return;
@@ -707,7 +705,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		stopService(new Intent(this, NetworkService.class));
 		startService(new Intent(this, NetworkService.class));
 
-		if(getCityByPersonUuid(getPersonUuid()) == null){
+		if((getCityByPersonUuid(getPersonUuid())) == null){
 			registerCity(getPersonUuid());
 		}
 

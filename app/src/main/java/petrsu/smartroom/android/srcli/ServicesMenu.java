@@ -37,7 +37,7 @@ public class ServicesMenu extends ListActivity {
 		super.onCreate(savedInstanceState);
 		
 		/* Checks available services 
-		 * TODO: better to return array of services or indicators */
+		 */
 		KP.getServicesInfo(this);
 		
 		list = new ArrayList<ServicesMenuItem>();

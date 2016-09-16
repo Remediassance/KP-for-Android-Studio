@@ -605,7 +605,7 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 		registerReceiver(bcReceiver, filter);
 	}
 	
-	/* TODO: incorrect transition if last state is using */
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event)  {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {

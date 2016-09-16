@@ -163,4 +163,9 @@
 	<string name="userCity">City</string>
 	<string name="welcome">Welcome service</string>
 	<string name="socialservice">Social Service</string>
+	<string name="cityis">Your city is</string>
+	<string name="citycheck">Check that city field is in latin and non-empty!</string>
+	<string name="fdtitle">Founded in:</string>
+	<string name="descTitle">Description</string>
+	<string name="seemore">See more...</string>
 </resources>

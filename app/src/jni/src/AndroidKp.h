@@ -315,6 +315,14 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getCityByPerson
 
 /**
  * Class:     petrsu_smartroom_android_srcli_KP
+ * Method:    getCityFoundingDate
+ * Signature: ()Ljava/lang/String;
+*/
+JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlaceFoundingDate
+  (JNIEnv *env, jclass clazz, jstring title);
+
+/**
+ * Class:     petrsu_smartroom_android_srcli_KP
  * Method:    setCity
  * Signature: ()I;
 */
@@ -371,11 +379,19 @@ JNIEXPORT void JNICALL Java_petrsu_smartroom_android_srcli_KP_stopVideo
 
  /*
  * Class:     petrsu_smartroom_android_srcli_KP
- * Method:    getPlaceInfo
+ * Method:    getPlacePhoto
  * Signature: ()[Ljava/lang/String;
  */
- JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_setPlaceInfo
+ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlacePhoto
   (JNIEnv *, jclass, jstring, jstring);
+
+ /*
+ * Class:     petrsu_smartroom_android_srcli_KP
+ * Method:    getPlaceDescription
+ * Signature: ()[Ljava/lang/String;
+ */
+ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlaceDescription
+  (JNIEnv *, jclass, jstring);
 
 #ifdef __cplusplus
 }

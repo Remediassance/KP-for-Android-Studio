@@ -117,5 +117,10 @@
     <string name="userCity">Город</string>
     <string name="welcome">Сервис Приветствия</string>
     <string name="socialservice">Культурная программа</string>
+    <string name="cityis">Ваш город </string>
+    <string name="citycheck">Проверьте, что поле заполнено на латинице!</string>
+    <string name="fdtitle">Основан:</string>
+    <string name="descTitle">Описание:</string>
+    <string name="seemore">Показать</string>
 
 </resources>

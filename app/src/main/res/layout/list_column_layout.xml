@@ -12,4 +12,43 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="10dp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fdtitle"
+        android:id="@+id/textView2"
+        android:layout_toRightOf="@+id/thumbImage"
+        android:layout_toEndOf="@+id/thumbImage"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/fdsource"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_marginLeft="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/descTitle"
+        android:id="@+id/desctitle"
+        android:layout_below="@+id/textView2"
+        android:layout_toRightOf="@+id/thumbImage"
+        android:layout_toEndOf="@+id/thumbImage"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seemore"
+        android:id="@+id/seemore"
+        android:layout_below="@+id/fdsource"
+        android:layout_alignLeft="@+id/fdsource"
+        android:layout_alignStart="@+id/fdsource"
+        android:clickable="true"
+        android:focusableInTouchMode="true"/>
+
+
 </RelativeLayout>

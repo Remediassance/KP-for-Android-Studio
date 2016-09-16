@@ -58,8 +58,6 @@ import java.lang.Thread;
  * Agenda class shows activity program and
  * handles events like start conference, end
  * presentation, etc.
- *
- * TODO: обрабатывать вылет при попытке залогиниться, когда секция пустая
  */
 public class Agenda extends AppCompatActivity {// implements  View.OnClickListener{
 
@@ -193,7 +191,7 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 						new PrimaryDrawerItem().withName(R.string.help_agenda).withIcon(FontAwesome.Icon.faw_info),
 						new PrimaryDrawerItem().withName(R.string.manual).withIcon(FontAwesome.Icon.faw_download),
 
-						new DividerDrawerItem(),//TODO ДОПИШИ ВХОД В ВЕЛКОМ ОТОВСЮДУ
+						new DividerDrawerItem(),
 						//new PrimaryDrawerItem().withName("City gallery *WIP*").withIcon(FontAwesome.Icon.faw_globe),
 						new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
