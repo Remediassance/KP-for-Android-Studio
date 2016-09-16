@@ -1,6 +1,9 @@
 package petrsu.smartroom.android.srcli;
 
+import android.app.Activity;
 import android.content.Context;
+import android.support.v7.app.AlertDialog;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +22,12 @@ public class CityGalleryAdapter extends BaseAdapter {
 
     private ArrayList dataList;
     private LayoutInflater layoutInflater;
+    private Activity parentActivity;
 
-    public CityGalleryAdapter(Context context, ArrayList dataList) {
+    public CityGalleryAdapter(Context context, ArrayList dataList, Activity activity) {
         this.dataList = dataList;
-        layoutInflater = LayoutInflater.from(context);
+        this.layoutInflater = LayoutInflater.from(context);
+        this.parentActivity = activity;
     }
 
     @Override
@@ -41,7 +46,7 @@ public class CityGalleryAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
 
         ViewHolder holder;
         if (convertView == null) {
@@ -49,6 +54,17 @@ public class CityGalleryAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.imageView = (ImageView) convertView.findViewById(R.id.thumbImage);
             holder.description = (TextView) convertView.findViewById(R.id.seemore);
+
+            holder.description.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(parentActivity);
+                    builder.setTitle(CityGallery.city);
+                    builder.setMessage(dataList.get(2).toString());
+                    builder.create();
+                    builder.show();
+                }
+            });
             holder.foundingDate = (TextView) convertView.findViewById(R.id.fdsource);
             convertView.setTag(holder);
         } else {
@@ -66,9 +82,9 @@ public class CityGalleryAdapter extends BaseAdapter {
             holder.foundingDate.setText(dataList.get(1).toString());
         }
 
-        if(holder.description != null){
+        /*if(holder.description != null){
             holder.description.setText(dataList.get(2).toString());
-        }
+        }*/
 
         return convertView;
     }

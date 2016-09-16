@@ -1,6 +1,7 @@
 package petrsu.smartroom.android.srcli;
 
 import android.app.AlertDialog;
+import android.app.Application;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -32,7 +33,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
     private String picName;
     private String md5Hex;
     private String uuid;
-    private String city;
+    public static String city;
     private String url;
     private String cityDesc;
     private String cityFD;
@@ -107,7 +108,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         }
 
         lv = (ListView) findViewById(R.id.listView);
-        lv.setAdapter(new CityGalleryAdapter(this, dataList));
+        lv.setAdapter(new CityGalleryAdapter(this, dataList, CityGallery.this));
 
     }
 
@@ -193,12 +194,20 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
                     if (arrayList != null)
                         arrayList.clear();
                     arrayList.add(url);
-                    lv.setAdapter(new CityGalleryAdapter(this, arrayList));
+                    lv.setAdapter(new CityGalleryAdapter(this, arrayList, CityGallery.this));
 
                 }
             } else Log.i("CityGallery-OnClick()", "Url is NULL, check getPlacePhoto()!");
         }
         else Toast.makeText(CityGallery.this, "City name should be in Latin!", Toast.LENGTH_LONG).show();
     }
+
+    /*public void showDescriptionDialog(String description){
+        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(getApplicationContext());
+        builder.setTitle(R.string.joiningSR);
+        builder.setMessage(description);
+        builder.create();
+        builder.show();
+    }*/
 }
 
