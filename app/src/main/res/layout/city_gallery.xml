@@ -69,5 +69,16 @@
         android:layout_alignParentBottom="true"
         android:alpha="0.8"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change city"
+        android:id="@+id/changecity"
+        android:layout_alignTop="@+id/desctitle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:enabled="true"
+        android:focusableInTouchMode="true"/>
+
 
 </RelativeLayout>

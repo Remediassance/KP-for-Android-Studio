@@ -208,7 +208,7 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 						startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));
 						break;
 					case 4:
-						startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));
+						startActivity(Navigation.getGalleryIntent(getApplicationContext()));
 						break;
 					case 6:
 						startActivity(Navigation.getCurDisqIntent(getApplicationContext()));

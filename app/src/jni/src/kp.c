@@ -361,10 +361,6 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getCityByPerson
 		
 		individual_t* city = (individual_t*) (city_prop -> prop_value);
 
-		/*Новая часть*/
-		//return (*env)->NewStringUTF(env,(char*)(city -> uuid));
-		/*Конец ее*/
-
 		prop_val_t *cityTitle = sslog_ss_get_property(city, PROPERTY_PLACETITLE);
 		
 		if(cityTitle == NULL){
@@ -372,6 +368,8 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getCityByPerson
 			return NULL;
 		}
 		else __android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "City title property is set");
+
+		__android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "City recieved from ss is %s", (char*)(cityTitle->prop_value));
 
 		cityName = (*env)->NewStringUTF(env,(jstring)(cityTitle->prop_value));
 
@@ -504,14 +502,20 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_setCity(JNIEnv *en
 	const char *_uuid = (*env)->GetStringUTFChars(env, uuid, NULL);
 	const char *_city = (*env)->GetStringUTFChars(env, city, NULL);
 
-	individual_t* place = placeExists(_city);
+	individual_t* place = (individual_t *)placeExists(_city); // Связяно ли как-то время создания индивида с его переприсваиванием?
 	individual_t* person = (individual_t *)sslog_repo_get_individual_by_uuid(_uuid);
 
-	if(!place){
+	//__android_log_print(ANDROID_LOG_INFO, "setCity():", (char*)_city);
+
+	if(place == NULL){
 		__android_log_print(ANDROID_LOG_INFO, "setCity():", "Place does not exist!");
 		place = createPlace(_city);
 	}
+	else {
+		__android_log_print(ANDROID_LOG_INFO, "setCity():", "Place exists.");
+	}
 
+	place = sslog_repo_get_individual_by_uuid(place -> uuid); // :(
 
 	if(person == NULL){
 		__android_log_print(ANDROID_LOG_ERROR, "setCity():", "Cannot get person by uuid");
@@ -532,7 +536,8 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_setCity(JNIEnv *en
 	}
 	else __android_log_print(ANDROID_LOG_INFO, "setCity():", "Inserted the individual to the SS!");
 
-
+	(*env)->ReleaseStringUTFChars(env, city, _city);
+	(*env)->ReleaseStringUTFChars(env, uuid, _uuid);
 
 	return 0;
 
@@ -705,16 +710,18 @@ individual_t* placeExists(const char *title) {
 			prop_val_t *p_title = sslog_ss_get_property(city, PROPERTY_PLACETITLE);
 
 			if(p_title != NULL) {
+				__android_log_print(ANDROID_LOG_INFO, "placeExists()","%s vs %s",title,(char *)p_title->prop_value);
 				if(strcmp(title, (char *)p_title->prop_value) == 0) {
-					return city;
+					__android_log_print(ANDROID_LOG_INFO, "placeExists()","Found match!");
+					return (individual_t*)city;
 				}
 			}
 		}
 	}
 	else {
 		__android_log_print(ANDROID_LOG_ERROR, "placeExists():", "Place list doesn't contain this place");
+		return NULL;
 	}
-
 	return NULL;
 }
 

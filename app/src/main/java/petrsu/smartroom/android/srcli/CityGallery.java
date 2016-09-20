@@ -2,11 +2,13 @@ package petrsu.smartroom.android.srcli;
 
 import android.app.AlertDialog;
 import android.app.Application;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +35,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
     private EditText cityText;
     private TextView displayedCity;
     private TextView foundingDate;
+    private TextView changeCity;
     private ImageView imageView;
     private String ipAddr = null;
     private String picName;
@@ -59,67 +62,16 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //cityBtn = (Button) findViewById(R.id.searchBtn);
-        //cityBtn.setOnClickListener(this);
-
-        //cityText = (EditText) findViewById(R.id.cityTxt);
-
         displayedCity = (TextView) findViewById(R.id.displayedText);
         imageView = (ImageView) findViewById(R.id.thumbImage);
         foundingDate = (TextView) findViewById(R.id.fdsource);
+        changeCity = (TextView) findViewById(R.id.changecity);
+
+        changeCity.setOnClickListener(this);
 
         Navigation.getBasicDrawer(getApplicationContext(), this, toolbar);
-        uuid = KP.getPersonUuid();//TODO В агенде неверный линк в велком
 
-        for (int i = 0; i < 5; i++)
-            if (city == null) {
-                city = KP.getCityByPersonUuid(uuid);
-            }
-
-        Log.i("CityGallery():","City title is " + city);
-        displayedCity.setText(city);
-
-        ArrayList dataList = new ArrayList(3);
-        try {
-            url = KP.getPlacePhoto(city, uuid);
-            cityDesc = KP.getPlaceDescription(city);
-            cityFD = KP.getPlaceFoundingDate(city);
-
-            if (url != null) {
-                picName = url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"));
-                md5Hex = new String(Hex.encodeHex(DigestUtils.md5(picName)));
-                url = "https://upload.wikimedia.org/wikipedia/commons/thumb/"
-                        + md5Hex.substring(0, 1) + "/"
-                        + md5Hex.substring(0, 2) + "/"
-                        + picName + "/300px-"
-                        + picName;
-                new CityGalleryAsyncLoader(imageView).execute(url);
-            } else {
-                new CityGalleryAsyncLoader(imageView).execute("http://0.tqn.com/d/webclipart/1/0/5/l/4/floral-icon-5.jpg");
-            }
-
-
-            if(cityDesc != null){
-                dataList.clear();
-                dataList.add(cityDesc);
-            }
-            else {
-                dataList.clear();
-                dataList.add("Oops! Description was lost :(");
-            }
-
-            if(cityFD != null){
-                foundingDate.setText(cityFD);
-            }
-            else foundingDate.setText("NaN");
-
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-
-        lv = (ListView) findViewById(R.id.listView);
-        lv.setAdapter(new CityGalleryAdapter(this, dataList, CityGallery.this));
-
+        refreshActivity();
     }
 
     @Override
@@ -167,19 +119,57 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
     /*=========================================================================
     *  IMPLEMENTATION OF ONCLICK LISTENER
     *==========================================================================
-    * TODO: Получение описания города и даты основания.
-    * TODO: Перепилить интерфейс сервиса с учетом последних правок
-     */
+    */
     @Override
     public void onClick(View v) {
-        ArrayList arrayList = null;
 
-        city = cityText.getText().toString();
-        if (isCityNameCorrect(city)) {
-            displayedCity.setText(R.string.cityis + " " + city);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        final View dialogViewCity = inflater.inflate(R.layout.city_registration, null);
 
-            uuid = KP.getPersonUuid();
-            KP.setCity(uuid, city);
+        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+        builder.setView(dialogViewCity);
+        builder.setTitle(R.string.registrationTitle);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                EditText editCity = (EditText) dialogViewCity.findViewById(R.id.cityField);
+                String cityz = editCity.getText().toString();
+                Log.i("GalleryOnClick()", "Passing city "+cityz); //TODO: не обновляется на старый город, надо править
+
+                if (cityz.equals("") || CityGallery.isCityNameCorrect(cityz) == false) {
+                    Toast.makeText(getApplicationContext(), R.string.citycheck, Toast.LENGTH_LONG).show();
+                } else {
+                    if (KP.setCity(uuid, cityz) == -1) {
+                        Toast.makeText(getApplicationContext(), R.string.registrationFail, Toast.LENGTH_LONG).show();
+                    } else {
+                        Log.i("GalleryOnClick()", "Rewriting city data...OK");
+                        refreshActivity();
+                    }
+                }
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, null);
+        android.support.v7.app.AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
+    /**========================================================================
+     * Rewrites fields of activity to newly changed city info
+     *=========================================================================
+     */
+    private void refreshActivity(){
+
+        uuid = KP.getPersonUuid();
+
+        city = null;
+        city = KP.getCityByPersonUuid(uuid);
+
+        Log.i("CityGallery():", "City title is " + city);
+        displayedCity.setText(city);
+
+        ArrayList dataList = new ArrayList(3);
+        try {
             url = KP.getPlacePhoto(city, uuid);
             cityDesc = KP.getPlaceDescription(city);
             cityFD = KP.getPlaceFoundingDate(city);
@@ -192,34 +182,31 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
                         + md5Hex.substring(0, 2) + "/"
                         + picName + "/300px-"
                         + picName;
+                new CityGalleryAsyncLoader(imageView).execute(url);
+            } else {
+                new CityGalleryAsyncLoader(imageView).execute("http://0.tqn.com/d/webclipart/1/0/5/l/4/floral-icon-5.jpg");
+            }
 
 
+            if (cityDesc != null) {
+                dataList.clear();
+                dataList.add(cityDesc);
+            } else {
+                dataList.clear();
+                dataList.add("Oops! Description was lost :(");
+            }
 
-                Log.i("Full url is", url);
+            if (cityFD != null) {
+                foundingDate.setText(cityFD);
+            } else foundingDate.setText("NaN");
 
-
-                arrayList = new ArrayList(3);
-
-                if (url == null) {
-                    displayedCity.setText("Unable to recover images for " + city);
-                } else {
-                    if (arrayList != null)
-                        arrayList.clear();
-                    arrayList.add(url);
-                    lv.setAdapter(new CityGalleryAdapter(this, arrayList, CityGallery.this));
-
-                }
-            } else Log.i("CityGallery-OnClick()", "Url is NULL, check getPlacePhoto()!");
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
-        else Toast.makeText(CityGallery.this, "City name should be in Latin!", Toast.LENGTH_LONG).show();
+
+        lv = (ListView) findViewById(R.id.listView);
+        lv.setAdapter(new CityGalleryAdapter(this, dataList, CityGallery.this));
     }
 
-    /*public void showDescriptionDialog(String description){
-        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(getApplicationContext());
-        builder.setTitle(R.string.joiningSR);
-        builder.setMessage(description);
-        builder.create();
-        builder.show();
-    }*/
 }
 

@@ -661,12 +661,12 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				EditText editCity = (EditText) dialogViewCity.findViewById(R.id.cityField);
-				String city = editCity.getText().toString();
+				String cityz = editCity.getText().toString();
 
-				if(city.equals("") || CityGallery.isCityNameCorrect(city) == false) {
+				if(cityz.equals("") || CityGallery.isCityNameCorrect(cityz) == false) {
 					Toast.makeText(getApplicationContext(),R.string.citycheck,Toast.LENGTH_LONG).show();
 				} else {
-					if(KP.setCity(uuid,city) == -1) {
+					if(KP.setCity(uuid,cityz) == -1) {
 						Toast.makeText(getApplicationContext(), R.string.registrationFail, Toast.LENGTH_LONG).show();
 						return;
 					}
