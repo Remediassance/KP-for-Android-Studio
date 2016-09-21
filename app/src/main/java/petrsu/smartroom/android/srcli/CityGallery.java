@@ -97,7 +97,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
 
     public static boolean isCityNameCorrect(String city) {
         String _city = city.toLowerCase();
-        if (_city.matches("[A-Za-z]+"))
+        if (_city.matches("[A-Za-z ]+"))
             return true;
         else return false;
     }
@@ -153,7 +153,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         dialog.show();
     }
 
-
+    //TODO Сделать отображение города для каждого из участников
     /**========================================================================
      * Rewrites fields of activity to newly changed city info
      *=========================================================================
@@ -165,47 +165,90 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         city = null;
         city = KP.getCityByPersonUuid(uuid);
 
-        Log.i("CityGallery():", "City title is " + city);
-        displayedCity.setText(city);
-
         ArrayList dataList = new ArrayList(3);
         try {
             url = KP.getPlacePhoto(city, uuid);
             cityDesc = KP.getPlaceDescription(city);
             cityFD = KP.getPlaceFoundingDate(city);
 
-            if (url != null) {
-                picName = url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"));
-                md5Hex = new String(Hex.encodeHex(DigestUtils.md5(picName)));
-                url = "https://upload.wikimedia.org/wikipedia/commons/thumb/"
-                        + md5Hex.substring(0, 1) + "/"
-                        + md5Hex.substring(0, 2) + "/"
-                        + picName + "/300px-"
-                        + picName;
-                new CityGalleryAsyncLoader(imageView).execute(url);
-            } else {
-                new CityGalleryAsyncLoader(imageView).execute("http://0.tqn.com/d/webclipart/1/0/5/l/4/floral-icon-5.jpg");
-            }
-
-
-            if (cityDesc != null) {
-                dataList.clear();
-                dataList.add(cityDesc);
-            } else {
-                dataList.clear();
-                dataList.add("Oops! Description was lost :(");
-            }
-
+            //Если у города нет даты основания, то, возможно, инфа введена неверно
             if (cityFD != null) {
                 foundingDate.setText(cityFD);
-            } else foundingDate.setText("NaN");
+
+                Log.i("CityGallery():", "City title is " + city);
+                displayedCity.setText(city);
+
+                if (url != null) {
+                    picName = url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"));
+                    md5Hex = new String(Hex.encodeHex(DigestUtils.md5(picName)));
+                    url = "https://upload.wikimedia.org/wikipedia/commons/thumb/"
+                            + md5Hex.substring(0, 1) + "/"
+                            + md5Hex.substring(0, 2) + "/"
+                            + picName + "/700px-"
+                            + picName;
+                    Log.i("city link is", url);
+                    new CityGalleryAsyncLoader(imageView).execute(url);
+                } else {
+                    new CityGalleryAsyncLoader(imageView).execute("http://0.tqn.com/d/webclipart/1/0/5/l/4/floral-icon-5.jpg");
+                }
+
+                if (cityDesc != null) {
+                    dataList.clear();
+                    dataList.add(cityDesc);
+                } else {
+                    dataList.clear();
+                    dataList.add("Oops! Description was lost :(");
+                }
+
+                lv = (ListView) findViewById(R.id.listView);
+                lv.setAdapter(new CityGalleryAdapter(this, dataList, CityGallery.this));
+
+            } else {
+                Toast.makeText(CityGallery.this, R.string.cityerror, Toast.LENGTH_SHORT).show();
+                registerCity(uuid);
+            }
 
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+    }
 
-        lv = (ListView) findViewById(R.id.listView);
-        lv.setAdapter(new CityGalleryAdapter(this, dataList, CityGallery.this));
+
+    /**
+     * Register city property after the user by his/her uuid
+     * @param  uuid - uuid of a user without a city property
+     */
+    public void registerCity(final String uuid) {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        final View dialogViewCity = inflater.inflate(R.layout.city_registration, null);
+
+        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+        builder.setView(dialogViewCity);
+        builder.setTitle(R.string.registrationTitle);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                EditText editCity = (EditText) dialogViewCity.findViewById(R.id.cityField);
+                String cityz = editCity.getText().toString();
+
+                if(cityz.equals("") || CityGallery.isCityNameCorrect(cityz) == false) {
+                    Toast.makeText(getApplicationContext(),R.string.citycheck,Toast.LENGTH_LONG).show();
+                } else {
+                    if(KP.setCity(uuid,cityz) == -1) {
+                        Toast.makeText(getApplicationContext(), R.string.registrationFail, Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    else {
+                        Log.i("registerCity()", "Going to the Gallery!");
+                        refreshActivity();
+                        //startActivity(Navigation.getGalleryIntent(getApplicationContext()));
+                    }
+                }
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, null);
+        android.support.v7.app.AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 }

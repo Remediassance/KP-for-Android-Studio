@@ -122,5 +122,6 @@
     <string name="fdtitle">Основан:</string>
     <string name="descTitle">Описание:</string>
     <string name="seemore">Показать</string>
+    <string name="cityerror">Введенного Вами города не существует!</string>
 
 </resources>

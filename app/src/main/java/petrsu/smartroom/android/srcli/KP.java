@@ -648,7 +648,6 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	/**
 	 * Register city property after the user by his/her uuid
 	 * @param  uuid - uuid of a user without a city property
-	 * TODO: Организатор вводит город за юзера >изимод<
 	 */
 	public void registerCity(final String uuid) {
 		LayoutInflater inflater = LayoutInflater.from(this);

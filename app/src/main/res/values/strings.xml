@@ -168,4 +168,5 @@
 	<string name="fdtitle">Founded in:</string>
 	<string name="descTitle">Description</string>
 	<string name="seemore">See more...</string>
+	<string name="cityerror">City with such name does not exist!</string>
 </resources>

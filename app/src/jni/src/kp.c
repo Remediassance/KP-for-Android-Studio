@@ -524,8 +524,8 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_setCity(JNIEnv *en
 	}
 	else __android_log_print(ANDROID_LOG_INFO, "setCity():", "Got person by uuid!");
 
-	op_prop = sslog_ss_get_property(person, PROPERTY_CITY);
-	oldPlace = (individual_t*)(op_prop -> prop_value);
+	oldPlace = sslog_ss_get_property(person, PROPERTY_CITY);
+	//oldPlace = (individual_t*)(op_prop -> prop_value);
 
 	/*
 	* Do if city wasn't set before fot this individual
