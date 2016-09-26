@@ -4,6 +4,7 @@ package petrsu.smartroom.android.srcli;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.*;
 import android.text.Html;
 import android.util.Log;
@@ -134,7 +135,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 
 	public static native int loadPresentation(Projector projector);
 
-	public static native int loadTimeslotList(Agenda obj, boolean isMeetingMode);
+	public static native int loadTimeslotList(AppCompatActivity obj, boolean isMeetingMode, boolean isUuidNeeded);
 
 	public static native int personTimeslotIndex(boolean isMeetingMode);
 

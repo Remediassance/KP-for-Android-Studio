@@ -413,14 +413,14 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlaceDescrip
 		__android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():", "Place does not exist!");
 		return NULL;
 	}
-	else __android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():", place -> uuid);
+	else __android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():","%s", place -> uuid);
 
 
 	/*Только 1 описание на место*/
 	prop_val_t* place_prop = sslog_ss_get_property(place, PROPERTY_PLACEDESCRIPTION); 
 
 	if(place_prop == NULL){
-		__android_log_print(ANDROID_LOG_ERROR, "getPlaceDescription():", "%s", "PROPERTY_PLACEDESCRIPTION is NULL");
+		__android_log_print(ANDROID_LOG_ERROR, "getPlaceDescription():", "PROPERTY_PLACEDESCRIPTION is NULL");
 		return NULL;
 	}
 	else {
@@ -466,7 +466,7 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlaceFoundin
 		__android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():", "Place does not exist!");
 		return NULL;
 	}
-	else __android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():", place -> uuid);
+	else __android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():","%s", place -> uuid);
 
 
 	/*Только 1 описание на место*/
@@ -653,6 +653,7 @@ individual_t* createPlace(const char *city) {
 
 	return place;
 }
+
 
 /**
  * @brief Creates person individual
@@ -842,7 +843,7 @@ int activatePerson(individual_t *profile) {
  * @return Returns 0 in success and -1 if failed
  */
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList(
-		JNIEnv *env, jclass clazz, jobject obj, jboolean ismeeting) { 
+		JNIEnv *env, jclass clazz, jobject obj, jboolean ismeeting, jboolean isUuidNeeded) { 
 
 	prop_val_t *propTimeslot = NULL;
 
@@ -868,7 +869,7 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList(
 		if(pTimeslot == NULL)
 			return -1;
 
-		addTimeslotToJavaList(env, pTimeslot, obj);
+		addTimeslotToJavaList(env, pTimeslot, obj, isUuidNeeded);
 		propTimeslot = sslog_ss_get_property(pTimeslot, PROPERTY_NEXTTIMESLOT);
 	}
 
@@ -883,51 +884,73 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList(
  * @param timeslot - timeslot individual
  * @param obj - Agenda class object
  */
-void addTimeslotToJavaList(JNIEnv *env, individual_t *timeslot, jobject obj) {
+void addTimeslotToJavaList(JNIEnv *env, individual_t *timeslot, jobject obj, jboolean isUuidNeeded) {
 
-	jmethodID methodId = (*env)->GetMethodID(env, classAgenda,
-			"addTimeslotItemToList",
-			"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
+	
+	jmethodID methodId;
+
+	/*Done so because (isuuidneeded == true) is only when called from citygallery class*/
+	if(!isUuidNeeded)
+		methodId = (*env)->GetMethodID(env, classAgenda, "addTimeslotItemToList","(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
+	else 
+		methodId = (*env)->GetMethodID(env, classGallery, "addTimeslotItemToList","(Ljava/lang/String;Ljava/lang/String;)V");
 
 	char *name, *title;
 	char *status = "offline";
 	char *imgLink = "absentImage";
+	char *uuid = "NoUuid";
 
-	prop_val_t *p_val_name = sslog_ss_get_property (timeslot,
-			PROPERTY_TIMESLOTSPEAKERNAME);
-	prop_val_t *p_val_person_link = sslog_ss_get_property (timeslot,
-			PROPERTY_TIMESLOTPERSON);
+	prop_val_t *p_val_name = sslog_ss_get_property (timeslot, PROPERTY_TIMESLOTSPEAKERNAME);
+	prop_val_t *p_val_person_link = sslog_ss_get_property (timeslot, PROPERTY_TIMESLOTPERSON);
 	prop_val_t *p_val_pres_title = getPresentationTitleProp(timeslot);
 
-	name = (p_val_name == NULL) ?
-			"No name" : (char *)(p_val_name->prop_value);
 
-	title = (p_val_pres_title == NULL) ?
-			"No title" : (char *)(p_val_pres_title->prop_value);
+	if(isUuidNeeded){
+		if(p_val_person_link != NULL){
+			individual_t *person = (individual_t*)(p_val_person_link -> prop_value);
+			uuid = person -> uuid;
+			name = (p_val_name == NULL) ? "No name" : (char *)(p_val_name->prop_value);
+		} 
+		else __android_log_print(ANDROID_LOG_ERROR, "loadTimeSlot()", "PROPERTY_TIMESLOTPERSON is NULL");
 
-	if(p_val_person_link != NULL) {
-		individual_t *person = (individual_t *)p_val_person_link->prop_value;
-		prop_val_t *p_val_status = sslog_ss_get_property (person,
-				PROPERTY_STATUS);
+		/*Calling CityGallery's addTimeslotItemToList Java method*/
+		if(obj != NULL)
+			(*env)->CallVoidMethod(env, obj, methodId, 
+				(*env)->NewStringUTF(env, uuid),
+				(*env)->NewStringUTF(env, name));
+		else __android_log_print(ANDROID_LOG_ERROR, "loadTimeSlot()", "Object obj NULL");
 
-		status = (p_val_status != NULL) ?
-				(char *) p_val_status->prop_value : "offline";
+	} 
 
-		prop_val_t *p_val_img = sslog_ss_get_property (person, PROPERTY_IMG);
+	else{
 
-		if(p_val_img != NULL)
-			imgLink = (char *)p_val_img->prop_value;
-		else if(strcmp(status, "online") == 0)
-			imgLink = "noImage";
+		name = (p_val_name == NULL) ? "No name" : (char *)(p_val_name->prop_value);
+
+		title = (p_val_pres_title == NULL) ? "No title" : (char *)(p_val_pres_title->prop_value);
+
+		if(p_val_person_link != NULL) {
+			individual_t *person = (individual_t *)p_val_person_link->prop_value;
+
+			prop_val_t *p_val_status = sslog_ss_get_property (person, PROPERTY_STATUS);
+
+			status = (p_val_status != NULL) ? (char *) p_val_status->prop_value : "offline";
+
+			prop_val_t *p_val_img = sslog_ss_get_property (person, PROPERTY_IMG);
+
+			if(p_val_img != NULL)
+				imgLink = (char *)p_val_img->prop_value;
+			else if(strcmp(status, "online") == 0)
+				imgLink = "noImage";
+		}
+
+		/* Calling Agenda's addTimeslotItemToList Java method */
+		if(obj != NULL)
+			(*env)->CallVoidMethod(env, obj, methodId,
+					(*env)->NewStringUTF(env, name),
+					(*env)->NewStringUTF(env, title),
+					(*env)->NewStringUTF(env, imgLink),
+					(*env)->NewStringUTF(env, status));
 	}
-
-	/* Calling Agenda's addTimeslotItemToList Java method */
-	if(obj != NULL)
-		(*env)->CallVoidMethod(env, obj, methodId,
-				(*env)->NewStringUTF(env, name),
-				(*env)->NewStringUTF(env, title),
-				(*env)->NewStringUTF(env, imgLink),
-				(*env)->NewStringUTF(env, status));
 }
 
 
@@ -1084,9 +1107,11 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_initSubscription(
 
 	jclass *classAgendaObj = getJClassObject(env, "Agenda");
 	jclass *classProjectorObj = getJClassObject(env, "Projector");
+	jclass *classGalleryObj = getJClassObject(env, "CityGallery");
 
 	classAgenda = (jclass *)(*env)->NewGlobalRef(env, classAgendaObj);
 	classProjector = (jclass *)(*env)->NewGlobalRef(env, classProjectorObj);
+	classGallery = (jclass *)(*env)->NewGlobalRef(env, classGalleryObj);
 
 	if(subscribeConferenceService() != 0)
 		return -1;
@@ -1098,11 +1123,14 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_initSubscription(
 
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_initMeetingSubscription(
 		JNIEnv *env, jobject obj){
-		jclass *classAgendaObj = getJClassObject(env, "Agenda");
+	
+	jclass *classAgendaObj = getJClassObject(env, "Agenda");
 	jclass *classProjectorObj = getJClassObject(env, "Projector");
+	jclass *classGalleryObj = getJClassObject(env, "CityGallery");
 
 	classAgenda = (jclass *)(*env)->NewGlobalRef(env, classAgendaObj);
 	classProjector = (jclass *)(*env)->NewGlobalRef(env, classProjectorObj);
+	classGallery = (jclass *)(*env)->NewGlobalRef(env, classGalleryObj);
 
 	if(subscribePresentationService() != 0)
 		return -1;

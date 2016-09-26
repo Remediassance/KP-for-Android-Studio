@@ -169,4 +169,7 @@
 	<string name="descTitle">Description</string>
 	<string name="seemore">See more...</string>
 	<string name="cityerror">City with such name does not exist!</string>
+	<string name="participantslist">Participants</string>
+	<string name="changecity">Change city</string>
+	<string name="choosePerson">Choose person</string>
 </resources>

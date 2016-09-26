@@ -3,12 +3,14 @@ package petrsu.smartroom.android.srcli;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,11 +20,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.commons.codec.binary.CharSequenceUtils;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Created by Remediassance on 26.03.2016.
@@ -32,21 +36,32 @@ import java.util.ArrayList;
 public class CityGallery extends ActionBarActivity implements View.OnClickListener {
 
     private Button cityBtn;
+
     private EditText cityText;
+
     private TextView displayedCity;
     private TextView foundingDate;
     private TextView changeCity;
+    private TextView participants;
+
     private ImageView imageView;
+
     private String ipAddr = null;
     private String picName;
     private String md5Hex;
     private String uuid;
-    public static String city;
     private String url;
     private String cityDesc;
     private String cityFD;
+
     private ListView lv;
+
     public static ProgressBar progressBar;
+    public static String city;
+
+    private static ArrayList<Timeslot> list;
+    private static ArrayList<String> uuidList;
+    private static ArrayList<String> namesList;
 
     /*=========================================================================
    *  IMPLEMENTATION OF ONCREATE
@@ -66,12 +81,14 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         imageView = (ImageView) findViewById(R.id.thumbImage);
         foundingDate = (TextView) findViewById(R.id.fdsource);
         changeCity = (TextView) findViewById(R.id.changecity);
+        participants = (TextView) findViewById(R.id.participantsTxt);
 
-        changeCity.setOnClickListener(this);
+        imageView.setOnClickListener(this);
+        participants.setOnClickListener(this);
 
         Navigation.getBasicDrawer(getApplicationContext(), this, toolbar);
 
-        refreshActivity();
+        refreshActivity(KP.getPersonUuid());
     }
 
     @Override
@@ -123,34 +140,96 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
 
-        LayoutInflater inflater = LayoutInflater.from(this);
-        final View dialogViewCity = inflater.inflate(R.layout.city_registration, null);
+        /*
+        * Actions differ based on item selected
+        */
+        switch(v.getId()){
+            /*
+            * If changecity is called, user is opted to change >his< city
+             */
+            case R.id.thumbImage: {
 
-        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
-        builder.setView(dialogViewCity);
-        builder.setTitle(R.string.registrationTitle);
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                EditText editCity = (EditText) dialogViewCity.findViewById(R.id.cityField);
-                String cityz = editCity.getText().toString();
-                Log.i("GalleryOnClick()", "Passing city "+cityz); //TODO: не обновляется на старый город, надо править
+                LayoutInflater inflater = LayoutInflater.from(this);
+                final View dialogViewCity = inflater.inflate(R.layout.city_registration, null);
 
-                if (cityz.equals("") || CityGallery.isCityNameCorrect(cityz) == false) {
-                    Toast.makeText(getApplicationContext(), R.string.citycheck, Toast.LENGTH_LONG).show();
-                } else {
-                    if (KP.setCity(uuid, cityz) == -1) {
-                        Toast.makeText(getApplicationContext(), R.string.registrationFail, Toast.LENGTH_LONG).show();
-                    } else {
-                        Log.i("GalleryOnClick()", "Rewriting city data...OK");
-                        refreshActivity();
+                android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+                builder.setView(dialogViewCity);
+                builder.setTitle(R.string.registrationTitle);
+                builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        EditText editCity = (EditText) dialogViewCity.findViewById(R.id.cityField);
+                        String cityz = editCity.getText().toString();
+                        Log.i("GalleryOnClick()", "Passing city " + cityz);
+
+                        if (cityz.equals("") || CityGallery.isCityNameCorrect(cityz) == false) {
+                            Toast.makeText(getApplicationContext(), R.string.citycheck, Toast.LENGTH_LONG).show();
+                        } else {
+                            if (KP.setCity(uuid, cityz) == -1) {
+                                Toast.makeText(getApplicationContext(), R.string.registrationFail, Toast.LENGTH_LONG).show();
+                            } else {
+                                Log.i("GalleryOnClick()", "Rewriting city data...OK");
+                                refreshActivity(KP.getPersonUuid());
+                            }
+                        }
                     }
+                });
+                builder.setNegativeButton(android.R.string.cancel, null);
+                android.support.v7.app.AlertDialog dialog = builder.create();
+                dialog.show();
+            } break;
+
+            /*
+            * If participants item is selected, list of participants of current section is displayed
+             */
+            case R.id.participantsTxt: {
+                list = new ArrayList<>();
+                uuidList = new ArrayList<>();
+                namesList = new ArrayList<>();
+                Timeslot ts;
+                /*
+                * Fetching all participants names and uuids from ss
+                 */
+                if(KP.loadTimeslotList(this, KP.isMeetingMode, true) == -1) {
+                    Log.e("CityGallery onClick()", "Error fetching uuids of all speakers");
+                    return;
                 }
-            }
-        });
-        builder.setNegativeButton(android.R.string.cancel, null);
-        android.support.v7.app.AlertDialog dialog = builder.create();
-        dialog.show();
+
+                for(int i = 0; i < list.size(); i++){
+                    ts = list.get(i);
+                    namesList.add(ts.getPersonName());
+                    uuidList.add(ts.getPersonUuid());
+                }
+
+                CharSequence[] csNames = namesList.toArray(new CharSequence[namesList.size()]);
+                LayoutInflater inflater = LayoutInflater.from(this);
+                final View personListView = inflater.inflate(R.layout.personlist, null);
+                AlertDialog alert;
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                builder.setTitle(R.string.choosePerson);
+                builder.setView(personListView);
+                builder.setItems(csNames, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // here we have person uuid, need to go to proper city gallery page
+                        KP.getCityByPersonUuid(uuidList.get(which));
+                        refreshActivity(uuidList.get(which));
+                    }
+                });
+                builder.setNegativeButton(android.R.string.cancel, null);
+                alert = builder.create();
+                alert.show();
+            } break;
+        }
+    }
+
+    public void addTimeslotItemToList(final String uuid, final String name) {
+        if(uuid != null && name != null) {
+            list.add(new Timeslot(uuid,name));
+        } else {
+            Log.e("CGaddTimeslotItemToList", "Error getting uuid and name from ss!");
+        }
     }
 
     //TODO Сделать отображение города для каждого из участников
@@ -158,9 +237,9 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
      * Rewrites fields of activity to newly changed city info
      *=========================================================================
      */
-    private void refreshActivity(){
+    private void refreshActivity(String _uuid){
 
-        uuid = KP.getPersonUuid();
+        uuid = _uuid;//KP.getPersonUuid();
 
         city = null;
         city = KP.getCityByPersonUuid(uuid);
@@ -240,7 +319,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
                     }
                     else {
                         Log.i("registerCity()", "Going to the Gallery!");
-                        refreshActivity();
+                        refreshActivity(uuid);
                         //startActivity(Navigation.getGalleryIntent(getApplicationContext()));
                     }
                 }

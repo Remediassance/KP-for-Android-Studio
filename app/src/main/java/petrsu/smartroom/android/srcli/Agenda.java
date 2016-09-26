@@ -84,9 +84,6 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 	public boolean conferenceStarted;
 	public boolean conferenceEnded;
 
-	private ImageButton addSpeechBtn;
-
-
 
 	public Agenda() {
 		contentUrl = KP.getContentUrl();
@@ -148,11 +145,11 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 		/*
 		* Button that sends new speech request to meeting service
 		 */
-		addSpeechBtn = (ImageButton) findViewById(R.id.addSpeechBtn);
+		ImageButton addSpeechBtn = (ImageButton) findViewById(R.id.addSpeechBtn);
 		addSpeechBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(),"Sent new speech notification",Toast.LENGTH_LONG);
+				Toast.makeText(getApplicationContext(),"Sent new speech notification",Toast.LENGTH_LONG).show();
 			}
 		});
 
@@ -548,7 +545,7 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 		list = new ArrayList<>();
 		
 		/* If loading program failed */
-		if(KP.loadTimeslotList(this, KP.isMeetingMode) == -1) {
+		if(KP.loadTimeslotList(this, KP.isMeetingMode, false) == -1) {
 			Log.i("Agenda GUI", "Fill agenda fail");
 			return -1;
 		}
@@ -661,7 +658,7 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 								break;
 
 							case REMOVE_SPEECH:
-								Toast.makeText(getApplicationContext(),"Speech was removed",Toast.LENGTH_LONG);
+								Toast.makeText(getApplicationContext(),"Speech was removed",Toast.LENGTH_LONG).show();
 								break;
 
 							case START_CONFERENCE_FROM:

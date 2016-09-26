@@ -123,5 +123,8 @@
     <string name="descTitle">Описание:</string>
     <string name="seemore">Показать</string>
     <string name="cityerror">Введенного Вами города не существует!</string>
+    <string name="participantslist">Участники</string>
+    <string name="changecity">Сменить город</string>
+    <string name="choosePerson">Выберите участника</string>
 
 </resources>

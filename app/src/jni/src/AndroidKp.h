@@ -71,7 +71,7 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_connectSmartSpace
  * Signature: (Lpetrsu/smartroom/android/srcli/Agenda;)I
  */
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList
-  (JNIEnv *, jclass, jobject, jboolean);
+  (JNIEnv *, jclass, jobject, jboolean, jboolean);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP

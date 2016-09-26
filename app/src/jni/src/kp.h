@@ -20,10 +20,12 @@ list_t *hasVideoPropList;
 
 jclass *classAgenda;
 jclass *classProjector;
+jclass *classGallery;
 jclass *classKP;
 
 jobject *agendaClassObject;
 jobject *presentationClassObject;
+jobject *galleryClassObject;
 
 subscription_t *conferenceSubscriptionContainer;
 subscription_t *meetingSubscriptionContainer;
@@ -38,7 +40,7 @@ char *startedVideoUuid;
 int currentTimeslotIndex;
 int hasVideoPropListLen;
 
-void addTimeslotToJavaList(JNIEnv *, individual_t *, jobject);
+void addTimeslotToJavaList(JNIEnv *, individual_t *, jobject, jboolean);
 void subscriptionHandler(subscription_t *);
 void projectorNotificationHandler(subscription_t *);
 void agendaNotificationHandler(subscription_t *);
