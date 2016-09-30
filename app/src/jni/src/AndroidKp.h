@@ -67,11 +67,19 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_connectSmartSpace
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP
+ * Method:    loadParticipantsList
+ * Signature: (Lpetrsu/smartroootm/android/srcli/Agenda;)I
+ */
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadParticipantsList
+  (JNIEnv *, jclass, jobject, jboolean);
+
+/*
+ * Class:     petrsu_smartroom_android_srcli_KP
  * Method:    loadTimeslotList
  * Signature: (Lpetrsu/smartroom/android/srcli/Agenda;)I
  */
 JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList
-  (JNIEnv *, jclass, jobject, jboolean, jboolean);
+  (JNIEnv *, jclass, jobject, jboolean);
 
 /*
  * Class:     petrsu_smartroom_android_srcli_KP

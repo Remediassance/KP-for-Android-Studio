@@ -1,16 +1,13 @@
 package petrsu.smartroom.android.srcli;
 
 import android.app.AlertDialog;
-import android.app.Application;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,13 +17,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.apache.commons.codec.binary.CharSequenceUtils;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 /**
  * Created by Remediassance on 26.03.2016.
@@ -59,7 +53,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
     public static ProgressBar progressBar;
     public static String city;
 
-    private static ArrayList<Timeslot> list;
+    private static ArrayList<Timeslot> confList;
     private static ArrayList<String> uuidList;
     private static ArrayList<String> namesList;
 
@@ -80,7 +74,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         displayedCity = (TextView) findViewById(R.id.displayedText);
         imageView = (ImageView) findViewById(R.id.thumbImage);
         foundingDate = (TextView) findViewById(R.id.fdsource);
-        changeCity = (TextView) findViewById(R.id.changecity);
+        //changeCity = (TextView) findViewById(R.id.changecity);
         participants = (TextView) findViewById(R.id.participantsTxt);
 
         imageView.setOnClickListener(this);
@@ -180,23 +174,31 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
             } break;
 
             /*
-            * If participants item is selected, list of participants of current section is displayed
+            * If participants item is selected, confList of participants of current section is displayed
              */
             case R.id.participantsTxt: {
-                list = new ArrayList<>();
+                confList = new ArrayList<>();
                 uuidList = new ArrayList<>();
                 namesList = new ArrayList<>();
                 Timeslot ts;
+
                 /*
                 * Fetching all participants names and uuids from ss
                  */
-                if(KP.loadTimeslotList(this, KP.isMeetingMode, true) == -1) {
+                if(KP.loadParticipantsList(this, KP.isMeetingMode) == -1) {
                     Log.e("CityGallery onClick()", "Error fetching uuids of all speakers");
                     return;
                 }
+                else {
+                    Log.i("checkingclassname", this.getLocalClassName());
+                    if(KP.isMeetingMode)
+                        Log.i("checkingismeeting", "true");
+                    else
+                        Log.i("checkingismeeting", "false");
+                }
 
-                for(int i = 0; i < list.size(); i++){
-                    ts = list.get(i);
+                for(int i = 0; i < confList.size(); i++){
+                    ts = confList.get(i);
                     namesList.add(ts.getPersonName());
                     uuidList.add(ts.getPersonUuid());
                 }
@@ -224,11 +226,17 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         }
     }
 
-    public void addTimeslotItemToList(final String uuid, final String name) {
+    public void addTimeslotItemToList2(final String uuid, final String name) throws InterruptedException {
+
         if(uuid != null && name != null) {
-            list.add(new Timeslot(uuid,name));
-        } else {
-            Log.e("CGaddTimeslotItemToList", "Error getting uuid and name from ss!");
+            Thread t = new Thread() {
+                @Override
+                public void run() {
+                    confList.add(new Timeslot(uuid, name));
+                }
+            };
+            t.start();
+            t.join();
         }
     }
 

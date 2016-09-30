@@ -146,7 +146,16 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_personTimeslotInde
 
 	__android_log_print(ANDROID_LOG_INFO, "personTimeslotIndex():", "Went in!");
 
-	individual_t *timeslot = getFirstTimeslot(ismeeting);
+
+	bool _ismeeting = (bool)ismeeting;
+	if(_ismeeting == false)
+			__android_log_print(ANDROID_LOG_INFO, "personTimeslotIndex():", "Ismeeting is false");
+	else
+			__android_log_print(ANDROID_LOG_INFO, "personTimeslotIndex():", "Ismeeting is true");
+
+
+
+	individual_t *timeslot = getFirstTimeslot(_ismeeting);
 	prop_val_t *person = sslog_ss_get_property(personProfile, PROPERTY_PERSONINFORMATION);
 	individual_t *personInfo;
 	int index = 0;		// Time slot index
@@ -842,25 +851,34 @@ int activatePerson(individual_t *profile) {
  *
  * @return Returns 0 in success and -1 if failed
  */
-JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList(
-		JNIEnv *env, jclass clazz, jobject obj, jboolean ismeeting, jboolean isUuidNeeded) { 
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList(JNIEnv *env, jclass clazz, jobject obj, jboolean ismeeting) { 
 
-	prop_val_t *propTimeslot = NULL;
+	__android_log_print(ANDROID_LOG_INFO, "loadTimeSlotList()", "Beginning!!");
 
 	if(obj != NULL) {
+		__android_log_print(ANDROID_LOG_INFO, "loadTimeSlotList()", "obj is not NULL");
 		agendaClassObject = (jobject *)(*env)->NewGlobalRef(env, obj);
 	} else {
+		__android_log_print(ANDROID_LOG_ERROR, "loadTimeSlotList()", "obj is NULL");		
 		return -1;
 	}
 
-	if(ismeeting == false) {
+	bool _ismeeting = (bool)ismeeting;
+
+	prop_val_t *propTimeslot = NULL;
+
+	if((bool)(ismeeting == JNI_FALSE)){
+		__android_log_print(ANDROID_LOG_INFO, "loadTimeslotList()", "ismeeting is false");
 		propTimeslot = sslog_ss_get_property(getCurrentSection(), PROPERTY_FIRSTTIMESLOT);
-	} else {
-		propTimeslot = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_FIRSTTIMESLOT);
+	}
+	else{
+		__android_log_print(ANDROID_LOG_ERROR, "loadTimeSlotList()", "ismeeting is false. ERROR!");
+		propTimeslot =  sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_FIRSTTIMESLOT);
 	}
 
 	if(propTimeslot == NULL) {
 		return -1;
+		__android_log_print(ANDROID_LOG_ERROR, "loadTimeSlotList()", "propTimeslot is NULL");
 	}
 
 	while(propTimeslot != NULL) {
@@ -869,7 +887,8 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList(
 		if(pTimeslot == NULL)
 			return -1;
 
-		addTimeslotToJavaList(env, pTimeslot, obj, isUuidNeeded);
+		addTimeslotToJavaList(env, pTimeslot, obj);
+		__android_log_print(ANDROID_LOG_INFO, "sdsds","got out");
 		propTimeslot = sslog_ss_get_property(pTimeslot, PROPERTY_NEXTTIMESLOT);
 	}
 
@@ -884,73 +903,128 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadTimeslotList(
  * @param timeslot - timeslot individual
  * @param obj - Agenda class object
  */
-void addTimeslotToJavaList(JNIEnv *env, individual_t *timeslot, jobject obj, jboolean isUuidNeeded) {
-
+void addTimeslotToJavaList(JNIEnv *env, individual_t *timeslot, jobject obj) {
 	
-	jmethodID methodId;
-
-	/*Done so because (isuuidneeded == true) is only when called from citygallery class*/
-	if(!isUuidNeeded)
-		methodId = (*env)->GetMethodID(env, classAgenda, "addTimeslotItemToList","(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
-	else 
-		methodId = (*env)->GetMethodID(env, classGallery, "addTimeslotItemToList","(Ljava/lang/String;Ljava/lang/String;)V");
+	jmethodID methodId = (*env)->GetMethodID(env, classAgenda,
+			"addTimeslotItemToList",
+			"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
 
 	char *name, *title;
 	char *status = "offline";
 	char *imgLink = "absentImage";
+
+	prop_val_t *p_val_name = sslog_ss_get_property (timeslot,
+			PROPERTY_TIMESLOTSPEAKERNAME);
+	prop_val_t *p_val_person_link = sslog_ss_get_property (timeslot,
+			PROPERTY_TIMESLOTPERSON);
+	prop_val_t *p_val_pres_title = getPresentationTitleProp(timeslot);
+
+	name = (p_val_name == NULL) ?
+			"No name" : (char *)(p_val_name->prop_value);
+
+	title = (p_val_pres_title == NULL) ?
+			"No title" : (char *)(p_val_pres_title->prop_value);
+
+	if(p_val_person_link != NULL) {
+		individual_t *person = (individual_t *)p_val_person_link->prop_value;
+		prop_val_t *p_val_status = sslog_ss_get_property (person,
+				PROPERTY_STATUS);
+
+		status = (p_val_status != NULL) ?
+				(char *) p_val_status->prop_value : "offline";
+
+		prop_val_t *p_val_img = sslog_ss_get_property (person, PROPERTY_IMG);
+
+		if(p_val_img != NULL)
+			imgLink = (char *)p_val_img->prop_value;
+		else if(strcmp(status, "online") == 0)
+			imgLink = "noImage";
+	}
+
+	/* Calling Agenda's addTimeslotItemToList Java method */
+	if(obj != NULL)
+		(*env)->CallVoidMethod(env, obj, methodId,
+				(*env)->NewStringUTF(env, name),
+				(*env)->NewStringUTF(env, title),
+				(*env)->NewStringUTF(env, imgLink),
+				(*env)->NewStringUTF(env, status));
+	else 
+		__android_log_print(ANDROID_LOG_ERROR, "addTimeslotToJavaList()", "obj is NULL");
+}
+
+
+
+/**
+ * @brief Fills gallery participants list by time slot properties values
+ *
+ * @param env - pointer to JNI environment
+ * @param timeslot - timeslot individual
+ * @param obj - Gallery class object
+ */
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadParticipantsList(
+		JNIEnv *env, jclass clazz, jobject obj, jboolean ismeeting) { 
+
+	prop_val_t *propTimeslot = NULL;
+
+	if(obj != NULL) {
+			galleryClassObject = (jobject *)(*env)->NewGlobalRef(env, obj);
+	} else {
+		return -1;
+	}
+
+	if(ismeeting == false) {
+		__android_log_print(ANDROID_LOG_INFO, "loadParticipantsList()", "ismeeting is false");
+		propTimeslot = sslog_ss_get_property(getCurrentSection(), PROPERTY_FIRSTTIMESLOT);
+	} else {
+		__android_log_print(ANDROID_LOG_ERROR, "loadParticipantsList()", "ismeeting is false. ERROR!");
+		propTimeslot = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_FIRSTTIMESLOT);
+	}
+
+	if(propTimeslot == NULL) {
+		return -1;
+	}
+
+	while(propTimeslot != NULL) {
+		individual_t *pTimeslot = (individual_t *) propTimeslot->prop_value;
+
+		if(pTimeslot == NULL)
+			return -1;
+
+		addTimeslotToParticipantsList(env, pTimeslot, obj);
+		propTimeslot = sslog_ss_get_property(pTimeslot, PROPERTY_NEXTTIMESLOT);
+		//__android_log_print(ANDROID_LOG_INFO, "addTimeslotToParticipantsList()", "%i", fl);
+
+	}
+
+	return 0;
+}
+
+
+
+void addTimeslotToParticipantsList(JNIEnv *env, individual_t *timeslot, jobject obj) {
+	
+	jmethodID methodId = (*env)->GetMethodID(env, classGallery, "addTimeslotItemToList2","(Ljava/lang/String;Ljava/lang/String;)V");
+	
+	char *name;
 	char *uuid = "NoUuid";
 
 	prop_val_t *p_val_name = sslog_ss_get_property (timeslot, PROPERTY_TIMESLOTSPEAKERNAME);
 	prop_val_t *p_val_person_link = sslog_ss_get_property (timeslot, PROPERTY_TIMESLOTPERSON);
 	prop_val_t *p_val_pres_title = getPresentationTitleProp(timeslot);
 
-
-	if(isUuidNeeded){
-		if(p_val_person_link != NULL){
-			individual_t *person = (individual_t*)(p_val_person_link -> prop_value);
-			uuid = person -> uuid;
-			name = (p_val_name == NULL) ? "No name" : (char *)(p_val_name->prop_value);
-		} 
-		else __android_log_print(ANDROID_LOG_ERROR, "loadTimeSlot()", "PROPERTY_TIMESLOTPERSON is NULL");
+	if(p_val_person_link != NULL){
+		individual_t *person = (individual_t*)(p_val_person_link -> prop_value);
+		uuid = person -> uuid;
+		name = (p_val_name == NULL) ? "No name" : (char *)(p_val_name->prop_value);
+	} 
+	else __android_log_print(ANDROID_LOG_ERROR, "loadTimeSlot()", "PROPERTY_TIMESLOTPERSON is NULL");
 
 		/*Calling CityGallery's addTimeslotItemToList Java method*/
-		if(obj != NULL)
-			(*env)->CallVoidMethod(env, obj, methodId, 
-				(*env)->NewStringUTF(env, uuid),
-				(*env)->NewStringUTF(env, name));
-		else __android_log_print(ANDROID_LOG_ERROR, "loadTimeSlot()", "Object obj NULL");
-
-	} 
-
-	else{
-
-		name = (p_val_name == NULL) ? "No name" : (char *)(p_val_name->prop_value);
-
-		title = (p_val_pres_title == NULL) ? "No title" : (char *)(p_val_pres_title->prop_value);
-
-		if(p_val_person_link != NULL) {
-			individual_t *person = (individual_t *)p_val_person_link->prop_value;
-
-			prop_val_t *p_val_status = sslog_ss_get_property (person, PROPERTY_STATUS);
-
-			status = (p_val_status != NULL) ? (char *) p_val_status->prop_value : "offline";
-
-			prop_val_t *p_val_img = sslog_ss_get_property (person, PROPERTY_IMG);
-
-			if(p_val_img != NULL)
-				imgLink = (char *)p_val_img->prop_value;
-			else if(strcmp(status, "online") == 0)
-				imgLink = "noImage";
-		}
-
-		/* Calling Agenda's addTimeslotItemToList Java method */
-		if(obj != NULL)
-			(*env)->CallVoidMethod(env, obj, methodId,
-					(*env)->NewStringUTF(env, name),
-					(*env)->NewStringUTF(env, title),
-					(*env)->NewStringUTF(env, imgLink),
-					(*env)->NewStringUTF(env, status));
-	}
+	if(obj != NULL)
+		(*env)->CallVoidMethod(env, obj, methodId, 
+			(*env)->NewStringUTF(env, uuid),
+			(*env)->NewStringUTF(env, name));
+	else __android_log_print(ANDROID_LOG_ERROR, "loadTimeSlot()", "Object obj NULL");
 }
 
 
@@ -1725,8 +1799,10 @@ JNIEXPORT jboolean JNICALL Java_petrsu_smartroom_android_srcli_KP_sectionChanged
 	individual_t *currentSection_ = NULL;
 
 	if(ismeeting == false){
+		__android_log_print(ANDROID_LOG_INFO, "sectionChanged()", "ismeeting is false");
 		currentSection_ = getCurrentSection();
 	} else {
+		__android_log_print(ANDROID_LOG_ERROR, "sectionChanged()", "ismeeting is false. ERROR!");
 		currentSection_ = getCurrentMeetingSection();
 	}
 
@@ -1759,8 +1835,10 @@ int calculateTimeslotIndex(prop_val_t *propTimeslot, bool ismeeting) {
 		curTimeslot = (individual_t *) propTimeslot->prop_value;
 	} else {
 		if(ismeeting == false){
+			__android_log_print(ANDROID_LOG_INFO, "calculateTimeslotIndex()", "ismeeting is false");
 			propTimeslot = sslog_ss_get_property (getCurrentSection(), PROPERTY_CURRENTTIMESLOT);
 		} else{
+			__android_log_print(ANDROID_LOG_ERROR, "calculateTimeslotIndex()", "ismeeting is false. ERROR!");
 			propTimeslot = sslog_ss_get_property (getCurrentMeetingSection(), PROPERTY_CURRENTTIMESLOT);
 		}
 
@@ -1798,9 +1876,11 @@ JNIEXPORT jboolean JNICALL Java_petrsu_smartroom_android_srcli_KP_checkSpeakerSt
 	prop_val_t *curValue = NULL;
 
 	if(ismeeting == false){
+		__android_log_print(ANDROID_LOG_INFO, "checkspeakerstate()", "ismeeting is false");
 		curValue = sslog_ss_get_property(getCurrentSection(), PROPERTY_CURRENTTIMESLOT);
 	}
 	else {
+		__android_log_print(ANDROID_LOG_ERROR, "checkspeakerstate()", "ismeeting is false. ERROR!");
 		curValue = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_CURRENTTIMESLOT);
 	}
 
@@ -2429,9 +2509,11 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getSpeakerName(
 	prop_val_t *curTimeslotProp = NULL;
 
 	if(ismeeting == false){
+		__android_log_print(ANDROID_LOG_INFO, "getSpeakerName()", "ismeeting is false");
 		curTimeslotProp = sslog_ss_get_property(getCurrentSection(), PROPERTY_CURRENTTIMESLOT);
 	}
 	else {
+		__android_log_print(ANDROID_LOG_ERROR, "getspeakrname()", "ismeeting is false. ERROR!");
 		curTimeslotProp = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_CURRENTTIMESLOT);
 
 	}
@@ -2622,6 +2704,7 @@ individual_t* getTimeslot(int index, bool ismeeting) {
 	if(ismeeting == true) {
 		propTimeslot = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_FIRSTTIMESLOT);
 	} else {
+		__android_log_print(ANDROID_LOG_ERROR, "getTimeslot()", "ismeeting is false. ERROR!");
 		propTimeslot = sslog_ss_get_property(getCurrentSection(), PROPERTY_FIRSTTIMESLOT);
 	}
 
@@ -2629,6 +2712,7 @@ individual_t* getTimeslot(int index, bool ismeeting) {
 		if(ismeeting == true){
 			propTimeslot = sslog_ss_get_property(getCurrentMeetingSection(), PROPERTY_FIRSTTIMESLOT);
 		} else{
+			__android_log_print(ANDROID_LOG_ERROR, "getTimeslot()", "ismeeting is false. ERROR!");
 			propTimeslot = sslog_ss_get_property(getCurrentSection(), PROPERTY_FIRSTTIMESLOT);
 		}
 	}
@@ -2785,29 +2869,36 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPersonUuid
  * @return Individual of current section in success and NULL otherwise
  */
 individual_t* getCurrentSection() {
-	list_t *conferenceList = sslog_ss_get_individual_by_class_all(
-			CLASS_CONFERENCESERVICE);
+	list_t *conferenceList = sslog_ss_get_individual_by_class_all(CLASS_CONFERENCESERVICE);
 	individual_t *conference;
+
+	__android_log_print(ANDROID_LOG_INFO, "getCurrentSection()","There is(are) %i conference(s)", getListSize(conferenceList));
 
 	// TODO: choose section according to user's choice
 
 	if(conferenceList == NULL) {
+		__android_log_print(ANDROID_LOG_ERROR, "getCurrentSection()", "conference list is NULL");
 		return getExistingSection();
 	}
+	else 
+		__android_log_print(ANDROID_LOG_INFO, "getCurrentSection()", "conference list is not NULL");
 
 	list_head_t* pos = NULL;
 	list_for_each(pos, &conferenceList->links) {
 		list_t* node = list_entry(pos, list_t, links);
+		//__android_log_print(ANDROID_LOG_INFO, "getCurrentSection()","There is(are) %i conference(s)", getListSize(node));
 		conference = (individual_t *)(node->data);
 		break;
 	}
 
-	prop_val_t *curSectionProp = sslog_ss_get_property(conference,
-			PROPERTY_CURRENTSECTION);
+	prop_val_t *curSectionProp = sslog_ss_get_property(conference, PROPERTY_CURRENTSECTION);
 
 	if(curSectionProp == NULL) {
+		__android_log_print(ANDROID_LOG_ERROR, "loadTimeSlotList()", "curSectionProp is NULL");
 		return getExistingSection();
 	}
+	else
+		__android_log_print(ANDROID_LOG_INFO, "loadTimeSlotList()", "curSectionProp is not NULL");
 
 	return (individual_t *)(curSectionProp->prop_value);
 }
@@ -2827,7 +2918,7 @@ individual_t* getCurrentMeetingSection() {
 	// TODO: choose section according to user's choice
 
 	if(meetingList == NULL) {
-		return getExistingSection();
+		return getExistingSection();// Мб тут ошибка
 	}
 
 	list_head_t* pos = NULL;
@@ -2883,12 +2974,12 @@ individual_t* getFirstTimeslot(bool ismeeting) {
 	if(ismeeting == true ){
 		section = getCurrentMeetingSection();
 	} else {
+		__android_log_print(ANDROID_LOG_INFO, "getFirstTimeslot()", "ismeeting is false");
 		section = getCurrentSection();
 	}
 
 	individual_t *timeslot;
-	prop_val_t *firstTimeslotProp = sslog_ss_get_property(section,
-			PROPERTY_FIRSTTIMESLOT);
+	prop_val_t *firstTimeslotProp = sslog_ss_get_property(section, PROPERTY_FIRSTTIMESLOT);
 
 	if(firstTimeslotProp != NULL) {
 		timeslot = (individual_t *)firstTimeslotProp->prop_value;

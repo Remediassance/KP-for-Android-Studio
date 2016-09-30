@@ -545,7 +545,7 @@ public class Agenda extends AppCompatActivity {// implements  View.OnClickListen
 		list = new ArrayList<>();
 		
 		/* If loading program failed */
-		if(KP.loadTimeslotList(this, KP.isMeetingMode, false) == -1) {
+		if(KP.loadTimeslotList(this, KP.isMeetingMode) == -1) {
 			Log.i("Agenda GUI", "Fill agenda fail");
 			return -1;
 		}

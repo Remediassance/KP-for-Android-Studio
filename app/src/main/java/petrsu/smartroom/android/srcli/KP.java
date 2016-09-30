@@ -135,7 +135,9 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 
 	public static native int loadPresentation(Projector projector);
 
-	public static native int loadTimeslotList(AppCompatActivity obj, boolean isMeetingMode, boolean isUuidNeeded);
+	public static native int loadTimeslotList(AppCompatActivity obj, boolean isMeetingMode);
+
+	public static native int loadParticipantsList(AppCompatActivity obj, boolean isMeetingMode);
 
 	public static native int personTimeslotIndex(boolean isMeetingMode);
 
@@ -520,7 +522,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 				isChairman = true;
 			} else {
 				if (userRegistration(name, password) == 0) {
-					Log.i("Java KP", "Registration successful123213123");
+					Log.i("Java KP", "Registration successfull");
 				} else {
 					Log.e("Registration", "registration failed");
 					Toast.makeText(this, R.string.registrationFail,
@@ -608,7 +610,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 
 
 	/**
-	 * Joins to Smart Space in demo mode skipping the
+	 * Joins Smart Space in demo mode skipping the
 	 * agenda service part in case there is no active section
 	 *
 	 * @param name     - User name

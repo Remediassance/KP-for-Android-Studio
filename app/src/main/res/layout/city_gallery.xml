@@ -83,7 +83,7 @@
         android:layout_alignParentBottom="true"
         android:alpha="0.8"/>
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/changecity"
@@ -93,7 +93,7 @@
         android:layout_below="@+id/textView2"
         android:layout_alignRight="@+id/fdsource"
         android:layout_alignEnd="@+id/fdsource"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp"/>-->
 
     <TextView
         android:layout_width="wrap_content"

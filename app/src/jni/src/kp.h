@@ -40,7 +40,8 @@ char *startedVideoUuid;
 int currentTimeslotIndex;
 int hasVideoPropListLen;
 
-void addTimeslotToJavaList(JNIEnv *, individual_t *, jobject, jboolean);
+void addTimeslotToParticipantsList(JNIEnv *, individual_t *, jobject);
+void addTimeslotToJavaList(JNIEnv *, individual_t *, jobject);
 void subscriptionHandler(subscription_t *);
 void projectorNotificationHandler(subscription_t *);
 void agendaNotificationHandler(subscription_t *);
