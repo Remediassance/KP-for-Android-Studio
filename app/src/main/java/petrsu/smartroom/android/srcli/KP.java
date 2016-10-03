@@ -4,6 +4,7 @@ package petrsu.smartroom.android.srcli;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.*;
 import android.text.Html;
 import android.util.Log;
@@ -69,45 +70,107 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	//private ArrayList<String> timeslotList;
 	private String lastState;
 	
-	public static native int connectSmartSpace(String hostname, String ip,  int port);
-	public static native int loadTimeslotList(Agenda obj);
-	public static native void disconnectSmartSpace();
-	public static native int getServicesInfo(ServicesMenu menu);
-	public static native int  userRegistration(String userName, String password);
-	public static native int loadPresentation(Projector projector);
-	public static native int initSubscription();
-	public static native int startConference();
-	public static native int endConference();
-	//public static native void getProjectorClassObject();
-	public static native int showSlide(int slideNumber);
-	public static native int endPresentation();
-	public static native int getCurrentTimeslotIndex();
-    public static native String getSpeakerName();
-	public static native boolean checkSpeakerState();
-	public static native String getMicServiceIP();
-	public static native String getMicServicePort();
+	public static native int connectSmartSpace(String hostname, String ip, int port);
 
-	public static native String getDiscussionServiceIP();
-    public static native String getSocialProgramServiceIP();
+	public static native void disconnectSmartSpace();
+
+	public static native int endConference();               // Тоже не используется
+
+	//public static native int endMeeting();                  // Done ^
+
+	//public static native int endMeetingPresentation();      // Done
+
+	public static native int endPresentation();
+
+	public static native int getCurrentTimeslotIndex();
+
+	public static native int getServicesInfo(ServicesMenu menu);
+
+	//public static native int initMeetingSubscription();     // Done
+
+	public static native int initSubscription();
+
+	//public static native int isActiveMeetingSubscriptions();//=============================================
+
+	public static native int isActiveSubscriptions();
+
+	public static native int loadPresentation(Projector projector);
+
+	public static native int loadTimeslotList(AppCompatActivity obj);
+
+	public static native int loadParticipantsList(AppCompatActivity obj);
 
 	public static native int personTimeslotIndex();
-	public static native boolean checkConnection();
-	public static native String getPresentationLink(int index);
-	public static native int registerGuest(String name, String phone, String email);
-	public static native int startConferenceFrom(int index);
-	public static native String loadProfile(Profile profile, int index);
-	public static native int saveProfileChanges(String name, String phone);
-	public static native String getPersonUuid();
-	public static native CharSequence[] getVideoTitleList();
-	public static native CharSequence[] getVideoUuidList();
-	public static native String getContentUrl();
-	public static native int isActiveSubscriptions();
+
 	public static native int refreshConferenceSbcr();
+
+	//public static native int refreshMeetingSbcr();//=============================================
+
 	public static native int refreshPresentationSbcr();
-	public static native String[] getCurrentSectionList();
-	public static native boolean sectionChanged();
+
+	public static native int registerGuest(String name, String phone, String email, String city);
+
+	public static native int saveProfileChanges(String name, String phone);
+
+	public static native int showSlide(int slideNumber);
+
+	public static native int startConference();             // Не используется, поскольку выпилено меню опций за ненадобностью
+
+	public static native int startConferenceFrom(int index);
+
+	//public static native int startMeeting();                // Done ^
+
+	//public static native int startMeetingFrom(int index, boolean isMeetingMode); //======================================
+
 	public static native int startVideo(String url);
+
 	public static native void stopVideo();
+
+	public static native int userRegistration(String userName, String password);
+
+	public static native int setCity(String uuid, String city);
+
+
+	public static native boolean checkSpeakerState();//mm
+
+	public static native boolean checkConnection();
+
+	public static native boolean sectionChanged();//mm
+
+	public static native String getContentUrl();
+
+	public static native String[] getCurrentSectionList();
+
+	public static native String getDiscussionServiceIP();
+
+	public static native String getMicServiceIP();
+
+	public static native String getMicServicePort();
+
+	public static native String getPersonUuid();
+
+	public static native String getPresentationLink(int index);//mm
+
+	public static native String getSocialProgramServiceIP();
+
+	public static native String getSpeakerName();//mm
+
+	public static native String getWelcomeServiceIP();
+
+	public static native String loadProfile(Profile profile, int index);//mm
+
+	public static native String getPlacePhoto(String city, String uuid);
+
+	public static native String getCityByPersonUuid(String uuid);
+
+	public static native String getPlaceDescription(String name);
+
+	public static native String getPlaceFoundingDate(String name);
+
+	public static native CharSequence[] getVideoTitleList();
+
+	public static native CharSequence[] getVideoUuidList();
+
 	
 	/* Loading of shared library */
 	static {
@@ -484,14 +547,14 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
         editIP.setVisibility(View.VISIBLE);
         editPort.setVisibility(View.VISIBLE);
         
-        if(advancedMode == EditText.VISIBLE) {
+        /*if(advancedMode == EditText.VISIBLE) {
         	advancedModeImg.setImageResource(R.drawable.ic_close);
 			advancedModeText.setText(R.string.advancedModeOff);
         } else {
         	advancedModeImg.setImageResource(R.drawable.ic_add);
 			advancedModeText.setText(R.string.advancedModeOn);
         }
-
+*/
         int timeout = prefs.getInt(SettingsMenu.TIMEOUT_SCREEN_PREF, 
 				SettingsMenu.defaultTimeout);
 		
@@ -554,10 +617,13 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 						.findViewById(R.id.guestPhone);
 				EditText editEmail = (EditText) dialogView
 						.findViewById(R.id.guestEmail);
+				EditText editCity = (EditText) dialogView
+						.findViewById(R.id.guestCity);
 				
 				String name = editName.getText().toString();
 				String phone = editPhone.getText().toString();
 				String email = editEmail.getText().toString();
+				String city = editCity.getText().toString();
 				int ret_value = 0;
 				
 				if(name.equals("")) {
@@ -582,7 +648,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 						return;
 					}
 					
-					ret_value = registerGuest(name, phone, email);
+					ret_value = registerGuest(name, phone, email, city);
 					
 					if(ret_value == -1) {
 						Toast.makeText(getApplicationContext(), 

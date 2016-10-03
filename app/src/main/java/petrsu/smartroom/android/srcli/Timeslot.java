@@ -17,6 +17,7 @@ public class Timeslot extends HashMap<String, Object> {
 	public static final String TITLE = "title";
 	public static final String IMG = "img";
 	public static final String STATUS = "status";
+	public static final String UUID = "uuid";
 	public String personUuid;
 	
 	public Timeslot() {}
@@ -51,7 +52,21 @@ public class Timeslot extends HashMap<String, Object> {
 		super.put(IMG, item.get(Timeslot.IMG));
 		super.put(STATUS, item.get(Timeslot.STATUS));
 	}
-	
+
+	public Timeslot(String uuid, String name){
+		super();
+		super.put(UUID,uuid);
+		super.put(NAME,name);
+	}
+
+	public String getPersonUuid(){
+		return this.get(UUID).toString();
+	}
+
+	public String getPersonName() {
+		return this.get(NAME).toString();
+	}
+
 	/**
 	 * Sets person uuid
 	 *

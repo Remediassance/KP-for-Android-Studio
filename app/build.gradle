@@ -33,4 +33,7 @@ dependencies {
     compile('com.mikepenz:materialdrawer:3.1.0@aar') {
         transitive = true
     }
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
+
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }

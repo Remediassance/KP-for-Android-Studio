@@ -361,6 +361,47 @@ JNIEXPORT void JNICALL Java_petrsu_smartroom_android_srcli_KP_stopVideo
  JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_setPlaceInfo
   (JNIEnv *, jclass, jstring, jstring);
 
+ /*
+ * Class:     petrsu_smartroom_android_srcli_KP
+ * Method:    setCity
+ * Signature: ()[Ljava/lang/String;
+ */
+ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_setCity
+  (JNIEnv *, jclass, jstring, jstring);
+
+ /*
+ * Class:     petrsu_smartroom_android_srcli_KP
+ * Method:    getPlaceFoundingDate
+ * Signature: ()[Ljava/lang/String;
+ */
+ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlaceFoundingDate
+  (JNIEnv *, jclass, jstring);
+
+ /*
+ * Class:     petrsu_smartroom_android_srcli_KP
+ * Method:    getPlaceDescription
+ * Signature: ()[Ljava/lang/String;
+ */
+ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlaceDescription
+  (JNIEnv *, jclass, jstring);
+
+/*
+ * Class:     petrsu_smartroom_android_srcli_KP
+ * Method:    getCityByPersonUuid
+ * Signature: ()[Ljava/lang/String;
+ */
+ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getCityByPersonUuid
+  (JNIEnv *, jclass, jstring);
+
+ /*
+ * Class:     petrsu_smartroom_android_srcli_KP
+ * Method:    getPlacePhoto
+ * Signature: ()[Ljava/lang/String;
+ */
+ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlacePhoto(
+    JNIEnv *, jclass, jstring, jstring) {
+
+
 #ifdef __cplusplus
 }
 #endif

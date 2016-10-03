@@ -21,20 +21,26 @@ list_t *hasVideoPropList;
 jclass *classAgenda;
 jclass *classProjector;
 jclass *classKP;
+jclass *classGallery;
 
 jobject *agendaClassObject;
 jobject *presentationClassObject;
+jobject *galleryClassObject;
 
 subscription_t *conferenceSubscriptionContainer;
 subscription_t *presentationSubscriptionContainer;
+subscription_t *meetingSubscriptionContainer;
+
 subscription_t *conferenceClassSubscriptionContainer;
 subscription_t *presentationClassSubscriptionContainer;
+subscription_t *meetingClassSubscriptionContainer;
 
 char *startedVideoUuid;
 
 int currentTimeslotIndex;
 int hasVideoPropListLen;
 
+void addTimeslotToParticipantList(JNIEnv *, individual_t *, jobject);
 void addTimeslotToJavaList(JNIEnv *, individual_t *, jobject);
 void subscriptionHandler(subscription_t *);
 void projectorNotificationHandler(subscription_t *);
@@ -57,6 +63,7 @@ prop_val_t* initNullProperty();
 prop_val_t* getPresentationTitleProp(individual_t*);
 individual_t* createProfile(individual_t *);
 individual_t* createPerson(const char *, const char *, const char*);
+individual_t* createPlace(const char *)
 individual_t* getTimeslot(int);
 individual_t* getCurrentSection();
 individual_t* getFirstTimeslot();
