@@ -195,8 +195,10 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
 
                 for(int i = 0; i < confList.size(); i++){
                     ts = confList.get(i);
-                    namesList.add(ts.getPersonName());
-                    uuidList.add(ts.getPersonUuid());
+                    if(!namesList.contains(ts.getPersonName())) {
+                        namesList.add(ts.getPersonName());
+                        uuidList.add(ts.getPersonUuid());
+                    }
                 }
 
                 CharSequence[] csNames = namesList.toArray(new CharSequence[namesList.size()]);
