@@ -211,8 +211,10 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // here we have person uuid, need to go to proper city gallery page
-                        KP.getCityByPersonUuid(uuidList.get(which));
-                        refreshActivity(uuidList.get(which));
+                        if(KP.getCityByPersonUuid(uuidList.get(which)) != null)
+                            refreshActivity(uuidList.get(which));
+                        else
+                            Toast.makeText(CityGallery.this, "User has no city entered", Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.setNegativeButton(android.R.string.cancel, null);

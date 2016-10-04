@@ -58,6 +58,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
     public static String spAddr = "null";
 	private ImageView advancedModeImg;		// Advance mode trigger
 	private TextView advancedModeText;
+	private static CheckBox demoModeBox;
 	private Button connectBtn;	
 	private Button guestBtn;
 	//private Button regServiceBtn;
@@ -204,8 +205,10 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
         connectBtn.setOnClickListener(this);
         guestBtn = (Button) findViewById (R.id.guestBtn);
         guestBtn.setOnClickListener(this);
-        
-        editName = (EditText) findViewById (R.id.editName);
+		demoModeBox = (CheckBox) findViewById(R.id.quickBox);
+
+
+		editName = (EditText) findViewById (R.id.editName);
         editPassword = (EditText) findViewById (R.id.editPassword);
         editIP = (EditText) findViewById (R.id.editIP);
         editPort = (EditText) findViewById (R.id.editPort);
@@ -309,24 +312,15 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		ip = editIP.getText().toString();
 
 		switch(view.getId()) {
-			/*case R.id.advModeImg:
-			case R.id.advModeText:
-				if(editIP.getVisibility() == EditText.VISIBLE) {
-					advancedModeImg.setImageResource(R.drawable.ic_add);
-					advancedModeText.setText(R.string.advancedModeOn);
-					editIP.setVisibility(EditText.INVISIBLE);
-					editPort.setVisibility(EditText.INVISIBLE);
-				} else {
-					advancedModeImg.setImageResource(R.drawable.ic_close);
-					advancedModeText.setText(R.string.advancedModeOff);
-					editIP.setVisibility(EditText.VISIBLE);
-					editPort.setVisibility(EditText.VISIBLE);
-				}
-				break;*/
-
 			case R.id.connectBtn:
                 try {
                     port = Integer.parseInt(editPort.getText().toString());
+
+					if (!demoModeBox.isChecked())
+						joinSmartSpace(name, password);
+					else
+						joinDemoMode(name, password);
+
                     joinSmartSpace(name, password);
                 } catch(NumberFormatException e) {
                     Toast.makeText(this, R.string.portFormatErr,
@@ -343,6 +337,79 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
                             Toast.LENGTH_SHORT).show();
                 }
                 break;
+		}
+	}
+
+	/**
+	 * Register city property after the user by his/her uuid
+	 * @param  uuid - uuid of a user without a city property
+	 */
+	public void registerCity(final String uuid) {
+		LayoutInflater inflater = LayoutInflater.from(this);
+		final View dialogViewCity = inflater.inflate(R.layout.city_registration, null);
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setView(dialogViewCity);
+		builder.setTitle(R.string.registrationTitle);
+		builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				EditText editCity = (EditText) dialogViewCity.findViewById(R.id.cityField);
+				String cityz = editCity.getText().toString();
+
+				if(cityz.equals("") || CityGallery.isCityNameCorrect(cityz) == false) {
+					Toast.makeText(getApplicationContext(),R.string.citycheck,Toast.LENGTH_LONG).show();
+				} else {
+					if(KP.setCity(uuid,cityz) == -1) {
+						Toast.makeText(getApplicationContext(), R.string.registrationFail, Toast.LENGTH_LONG).show();
+						return;
+					}
+					else {
+						Log.i("registerCity()", "Going to the Gallery!");
+						startActivity(Navigation.getGalleryIntent(getApplicationContext()));
+					}
+				}
+			}
+		});
+		builder.setNegativeButton(android.R.string.cancel, null);
+		AlertDialog dialog = builder.create();
+		dialog.show();
+	}
+
+	/**
+	 * Joins Smart Space in demo mode skipping the
+	 * agenda service part in case there is no active section
+	 *
+	 * @param name     - User name
+	 * @param password - User password
+	 */
+	private void joinDemoMode(String name, String password) {
+		String city = null;
+		String uuid;
+		if (name.equals("") || password.equals("")) {
+			showAnonimousDialog();
+			return;
+		}
+
+		if (establishConnection(name, password, port) != 0) {
+			return;
+		}
+
+		personIndex = KP.personTimeslotIndex();
+
+		stopService(new Intent(this, NetworkService.class));
+		startService(new Intent(this, NetworkService.class));
+
+		uuid = KP.getPersonUuid();
+
+		if(KP.getCityByPersonUuid(uuid)== null){
+			Log.i("registerCity()", "Attempting to register city property...");
+			registerCity(uuid);
+		}
+		else {
+			Log.i("registerCity()", "Success!");
+			startActivity(Navigation.getGalleryIntent(getApplicationContext()));
+
 		}
 	}
 
@@ -584,8 +651,17 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		
 		stopService(new Intent(this, NetworkService.class));
 		startService(new Intent(this, NetworkService.class));
-		
-		loadAgenda();
+
+		if((getCityByPersonUuid(getPersonUuid())) == null){
+			registerCity(getPersonUuid());
+		}
+
+		else {
+			if (!demoModeBox.isChecked())
+				loadAgenda();
+			else
+				startActivity(Navigation.getGalleryIntent(getApplicationContext()));
+		}
 		/*if(lastState.equals("Agenda"))
 			loadAgenda();
 		else if(lastState.equals("Projector"))

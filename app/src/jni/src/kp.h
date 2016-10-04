@@ -40,7 +40,7 @@ char *startedVideoUuid;
 int currentTimeslotIndex;
 int hasVideoPropListLen;
 
-void addTimeslotToParticipantList(JNIEnv *, individual_t *, jobject);
+void addTimeslotToParticipantsList(JNIEnv *, individual_t *, jobject);
 void addTimeslotToJavaList(JNIEnv *, individual_t *, jobject);
 void subscriptionHandler(subscription_t *);
 void projectorNotificationHandler(subscription_t *);
@@ -55,7 +55,6 @@ int searchPerson(individual_t *, const char *, const char *);
 int activatePerson(individual_t *);
 char* generateUuid(char*);
 bool personExists(const char *);
-bool placeExists(const char *); 
 
 jclass getJClassObject(JNIEnv *, char *);
 jfieldID getFieldID(JNIEnv *, jclass, char *, char *);
@@ -63,12 +62,13 @@ prop_val_t* initNullProperty();
 prop_val_t* getPresentationTitleProp(individual_t*);
 individual_t* createProfile(individual_t *);
 individual_t* createPerson(const char *, const char *, const char*);
-individual_t* createPlace(const char *)
+individual_t* createPlace(const char *);
 individual_t* getTimeslot(int);
 individual_t* getCurrentSection();
 individual_t* getFirstTimeslot();
 individual_t* getContentService();
 individual_t* getExistingSection();
+individual_t* placeExists(const char *); 
 individual_t* createPlace(const char *);
 list_t* getVideoList();
 

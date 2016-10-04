@@ -1,128 +1,146 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    tools:context=".KP"
-    tools:ignore="HardcodedText,RtlHardcoded" >
-    
-     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:minHeight="?attr/actionBarSize"
-        android:transitionName="actionBar"
-         />
+				xmlns:tools="http://schemas.android.com/tools"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:background="@color/white"
+				android:orientation="vertical"
+				tools:context=".KP"
+				tools:ignore="HardcodedText,RtlHardcoded" >
+
+	<android.support.v7.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="?attr/colorPrimary"
+		android:elevation="4dp"
+		android:minHeight="?attr/actionBarSize"
+		android:transitionName="actionBar"
+		/>
 
 
-   <EditText
-       android:id="@+id/editName"
-       android:layout_width="230sp"
-       android:layout_centerHorizontal="true"
-       android:layout_height="wrap_content"
-       android:layout_marginLeft="15dp"
-       android:layout_marginRight="15dp"
-       android:layout_marginTop="25sp"
-       android:layout_below="@+id/toolbar"
-       android:hint="@string/participantLogin"
-       android:ems="10"
-       android:inputType="textPersonName"
-       android:textColor="@color/primary_text_default_material_light"
-       android:textColorHint="@color/material_drawer_hint_text"
-       android:typeface="normal"
-       android:textSize="20sp" />
-   <!-- Name field -->
+	<EditText
+		android:id="@+id/editName"
+		android:layout_width="230sp"
+		android:layout_centerHorizontal="true"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginTop="25sp"
+		android:layout_below="@+id/toolbar"
+		android:hint="@string/participantLogin"
+		android:ems="10"
+		android:inputType="textPersonName"
+		android:textColor="@color/primary_text_default_material_light"
+		android:textColorHint="@color/material_drawer_hint_text"
+		android:typeface="normal"
+		android:textSize="20sp" />
+	<!-- Name field -->
 
 
-   <!-- Password field -->
-   <EditText
-       android:id="@+id/editPassword"
-       android:layout_width="230sp"
-       android:layout_centerHorizontal="true"
-       android:layout_height="wrap_content"
-       android:layout_marginLeft="15dp"
-       android:layout_marginRight="15dp"
-       android:layout_marginTop="15sp"
-       android:layout_below="@+id/editName"
-       android:hint="@string/participantPassword"
-       android:ems="10"
-       android:inputType="textPassword"
-       android:textColor="@color/primary_text_default_material_light"
-       android:textColorHint="@color/material_drawer_hint_text"
-       android:textSize="20sp" />
-   <!-- Password field -->
+	<!-- Password field -->
+	<EditText
+		android:id="@+id/editPassword"
+		android:layout_width="230sp"
+		android:layout_centerHorizontal="true"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginTop="15sp"
+		android:layout_below="@+id/editName"
+		android:hint="@string/participantPassword"
+		android:ems="10"
+		android:inputType="textPassword"
+		android:textColor="@color/primary_text_default_material_light"
+		android:textColorHint="@color/material_drawer_hint_text"
+		android:textSize="20sp" />
+	<!-- Password field -->
 
-   <!-- Advanced mode field -->
-    
-    <!-- IP field -->
-   <EditText
-       android:id="@+id/editIP"
-       android:layout_width="230sp"
-       android:layout_height="wrap_content"
-       android:hint="@string/ssIP"
-       android:ems="10"
-       android:inputType="phone"
-       android:textColor="@color/primary_text_default_material_light"
-       android:textColorHint="@color/material_drawer_hint_text"
-       android:textSize="20sp"
-       android:enabled="false"
-       android:layout_below="@+id/editPassword"
-       android:layout_alignLeft="@+id/editPassword"
-       android:layout_alignStart="@+id/editPassword"
-       android:editable="false"
-       android:layout_marginTop="15sp"/>
-   <!-- IP field -->
-   
-   <!-- Port field -->
-   <EditText
-       android:id="@+id/editPort"
-       android:layout_width="230sp"
-       android:layout_centerHorizontal="true"
-       android:layout_height="wrap_content"
-       android:layout_marginLeft="15dp"
-       android:layout_marginRight="15dp"
-       android:layout_marginTop="15sp"
-       android:layout_below="@+id/editIP"
-       android:hint="@string/ssPort"
-       android:ems="10"
-       android:inputType="phone"
-       android:textColor="@color/primary_text_default_material_light"
-       android:textColorHint="@color/material_drawer_hint_text"
-       android:textSize="20sp"
-       android:enabled="false" />
-   <!-- Port field -->
+	<!-- Advanced mode field -->
+
+	<!-- IP field -->
+	<EditText
+		android:id="@+id/editIP"
+		android:layout_width="230sp"
+		android:layout_height="wrap_content"
+		android:hint="@string/ssIP"
+		android:ems="10"
+		android:inputType="phone"
+		android:textColor="@color/primary_text_default_material_light"
+		android:textColorHint="@color/material_drawer_hint_text"
+		android:textSize="20sp"
+		android:enabled="true"
+		android:layout_below="@+id/editPassword"
+		android:layout_alignLeft="@+id/editPassword"
+		android:layout_alignStart="@+id/editPassword"
+		android:layout_marginTop="15sp"/>
+	<!-- IP field -->
+
+	<!-- Port field -->
+	<EditText
+		android:id="@+id/editPort"
+		android:layout_width="230sp"
+		android:layout_centerHorizontal="true"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:layout_marginTop="15sp"
+		android:layout_below="@+id/editIP"
+		android:hint="@string/ssPort"
+		android:ems="10"
+		android:inputType="phone"
+		android:textColor="@color/primary_text_default_material_light"
+		android:textColorHint="@color/material_drawer_hint_text"
+		android:textSize="20sp"
+		android:enabled="true" />
+	<!-- Port field -->
 
 	<Button
-	    android:id="@+id/guestBtn"
-	    android:layout_width="88dp"
-	    android:layout_height="48dp"
-	    android:layout_alignWithParentIfMissing="false"
-        android:background="@drawable/btn_selector"
-	    android:text="@string/guestBtn"
-	    android:textColor="@color/white"
-	    android:textSize="14sp"
-	    android:textStyle="bold"
-        android:layout_alignTop="@+id/connectBtn"
-        android:layout_alignRight="@+id/editPort"
-        android:layout_alignEnd="@+id/editPort" />
+		android:id="@+id/guestBtn"
+		android:layout_width="88dp"
+		android:layout_height="48dp"
+		android:layout_alignWithParentIfMissing="false"
+		android:background="@drawable/btn_selector"
+		android:text="@string/guestBtn"
+		android:textColor="@color/white"
+		android:textSize="14sp"
+		android:textStyle="bold"
+		android:layout_alignTop="@+id/connectBtn"
+		android:layout_alignRight="@+id/editPort"
+		android:layout_alignEnd="@+id/editPort" />
 
-    <Button
-        android:id="@+id/connectBtn"
-        android:layout_width="88dp"
-        android:layout_height="48dp"
-        android:background="@drawable/btn_selector"
-        android:text="@string/connectBtn"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:elegantTextHeight="false"
-        android:layout_below="@+id/editPort"
-        android:layout_toLeftOf="@+id/guestBtn"
-        android:layout_marginRight="8sp"
-        android:layout_toStartOf="@+id/guestBtn"
-        android:layout_marginTop="32sp"/>
+	<Button
+		android:id="@+id/connectBtn"
+		android:layout_width="88dp"
+		android:layout_height="48dp"
+		android:background="@drawable/btn_selector"
+		android:text="@string/connectBtn"
+		android:textColor="@color/white"
+		android:textSize="14sp"
+		android:textStyle="bold"
+		android:elegantTextHeight="false"
+		android:layout_below="@+id/editPort"
+		android:layout_toLeftOf="@+id/guestBtn"
+		android:layout_marginRight="8sp"
+		android:layout_toStartOf="@+id/guestBtn"
+		android:layout_marginTop="32sp"/>
+
+	<CheckBox
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/quickBtn"
+		android:id="@+id/quickBox"
+		android:layout_below="@+id/connectBtn"
+		android:layout_alignLeft="@+id/editPort"
+		android:layout_alignStart="@+id/editPort"
+		android:layout_marginTop="35dp" />
+
+	<!--<CheckBox
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/meetingBox"
+		android:id="@+id/meetingBox"
+		android:layout_below="@+id/quickBox"
+		android:layout_alignLeft="@+id/quickBox"
+		android:layout_alignStart="@+id/quickBox" /> -->
 
 </RelativeLayout>

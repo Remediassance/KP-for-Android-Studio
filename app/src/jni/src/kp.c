@@ -325,6 +325,7 @@ void addTimeslotToParticipantsList(JNIEnv *env, individual_t *timeslot, jobject 
 	else __android_log_print(ANDROID_LOG_ERROR, "loadTimeSlot()", "Object obj NULL");
 }
 
+
 /**
  * @brief Creates empty profile in SmartSpace
  *
@@ -355,37 +356,6 @@ individual_t* createProfile(individual_t *person) {
 	personProfile = profile;
 
 	return profile;
-}
-
-/**
- * @brief Gets place info based on individual from SmartSpace
- *
- * @param person - person individual
- * @return Place individual in success and NULL otherwise
- */
-individual_t* createPlace(const char *city) {
-
- 	char *placeTitle = "";
- 	char *placeDescription = "";
- 	char *placeFoundingDate = "";
-
- 	individual_t *place = sslog_new_individual(CLASS_PLACE);
-
-	//prop_val_t *p_val_placeTitle = sslog_ss_get_property(person, PROPERTY_CITY);
-
- 	if(sslog_ss_add_property(place, PROPERTY_PLACETITLE, (void *)city) == -1)
-		return NULL;
-
-	if(sslog_ss_add_property(place, PROPERTY_PLACEDESCRIPTION, (void *)placeDescription) == -1)
-		return NULL;
-
-	if(sslog_ss_add_property(place, PROPERTY_PLACEFOUNDINGDATE, (void *)placeFoundingDate) == -1)
-		return NULL;
-
-	if(sslog_ss_insert_individual(place) == -1)
-		return NULL;
-
-	return place;
 }
 
 /**
@@ -432,8 +402,7 @@ individual_t* createPerson(const char *name, const char *phone,
  * @param city - city title
  * @return photo url in success and NULL otherwise
  */
-JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlacePhoto(
-		JNIEnv *env, jclass clazz, jstring city, jstring uuid) {
+JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlacePhoto(JNIEnv *env, jclass clazz, jstring city, jstring uuid) {
 
 	individual_t *place;
 	individual_t *person;
@@ -763,6 +732,8 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_setCity(JNIEnv *en
 
 	return 0;
 }
+
+
 
 individual_t* createPlace(const char *city) {
 
@@ -1194,9 +1165,11 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_initSubscription(
 
 	jclass *classAgendaObj = getJClassObject(env, "Agenda");
 	jclass *classProjectorObj = getJClassObject(env, "Projector");
+	jclass *classGalleryObj = getJClassObject(env, "CityGallery");
 
 	classAgenda = (jclass *)(*env)->NewGlobalRef(env, classAgendaObj);
 	classProjector = (jclass *)(*env)->NewGlobalRef(env, classProjectorObj);
+	classGallery = (jclass *)(*env)->NewGlobalRef(env, classGalleryObj);
 
 	if(subscribeConferenceService() != 0)
 		return -1;

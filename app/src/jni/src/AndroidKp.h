@@ -399,7 +399,7 @@ JNIEXPORT void JNICALL Java_petrsu_smartroom_android_srcli_KP_stopVideo
  * Signature: ()[Ljava/lang/String;
  */
  JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlacePhoto(
-    JNIEnv *, jclass, jstring, jstring) {
+    JNIEnv *, jclass, jstring, jstring);
 
 
 #ifdef __cplusplus

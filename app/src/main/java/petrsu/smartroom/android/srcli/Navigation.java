@@ -27,6 +27,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 public class Navigation {
 
 
+
     /**
      * Возвращает боковое меню. Из-за трудностей переноса, аналогичные меню Agenda и Presentation
      * оставлены в соответствующих классах
@@ -43,6 +44,7 @@ public class Navigation {
                         new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
                         new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
                         new PrimaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe),
+                        new PrimaryDrawerItem().withName(R.string.welcome).withIcon(FontAwesome.Icon.faw_group),
 
                         new SectionDrawerItem().withName(R.string.discussion),
                         new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
@@ -57,41 +59,44 @@ public class Navigation {
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
                 ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                        //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
-                        switch ((int) id) {
+            @Override
+            public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+                //Toast.makeText(Agenda.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                switch ((int) id) {
 
-                            case 1:
-                                activity.startActivity(getAgendaIntent(context));
-                                break;
-                            case 2:
-                                activity.startActivity(getPresentationIntent(context));
-                                break;
-                            case 4:
-                                activity.startActivity(getSocialProgramIntent(context));
-                                break;
-                            case 5:
-                                activity.startActivity(getCurDisqIntent(context));
-                                break;
-                            case 6:
-                                activity.startActivity(getDisqListIntent(context));
-                                break;
-                            case 8:
-                                activity.startActivity(getSettingsIntent(context));
-                                break;
-                            case 10:
-                                activity.startActivity(getManIntent(context));
-                                break;
-                            case 12:
-                                activity.startActivity(exitApp());
-                                break;
-                            default:
-                                break;
-                        }
-                        return true;
-                    }
-                }).build();
+                    case 1:
+                        activity.startActivity(getAgendaIntent(context));
+                        break;
+                    case 2:
+                        activity.startActivity(getPresentationIntent(context));
+                        break;
+                    case 3:
+                        activity.startActivity(getSocialProgramIntent(context));
+                        break;
+                    case 4:
+                        activity.startActivity(getGalleryIntent(context));
+                        break;
+                    case 6:
+                        activity.startActivity(getCurDisqIntent(context));
+                        break;
+                    case 7:
+                        activity.startActivity(getDisqListIntent(context));
+                        break;
+                    case 9:
+                        activity.startActivity(getSettingsIntent(context));
+                        break;
+                    case 11:
+                        activity.startActivity(getManIntent(context));
+                        break;
+                    case 13:
+                        activity.startActivity(exitApp());
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        }).build();
     }
 
     /**========================================================================

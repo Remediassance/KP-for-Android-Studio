@@ -1,11 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    tools:context=".KP"
-    tools:ignore="HardcodedText,RtlHardcoded" >
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:orientation="vertical"
+                tools:context=".KP"
+                tools:ignore="HardcodedText,RtlHardcoded" >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -15,39 +15,24 @@
         android:elevation="4dp"
         android:minHeight="?attr/actionBarSize"
         android:transitionName="actionBar"
-
         />
-
-    <!--  <Button
-        android:id="@+id/regServiceBtn"
-        android:layout_width="fill_parent"
-       	android:layout_height="55sp"
-        android:layout_marginTop="0sp"
-       	android:text="@string/registrationService"
-       	android:textColor="@color/white"
-       	android:textStyle="bold"
-       	android:gravity="center"
-       	android:textSize="20sp"
-        android:background="@color/darkBlue"/>-->
-
-
-    <!-- Name field -->
 
 
     <EditText
         android:id="@+id/editName"
-        android:layout_width="430sp"
+        android:layout_width="230sp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="250sp"
+        android:layout_marginTop="25sp"
         android:layout_below="@+id/toolbar"
         android:hint="@string/participantLogin"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/primary_text_default_material_light"
         android:textColorHint="@color/material_drawer_hint_text"
+        android:typeface="normal"
         android:textSize="20sp" />
     <!-- Name field -->
 
@@ -55,7 +40,7 @@
     <!-- Password field -->
     <EditText
         android:id="@+id/editPassword"
-        android:layout_width="430sp"
+        android:layout_width="230sp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -71,64 +56,29 @@
     <!-- Password field -->
 
     <!-- Advanced mode field -->
-    <RelativeLayout
-        android:id="@+id/advModeParent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editPassword"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_centerHorizontal="true">
-        <ImageView
-            android:id="@+id/advModeImg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_centerVertical="true"
-            android:contentDescription="@string/advancedMode"
-            android:src="@drawable/ic_add" />
-
-        <TextView
-            android:id="@+id/advModeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/advModeImg"
-            android:layout_toRightOf="@+id/advModeImg"
-            android:text="@string/advancedModeOn"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-    </RelativeLayout>
-    <!-- Advanced mode field -->
 
     <!-- IP field -->
     <EditText
         android:id="@+id/editIP"
-        android:layout_width="430sp"
-        android:layout_centerHorizontal="true"
+        android:layout_width="230sp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="15sp"
-        android:layout_below="@+id/advModeParent"
         android:hint="@string/ssIP"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:visibility="invisible"
+        android:inputType="phone"
         android:textColor="@color/primary_text_default_material_light"
         android:textColorHint="@color/material_drawer_hint_text"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:enabled="true"
+        android:layout_below="@+id/editPassword"
+        android:layout_alignLeft="@+id/editPassword"
+        android:layout_alignStart="@+id/editPassword"
+        android:layout_marginTop="15sp"/>
     <!-- IP field -->
 
     <!-- Port field -->
-
-
     <EditText
         android:id="@+id/editPort"
-        android:layout_width="430sp"
+        android:layout_width="230sp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -137,11 +87,11 @@
         android:layout_below="@+id/editIP"
         android:hint="@string/ssPort"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:visibility="invisible"
+        android:inputType="phone"
         android:textColor="@color/primary_text_default_material_light"
         android:textColorHint="@color/material_drawer_hint_text"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:enabled="true" />
     <!-- Port field -->
 
     <Button
@@ -167,10 +117,30 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:layout_marginTop="32dp"
+        android:elegantTextHeight="false"
         android:layout_below="@+id/editPort"
         android:layout_toLeftOf="@+id/guestBtn"
+        android:layout_marginRight="8sp"
         android:layout_toStartOf="@+id/guestBtn"
-        android:layout_marginRight="8dp"/>
+        android:layout_marginTop="32sp"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quickBtn"
+        android:id="@+id/quickBox"
+        android:layout_below="@+id/connectBtn"
+        android:layout_alignLeft="@+id/editPort"
+        android:layout_alignStart="@+id/editPort"
+        android:layout_marginTop="35dp" />
+
+    <!--<CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meetingBox"
+        android:id="@+id/meetingBox"
+        android:layout_below="@+id/quickBox"
+        android:layout_alignLeft="@+id/quickBox"
+        android:layout_alignStart="@+id/quickBox" /> -->
 
 </RelativeLayout>
