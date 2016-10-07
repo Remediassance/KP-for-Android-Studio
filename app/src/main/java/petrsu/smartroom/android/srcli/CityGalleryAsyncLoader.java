@@ -9,6 +9,8 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.util.Log;
@@ -34,13 +36,13 @@ public class CityGalleryAsyncLoader extends AsyncTask<String, Void, Bitmap> {
     ImageView imageView = null;
     Bitmap bitmap;
     private WeakReference<ImageView> imageViewReference;
-    /*Activity activity;
-    private final ProgressDialog dialog = new ProgressDialog(activity);*/
+    Activity activity;
+    private ProgressDialog dialog;
 
 
-    public CityGalleryAsyncLoader(ImageView imageView) {
+    public CityGalleryAsyncLoader(ImageView imageView, ActionBarActivity a) {
         imageViewReference = new WeakReference<ImageView>(imageView);
-       //activity = a;
+        activity = a;
     }
 
     @Override
@@ -76,6 +78,8 @@ public class CityGalleryAsyncLoader extends AsyncTask<String, Void, Bitmap> {
                 }
             }
         }
+        //if(this.getStatus().equals(Status.FINISHED))
+            this.dialog.dismiss();
     }
 
     private Bitmap downloadBitmap(String url){
@@ -127,10 +131,13 @@ public class CityGalleryAsyncLoader extends AsyncTask<String, Void, Bitmap> {
         Log.d("onCancelled()", "Cancel");
     }
 
-   /* @Override
+    @Override
     protected void onPreExecute(){
-        this.dialog.setMessage("Processing...");
-        this.dialog.show();
-    }*/
+        dialog=ProgressDialog.show(activity,"","Please Wait",false);
+
+        /*if(!dialog.isShowing()) {
+
+        }*/
+    }
 }
 

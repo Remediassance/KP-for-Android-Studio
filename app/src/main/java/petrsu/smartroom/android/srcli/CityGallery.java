@@ -283,10 +283,10 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
                     url = "https://upload.wikimedia.org/wikipedia/commons/thumb/"
                             + md5Hex.substring(0, 1) + "/"
                             + md5Hex.substring(0, 2) + "/"
-                            + picName + "/700px-" // TODO: сделать скейл изображения до максимума
+                            + picName + "/700px-"
                             + picName;
                     Log.i("city link is", url);
-                    cgal = new CityGalleryAsyncLoader(imageView);
+                    cgal = new CityGalleryAsyncLoader(imageView, CityGallery.this);
                     cgal.execute(url);
 
                     //Уменьшаем размер изображения на 100 пикселей за итерпцию, в недежде, что он есть
@@ -299,7 +299,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
                             int oldSize = (i + 1) * 100;
                             int newSize = i * 100;
                             url = url.replaceAll(String.valueOf(oldSize),String.valueOf(newSize));
-                            cgal = new CityGalleryAsyncLoader(imageView);
+                            cgal = new CityGalleryAsyncLoader(imageView, CityGallery.this);
                             cgal.execute(url);
                         }
                         else {
@@ -310,7 +310,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
 
 
                 } else {
-                    cgal = new CityGalleryAsyncLoader(imageView);
+                    cgal = new CityGalleryAsyncLoader(imageView, CityGallery.this);
                     cgal.execute("http://0.tqn.com/d/webclipart/1/0/5/l/4/floral-icon-5.jpg");
                     Log.e("Pic Error","Loading flower");
                 }
