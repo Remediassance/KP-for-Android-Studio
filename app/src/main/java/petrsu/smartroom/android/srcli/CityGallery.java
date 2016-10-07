@@ -2,6 +2,8 @@ package petrsu.smartroom.android.srcli;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -52,6 +54,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
 
     public static ProgressBar progressBar;
     public static String city;
+    public static boolean isImageNA = false;
 
     private static ArrayList<Timeslot> confList;
     private static ArrayList<String> uuidList;
@@ -251,6 +254,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
 
         city = null;
         city = KP.getCityByPersonUuid(uuid);
+        CityGalleryAsyncLoader cgal;
 
         ArrayList dataList = new ArrayList(3);
         try {
@@ -265,26 +269,50 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
                 Log.i("CityGallery():", "City title is " + city);
                 displayedCity.setText(city);
 
-                if (url != null) {
-                    picName = url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"));
-                    md5Hex = new String(Hex.encodeHex(DigestUtils.md5(picName)));
-                    url = "https://upload.wikimedia.org/wikipedia/commons/thumb/"
-                            + md5Hex.substring(0, 1) + "/"
-                            + md5Hex.substring(0, 2) + "/"
-                            + picName + "/700px-"
-                            + picName;
-                    Log.i("city link is", url);
-                    new CityGalleryAsyncLoader(imageView).execute(url);
-                } else {
-                    new CityGalleryAsyncLoader(imageView).execute("http://0.tqn.com/d/webclipart/1/0/5/l/4/floral-icon-5.jpg");
-                }
-
                 if (cityDesc != null) {
                     dataList.clear();
                     dataList.add(cityDesc);
                 } else {
                     dataList.clear();
                     dataList.add("Oops! Description was lost :(");
+                }
+
+                if (url != null) {
+                    picName = url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"));
+                    md5Hex = new String(Hex.encodeHex(DigestUtils.md5(picName)));
+                    url = "https://upload.wikimedia.org/wikipedia/commons/thumb/"
+                            + md5Hex.substring(0, 1) + "/"
+                            + md5Hex.substring(0, 2) + "/"
+                            + picName + "/700px-" // TODO: сделать скейл изображения до максимума
+                            + picName;
+                    Log.i("city link is", url);
+                    cgal = new CityGalleryAsyncLoader(imageView);
+                    cgal.execute(url);
+
+                    //Уменьшаем размер изображения на 100 пикселей за итерпцию, в недежде, что он есть
+
+                    for(int i = 6; i > 2; i--) {
+                        Drawable myDrawable = imageView.getDrawable();
+                        Drawable nan = getResources().getDrawable(R.drawable.not_available);
+                        if(myDrawable == (getResources().getDrawable(R.drawable.not_available)) ) {
+                            Toast.makeText(CityGallery.this, "Requested image was too big. Trying to load it in smaller resolution " + i, Toast.LENGTH_SHORT).show();
+                            int oldSize = (i + 1) * 100;
+                            int newSize = i * 100;
+                            url = url.replaceAll(String.valueOf(oldSize),String.valueOf(newSize));
+                            cgal = new CityGalleryAsyncLoader(imageView);
+                            cgal.execute(url);
+                        }
+                        else {
+                           // cancelTask(cgal);
+                            break;
+                        }
+                    }
+
+
+                } else {
+                    cgal = new CityGalleryAsyncLoader(imageView);
+                    cgal.execute("http://0.tqn.com/d/webclipart/1/0/5/l/4/floral-icon-5.jpg");
+                    Log.e("Pic Error","Loading flower");
                 }
 
                 lv = (ListView) findViewById(R.id.listView);
@@ -300,6 +328,14 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         }
     }
 
+
+    /**
+     * Cancel ongoing task of downloading city thumbnail image
+     */
+    private void cancelTask(CityGalleryAsyncLoader _cgal) {
+        if (_cgal == null) return;
+        Log.d("CancelTask cgal", "cancel result: " + _cgal.cancel(false));
+    }
 
     /**
      * Register city property after the user by his/her uuid

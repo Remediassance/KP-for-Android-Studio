@@ -1,10 +1,14 @@
 package petrsu.smartroom.android.srcli;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.util.Log;
@@ -20,6 +24,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Remediassance on 25.08.2016.
@@ -29,15 +34,28 @@ public class CityGalleryAsyncLoader extends AsyncTask<String, Void, Bitmap> {
     ImageView imageView = null;
     Bitmap bitmap;
     private WeakReference<ImageView> imageViewReference;
+    /*Activity activity;
+    private final ProgressDialog dialog = new ProgressDialog(activity);*/
+
 
     public CityGalleryAsyncLoader(ImageView imageView) {
         imageViewReference = new WeakReference<ImageView>(imageView);
+       //activity = a;
     }
 
     @Override
     protected Bitmap doInBackground(String... params) {
-        return downloadBitmap(params[0]);   // парамс ссылается на arraylist данных, в каждой ячейке
-                                            // которого находится 3 элемента: ссылка, дата основания, описание.
+        try {
+            for (int i = 0; i < 5; i++) {
+                TimeUnit.SECONDS.sleep(1);
+                if (isCancelled()) return null;
+                Log.d("GalleryAsyncLoader", "isCancelled: " + isCancelled());
+            }
+        } catch (InterruptedException e) {
+            Log.d("GalleryAsyncLoader", "Interrupted");
+            e.printStackTrace();
+        }
+        return downloadBitmap(params[0]);
     }
 
     @Override
@@ -103,4 +121,16 @@ public class CityGalleryAsyncLoader extends AsyncTask<String, Void, Bitmap> {
         CityGallery.progressBar.setProgress(progress[0]);
     }
 
+    @Override
+    protected void onCancelled() {
+        super.onCancelled();
+        Log.d("onCancelled()", "Cancel");
+    }
+
+   /* @Override
+    protected void onPreExecute(){
+        this.dialog.setMessage("Processing...");
+        this.dialog.show();
+    }*/
 }
+
