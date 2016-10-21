@@ -12,6 +12,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-8.1.0_8c1444ef3b877b0166b4e657015a5181cf479bef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-8.1.0_e9c7c989f911f59a14ebb81d89cb90d48fd66dd5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -52,17 +70,8 @@
         jumboMode="true"
         optimize="true"
         revision="21.1.2"
-        sha1="dc3c9519e3b9056328a46c761b2ab06a578aa2a8">
+        sha1="4745d990ae1a523c76b9d721f9711e4ea24579f3">
         <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_17013f2ef5becdf439cc5729c756da069cbc80c7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="21.1.2"
-        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
-        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-8.1.0_8c1444ef3b877b0166b4e657015a5181cf479bef\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -70,7 +79,7 @@
         jumboMode="true"
         optimize="true"
         revision="21.1.2"
-        sha1="661500c5f34ec64b581e2bf62b0518944fd92299">
+        sha1="1a39b68f54f2078e4cac3e0735f2952a35b2c751">
         <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_59eacf1fbaf11eceb9d25ca6a4cba0aec99bdafa\classes.dex" />
     </item>
     <item
@@ -81,15 +90,6 @@
         revision="21.1.2"
         sha1="5fd8184cfea4c5aa4e3c14bb3d21fd83539d6f47">
         <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\transforms\dex\debug\folders\1000\2\jspeex_2ec18be348056fe5a8449fc0f64501894cec511c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="21.1.2"
-        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
-        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-8.1.0_e9c7c989f911f59a14ebb81d89cb90d48fd66dd5\classes.dex" />
     </item>
     <item
         is-multidex="true"

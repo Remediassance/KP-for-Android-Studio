@@ -260,7 +260,7 @@ public class CityGallery extends ActionBarActivity implements View.OnClickListen
         try {
             url = KP.getPlacePhoto(city, uuid);
             cityDesc = KP.getPlaceDescription(city);
-            cityFD = KP.getPlaceFoundingDate(city);
+            cityFD = "Unknown";//KP.getPlaceFoundingDate(city);
 
             //Если у города нет даты основания, то, возможно, инфа введена неверно
             if (cityFD != null) {

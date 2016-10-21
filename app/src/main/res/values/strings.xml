@@ -104,7 +104,7 @@
 	    Would you like to rewrite it?</string>
 	<string name="anonimJoinMsg">Would you like to join as anonimous?</string>
 	<string name="agendaRefresh">Refresh agenda</string>
-	<string name="speakerIs" translatable="false">Speaker is</string>
+	<string name="speakerIs">Speaker is</string>
 	
 	<string name="signup"> Sign up</string>
 	<string name="manual">Manual</string>
@@ -172,4 +172,6 @@
 	<string name="participantslist">Participants</string>
 	<string name="changecity">Change city</string>
 	<string name="choosePerson">Choose person</string>
+	<string name="no_hires_pic_found_retry">Requested image was too big. Trying to load it in smaller resolution</string>
+	<string name="demo_mode_launch">Demo mode</string>
 </resources>
