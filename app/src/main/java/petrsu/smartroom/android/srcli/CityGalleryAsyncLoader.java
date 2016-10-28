@@ -29,7 +29,8 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Remediassance on 25.08.2016.
+ * Created by
+ * @author Remediassance on 25.08.2016.
  */
 public class CityGalleryAsyncLoader extends AsyncTask<String, Void, Bitmap> {
 

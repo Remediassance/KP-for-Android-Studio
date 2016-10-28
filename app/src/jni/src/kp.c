@@ -576,7 +576,7 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlaceDescrip
 		__android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():", "Place does not exist!");
 		return NULL;
 	}
-	else __android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():","%s", place -> uuid);
+	else __android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():","%s",  d);
 
 
 	/*Только 1 описание на место*/
