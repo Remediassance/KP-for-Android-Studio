@@ -140,17 +140,18 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-		Drawer result = new DrawerBuilder()
-                .withActivity(this)
-                .withToolbar(toolbar)
-                .withActionBarDrawerToggle(true)
-                .withHeader(R.layout.drawer_header)
+		new DrawerBuilder()
+				.withActivity(this)
+				.withToolbar(toolbar)
+				.withActionBarDrawerToggle(true)
+				.withHeader(R.layout.drawer_header)
 				.withDrawerWidthDp(320)
 				.addDrawerItems(
 						new SectionDrawerItem().withName(R.string.services),
 						new PrimaryDrawerItem().withName(R.string.agenda).withIcon(FontAwesome.Icon.faw_server),
 						new PrimaryDrawerItem().withName(R.string.presentation).withIcon(FontAwesome.Icon.faw_image),
-                        new PrimaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe),
+						new PrimaryDrawerItem().withName("SocialProgram").withIcon(FontAwesome.Icon.faw_globe),
+						new PrimaryDrawerItem().withName(R.string.welcome).withIcon(FontAwesome.Icon.faw_group),
 
 						new SectionDrawerItem().withName(R.string.discussion),
 						new PrimaryDrawerItem().withName(R.string.discussionCur).withIcon(FontAwesome.Icon.faw_comment_o),
@@ -166,27 +167,28 @@ public class Projector extends ActionBarActivity implements View.OnClickListener
 
 						new DividerDrawerItem(),
 						new SecondaryDrawerItem().withName(R.string.exitClientTitle).withIcon(FontAwesome.Icon.faw_close)
-                ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-            @Override
-            public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
-                //Toast.makeText(Projector.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
-                switch ((int) id) {
-                    case 1:     startActivity(Navigation.getAgendaIntent(getApplicationContext()));       	break;
-                    case 2:     break;
-                    case 3:     startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));	break;
-                    case 4:     startActivity(Navigation.getCurDisqIntent(getApplicationContext()));      	break;
-                    case 5:     startActivity(Navigation.getDisqListIntent(getApplicationContext()));    	break;
-                    case 7:     startActivity(Navigation.getSettingsIntent(getApplicationContext()));     	break;
-                    case 8:     updateProjector();  break;
-                    case 10:    openHelp();     	break;
-                    case 11:	startActivity(Navigation.getManIntent(getApplicationContext()));       		break;
-                    case 13:    startActivity(Navigation.exitApp());          								break;
-                    default:    break;
+				).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+					@Override
+					public boolean onItemClick(AdapterView<?> parent, View view, int position, long id, IDrawerItem drawerItem) {
+						//Toast.makeText(Projector.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+						switch ((int) id) {
+							case 1:     startActivity(Navigation.getAgendaIntent(getApplicationContext()));       	break;
+							case 2:     break;
+							case 3:     startActivity(Navigation.getSocialProgramIntent(getApplicationContext()));	break;
+							case 4:		startActivity(Navigation.getGalleryIntent(getApplicationContext())); 		break;
+							case 5:     startActivity(Navigation.getCurDisqIntent(getApplicationContext()));      	break;
+							case 6:     startActivity(Navigation.getDisqListIntent(getApplicationContext()));    	break;
+							case 8:     startActivity(Navigation.getSettingsIntent(getApplicationContext()));     	break;
+							case 9:     updateProjector();  break;
+							case 11:    openHelp();     	break;
+							case 12:	startActivity(Navigation.getManIntent(getApplicationContext()));       		break;
+							case 14:    startActivity(Navigation.exitApp());          								break;
+							default:    break;
 
-                }
-				return true;
-            }
-        }).build();
+						}
+						return true;
+					}
+				}).build();
 		
 		/* If connection established */
 		if(checkConnection()) {

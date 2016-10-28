@@ -104,7 +104,7 @@
 	    Would you like to rewrite it?</string>
 	<string name="anonimJoinMsg">Would you like to join as anonimous?</string>
 	<string name="agendaRefresh">Refresh agenda</string>
-	<string name="speakerIs" translatable="false">Speaker is</string>
+	<string name="speakerIs">Speaker is</string>
 	
 	<string name="signup"> Sign up</string>
 	<string name="manual">Manual</string>
@@ -158,5 +158,20 @@
 
 	<string name="city">City: e.g. Petrozavodsk</string>
 	<string name="searchBtn">Search</string>
-
+	<string name="quickBtn">Quick launch</string>
+	<string name="meetingBox">Run in Meeting mode</string>
+	<string name="userCity">City</string>
+	<string name="welcome">Welcome service</string>
+	<string name="socialservice">Social Service</string>
+	<string name="cityis">Your city is</string>
+	<string name="citycheck">Check that city field is in latin and non-empty!</string>
+	<string name="fdtitle">Founded in:</string>
+	<string name="descTitle">Description</string>
+	<string name="seemore">See more...</string>
+	<string name="cityerror">City with such name does not exist!</string>
+	<string name="participantslist">Participants</string>
+	<string name="changecity">Change city</string>
+	<string name="choosePerson">Choose person</string>
+	<string name="no_hires_pic_found_retry">Requested image was too big. Trying to load it in smaller resolution</string>
+	<string name="demo_mode_launch">Demo mode</string>
 </resources>

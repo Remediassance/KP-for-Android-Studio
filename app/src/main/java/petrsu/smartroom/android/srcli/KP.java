@@ -4,6 +4,7 @@ package petrsu.smartroom.android.srcli;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.*;
 import android.text.Html;
 import android.util.Log;
@@ -57,6 +58,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
     public static String spAddr = "null";
 	private ImageView advancedModeImg;		// Advance mode trigger
 	private TextView advancedModeText;
+	private static CheckBox demoModeBox;
 	private Button connectBtn;	
 	private Button guestBtn;
 	//private Button regServiceBtn;
@@ -69,45 +71,107 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 	//private ArrayList<String> timeslotList;
 	private String lastState;
 	
-	public static native int connectSmartSpace(String hostname, String ip,  int port);
-	public static native int loadTimeslotList(Agenda obj);
-	public static native void disconnectSmartSpace();
-	public static native int getServicesInfo(ServicesMenu menu);
-	public static native int  userRegistration(String userName, String password);
-	public static native int loadPresentation(Projector projector);
-	public static native int initSubscription();
-	public static native int startConference();
-	public static native int endConference();
-	//public static native void getProjectorClassObject();
-	public static native int showSlide(int slideNumber);
-	public static native int endPresentation();
-	public static native int getCurrentTimeslotIndex();
-    public static native String getSpeakerName();
-	public static native boolean checkSpeakerState();
-	public static native String getMicServiceIP();
-	public static native String getMicServicePort();
+	public static native int connectSmartSpace(String hostname, String ip, int port);
 
-	public static native String getDiscussionServiceIP();
-    public static native String getSocialProgramServiceIP();
+	public static native void disconnectSmartSpace();
+
+	public static native int endConference();               // Тоже не используется
+
+	//public static native int endMeeting();                  // Done ^
+
+	//public static native int endMeetingPresentation();      // Done
+
+	public static native int endPresentation();
+
+	public static native int getCurrentTimeslotIndex();
+
+	public static native int getServicesInfo(ServicesMenu menu);
+
+	//public static native int initMeetingSubscription();     // Done
+
+	public static native int initSubscription();
+
+	//public static native int isActiveMeetingSubscriptions();//=============================================
+
+	public static native int isActiveSubscriptions();
+
+	public static native int loadPresentation(Projector projector);
+
+	public static native int loadTimeslotList(AppCompatActivity obj);
+
+	public static native int loadParticipantsList(AppCompatActivity obj);
 
 	public static native int personTimeslotIndex();
-	public static native boolean checkConnection();
-	public static native String getPresentationLink(int index);
-	public static native int registerGuest(String name, String phone, String email);
-	public static native int startConferenceFrom(int index);
-	public static native String loadProfile(Profile profile, int index);
-	public static native int saveProfileChanges(String name, String phone);
-	public static native String getPersonUuid();
-	public static native CharSequence[] getVideoTitleList();
-	public static native CharSequence[] getVideoUuidList();
-	public static native String getContentUrl();
-	public static native int isActiveSubscriptions();
+
 	public static native int refreshConferenceSbcr();
+
+	//public static native int refreshMeetingSbcr();//=============================================
+
 	public static native int refreshPresentationSbcr();
-	public static native String[] getCurrentSectionList();
-	public static native boolean sectionChanged();
+
+	public static native int registerGuest(String name, String phone, String email, String city);
+
+	public static native int saveProfileChanges(String name, String phone);
+
+	public static native int showSlide(int slideNumber);
+
+	public static native int startConference();             // Не используется, поскольку выпилено меню опций за ненадобностью
+
+	public static native int startConferenceFrom(int index);
+
+	//public static native int startMeeting();                // Done ^
+
+	//public static native int startMeetingFrom(int index, boolean isMeetingMode); //======================================
+
 	public static native int startVideo(String url);
+
 	public static native void stopVideo();
+
+	public static native int userRegistration(String userName, String password);
+
+	public static native int setCity(String uuid, String city);
+
+
+	public static native boolean checkSpeakerState();//mm
+
+	public static native boolean checkConnection();
+
+	public static native boolean sectionChanged();//mm
+
+	public static native String getContentUrl();
+
+	public static native String[] getCurrentSectionList();
+
+	public static native String getDiscussionServiceIP();
+
+	public static native String getMicServiceIP();
+
+	public static native String getMicServicePort();
+
+	public static native String getPersonUuid();
+
+	public static native String getPresentationLink(int index);//mm
+
+	public static native String getSocialProgramServiceIP();
+
+	public static native String getSpeakerName();//mm
+
+	public static native String getWelcomeServiceIP();
+
+	public static native String loadProfile(Profile profile, int index);//mm
+
+	public static native String getPlacePhoto(String city, String uuid);
+
+	public static native String getCityByPersonUuid(String uuid);
+
+	public static native String getPlaceDescription(String name);
+
+	public static native String getPlaceFoundingDate(String name);
+
+	public static native CharSequence[] getVideoTitleList();
+
+	public static native CharSequence[] getVideoUuidList();
+
 	
 	/* Loading of shared library */
 	static {
@@ -141,8 +205,10 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
         connectBtn.setOnClickListener(this);
         guestBtn = (Button) findViewById (R.id.guestBtn);
         guestBtn.setOnClickListener(this);
-        
-        editName = (EditText) findViewById (R.id.editName);
+		demoModeBox = (CheckBox) findViewById(R.id.quickBox);
+
+
+		editName = (EditText) findViewById (R.id.editName);
         editPassword = (EditText) findViewById (R.id.editPassword);
         editIP = (EditText) findViewById (R.id.editIP);
         editPort = (EditText) findViewById (R.id.editPort);
@@ -246,24 +312,15 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		ip = editIP.getText().toString();
 
 		switch(view.getId()) {
-			/*case R.id.advModeImg:
-			case R.id.advModeText:
-				if(editIP.getVisibility() == EditText.VISIBLE) {
-					advancedModeImg.setImageResource(R.drawable.ic_add);
-					advancedModeText.setText(R.string.advancedModeOn);
-					editIP.setVisibility(EditText.INVISIBLE);
-					editPort.setVisibility(EditText.INVISIBLE);
-				} else {
-					advancedModeImg.setImageResource(R.drawable.ic_close);
-					advancedModeText.setText(R.string.advancedModeOff);
-					editIP.setVisibility(EditText.VISIBLE);
-					editPort.setVisibility(EditText.VISIBLE);
-				}
-				break;*/
-
 			case R.id.connectBtn:
                 try {
                     port = Integer.parseInt(editPort.getText().toString());
+
+					if (!demoModeBox.isChecked())
+						joinSmartSpace(name, password);
+					else
+						joinDemoMode(name, password);
+
                     joinSmartSpace(name, password);
                 } catch(NumberFormatException e) {
                     Toast.makeText(this, R.string.portFormatErr,
@@ -280,6 +337,79 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
                             Toast.LENGTH_SHORT).show();
                 }
                 break;
+		}
+	}
+
+	/**
+	 * Register city property after the user by his/her uuid
+	 * @param  uuid - uuid of a user without a city property
+	 */
+	public void registerCity(final String uuid) {
+		LayoutInflater inflater = LayoutInflater.from(this);
+		final View dialogViewCity = inflater.inflate(R.layout.city_registration, null);
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setView(dialogViewCity);
+		builder.setTitle(R.string.registrationTitle);
+		builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				EditText editCity = (EditText) dialogViewCity.findViewById(R.id.cityField);
+				String cityz = editCity.getText().toString();
+
+				if(cityz.equals("") || CityGallery.isCityNameCorrect(cityz) == false) {
+					Toast.makeText(getApplicationContext(),R.string.citycheck,Toast.LENGTH_LONG).show();
+				} else {
+					if(KP.setCity(uuid,cityz) == -1) {
+						Toast.makeText(getApplicationContext(), R.string.registrationFail, Toast.LENGTH_LONG).show();
+						return;
+					}
+					else {
+						Log.i("registerCity()", "Going to the Gallery!");
+						startActivity(Navigation.getGalleryIntent(getApplicationContext()));
+					}
+				}
+			}
+		});
+		builder.setNegativeButton(android.R.string.cancel, null);
+		AlertDialog dialog = builder.create();
+		dialog.show();
+	}
+
+	/**
+	 * Joins Smart Space in demo mode skipping the
+	 * agenda service part in case there is no active section
+	 *
+	 * @param name     - User name
+	 * @param password - User password
+	 */
+	private void joinDemoMode(String name, String password) {
+		String city = null;
+		String uuid;
+		if (name.equals("") || password.equals("")) {
+			showAnonimousDialog();
+			return;
+		}
+
+		if (establishConnection(name, password, port) != 0) {
+			return;
+		}
+
+		personIndex = KP.personTimeslotIndex();
+
+		stopService(new Intent(this, NetworkService.class));
+		startService(new Intent(this, NetworkService.class));
+
+		uuid = KP.getPersonUuid();
+
+		if(KP.getCityByPersonUuid(uuid)== null){
+			Log.i("registerCity()", "Attempting to register city property...");
+			registerCity(uuid);
+		}
+		else {
+			Log.i("registerCity()", "Success!");
+			startActivity(Navigation.getGalleryIntent(getApplicationContext()));
+
 		}
 	}
 
@@ -484,14 +614,14 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
         editIP.setVisibility(View.VISIBLE);
         editPort.setVisibility(View.VISIBLE);
         
-        if(advancedMode == EditText.VISIBLE) {
+        /*if(advancedMode == EditText.VISIBLE) {
         	advancedModeImg.setImageResource(R.drawable.ic_close);
 			advancedModeText.setText(R.string.advancedModeOff);
         } else {
         	advancedModeImg.setImageResource(R.drawable.ic_add);
 			advancedModeText.setText(R.string.advancedModeOn);
         }
-
+*/
         int timeout = prefs.getInt(SettingsMenu.TIMEOUT_SCREEN_PREF, 
 				SettingsMenu.defaultTimeout);
 		
@@ -521,8 +651,17 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 		
 		stopService(new Intent(this, NetworkService.class));
 		startService(new Intent(this, NetworkService.class));
-		
-		loadAgenda();
+
+		if((getCityByPersonUuid(getPersonUuid())) == null){
+			registerCity(getPersonUuid());
+		}
+
+		else {
+			if (!demoModeBox.isChecked())
+				loadAgenda();
+			else
+				startActivity(Navigation.getGalleryIntent(getApplicationContext()));
+		}
 		/*if(lastState.equals("Agenda"))
 			loadAgenda();
 		else if(lastState.equals("Projector"))
@@ -554,10 +693,13 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 						.findViewById(R.id.guestPhone);
 				EditText editEmail = (EditText) dialogView
 						.findViewById(R.id.guestEmail);
+				EditText editCity = (EditText) dialogView
+						.findViewById(R.id.guestCity);
 				
 				String name = editName.getText().toString();
 				String phone = editPhone.getText().toString();
 				String email = editEmail.getText().toString();
+				String city = editCity.getText().toString();
 				int ret_value = 0;
 				
 				if(name.equals("")) {
@@ -582,7 +724,7 @@ public class KP extends ActionBarActivity implements View.OnClickListener {
 						return;
 					}
 					
-					ret_value = registerGuest(name, phone, email);
+					ret_value = registerGuest(name, phone, email, city);
 					
 					if(ret_value == -1) {
 						Toast.makeText(getApplicationContext(), 

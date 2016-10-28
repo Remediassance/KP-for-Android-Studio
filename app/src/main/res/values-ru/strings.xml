@@ -112,5 +112,22 @@
 
     <string name="city">Город (Напр. Москва)</string>
     <string name="searchBtn">Найти</string>
+    <string name="fdtitle">Дата основания:</string>
+    <string name="demo_mode_launch">Быстрый запуск</string>
+    <string name="descTitle">Описание</string>
+    <string name="citycheck">Проверьте заполненность поля города</string>
+    <string name="cityerror">Такого города не существует!</string>
+    <string name="cityis">"Ваш город - "</string>
+    <string name="choosePerson">Выберите участника</string>
+    <string name="changecity">Изменить город</string>
+    <string name="no_hires_pic_found_retry">"Изображение слишком большое. Загружаем уменьшенный вариант... "</string>
+    <string name="participantslist">Участники</string>
+    <string name="quickBtn">Быстрый запуск</string>
+    <string name="seemore">Далее</string>
+    <string name="socialservice">Social Program</string>
+    <string name="userCity">Город</string>
+    <string name="welcome">Welcome service</string>
+    <string name="speakerIs" translatable="false">"Выступающий: "</string>
+    <string name="meetingBox">Режим совещания</string>
 
 </resources>

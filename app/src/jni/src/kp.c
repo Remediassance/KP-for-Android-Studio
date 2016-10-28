@@ -261,9 +261,70 @@ JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_setPlaceInfo(
 		}
 	}
 
-
 	return NULL;
 }
+
+
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_loadParticipantsList(
+		JNIEnv *env, jclass clazz, jobject obj) { 
+
+	prop_val_t *propTimeslot = NULL;
+
+	if(obj != NULL) {
+			galleryClassObject = (jobject *)(*env)->NewGlobalRef(env, obj);
+	} else {
+		return -1;
+	}
+
+	propTimeslot = sslog_ss_get_property(getCurrentSection(), PROPERTY_FIRSTTIMESLOT);
+
+	if(propTimeslot == NULL) {
+		return -1;
+	}
+
+	while(propTimeslot != NULL) {
+		individual_t *pTimeslot = (individual_t *) propTimeslot->prop_value;
+
+		if(pTimeslot == NULL)
+			return -1;
+
+		addTimeslotToParticipantsList(env, pTimeslot, obj);
+		propTimeslot = sslog_ss_get_property(pTimeslot, PROPERTY_NEXTTIMESLOT);
+		//__android_log_print(ANDROID_LOG_INFO, "addTimeslotToParticipantsList()", "%i", fl);
+
+	}
+
+	return 0;
+}
+
+
+
+void addTimeslotToParticipantsList(JNIEnv *env, individual_t *timeslot, jobject obj) {
+	
+	jmethodID methodId = (*env)->GetMethodID(env, classGallery, "addTimeslotItemToList2","(Ljava/lang/String;Ljava/lang/String;)V");
+	
+	char *name;
+	char *uuid = "NoUuid";
+
+	prop_val_t *p_val_name = sslog_ss_get_property (timeslot, PROPERTY_TIMESLOTSPEAKERNAME);
+	prop_val_t *p_val_person_link = sslog_ss_get_property (timeslot, PROPERTY_TIMESLOTPERSON);
+	prop_val_t *p_val_pres_title = getPresentationTitleProp(timeslot);
+
+	if(p_val_person_link != NULL){
+		individual_t *person = (individual_t*)(p_val_person_link -> prop_value);
+		uuid = person -> uuid;
+		name = (p_val_name == NULL) ? "No name" : (char *)(p_val_name->prop_value);
+	} 
+	else __android_log_print(ANDROID_LOG_ERROR, "loadTimeSlot()", "PROPERTY_TIMESLOTPERSON is NULL");
+
+		/*Calling CityGallery's addTimeslotItemToList Java method*/
+	if(obj != NULL)
+		(*env)->CallVoidMethod(env, obj, methodId, 
+			(*env)->NewStringUTF(env, uuid),
+			(*env)->NewStringUTF(env, name));
+	else __android_log_print(ANDROID_LOG_ERROR, "loadTimeSlot()", "Object obj NULL");
+}
+
 
 /**
  * @brief Creates empty profile in SmartSpace
@@ -295,37 +356,6 @@ individual_t* createProfile(individual_t *person) {
 	personProfile = profile;
 
 	return profile;
-}
-
-/**
- * @brief Gets place info based on individual from SmartSpace
- *
- * @param person - person individual
- * @return Place individual in success and NULL otherwise
- */
-individual_t* createPlace(const char *city) {
-
- 	char *placeTitle = "";
- 	char *placeDescription = "";
- 	char *placeFoundingDate = "";
-
- 	individual_t *place = sslog_new_individual(CLASS_PLACE);
-
-	//prop_val_t *p_val_placeTitle = sslog_ss_get_property(person, PROPERTY_CITY);
-
- 	if(sslog_ss_add_property(place, PROPERTY_PLACETITLE, (void *)city) == -1)
-		return NULL;
-
-	if(sslog_ss_add_property(place, PROPERTY_PLACEDESCRIPTION, (void *)placeDescription) == -1)
-		return NULL;
-
-	if(sslog_ss_add_property(place, PROPERTY_PLACEFOUNDINGDATE, (void *)placeFoundingDate) == -1)
-		return NULL;
-
-	if(sslog_ss_insert_individual(place) == -1)
-		return NULL;
-
-	return place;
 }
 
 /**
@@ -366,6 +396,389 @@ individual_t* createPerson(const char *name, const char *phone,
 	return person;
 }
 
+
+/**
+ * @brief gets place information based on its name
+ * @param city - city title
+ * @return photo url in success and NULL otherwise
+ */
+JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlacePhoto(JNIEnv *env, jclass clazz, jstring city, jstring uuid) {
+
+	individual_t *place;
+	individual_t *person;
+
+	jstring photoValue;
+	jclass stringObject = (*env)->FindClass(env, "java/lang/String");
+
+	const char *p_city = (*env)->GetStringUTFChars(env, city, NULL);
+	const char *_uuid = (*env)->GetStringUTFChars(env, uuid, NULL);
+	
+
+	if(p_city != NULL){
+		__android_log_print(ANDROID_LOG_INFO, "getolacePhoto():", "City name passed correctly");
+	}
+	else {
+		__android_log_print(ANDROID_LOG_ERROR, "getPlacePhoto():", "No city name passed");
+		return NULL;	
+	}
+
+	place = placeExists(p_city);
+	
+	if(!place){
+		__android_log_print(ANDROID_LOG_INFO, "getPlacePhoto():", "Place does not exist!");
+		place = createPlace(p_city);
+	}
+	
+
+	// Это теперь надо установить в свойство класса персон
+	
+	person = (individual_t *)sslog_repo_get_individual_by_uuid(_uuid);
+	if(person == NULL) {
+		__android_log_print(ANDROID_LOG_ERROR, "getPlacePhoto():", "Person is NULL");
+		return NULL;
+	}
+	else{
+		__android_log_print(ANDROID_LOG_INFO, "getPlacePhoto():", "Fetched person from SmartSpace");
+		__android_log_print(ANDROID_LOG_INFO, "getPlacePhoto():", person -> uuid);
+		__android_log_print(ANDROID_LOG_INFO, "getPlacePhoto():", place -> uuid);
+	}
+
+	if(sslog_ss_add_property(person, PROPERTY_CITY, place) != 0){
+		__android_log_print(ANDROID_LOG_ERROR, "getPlacePhoto():", "Cannot set property city to the person!");
+		return NULL;
+	}
+	else{
+		__android_log_print(ANDROID_LOG_INFO, "getPlacePhoto():", "Passed successfully3");
+	}
+
+
+	/*Только 1 фото на место*/
+	prop_val_t* photo_prop = sslog_ss_get_property(place, PROPERTY_PLACEHASPHOTO); 
+	individual_t *photo;
+
+	if(photo_prop == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "getPlacePhoto():", "%s", "PROPERTY_PLACEHASPHOTO is NULL");
+		return NULL;
+	}
+	else 
+		__android_log_print(ANDROID_LOG_INFO, "getPlacePhoto():", "PROPERTY_PLACEHASPHOTO is not NULL");
+
+	photo = (individual_t*) (photo_prop -> prop_value);
+
+	if(photo == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "getPlacePhoto():", "%s", "Place has no photos");
+		return NULL;
+	}
+	else
+		__android_log_print(ANDROID_LOG_INFO, "getPlacePhoto():", "Place has photo with uuid %s", photo->uuid);
+
+	prop_val_t *photoURL = sslog_ss_get_property(photo, PROPERTY_PHOTOURL);
+	if(photoURL == NULL) {
+		__android_log_print(ANDROID_LOG_ERROR, "getPlacePhoto():", "%s", "Error getting url of photo");
+		return NULL;
+	}
+	else {		
+		__android_log_print(ANDROID_LOG_INFO, "getPlacePhoto():", "got photo url! It is %s", (char*)(photoURL->prop_value));
+
+		(*env)->ReleaseStringUTFChars(env, city, p_city);
+		(*env)->ReleaseStringUTFChars(env, uuid, _uuid);
+
+		photoValue = (*env)->NewStringUTF(env,(jstring)(photoURL->prop_value));
+		return photoValue;
+	}
+
+	return NULL;
+
+}
+
+
+/**
+ * @brief Gets the name of a persons city by his uuid
+ * @param uuid - Uuid of a person
+ * @return - Returns name of a city if one is set, NULL otherwise
+ */
+JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getCityByPersonUuid(
+		JNIEnv *env, jclass clazz, jstring uuid) {
+
+	jstring cityName;
+	jclass stringObject = (*env)->FindClass(env, "java/lang/String");
+
+	const char *_uuid = (*env)->GetStringUTFChars(env, uuid, NULL);
+
+	individual_t* person = (individual_t *)sslog_repo_get_individual_by_uuid(_uuid);
+
+	if(person == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "getCityByPersonUuid():", "Cannot get person by uuid");
+		return NULL;
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "Got person by uuid!");
+
+	prop_val_t *city_prop = sslog_ss_get_property(person, PROPERTY_CITY);
+
+	if(city_prop == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "getCityByPersonUuid():", "Cannot get city property");
+		return NULL;
+	}
+	else {
+		__android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "Person lives in some city ");	
+		
+		individual_t* city = (individual_t*) (city_prop -> prop_value);
+
+		prop_val_t *cityTitle = sslog_ss_get_property(city, PROPERTY_PLACETITLE);
+		
+		if(cityTitle == NULL){
+			__android_log_print(ANDROID_LOG_ERROR, "getCityByPersonUuid():", "City title property is not set");
+			return NULL;
+		}
+		else __android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "City title property is set");
+
+		__android_log_print(ANDROID_LOG_INFO, "getCityByPersonUuid():", "City recieved from ss is %s", (char*)(cityTitle->prop_value));
+
+		cityName = (*env)->NewStringUTF(env,(jstring)(cityTitle->prop_value));
+
+		return cityName;
+	}
+
+	return NULL;
+
+}
+
+
+/**
+ * @brief gets place information based on its name
+ * @param city - city title
+ * @return photo url in success and NULL otherwise
+ */
+JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlaceDescription(
+		JNIEnv *env, jclass clazz, jstring city) {
+
+	individual_t *place;
+	individual_t *person;
+
+	jstring placeDescription;
+	jclass stringObject = (*env)->FindClass(env, "java/lang/String");
+
+	const char *p_city = (*env)->GetStringUTFChars(env, city, NULL);
+	//const char *_uuid = (*env)->GetStringUTFChars(env, uuid, NULL);
+	
+
+	if(p_city != NULL){
+		__android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():", "City name passed correctly");
+	}
+	else {
+		__android_log_print(ANDROID_LOG_ERROR, "getPlaceDescription():", "No city name passed");
+		return NULL;	
+	}
+
+	place = placeExists(p_city);
+	
+	if(!place){
+		__android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():", "Place does not exist!");
+		return NULL;
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():","%s",  d);
+
+
+	/*Только 1 описание на место*/
+	prop_val_t* place_prop = sslog_ss_get_property(place, PROPERTY_PLACEDESCRIPTION); 
+
+	if(place_prop == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "getPlaceDescription():", "PROPERTY_PLACEDESCRIPTION is NULL");
+		return NULL;
+	}
+	else {
+		__android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():", "PROPERTY_PLACEDESCRIPTION is not NULL");
+
+		(*env)->ReleaseStringUTFChars(env, city, p_city);
+
+		placeDescription = (*env)->NewStringUTF(env,(jstring)(place_prop->prop_value));
+		return placeDescription;
+	}
+
+	return NULL;
+}
+
+
+
+/**
+ * @brief Gets the name of a persons city by his uuid
+ * @param uuid - title of a city
+ * @return - Returns founding date of a city if one is set, NULL otherwise
+ */
+JNIEXPORT jstring JNICALL Java_petrsu_smartroom_android_srcli_KP_getPlaceFoundingDate(
+		JNIEnv *env, jclass clazz, jstring city) {
+
+	individual_t *place;
+
+	jstring placeDescription;
+	jclass stringObject = (*env)->FindClass(env, "java/lang/String");
+
+	const char *p_city = (*env)->GetStringUTFChars(env, city, NULL);	
+
+	if(p_city != NULL){
+		__android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():", "City name passed correctly");
+	}
+	else {
+		__android_log_print(ANDROID_LOG_ERROR, "getPlaceDescription():", "No city name passed");
+		return NULL;	
+	}
+
+	place = placeExists(p_city);
+	
+	if(!place){
+		__android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():", "Place does not exist!");
+		return NULL;
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():","%s", place -> uuid);
+
+
+	/*Только 1 описание на место*/
+	prop_val_t* place_prop = sslog_ss_get_property(place, PROPERTY_PLACEFOUNDINGDATE); 
+
+	if(place_prop == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "getPlaceDescription():", "%s", "PROPERTY_PLACEFOUNDINGDATE is NULL");
+		return NULL;
+	}
+	else {
+		__android_log_print(ANDROID_LOG_INFO, "getPlaceDescription():", "PROPERTY_PLACEFOUNDINGDATE is not NULL");
+
+		(*env)->ReleaseStringUTFChars(env, city, p_city);
+
+		placeDescription = (*env)->NewStringUTF(env,(jstring)(place_prop->prop_value));
+		return placeDescription;
+	}
+
+	return NULL;
+}
+
+
+/**
+ * @brief sets sity property to individual
+ * @param uuid - uuid of a user
+ * @param city - name of a city to assign
+ * @return 0 if success, -1 otherwise
+ */
+JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_setCity(JNIEnv *env, jclass clazz, jstring uuid, jstring city) {
+
+	jclass stringObject = (*env)->FindClass(env, "java/lang/String");
+
+	const char *_uuid = (*env)->GetStringUTFChars(env, uuid, NULL);
+	const char *_city = (*env)->GetStringUTFChars(env, city, NULL);
+
+	individual_t* newPlace;
+	individual_t* oldPlace;
+	individual_t* person;
+
+	prop_val_t *op_prop;
+
+	newPlace = (individual_t *)placeExists(_city);
+
+	if(newPlace == NULL){
+		__android_log_print(ANDROID_LOG_INFO, "setCity():", "Place does not exist!");
+		newPlace = createPlace(_city);
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "setCity():", "Place exists.");
+
+	person = (individual_t *)sslog_repo_get_individual_by_uuid(_uuid);
+
+	if(person == NULL){
+		__android_log_print(ANDROID_LOG_ERROR, "setCity():", "Cannot get person by uuid");
+		return -1;
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "setCity():", "Got person by uuid!");
+
+	oldPlace = sslog_ss_get_property(person, PROPERTY_CITY);
+	//oldPlace = (individual_t*)(op_prop -> prop_value);
+
+	/*
+	* Do if city wasn't set before fot this individual
+	*/
+	if(oldPlace == NULL){
+		__android_log_print(ANDROID_LOG_INFO, "setCity():", "PROPERTY_CITY was not set before!");
+
+		if(sslog_add_property(person, PROPERTY_CITY, (void *)newPlace) == -1){
+			__android_log_print(ANDROID_LOG_ERROR, "setCity():", "Cannot add PROPERTY_CITY to the person");
+			return -1;
+		} else __android_log_print(ANDROID_LOG_INFO, "setCity():", "Added property to the individual!");
+
+		if(sslog_ss_insert_individual(person) == -1){
+			__android_log_print(ANDROID_LOG_ERROR, "setCity():", "Cannot insert individual");
+			return -1;
+		} else __android_log_print(ANDROID_LOG_INFO, "setCity():", "Inserted the individual to the SS!");
+	} 
+	/*
+	* Do this if city was set before for this individual
+	*/
+	else {
+		__android_log_print(ANDROID_LOG_INFO, "setCity():", "PROPERTY_CITY was set before!");
+
+		/*if(sslog_ss_update_property(person, PROPERTY_CITY, (void*)oldPlace, (void*)newPlace) == -1){
+			__android_log_print(ANDROID_LOG_ERROR, "setCity():", "Error updating PROPERTY_CITY to a new value");
+			return -1;
+		} else __android_log_print(ANDROID_LOG_INFO, "setCity():", "Updated PROPERTY_CITY successfully!");*/
+
+		sslog_ss_remove_property_all(person, PROPERTY_CITY);
+
+		sslog_ss_add_property(person, PROPERTY_CITY, (void*)newPlace);
+
+		/*if(sslog_ss_update_individual(person) == -1){
+			__android_log_print(ANDROID_LOG_ERROR, "setCity():", "Error updating the individual");
+			return -1;
+		} else __android_log_print(ANDROID_LOG_INFO, "setCity():", "Updated individual successfully!");*/
+	}
+
+	(*env)->ReleaseStringUTFChars(env, city, _city);
+	(*env)->ReleaseStringUTFChars(env, uuid, _uuid);
+
+	return 0;
+}
+
+
+
+individual_t* createPlace(const char *city) {
+
+ 	char *placeTitle = "";
+ 	char *placeDescription = "";
+ 	char *placeFoundingDate = "";
+
+ 	individual_t *place = sslog_new_individual(CLASS_PLACE);
+ 	if(place == NULL)
+ 		__android_log_print(ANDROID_LOG_ERROR, "createPlace():", "Cannot instantiate place variable!");
+ 	else
+ 		__android_log_print(ANDROID_LOG_INFO, "createPlace():", "Instantiated place variable!");
+
+ 	sslog_set_individual_uuid(place,
+			generateUuid("http://www.cs.karelia.ru/smartroom#Place"));
+
+	//prop_val_t *p_val_placeTitle = sslog_ss_get_property(person, PROPERTY_CITY);
+
+ 	if(sslog_add_property(place, PROPERTY_PLACETITLE, (void *)city) == -1) {
+ 		__android_log_print(ANDROID_LOG_ERROR, "createPlace():", "Cannot add placeTitle property!");
+		return NULL;
+ 	}
+ 	else __android_log_print(ANDROID_LOG_INFO, "createPlace():", "Added placeTitle property");
+
+	if(sslog_add_property(place, PROPERTY_PLACEDESCRIPTION, (void *)placeDescription) == -1){
+		__android_log_print(ANDROID_LOG_ERROR, "createPlace():", "Cannot add placeDescription property!");
+		return NULL;
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "createPlace():", "Added placeDescription property");
+
+	if(sslog_add_property(place, PROPERTY_PLACEFOUNDINGDATE, (void *)placeFoundingDate) == -1){
+		__android_log_print(ANDROID_LOG_ERROR, "createPlace():", "Cannot add placeFoundingDate property!");
+		return NULL;
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "createPlace():", "Added placeFoundingDate property!");
+
+	if(sslog_ss_insert_individual(place) == -1) {
+		__android_log_print(ANDROID_LOG_ERROR, "createPlace():", "Cannot insert individual!");
+		return NULL;
+	}
+	else __android_log_print(ANDROID_LOG_INFO, "createPlace():", "Inserted place individual!");
+
+	return place;
+}
+
 /**
  * @brief Checks whether username in Smart Space exists
  *
@@ -399,7 +812,7 @@ bool personExists(const char *name) {
  * @param place - place title
  * @return TRUE if exists and FALSE otherwise
  */
-bool placeExists(const char *title) {
+individual_t* placeExists(const char *title) {
 	list_t* placeList = sslog_ss_get_individual_by_class_all(CLASS_PLACE);
 
 	if(placeList != NULL) {
@@ -410,15 +823,20 @@ bool placeExists(const char *title) {
 			prop_val_t *p_title = sslog_ss_get_property(city, PROPERTY_PLACETITLE);
 
 			if(p_title != NULL) {
+				__android_log_print(ANDROID_LOG_INFO, "placeExists()","%s vs %s",title,(char *)p_title->prop_value);
 				if(strcmp(title, (char *)p_title->prop_value) == 0) {
-					return JNI_TRUE;
+					__android_log_print(ANDROID_LOG_INFO, "placeExists()","Found match!");
+					return (individual_t*)city;
 				}
 			}
 		}
 	}
-
-	return JNI_FALSE;
-}
+	else {
+		__android_log_print(ANDROID_LOG_ERROR, "placeExists():", "Place list doesn't contain this place");
+		return NULL;
+	}
+	return NULL;
+}		
 
 
 /**
@@ -747,9 +1165,11 @@ JNIEXPORT jint JNICALL Java_petrsu_smartroom_android_srcli_KP_initSubscription(
 
 	jclass *classAgendaObj = getJClassObject(env, "Agenda");
 	jclass *classProjectorObj = getJClassObject(env, "Projector");
+	jclass *classGalleryObj = getJClassObject(env, "CityGallery");
 
 	classAgenda = (jclass *)(*env)->NewGlobalRef(env, classAgendaObj);
 	classProjector = (jclass *)(*env)->NewGlobalRef(env, classProjectorObj);
+	classGallery = (jclass *)(*env)->NewGlobalRef(env, classGalleryObj);
 
 	if(subscribeConferenceService() != 0)
 		return -1;

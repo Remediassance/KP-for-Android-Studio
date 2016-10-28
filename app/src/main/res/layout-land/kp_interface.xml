@@ -1,11 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    tools:context=".KP"
-    tools:ignore="HardcodedText,RtlHardcoded" >
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:orientation="vertical"
+                tools:context=".KP"
+                tools:ignore="HardcodedText,RtlHardcoded" >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -21,19 +21,19 @@
     <EditText
         android:id="@+id/editName"
         android:layout_width="230sp"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="25sp"
-        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="53dp"
         android:hint="@string/participantLogin"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/primary_text_default_material_light"
         android:textColorHint="@color/material_drawer_hint_text"
         android:typeface="normal"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="22dp"/>
     <!-- Name field -->
 
 
@@ -41,18 +41,16 @@
     <EditText
         android:id="@+id/editPassword"
         android:layout_width="230sp"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="8sp"
-        android:layout_below="@+id/editName"
         android:hint="@string/participantPassword"
         android:ems="10"
         android:inputType="textPassword"
         android:textColor="@color/primary_text_default_material_light"
         android:textColorHint="@color/material_drawer_hint_text"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_above="@+id/editPort"
+        android:layout_alignLeft="@+id/editPort"
+        android:layout_alignStart="@+id/editPort"/>
     <!-- Password field -->
 
     <!-- Advanced mode field -->
@@ -68,31 +66,30 @@
         android:textColor="@color/primary_text_default_material_light"
         android:textColorHint="@color/material_drawer_hint_text"
         android:textSize="20sp"
-        android:enabled="false"
-        android:layout_below="@+id/editPassword"
-        android:layout_alignLeft="@+id/editPassword"
-        android:layout_alignStart="@+id/editPassword"
-        android:editable="false"
-        android:layout_marginTop="8sp"/>
+        android:enabled="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="22dp"/>
     <!-- IP field -->
 
     <!-- Port field -->
     <EditText
         android:id="@+id/editPort"
         android:layout_width="230sp"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="8sp"
-        android:layout_below="@+id/editIP"
+        android:layout_marginRight="62dp"
         android:hint="@string/ssPort"
         android:ems="10"
         android:inputType="phone"
         android:textColor="@color/primary_text_default_material_light"
         android:textColorHint="@color/material_drawer_hint_text"
         android:textSize="20sp"
-        android:enabled="false" />
+        android:enabled="true"
+        android:layout_alignTop="@+id/editIP"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="62dp"/>
     <!-- Port field -->
 
     <Button
@@ -123,6 +120,24 @@
         android:layout_toLeftOf="@+id/guestBtn"
         android:layout_marginRight="8sp"
         android:layout_toStartOf="@+id/guestBtn"
-        android:layout_marginTop="16sp"/>
+        android:layout_marginTop="32sp"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quickBtn"
+        android:id="@+id/quickBox"
+        android:layout_alignTop="@+id/connectBtn"
+        android:layout_alignLeft="@+id/editIP"
+        android:layout_alignStart="@+id/editIP"/>
+
+    <!--<CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meetingBox"
+        android:id="@+id/meetingBox"
+        android:layout_below="@+id/quickBox"
+        android:layout_alignLeft="@+id/quickBox"
+        android:layout_alignStart="@+id/quickBox" /> -->
 
 </RelativeLayout>

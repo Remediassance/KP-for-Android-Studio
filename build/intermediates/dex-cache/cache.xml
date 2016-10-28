@@ -2,53 +2,112 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.mikepenz\iconics\1.2.0\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="false"
+        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
         revision="21.1.2"
-        sha1="720dcbcd8744b145da58d835d7e4dbc546886df7">
-        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\classes-4f7c0768ab6ea221fbf440cd7e1a54789f7f1ce5.jar" />
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-8.1.0_8c1444ef3b877b0166b4e657015a5181cf479bef.jar" />
     </item>
     <item
-        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.mikepenz\materialdrawer\3.1.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d2992ef4fc94783ae5165002a2e81d11a59f17d7">
-        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\classes-526ffbc8ed63a290add55f2659b828e5c50e2d8f.jar" />
-    </item>
-    <item
-        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\classes-cbe19484e5672d793890ac2fb3ebfcb6381814af.jar" />
-    </item>
-    <item
-        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\classes-a1345b77987f7d0f6a7ff46566454e8f13ef30ac.jar" />
-    </item>
-    <item
-        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-62bffd34f59aebfe84b340a7271a9050fe38807e.jar" />
-    </item>
-    <item
+        is-multidex="false"
         jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\libs\jspeex.jar"
-        jumboMode="false"
+        jumboMode="true"
+        optimize="true"
         revision="21.1.2"
         sha1="5fd8184cfea4c5aa4e3c14bb3d21fd83539d6f47">
-        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\jspeex-2ec18be348056fe5a8449fc0f64501894cec511c.jar" />
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\jspeex_2ec18be348056fe5a8449fc0f64501894cec511c.jar" />
     </item>
     <item
+        is-multidex="false"
+        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.1.0_e9c7c989f911f59a14ebb81d89cb90d48fd66dd5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="254abc80ebfdd3337f114e56887eeccac8a62d16">
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_59eacf1fbaf11eceb9d25ca6a4cba0aec99bdafa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-22.2.0_a1345b77987f7d0f6a7ff46566454e8f13ef30ac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0_62bffd34f59aebfe84b340a7271a9050fe38807e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.mikepenz\materialdrawer\3.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="d2992ef4fc94783ae5165002a2e81d11a59f17d7">
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\com.mikepenz-materialdrawer-3.1.0_526ffbc8ed63a290add55f2659b828e5c50e2d8f.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
-        jumboMode="false"
+        jumboMode="true"
+        optimize="true"
         revision="21.1.2"
         sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-5cd057de5e86ba20f0cd9f4cd4304521dbc24683.jar" />
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0_5cd057de5e86ba20f0cd9f4cd4304521dbc24683.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-22.2.0_cbe19484e5672d793890ac2fb3ebfcb6381814af.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\exploded-aar\com.mikepenz\iconics\1.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="720dcbcd8744b145da58d835d7e4dbc546886df7">
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\com.mikepenz-iconics-1.2.0_4f7c0768ab6ea221fbf440cd7e1a54789f7f1ce5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\commons-codec\commons-codec\1.10\commons-codec-1.10.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="4b95f4897fa13f2cd904aee711aeafc0c5295cd8">
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\commons-codec-1.10_77183437e43d03fbf04d48242f704eeda6368256.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="21.1.2"
+        sha1="1e78dacf6959ed83ac15b7b434bc3f542023b37f">
+        <dex dex="C:\Users\Remediassance\AndroidStudio\KP-for-Android-Studio\app\build\intermediates\pre-dexed\debug\instant-run_17013f2ef5becdf439cc5729c756da069cbc80c7.jar" />
     </item>
 
 </items>
